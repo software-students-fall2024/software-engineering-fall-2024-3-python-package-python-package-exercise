@@ -15,13 +15,13 @@ python = [
     "Funcionó cuando lo ejecuté sin pytest.",
 ]
 
-matlab = [ 
+matlab = [
     "Es un error de redondeo; a MATLAB le encanta su precisión de punto flotante.",
     "Podría ser una discrepancia en la dimensión de la matriz. MATLAB es muy exigente con eso.",
     "Creo que el servidor de licencias de MATLAB debe estar inactivo nuevamente.",
 ]
 
-jokes_en = {
+excuses_es = {
     "neutral": neutral,
     "python": python,
     "javascript": javascript,

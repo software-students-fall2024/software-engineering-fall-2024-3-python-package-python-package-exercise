@@ -9,15 +9,11 @@ javascript = [
     "¿Has probado a añadir más puntos y comas? A JavaScript le encantan.",
 ]
 
-python = [
-    
-]
+python = []
 
-matlab = [ 
-    
-]
+matlab = []
 
-jokes_en = {
+solutions_es = {
     "neutral": neutral,
     "python": python,
     "javascript": javascript,

@@ -9,19 +9,14 @@ javascript = [
     "Have you tried adding more semicolons? JavaScript loves them.",
 ]
 
-python = [
+python = []
 
-]
+matlab = []
 
-matlab = [ 
-
-]
-
-jokes_en = {
+solutions_en = {
     "neutral": neutral,
     "python": python,
     "javascript": javascript,
     "matlab": matlab,
     "all": neutral + javascript + python + matlab,
 }
-

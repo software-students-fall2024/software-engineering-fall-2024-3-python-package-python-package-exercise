@@ -15,17 +15,16 @@ python = [
     "It worked when I ran it without pytest.",
 ]
 
-matlab = [ 
+matlab = [
     "It's a rounding error—MATLAB loves its floating-point precision.",
     "It might be a matrix dimension mismatch. MATLAB is picky about that.",
     "I think MATLAB's licensing server must be down again.",
 ]
 
-jokes_en = {
+excuses_en = {
     "neutral": neutral,
     "python": python,
     "javascript": javascript,
     "matlab": matlab,
     "all": neutral + javascript + python + matlab,
 }
-
