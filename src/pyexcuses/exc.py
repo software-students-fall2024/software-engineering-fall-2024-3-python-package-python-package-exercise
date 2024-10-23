@@ -2,9 +2,9 @@ class PyexcusesError(Exception):
     "Base class for all pyexcuses exceptions"
 
 
-class LanguageNotFoundError(PyexcusesError):
+class SpokenLanguageNotFoundError(PyexcusesError):
     pass
 
 
-class CategoryNotFoundError(PyexcusesError):
+class ProgrammingLanguageNotFoundError(PyexcusesError):
     pass
