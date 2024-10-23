@@ -24,30 +24,42 @@ PROGRAMMING_LANGUAGES = Literal["neutral", "javascript", "python", "matlab", "al
 SPOKENLANGUAGE_VALUES = set(get_args(SPOKEN_LANGUAGES))
 PROGRAMMINGLANGUAGE_VALUES = set(get_args(PROGRAMMING_LANGUAGES))
 
-def suggest_solution(spoken_language: SPOKEN_LANGUAGES = "en", programming_language: PROGRAMMING_LANGUAGES = "neutral") -> str:
+
+def suggest_solution(
+    spoken_language: SPOKEN_LANGUAGES = "en",
+    programming_language: PROGRAMMING_LANGUAGES = "neutral",
+) -> str:
     """
     Suggest a solution for the given spoken and programming languages
     """
     try:
         solutions = all_solutions[spoken_language]
     except KeyError:
-        raise SpokenLanguageNotFoundError("That spoken language isn't in our system ):")    
-    
+        raise SpokenLanguageNotFoundError("That spoken language isn't in our system ):")
+
     try:
         return random.choice(solutions[programming_language])
     except KeyError:
-        raise ProgrammingLanguageNotFoundError("That programming language isn't in our system ):")
+        raise ProgrammingLanguageNotFoundError(
+            "That programming language isn't in our system ):"
+        )
 
-def generate_excuse(spoken_language: SPOKEN_LANGUAGES = "en", programming_language: PROGRAMMING_LANGUAGES = "neutral") -> str:
+
+def generate_excuse(
+    spoken_language: SPOKEN_LANGUAGES = "en",
+    programming_language: PROGRAMMING_LANGUAGES = "neutral",
+) -> str:
     """
     Generate an excuse for the given spoken and programming languages
     """
     try:
         excuses = all_excuses[spoken_language]
     except KeyError:
-        raise SpokenLanguageNotFoundError("That spoken language isn't in our system ):")    
-    
+        raise SpokenLanguageNotFoundError("That spoken language isn't in our system ):")
+
     try:
         return random.choice(excuses[programming_language])
     except KeyError:
-        raise ProgrammingLanguageNotFoundError("That programming language isn't in our system ):")
+        raise ProgrammingLanguageNotFoundError(
+            "That programming language isn't in our system ):"
+        )
