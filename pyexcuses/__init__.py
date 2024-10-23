@@ -1,1 +1,0 @@
-from .pyexcuses import generate_excuse, SPOKENLANGUAGE_VALUES, PROGRAMMINGLANGUAGE_VALUES
