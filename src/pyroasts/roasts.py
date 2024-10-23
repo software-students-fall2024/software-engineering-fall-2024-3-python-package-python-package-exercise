@@ -56,7 +56,3 @@ def advice_roast(topic: str, effort_level: int) -> str:
     return roasts.get(effort_level, f"You call that effort in {topic}? I've seen potatoes put in more work.")
 
 #----------------------------------------------------------------------------------------------------------------------------------
-
-
-roast = personal_roast("Ian", 5)
-print(roast)
