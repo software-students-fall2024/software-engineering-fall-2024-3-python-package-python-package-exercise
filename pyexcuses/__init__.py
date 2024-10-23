@@ -1,1 +1,1 @@
-from .pyexcuses import get_excuse, get_excuses, forever, LANGUAGE_VALUES, CATEGORY_VALUES
+from .pyexcuses import generate_excuse, SPOKENLANGUAGE_VALUES, PROGRAMMINGLANGUAGE_VALUES

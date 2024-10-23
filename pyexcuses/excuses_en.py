@@ -4,12 +4,9 @@
 
 neutral = [
     "It works on my machine, but maybe the server environment is different.",
-    "Have you tried adding more comments to your code?",
-    "Have you tried turning your computer on and off again?",
 ]
 
 javascript = [
-    "Have you tried adding more semicolons? JavaScript loves them.",
     "The CSS is fighting with JavaScript again.",
     "It's probably because the code's running in sloppy mode instead of strict mode.",
 ]
