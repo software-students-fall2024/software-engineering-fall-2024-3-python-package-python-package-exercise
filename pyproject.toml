@@ -7,10 +7,10 @@ name = "pyexcuses"
 version = "0.0.1"
 authors = [
   { name="Joseph Chege", email="jcm9824@nyu.edu" },
-  { name="Darren Zou", email="" }
-  { name="Peter D'Angelo", email="" }
-  { name="Gene Park", email="" }
-  { name="Jack Zhang", email="" }
+  { name="Darren Zou", email="dz2218@nyu.edu" },
+  { name="Peter D'Angelo", email="pgd8870@nyu.edu" },
+  { name="Gene Park", email="ghp7469@nyu.edu" },
+  { name="Jack Zhang", email="yz6973@nyu.edu" },
 ]
 description = "Package to fix all your coding problems."
 readme = "README.md"
