@@ -66,7 +66,7 @@ def advice_roast(topic: str, sarcasm_level: int) -> str:
         3: f"Maybe if you spent half as much time on {topic} as you do scrolling on social media, you'd actually get somewhere."
     }
     
-    # return a default roat if sarcasm_level not found in dictionary.
+    # return a default roast if sarcasm_level not found in dictionary.
     return roasts.get(sarcasm_level, f"You call that effort in {topic}? I've seen potatoes put in more work.")
 
 #----------------------------------------------------------------------------------------------------------------------------------
