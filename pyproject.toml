@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyroasts"
 description = "Python roast package. Developed with pyenv, built with build using setuptools, uploaded to PyPI using twine, and distributed via pip."
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Ian Pompliano", email="inp9194@nyu.edu" },
   { name="Obinna Nwaokoro", email="ocn2006@nyu.edu" },

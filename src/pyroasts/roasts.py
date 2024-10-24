@@ -4,6 +4,8 @@ import random
 # returns a personalized roast given a name and severity level.
 def personal_roast(name: str, severity: int) -> str:
     
+    name = name.lower().capitalize()
+    
     roasts = {
         1: f"{name}, you're like a Monday morning — nobody likes you, we put up with you.",
         2: f"{name}, if you were any more average, you'd be a mean.",
@@ -20,6 +22,11 @@ def personal_roast(name: str, severity: int) -> str:
 # returns a roast for an inputted skill and degree of sarcasm
 def skill_roast(skill: str, sarcasm_level: int) -> str:
     
+    if sarcasm_level == 2:
+        skill = skill.lower().capitalize()
+    else:
+        skill = skill.lower()
+    
     roasts = {
         1: f"Your {skill} skills are like a WiFi signal in the middle of nowhere — nonexistent.",
         2: f"{skill}... You're joking right?",
@@ -33,6 +40,10 @@ def skill_roast(skill: str, sarcasm_level: int) -> str:
 
 # returns a roast for choosing one thing over another.
 def comparison_roast(thing1: str, thing2: str) -> str:
+    
+    thing1 = thing1.lower().capitalize()
+    thing2 = thing2.lower()
+    
     roasts = [
         f"{thing1} instead of {thing2}? I'd rather sit on a cactus.",
         f"{thing1} over {thing2}? I'd rather star in a documentary called 'How Far Can the Human Body be Stretched'.",
@@ -45,7 +56,10 @@ def comparison_roast(thing1: str, thing2: str) -> str:
 #----------------------------------------------------------------------------------------------------------------------------------
 
 # returns a roast that gives sarcastic advice based on given topic and sarcasm level.
-def advice_roast(topic: str, effort_level: int) -> str:
+def advice_roast(topic: str, sarcasm_level: int) -> str:
+    
+    topic = topic.lower()
+    
     roasts = {
         1: f"Trying to learn {topic}? Just keep doing the bare minimum, I'm sure it'll work out... somehow.",
         2: f"Your attempt at {topic} is so inspiring, it's a shame nobody's watching.",
@@ -53,6 +67,6 @@ def advice_roast(topic: str, effort_level: int) -> str:
     }
     
     # return a default roat if sarcasm_level not found in dictionary.
-    return roasts.get(effort_level, f"You call that effort in {topic}? I've seen potatoes put in more work.")
+    return roasts.get(sarcasm_level, f"You call that effort in {topic}? I've seen potatoes put in more work.")
 
 #----------------------------------------------------------------------------------------------------------------------------------
