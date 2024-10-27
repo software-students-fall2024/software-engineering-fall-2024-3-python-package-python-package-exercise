@@ -1,0 +1,1 @@
+from virtualpet.pet import *
