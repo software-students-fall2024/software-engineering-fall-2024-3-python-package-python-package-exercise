@@ -17,16 +17,16 @@ class Pet:
     }
 
     MOOD_LEVELS = {
-        'crying 😭': 1,  
-        'sad 😞': 2, 
-        'angry 😡': 3, 
-        'unhappy 😕': 4,
-        'neutral 😐': 5,
-        'smiling 🙂': 6,
-        'happy 🤗': 7, 
-        'cheerful 🥳': 8,
-        'extremely happy 🫨': 9,
-        'ecstatic 🤩': 10 
+        1: 'crying 😭',  
+        2: 'sad 😞', 
+        3: 'angry 😡', 
+        4: 'unhappy 😕',
+        5: 'neutral 😐',
+        6: 'smiling 🙂',
+        7: 'happy 🤗', 
+        8: 'cheerful 🥳',
+        9: 'extremely happy 🫨',
+        10: 'ecstatic 🤩'
     }
 
     FOOD_MENU = {
@@ -70,7 +70,7 @@ class Pet:
         self.level = 1
         self.experience = 0
         self.health = r.randint(15, 20)
-        self.mood = "happy 😁"
+        self.mood = 5
         
     def feed(self, food):
         food = self.FOOD_MENU.get(food)
