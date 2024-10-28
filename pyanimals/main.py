@@ -71,3 +71,41 @@ def get_random_message(messages):
     return random.choice(messages)
 
 # primary functions
+# move()
+def clearScreen():
+    # for macOS/linux
+    if os.name == 'nt':  # For Windows
+        os.system('cls')
+    else:                # For macOS/Linux
+        os.system('clear')
+
+def move(animal):
+    availableAnimals = ["cat", "bunny", "elephant", "dog"]
+    if animal not in availableAnimals:
+        raise ValueError("Invalid animal!")
+    
+    animalText = get_animal(animal)
+    if not animalText:
+        print("No ASCII art available for this animal.")
+        return
+    
+    spaces = 0
+    try:
+        while spaces < 50:
+            clearScreen()
+            for line in animalText.split('\n'):
+                print(" " * spaces + line)
+            time.sleep(0.1)
+            spaces += 2
+            
+    except KeyboardInterrupt:
+        clearScreen()
+        print("\nAnimation stopped.")
+
+# for debugging purposes
+if __name__ == "__main__":
+    animal = input("Enter an animal (cat, bunny, elephant): ").strip().lower()
+    try:
+        move(animal)
+    except ValueError as e:
+        print(e)
