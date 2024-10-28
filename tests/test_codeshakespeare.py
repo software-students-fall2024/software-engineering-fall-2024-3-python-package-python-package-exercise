@@ -34,7 +34,10 @@ class TestCodeShakespeare(unittest.TestCase):
         playful_quotes = [
             "To code, or not to code, that is the question.",
             "Cry havoc and let slip the bugs of war!",
-            "Parting is such sweet sorrow... especially when closing your IDE."
+            "Parting is such sweet sorrow... especially when closing your IDE.",
+            "There live not three good men unhanged in England: and one of them is fat.",
+            "Mine eyes smell onions.",
+            "It is like a barber’s chair that fits all buttocks, the pin-buttock, the quatch-buttock, the brawn-buttock, or any buttock."
         ]
         self.assertIn(result, playful_quotes)
 
@@ -44,7 +47,10 @@ class TestCodeShakespeare(unittest.TestCase):
         victorious_messages = [
             "Commit thy changes, for they doth bring glory!",
             "Thine errors are slain, and the code is just!",
-            "This branch, once barren, now flourisheth with code."
+            "This branch, once barren, now flourisheth with code.",
+            "Then with the losers let it sympathize, For nothing can seem foul to those that win.",
+            "Sound trumpets! Let our bloody colours wave! And either victory, or else a grave."
+            "A victory is twice itself when the achiever brings home full numbers."
         ]
         self.assertIn(result, victorious_messages)
 
