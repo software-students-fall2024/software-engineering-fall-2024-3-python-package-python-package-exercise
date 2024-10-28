@@ -1,55 +1,49 @@
 import random
 from textwrap import dedent
+import os
+import time
 
 # helper functions
 
 # print animal
-def print_animal(animal):
+def get_animal(animal):
     if (animal == "cat"):
-        output = dedent(
-        """
+        output = dedent(r"""
           _
-         | |__			  /\__/\
-         |__  |			 ( o . o) 
-            | |___________ > ^ < 
-            |   		      /
-             /  ___________  \
-            /_/			    \_\
-         """
-        )
+         | |__               /\__/\
+         |__  |             ( o . o) 
+            | |_____________ > ^ <
+            |                  /
+             /  ___________   /
+            /_/             \_\
+        """)
     #replace with other animal
     elif (animal == "bunny"):
-        output = dedent(
-        """
+        output = dedent(r"""
               () ()
              ( 0x0 )
               (   ) 
               (")(")
-        """
-        )
+        """)
     #replace with other animal
     elif (animal == "elephant"):
-        output = dedent(
-        """
+        output = dedent(r"""
                  ____
         ________(     \––-  ♥
      /''         \ ,_ ,   • \  _
     /  |               \___ U /
     ^   \    ______    | 
         |_,,|      |_,,|
-        """
-        )
+        """)
     #replace with other animal
     elif (animal == "dog"):
-        output = dedent(
-        """
+        output = dedent("""
        \   ^__^
         \  (oo)\_______
            (__)\       )\/\\
                ||----w |
                ||     ||
-        """
-        )
+        """)
     elif (animal == "rabbit"):
         output = dedent(
         """
@@ -75,3 +69,5 @@ def print_animal(animal):
 # get random message from list
 def get_random_message(messages):
     return random.choice(messages)
+
+# primary functions
