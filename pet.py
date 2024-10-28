@@ -16,6 +16,19 @@ class Pet:
         'otter': '🦦'
     }
 
+    MOOD_LEVELS = {
+        'crying 😭': 1,  
+        'sad 😞': 2, 
+        'angry 😡': 3, 
+        'unhappy 😕': 4,
+        'neutral 😐': 5,
+        'smiling 🙂': 6,
+        'happy 🤗': 7, 
+        'cheerful 🥳': 8,
+        'extremely happy 🫨': 9,
+        'ecstatic 🤩': 10 
+    }
+
     FOOD_MENU = {
         'salad': {
             'emoji': '🥗',
