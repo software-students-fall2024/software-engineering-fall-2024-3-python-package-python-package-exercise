@@ -20,13 +20,13 @@ def send_fortune_email(recipient_email: str, fortunes_with_numbers: Union[str, L
 
     # email body content
     email_content = f"""
-    Hi {recipient_email.split('@')[0].capitalize()},
+Hi {recipient_email.split('@')[0].capitalize()},
 
-    I hope this email finds you well and brings a little sparkle to your day!
+I hope this email finds you well and brings a little sparkle to your day!
 
-    I've been diving into some fun fortune-telling and lucky number insights lately, and I thought I'd share a bit of positivity and good vibes with you.
+I've been diving into some fun fortune-telling and lucky number insights lately, and I thought I'd share a bit of positivity and good vibes with you.
 
-    """
+"""
 
     # handle single or multiple fortunes
     if isinstance(fortunes_with_numbers, str):
@@ -39,17 +39,17 @@ def send_fortune_email(recipient_email: str, fortunes_with_numbers: Union[str, L
     
     # closing content append
     email_content += """
-    ✨ Fun Tip: Try incorporating your lucky number into your daily routine this week. Whether it's wearing something with that number, scheduling important tasks on the date, or simply keeping an eye out for its appearance, it could add an extra layer of positivity to your days.
+✨ Fun Tip: Try incorporating your lucky number into your daily routine this week. Whether it's wearing something with that number, scheduling important tasks on the date, or simply keeping an eye out for its appearance, it could add an extra layer of positivity to your days.
 
-    Wishing you a week filled with luck, joy, and wonderful surprises!
+Wishing you a week filled with luck, joy, and wonderful surprises!
 
-    Feel free to reply and share your thoughts or your own lucky numbers. I'd love to hear from you!
+Feel free to reply and share your thoughts or your own lucky numbers. I'd love to hear from you!
 
-    Take care and stay lucky! 🍀
+Take care and stay lucky! 🍀
 
-    Best wishes,
-    Garage Team
-    """
+Best wishes,
+Garage Team
+"""
 
     msg = MIMEMultipart()
     msg["From"] = sender_email
@@ -70,7 +70,7 @@ def send_fortune_email(recipient_email: str, fortunes_with_numbers: Union[str, L
 
 
 # some testing
-fortune = "You will have an amazing day!\n"
+fortune = "你好我是奶龙"
 fortune1 = "Opportunities are on the horizon."
 
 single_fortune = f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: 7"
