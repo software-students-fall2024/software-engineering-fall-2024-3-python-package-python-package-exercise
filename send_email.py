@@ -70,7 +70,7 @@ Garage Team
 
 
 # some testing
-fortune = "你好我是奶龙"
+fortune = "You will have an amazing day!"
 fortune1 = "Opportunities are on the horizon."
 
 single_fortune = f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: 7"
