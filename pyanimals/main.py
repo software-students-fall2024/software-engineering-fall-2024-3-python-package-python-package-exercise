@@ -50,6 +50,19 @@ def print_animal(animal):
                ||     ||
         """
         )
+    elif (animal == "rabbit"):
+        output = dedent(
+        """
+             ,\\
+              \\\,_
+               \` ,\
+          __,.-" =__)
+        ."        )
+     ,_/   ,    \/\_
+     \_|    )_-\ \_-`
+        `-----` `--`
+        """
+        )
     # default (no animal entered from our list)
     else:
         output = ""
