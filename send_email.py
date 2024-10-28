@@ -81,4 +81,4 @@ multiple_fortunes = [
 
 if __name__ == "__main__":
     send_fortune_email("ys4689@nyu.edu", single_fortune)
-    send_fortune_email("ys4689@nyu.edu", multiple_fortunes)
+    send_fortune_email("ys4689@@nyu.edu", multiple_fortunes)
