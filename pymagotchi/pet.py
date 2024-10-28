@@ -27,12 +27,14 @@ class Pet:
             "happiness": (timeframe * 60) // MAX_STAT_VALUE
         }
 
+    # Returns the time since this function was last called
     def time_elapsed(self):
         new_time = int(time())
         difference = new_time - self.current_time
         self.current_time = new_time
         return difference
 
+    # Decrement pet's stats based on the time passed
     def update_stats(self):
         difference = self.time_elapsed()
         for stat in ["food", "sleep", "happiness"]:
@@ -42,6 +44,7 @@ class Pet:
         self.stats["health"] = (
             self.stats["sleep"] + self.stats["food"] + self.stats["happiness"]) // 3
 
+    # Print the pet's current stats
     def status(self):
         self.update_stats()
         parts = []
@@ -51,6 +54,7 @@ class Pet:
         print(result)
 
 
+#
 def new_pet(name=None, timeframe=None, immortal=False):
 
     if not name:
