@@ -31,7 +31,7 @@ def get_animal(animal):
     elif (animal == "elephant"):
         output = dedent(r"""
                  ____
-        ________(     \––-  ♥
+        ________(     \––-     ♥
      /''         \ ,_ ,   • \  _
     /  |               \___ U /
     ^   \    ______    | 
@@ -53,6 +53,16 @@ def get_animal(animal):
         return ""
     
     return output
+
+# print animal emoji
+def get_animal_emoji(animal):
+    animal_emojis = {
+        "cat": "🐈",
+        "bunny": "🐰",
+        "elephant": "🐘",
+        "rabbit": "🐇"
+    }
+    return animal_emojis[animal]
 
 # print out fact for chosen animal
 def print_fact():
