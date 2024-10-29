@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kaomoji"
+description = "Create procedurally generated kaomoji (i.e., Japanese emoticons) using Python! \\(^ 3 ^)/"
+version = "0.1.0"
+authors = [
+  { name=" ", email=" "},
+  { name=" ", email=" "}
+  { name="Jessica Xu", email="kx2053@nyu.edu"}
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["python", "package", "build", "tutorial"]
+requires-python = ">=3.7"
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Communications :: Chat",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+"Homepage" = " "
+"Repository" = " "
+"Bug Tracker" = " "
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kaomoji"
+description = "Create procedurally generated kaomoji (i.e., Japanese emoticons) using Python! \\(^ 3 ^)/"
+version = "0.1.0"
+authors = [
+  { name=" ", email=" "},
+  { name=" ", email=" "}
+  { name=" ", email=" "}
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["python", "package", "build", "tutorial"]
+requires-python = ">=3.7"
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Communications :: Chat",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = " "
+Repository = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three"
+"Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three/issues"
+
+
+[project.scripts]
+kaomoji_cli = "kaomoji_package.__main__:main"
