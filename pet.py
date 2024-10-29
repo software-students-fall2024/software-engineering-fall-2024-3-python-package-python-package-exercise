@@ -78,8 +78,9 @@ class Pet:
         if not food:
             return f"{food} is not on the menu!"
         
-        self.mood += food["mood_boost"]
-        self.health = min(20, self.health + food["health_boost"]) 
+        self.mood = min(10, max(1, self.mood + food["mood_boost"]))
+        self.health = min(20, max(0,self.health + food["health_boost"]))
+
         
         mood_message = f"{self.name} ate {food['emoji']} and their mood changed by {food['mood_boost']}."
         health_message = f"Their health is now {self.health}."
