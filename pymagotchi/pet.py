@@ -1,6 +1,6 @@
 from time import time, sleep
-from names import generate_name
-from constants import *
+from .names import generate_name
+from .constants import DEFAULT_TIMEFRAME, MAX_STAT_VALUE
 
 
 class Pet:
