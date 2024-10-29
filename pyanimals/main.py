@@ -134,6 +134,32 @@ def randMessage(animal):
     messageChoice=get_random_message(animalMessages[animal])
     print(f"{animal} says: {messageChoice}")
 
+# race()
+def race(animal):
+    animal_emoji = get_animal_emoji(animal)
+    print(f"You are racing against {animal}")
+
+    track_length = 20
+    player_pos = 0
+    animal_pos = 0
+
+    while player_pos < track_length and animal_pos < track_length:
+        clearScreen()
+        print(f"You are racing against {animal}")
+        player_pos += random.randint(1, 2)
+        animal_pos += random.randint(1, 2)
+
+        print("🏁" + (" " * (track_length - player_pos)) + "🏃")
+        print("🏁" + (" " * (track_length - animal_pos)) + animal_emoji)
+        time.sleep(0.4)
+    
+    if animal_pos > player_pos:
+        print(f"{animal.title()} is the winner. Better luck next time 😅")
+    elif player_pos > animal_pos:
+        print("Congratulations! You are the winner 🏆")
+    else:
+        print("It's a tie!")
+
 # for debugging purposes
 if __name__ == "__main__":
     animal = input("Enter an animal (cat, bunny, elephant, rabbit): ").strip().lower()
