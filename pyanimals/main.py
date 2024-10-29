@@ -54,16 +54,6 @@ def get_animal(animal):
     
     return output
 
-# print animal emoji
-def get_animal_emoji(animal):
-    animal_emojis = {
-        "cat": "🐈",
-        "bunny": "🐰",
-        "elephant": "🐘",
-        "rabbit": "🐇"
-    }
-    return animal_emojis[animal]
-
 # print out fact for chosen animal
 def print_fact():
     fact = get_random_fact(animal)
@@ -143,9 +133,20 @@ def randMessage(animal):
     #print random message in list 
     messageChoice=get_random_message(animalMessages[animal])
     print(f"{animal} says: {messageChoice}")
+
 #
 # package function: race
 #
+
+# helper function for race: returns animal racer
+def get_animal_emoji(animal):
+    animal_emojis = {
+        "cat": "🐈",
+        "bunny": "🐰",
+        "elephant": "🐘",
+        "rabbit": "🐇"
+    }
+    return animal_emojis[animal]
 
 # helper function for race: returns updated position
 def _update_position(pos, track_length):
