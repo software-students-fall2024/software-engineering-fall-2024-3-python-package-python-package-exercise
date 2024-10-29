@@ -17,7 +17,7 @@
     },
     {
         "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
-        "answer": "letter 'M'",
+        "answer": "M",
         "hint": "Focus on the letters.",
         "difficulty": 4,
         "topic": "Words",
@@ -33,7 +33,7 @@
     },
     {
         "question": "The more of this there is, the less you see. What is it?",
-        "answer": "Darkness",
+        "answer": "darkness",
         "hint": "It's the opposite of light.",
         "difficulty": 2,
         "topic": "Nature",
@@ -105,7 +105,7 @@
     },
     {
         "question": "I'm light as a feather, yet the strongest man can't hold me for much longer than a minute. What am I?",
-        "answer": "Breath",
+        "answer": "breath",
         "hint": "Everyone has it, but it's not visible.",
         "difficulty": 3,
         "topic": "Nature",
@@ -121,7 +121,7 @@
     },
     {
         "question": "I'm taken from a mine, and shut up in a wooden case, from which I'm never released, and yet I am used by almost every person. What am I?",
-        "answer": "Pencil lead",
+        "answer": "pencil lead",
         "hint": "It's something you write with.",
         "difficulty": 3,
         "topic": "Objects",
@@ -145,7 +145,7 @@
     },
     {
         "question": "The more you take, the more you leave behind. What am I?",
-        "answer": "Footsteps",
+        "answer": "footsteps",
         "hint": "They're left when you walk.",
         "difficulty": 2,
         "topic": "Nature",
@@ -176,16 +176,16 @@
         "id": 22
     },
     {
-        "question": "The more you have of it, the less you see. What is it?",
-        "answer": "Darkness",
-        "hint": "It's the absence of light.",
+        "question": "I can fly without wings. I can cry without eyes. Wherever I go, darkness flies. What am I?",
+        "answer": "cloud",
+        "hint": "It floats in the sky and brings rain.",
         "difficulty": 2,
-        "topic": "Nature",
+        "topic": "Weather",
         "id": 23
     },
     {
         "question": "What can fill a room but takes up no space?",
-        "answer": "Light",
+        "answer": "light",
         "hint": "It allows you to see.",
         "difficulty": 2,
         "topic": "Nature",
@@ -600,80 +600,80 @@
         "id": 75
     },
     {
-        "question": "What's inside you that can be touched but can't be seen?",
-        "answer": ["heart", "a heart", "the heart", "hearts"],
-        "hint": "It can represnet emotions.",
+        "question": "What can be touched but can't be seen?",
+        "answer": "heart",
+        "hint": "It represents emotions.",
         "difficulty": 2,
         "topic": "Personal",
         "id": 76
     },
     {
         "question": "The more of it there is, the less you see. What is it?",
-        "answer": ["darkness", "the darkness", "the dark", "dark"],
+        "answer": "Darkness",
         "hint": "It's the absence of light.",
         "difficulty": 2,
         "topic": "Nature",
         "id": 77
     },
     {
-        "question": "What can travel up and down stairs without moving?",
-        "answer": ["carpet", "a carpet", "the carpet", "carpets"],
-        "hint": "It covers surfaces.",
+        "question": "What is always in front of you but can’t be seen?",
+        "answer": "future",
+        "hint": "It's something we look forward to.",
         "difficulty": 2,
-        "topic": "Household Items",
+        "topic": "Time",
         "id": 78
     },
     {
-        "question": "I can be cracked, made, told, and played. What am I?",
-        "answer": ["joke", "a joke", "the joke", "jokes"],
-        "hint": "It can make people laugh.",
+        "question": "What has a bed but never sleeps, and a mouth but never speaks?",
+        "answer": "river",
+        "hint": "It flows continuously.",
         "difficulty": 2,
-        "topic": "Humor",
+        "topic": "Nature",
         "id": 79
     },
     {
-        "question": "I can fly without wings. I can cry without eyes. Whenever I go, darkness flies. What am I?",
-        "answer": ["cloud", "a cloud", "the cloud", "clouds"],
-        "hint": "You see it in the sky.",
-        "difficulty": 4,
+        "question": "What can run but never walks?",
+        "answer": "Water",
+        "hint": "It flows.",
+        "difficulty": 2,
         "topic": "Nature",
         "id": 80
     },
     {
         "question": "What has wheels and flies, but is not an aircraft?",
-        "answer": ["garbage truck", "a garbage truck", "the garbage truck", "garbage trucks"],
+        "answer": "garbage truck",
         "hint": "It collects waste.",
         "difficulty": 3,
         "topic": "Vehicles",
         "id": 81
     },
     {
-        "question": "What breaks yet never falls, and what falls yet never breaks?",
-        "answer": ["day and night", "day", "night"],
-        "hint": "It happens every 24 hours.",
-        "difficulty": 4,
-        "topic": "Nature",
+        "question": "What gets wetter the more it dries?",
+        "answer": "towel",
+        "hint": "You use it after a shower.",
+        "difficulty": 2,
+        "topic": "Objects",
         "id": 82
     },
     {
-        "question": "What has no body and no shape, yet can always be heard?",
-        "answer": ["voice", "a voice", "the voice", "voices"],
-        "hint": "You use it when you speak.",
-        "difficulty": 2,
-        "topic": "Abstract",
+        "question": "What has an end but no beginning, a home but no family, a space without room?",
+        "answer": "road",
+        "hint": "It's used for traveling.",
+        "difficulty": 3,
+        "topic": "Nature",
         "id": 83
     },
     {
-        "question": "I have no life, but I can die. I don't have a body, but I can grow. What am I?",
-        "answer": ["battery", "a battery", "the battery", "batteries"],
-        "hint": "It powers your devices.",
+        "question": "What comes once in a year, twice in a week, but never in a day?",
+        "answer": "letter 'E'",
+        "hint": "Think about letters.",
         "difficulty": 3,
-        "topic": "Technology",
+        "topic": "Words",
         "id": 84
     },
     {
         "question": "I am invisible, weigh nothing, and if you put me in a barrel, it will make it lighter. What am I?",
-        "answer": ["hole", "a hole", "the hole", "holes"],
+        "answer": "hole",
         "hint": "It's an absence.",
         "difficulty": 4,
         "topic": "Nature",
@@ -681,7 +681,7 @@
     },
     {
         "question": "What has one head, one foot, and four legs?",
-        "answer": ["bed", "a bed", "the bed", "beds"],
+        "answer": "bed",
         "hint": "You sleep on it.",
         "difficulty": 1,
         "topic": "Furniture",
@@ -689,25 +689,25 @@
     },
     {
         "question": "I am not alive, but I can grow. I don't have lungs, but I need air. What am I?",
-        "answer": ["fire", "the fire", "fires"],
+        "answer": "Fire",
         "hint": "It needs oxygen to exist.",
         "difficulty": 2,
         "topic": "Nature",
         "id": 87
     },
     {
-        "question": "I am an odd number. Take away one letter and I become even. What am I?",
-        "answer": ["seven", "the number seven", "7"],
-        "hint": "Think about numbers and spelling.",
-        "difficulty": 3,
-        "topic": "Math",
+        "question": "I am not alive, but I can grow; I don't have lungs, but I need air. What am I?",
+        "answer": "Fire",
+        "hint": "It burns.",
+        "difficulty": 2,
+        "topic": "Nature",
         "id": 88
     },
     {
-        "question": "I can fly without wings. If I lose my warmth, I die. What am I?",
-        "answer": ["balloon", "a balloon", "the balloon", "hot air balloon"],
-        "hint": "People ride on me in the sky.",
-        "difficulty": 4,
+        "question": "What can travel around the world without leaving its spot?",
+        "answer": "stamp",
+        "hint": "It's on mail.",
+        "difficulty": 2,
         "topic": "Objects",
         "id": 89
     },
@@ -721,17 +721,17 @@
     },
     {
         "question": "I shave every day, but my beard stays the same. What am I?",
-        "answer": ["barber", "a barber", "barbers", "the barber"],
+        "answer": "barber",
         "hint": "It's a profession.",
         "difficulty": 2,
         "topic": "Jobs",
         "id": 91
     },
     {
-        "question": "What can go up a chimney down, but not down a chimney up?",
-        "answer": ["umbrella", "an umbrella", "the umbrella"],
-        "hint": "It's for rainy days.",
-        "difficulty": 4,
+        "question": "What kind of coat is always wet when you put it on?",
+        "answer": "coat of paint",
+        "hint": "It's not something you wear.",
+        "difficulty": 2,
         "topic": "Objects",
         "id": 92
     },
@@ -744,59 +744,59 @@
         "id": 93
     },
     {
-        "question": "I am lighter than air, but a hundred people cannot lift me. What am I?",
-        "answer": ["bubble", "a bubble", "the bubble", "soap bubble"],
-        "hint": "Children love to play with me.",
-        "difficulty": 3,
-        "topic": "Nature",
+        "question": "I have a head, a tail, but no body. What am I?",
+        "answer": "coin",
+        "hint": "It's used as currency.",
+        "difficulty": 2,
+        "topic": "Objects",
         "id": 94
     },
     {
-        "question": "I am not a living thing, but I can make people cry or smile. What am I?",
-        "answer": ["movie", "a movie", "the movie", "film"],
-        "hint": "You often see me in theaters.",
-        "difficulty": 2,
-        "topic": "Entertainment",
+        "question": "What has cities, but no houses; forests, but no trees; and rivers, but no water?",
+        "answer": "map",
+        "hint": "It's used for navigation.",
+        "difficulty": 3,
+        "topic": "Objects",
         "id": 95
     },
     {
         "question": "What can't talk but will reply when spoken to?",
-        "answer": ["echo", "the echo", "an echo", "echoes"],
-        "hint": "You can hear it when facing a canyon.",
+        "answer": "echo",
+        "hint": "It's a reflection of sound.",
         "difficulty": 2,
         "topic": "Nature",
         "id": 96
     },
     {
-        "question": "What gets sharper the more you use it?",
-        "answer": ["mind", "the mind", "intelligence", "brain"],
-        "hint": "It's not a physical tool.",
-        "difficulty": 3,
-        "topic": "Abstract",
+        "question": "What runs but never walks?",
+        "answer": "river",
+        "hint": "It flows.",
+        "difficulty": 2,
+        "topic": "Nature",
         "id": 97
     },
     {
         "question": "What is always in front of you but can't be seen?",
-        "answer": ["future", "the future"],
+        "answer": "future",
         "hint": "It's yet to come.",
         "difficulty": 3,
         "topic": "Time",
         "id": 98
     },
     {
-        "question": "If you drop me, I'm sure to crack, but give me a smile and I'll always smile back. What am I?",
-        "answer": ["mirror", "a mirror", "the mirror", "mirrors"],
-        "hint": "It shows you your reflection.",
-        "difficulty": 2,
-        "topic": "Household Items",
+        "question": "I have keys but no locks. I have space but no room. You can enter, but you can't go outside. What am I?",
+        "answer": "keyboard",
+        "hint": "It's part of a computer.",
+        "difficulty": 3,
+        "topic": "Technology",
         "id": 99
     },
     {
         "question": "What has no beginning, end, or middle?",
-        "answer": ["circle", "a circle", "circles", "the circle"],
-        "hint": "You can draw it with one stroke.",
+        "answer": "doughnut",
+        "hint": "You can eat it.",
         "difficulty": 1,
-        "topic": "Shape",
+        "topic": "Food",
         "id": 100
     }
 ]
