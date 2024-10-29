@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kaomoji"
-description = "Create procedurally generated kaomoji (i.e., Japanese emoticons) using Python! \\(^ 3 ^)/"
+description = "Create and interact with your very own Tamagotchi character using Python! \\(^ 3 ^)/"
 version = "0.1.0"
 authors = [
-  { name=" ", email=" "},
+  { name="Sahar Bueno-Abdala", email="sb8249@nyu.edu"},
   { name=" ", email=" "}
   { name="Jessica Xu", email="kx2053@nyu.edu"}
 ]
