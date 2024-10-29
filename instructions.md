@@ -22,10 +22,10 @@ Some inspirational Python packages, for example:
 
 Create a Python package with at least **four functions that accept arguments** which influence their behavior. The package must be distributed in the [PyPI](https://pypi.org/) repository and installable via [pip](https://pypi.org/project/pip/).
 Riddle Generator
-1. generate_riddle(difficulty: str, topic: str) -> str: 根据用户选择的难度和主题生成谜语。keven,1-25
-2. check_answer(riddle: str, answer: str) -> bool: 检查用户输入的答案是否正确。barry,26-50
+1. generate_riddle(difficulty: str, topic: str) -> str: 根据用户选择的难度和主题生成谜语。keven, 1-25
+2. check_answer(riddle: str, answer: str) -> bool: 检查用户输入的答案是否正确。barry, 26-50
 3. submit_riddle(custom_riddle: str, answer: str) -> bool: 允许用户提交自定义谜语及其答案到系统中，扩展谜语数据库。 alex, 51-75
-4. provide_hint(riddle: str) -> str: 为某个谜语提供一个提示，帮助用户解答。nicole, 75-100
+4. provide_hint(riddle: str) -> str: 为某个谜语提供一个提示，帮助用户解答。nicole, 76-100
 
 Json file:
 Schema
