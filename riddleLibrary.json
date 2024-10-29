@@ -401,7 +401,7 @@
     },
     {
         "question": "What comes once in a year, twice in a month, four times in a week, and six times in a day?",
-        "answer": "letter 'E'",
+        "answer": ["letter 'E'", "E"],
         "hint": "Focus on letters, not numbers.",
         "difficulty": 4,
         "topic": "Words",
@@ -409,7 +409,7 @@
     },
     {
         "question": "What can run, but never walks, has a mouth, but never talks?",
-        "answer": "river",
+        "answer": ["river", "a river", "the river", "rivers"],
         "hint": "It flows naturally.",
         "difficulty": 2,
         "topic": "Nature",
@@ -417,7 +417,7 @@
     },
     {
         "question": "What has a ring but no finger?",
-        "answer": "telephone",
+        "answer": ["telephone", "a telephone", "the telephone", "telephones"], 
         "hint": "It's something that can call.",
         "difficulty": 2,
         "topic": "Objects",
@@ -425,7 +425,7 @@
     },
     {
         "question": "If two's company, and three's a crowd, what are four and five?",
-        "answer": "Nine",
+        "answer": ["Nine", "9"],
         "hint": "It's simple math.",
         "difficulty": 1,
         "topic": "Math",
@@ -433,7 +433,7 @@
     },
     {
         "question": "What has many keys, but can't open a single lock?",
-        "answer": "piano",
+        "answer": ["piano", "a piano", "the piano", "pianos"],
         "hint": "It's a musical instrument.",
         "difficulty": 1,
         "topic": "Music",
@@ -441,7 +441,7 @@
     },
     {
         "question": "What starts with an E, ends with an E, but only contains one letter?",
-        "answer": "envelope",
+        "answer": ["envelope", "an envelope", "the envelope", "envelopes"],
         "hint": "It's used for sending mail.",
         "difficulty": 3,
         "topic": "Objects",
@@ -449,7 +449,7 @@
     },
     {
         "question": "What type of dress can never be worn?",
-        "answer": "address",
+        "answer": ["address", "an address", "the address", "addresses"],
         "hint": "It's not clothing.",
         "difficulty": 2,
         "topic": "Words",
@@ -457,7 +457,7 @@
     },
     {
         "question": "What begins with P, ends with E, and has thousands of letters?",
-        "answer": "post office",
+        "answer": ["post office", "a post office", "the post office", "post offices"],
         "hint": "It deals with letters.",
         "difficulty": 3,
         "topic": "Places",
@@ -465,7 +465,7 @@
     },
     {
         "question": "I'm always on the dinner table, but you don't get to eat me. What am I?",
-        "answer": "Plates and silverware",
+        "answer": ["plate", "the plate", "a plate", "plates"],
         "hint": "You use them to eat.",
         "difficulty": 1,
         "topic": "Food",
@@ -473,7 +473,7 @@
     },
     {
         "question": "What is cut on a table, but never eaten?",
-        "answer": "deck of cards",
+        "answer": ["cards", "card", "a card", "the card"],
         "hint": "It's used for playing games.",
         "difficulty": 2,
         "topic": "Games",
@@ -481,7 +481,7 @@
     },
     {
         "question": "What can run but never walks, has a mouth but never talks?",
-        "answer": "river",
+        "answer": ["river", "a river", "the river", "rivers"],
         "hint": "It flows continuously.",
         "difficulty": 2,
         "topic": "Nature",
@@ -489,7 +489,7 @@
     },
     {
         "question": "What has a thumb and four fingers, but is not alive?",
-        "answer": "glove",
+        "answer": ["glove", "a glove", "the glove", "gloves"],
         "hint": "It's something you wear.",
         "difficulty": 1,
         "topic": "Objects",
@@ -497,7 +497,7 @@
     },
     {
         "question": "If I drink, I die. If I eat, I am fine. What am I?",
-        "answer": "fire",
+        "answer": ["fire", "a fire", "the fire", "fires"],
         "hint": "It's something hot.",
         "difficulty": 3,
         "topic": "Nature",
@@ -505,7 +505,7 @@
     },
     {
         "question": "What comes once in a second, once in a minute, but never in a thousand years?",
-        "answer": "letter 'S'",
+        "answer": ["letter 'S'", "S"],
         "hint": "Focus on letters.",
         "difficulty": 4,
         "topic": "Words",
@@ -513,7 +513,7 @@
     },
     {
         "question": "What is lighter than a feather, yet the strongest man cannot hold it for much longer than a minute?",
-        "answer": "Breath",
+        "answer": ["Breath", "a breath", "the breath"],
         "hint": "Everyone has it.",
         "difficulty": 3,
         "topic": "Nature",
@@ -521,7 +521,7 @@
     },
     {
         "question": "What can travel all around the world without leaving its corner?",
-        "answer": "stamp",
+        "answer": ["stamp", "a stamp", "the stamp", "stamps"],
         "hint": "It's on letters.",
         "difficulty": 3,
         "topic": "Objects",
@@ -529,7 +529,7 @@
     },
     {
         "question": "I can only live where there is light, but I die if the light shines on me. What am I?",
-        "answer": "shadow",
+        "answer": ["shadow", "a shadow", "the shadow", "shadows"],
         "hint": "It follows you.",
         "difficulty": 3,
         "topic": "Nature",
@@ -537,7 +537,7 @@
     },
     {
         "question": "What has keys but can't open doors?",
-        "answer": "keyboard",
+        "answer": ["keyboard", "a keyboard", "the keyboard", "keyboards"],
         "hint": "It's part of a computer.",
         "difficulty": 2,
         "topic": "Technology",
@@ -545,7 +545,7 @@
     },
     {
         "question": "What runs but never walks, has a bed but never sleeps, has a mouth but never eats?",
-        "answer": "river",
+        "answer": ["river", "a river", "the river", "rivers"],
         "hint": "It flows.",
         "difficulty": 2,
         "topic": "Nature",
@@ -553,7 +553,7 @@
     },
     {
         "question": "What can't be used until it's broken?",
-        "answer": "egg",
+        "answer": ["egg", "an egg", "the egg", "eggs"],
         "hint": "You eat it for breakfast.",
         "difficulty": 1,
         "topic": "Food",
@@ -561,7 +561,7 @@
     },
     {
         "question": "What has many keys but can't open a single lock?",
-        "answer": "piano",
+        "answer": ["piano", "a piano", "the piano", "pianos"],
         "hint": "It's musical.",
         "difficulty": 1,
         "topic": "Music",
@@ -569,7 +569,7 @@
     },
     {
         "question": "I’m tall when I’m young and short when I’m old. What am I?",
-        "answer": "candle",
+        "answer": ["candle", "a candle", "the candle", "candles"],
         "hint": "It melts as it goes.",
         "difficulty": 1,
         "topic": "Objects",
@@ -577,7 +577,7 @@
     },
     {
         "question": "What has an eye but cannot see?",
-        "answer": "hurricane",
+        "answer": ["hurricane", "a hurricane", "the hurricane", "hurricanes"],
         "hint": "It's a natural phenomenon.",
         "difficulty": 2,
         "topic": "Weather",
@@ -585,7 +585,7 @@
     },
     {
         "question": "What runs but never walks, has a bed but never sleeps?",
-        "answer": "river",
+        "answer": ["river", "a river", "the river", "rivers"],
         "hint": "It flows through landscapes.",
         "difficulty": 2,
         "topic": "Nature",
@@ -593,7 +593,7 @@
     },
     {
         "question": "What has teeth but cannot bite?",
-        "answer": "comb",
+        "answer": ["comb", "a comb", "the comb", "combs"],
         "hint": "It's for hair.",
         "difficulty": 1,
         "topic": "Objects",
