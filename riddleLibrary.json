@@ -199,57 +199,58 @@
         "topic": "Objects",
         "id": 25
     },
-    {
-        "question": "What kind of coat can only be put on when wet?",
-        "answer": "coat of paint",
-        "hint": "It's used for coloring surfaces.",
-        "difficulty": 2,
-        "topic": "Objects",
-        "id": 26
-    },
-    {
-        "question": "What is full of holes but still holds water?",
-        "answer": "sponge",
-        "hint": "It's used for cleaning.",
-        "difficulty": 1,
-        "topic": "Objects",
-        "id": 27
-    },
-    {
-        "question": "What has one eye but can't see?",
-        "answer": "needle",
-        "hint": "It's used for sewing.",
-        "difficulty": 1,
-        "topic": "Objects",
-        "id": 28
-    },
-    {
-        "question": "What has to be broken before you can use it?",
-        "answer": "egg",
-        "hint": "You eat it for breakfast.",
-        "difficulty": 1,
-        "topic": "Food",
-        "id": 29
-    },
-    {
-        "question": "What has an end but no beginning, a home but no family, and a space without room?",
-        "answer": "road",
-        "hint": "You travel on it.",
-        "difficulty": 3,
-        "topic": "Nature",
-        "id": 30
-    },
-    {
-        "question": "What building has the most stories?",
-        "answer": "library",
-        "hint": "It's full of books.",
-        "difficulty": 1,
-        "topic": "Places",
-        "id": 31
-    },
-    {
+        {
+            "question": "What kind of coat can only be put on when wet?",
+            "answer": ["coat of paint", "a coat of paint", "paint coat", "the paint coat"],
+            "hint": "It's used for coloring surfaces.",
+            "difficulty": 2,
+            "topic": "Objects",
+            "id": 26
+        },
+        {
+            "question": "What is full of holes but still holds water?",
+            "answer": ["sponge", "a sponge", "the sponge", "sponges"],
+            "hint": "It's used for cleaning.",
+            "difficulty": 1,
+            "topic": "Objects",
+            "id": 27
+        },
+        {
+            "question": "What has one eye but can't see?",
+            "answer": ["needle", "a needle", "the needle", "needles"],
+            "hint": "It's used for sewing.",
+            "difficulty": 1,
+            "topic": "Objects",
+            "id": 28
+        },
+        {
+            "question": "What has to be broken before you can use it?",
+            "answer": ["egg", "an egg", "the egg", "eggs"],
+            "hint": "You eat it for breakfast.",
+            "difficulty": 1,
+            "topic": "Food",
+            "id": 29
+        },
+        {
+            "question": "What has an end but no beginning, a home but no family, and a space without room?",
+            "answer": ["road", "a road", "the road", "roads"],
+            "hint": "You travel on it.",
+            "difficulty": 3,
+            "topic": "Nature",
+            "id": 30
+        },
+        {
+            "question": "What building has the most stories?",
+            "answer": ["library", "a library", "the library", "libraries"],
+            "hint": "It's full of books.",
+            "difficulty": 1,
+            "topic": "Places",
+            "id": 31
+        },
+    
+        {
         "question": "What tastes better than it smells?",
-        "answer": "tongue",
+        "answer": ["tongue", "the tongue", "a tongue"],
         "hint": "It's part of your body.",
         "difficulty": 2,
         "topic": "Body",
@@ -257,7 +258,7 @@
     },
     {
         "question": "What has to be kept after it is given to you?",
-        "answer": "word",
+        "answer": ["word", "a word", "the word", "your word"],
         "hint": "It's something you promise.",
         "difficulty": 3,
         "topic": "Values",
@@ -265,7 +266,7 @@
     },
     {
         "question": "What kind of room has no doors or windows?",
-        "answer": "mushroom",
+        "answer": ["mushroom", "a mushroom", "the mushroom", "mushrooms"],
         "hint": "It's something you can eat.",
         "difficulty": 2,
         "topic": "Food",
@@ -273,7 +274,7 @@
     },
     {
         "question": "What begins with T, ends with T, and has T in it?",
-        "answer": "teapot",
+        "answer": ["teapot", "a teapot", "the teapot"],
         "hint": "It holds something you drink.",
         "difficulty": 3,
         "topic": "Objects",
@@ -281,7 +282,7 @@
     },
     {
         "question": "What has four fingers and a thumb, but isn't alive?",
-        "answer": "glove",
+        "answer": ["glove", "a glove", "the glove", "gloves"],
         "hint": "You wear it in winter.",
         "difficulty": 1,
         "topic": "Objects",
@@ -289,7 +290,7 @@
     },
     {
         "question": "What has a bottom at the top?",
-        "answer": "leg",
+        "answer": ["leg", "a leg", "the leg", "legs"],
         "hint": "It's part of your body.",
         "difficulty": 2,
         "topic": "Body",
@@ -297,7 +298,7 @@
     },
     {
         "question": "What's easy to get into, but hard to get out of?",
-        "answer": "Trouble",
+        "answer": ["trouble", "the trouble", "a trouble"],
         "hint": "It's something you might want to avoid.",
         "difficulty": 2,
         "topic": "Values",
@@ -305,7 +306,7 @@
     },
     {
         "question": "What has words, but never speaks?",
-        "answer": "book",
+        "answer": ["book", "a book", "the book", "books"],
         "hint": "You read it.",
         "difficulty": 1,
         "topic": "Objects",
@@ -313,7 +314,7 @@
     },
     {
         "question": "What gets bigger the more you take away?",
-        "answer": "hole",
+        "answer": ["hole", "a hole", "the hole", "holes"],
         "hint": "It's something in the ground.",
         "difficulty": 3,
         "topic": "Nature",
@@ -321,7 +322,7 @@
     },
     {
         "question": "I have keys but open no locks. I have space but no room. You can enter, but can't go outside. What am I?",
-        "answer": "keyboard",
+        "answer": ["keyboard", "a keyboard", "the keyboard", "computer keyboard"],
         "hint": "It's part of a computer.",
         "difficulty": 3,
         "topic": "Technology",
@@ -329,7 +330,7 @@
     },
     {
         "question": "What has legs, but doesn't walk?",
-        "answer": "table",
+        "answer": ["table", "a table", "the table", "tables"],
         "hint": "You put things on it.",
         "difficulty": 1,
         "topic": "Objects",
@@ -337,7 +338,7 @@
     },
     {
         "question": "What flies without wings?",
-        "answer": "Time",
+        "answer": ["time", "the time", "time flies"],
         "hint": "It's always passing by.",
         "difficulty": 2,
         "topic": "Time",
@@ -345,7 +346,7 @@
     },
     {
         "question": "What comes down, but never goes up?",
-        "answer": "Rain",
+        "answer": ["rain", "the rain", "rainfall"],
         "hint": "It's water from the sky.",
         "difficulty": 1,
         "topic": "Nature",
@@ -353,7 +354,7 @@
     },
     {
         "question": "What is so fragile that saying its name breaks it?",
-        "answer": "Silence",
+        "answer": ["silence", "the silence", "quiet", "stillness"],
         "hint": "It's the absence of sound.",
         "difficulty": 3,
         "topic": "Values",
@@ -361,7 +362,7 @@
     },
     {
         "question": "What kind of tree can you carry in your hand?",
-        "answer": "palm",
+        "answer": ["palm", "a palm", "the palm", "palm tree"],
         "hint": "It's also part of your hand.",
         "difficulty": 1,
         "topic": "Nature",
@@ -369,7 +370,7 @@
     },
     {
         "question": "Forward I am heavy, but backward I am not. What am I?",
-        "answer": "Ton",
+        "answer": ["ton", "a ton", "the ton"],
         "hint": "It's a unit of weight.",
         "difficulty": 3,
         "topic": "Words",
@@ -377,7 +378,7 @@
     },
     {
         "question": "I have branches, but no fruit, trunk, or leaves. What am I?",
-        "answer": "bank",
+        "answer": ["bank", "a bank", "the bank", "banks"],
         "hint": "It deals with money.",
         "difficulty": 2,
         "topic": "Places",
@@ -385,7 +386,7 @@
     },
     {
         "question": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?",
-        "answer": "Pencil lead",
+        "answer": ["pencil lead", "a pencil lead", "the pencil lead", "lead in a pencil"],
         "hint": "It's something you write with.",
         "difficulty": 3,
         "topic": "Objects",
@@ -393,7 +394,7 @@
     },
     {
         "question": "What has a head, a tail, is brown, and has no legs?",
-        "answer": "penny",
+        "answer": ["penny", "a penny", "the penny", "coins", "coin","a coin","the coin"],
         "hint": "It's a form of currency.",
         "difficulty": 2,
         "topic": "Objects",
