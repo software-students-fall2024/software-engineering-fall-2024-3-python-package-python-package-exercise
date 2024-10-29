@@ -6,14 +6,12 @@ from .constants import DEFAULT_TIMEFRAME, MAX_STAT_VALUE
 class Pet:
     def __init__(self, name=None, timeframe=DEFAULT_TIMEFRAME, immortal: bool = False):
 
-        self.name = name or generate_name()
+        self.name = name if isinstance(name, str) else generate_name()
         self.immortal = immortal if isinstance(immortal, bool) else False
         self.timeframe = timeframe if isinstance(
             timeframe, (int, float)) and timeframe >= 1 else DEFAULT_TIMEFRAME
 
         self.current_time = int(time())
-
-        self.timeframe = timeframe
 
         self.stats = {
             "health": MAX_STAT_VALUE,
@@ -22,9 +20,9 @@ class Pet:
             "happiness": MAX_STAT_VALUE
         }
         self.rates = {
-            "food": (timeframe * 60) // MAX_STAT_VALUE,
-            "sleep": (timeframe * 60) // MAX_STAT_VALUE,
-            "happiness": (timeframe * 60) // MAX_STAT_VALUE
+            "food": (self.timeframe * 60) // MAX_STAT_VALUE,
+            "sleep": (self.timeframe * 60) // MAX_STAT_VALUE,
+            "happiness": (self.timeframe * 60) // MAX_STAT_VALUE
         }
 
     # Returns the time since this function was last called
@@ -38,8 +36,11 @@ class Pet:
     def update_stats(self):
         difference = self.time_elapsed()
         for stat in ["food", "sleep", "happiness"]:
-            self.stats[stat] = max(
-                0, self.stats[stat] - difference // self.rates[stat])
+            if self.rates[stat] != 0:
+                self.stats[stat] = max(
+                    0, self.stats[stat] - difference // self.rates[stat])
+            else:
+                self.stats[stat] = max(0, self.stats[stat])
 
         self.stats["health"] = (
             self.stats["sleep"] + self.stats["food"] + self.stats["happiness"]) // 3
@@ -54,17 +55,17 @@ class Pet:
         print(result)
 
 
-#
+# Wrapper to make new pet object
 def new_pet(name=None, timeframe=None, immortal=False):
 
-    if not name:
+    if not isinstance(name, str):
         name = generate_name()
         print(f"Created new pet with random name: {name}.")
 
     else:
         print(f"Created new pet: {name}.")
 
-    if not timeframe:
+    if not timeframe or timeframe < 1 or not isinstance(timeframe, (int, float)):
         timeframe = DEFAULT_TIMEFRAME
         print(f"Timeframe: {timeframe} minutes (default).")
 
@@ -83,7 +84,7 @@ def new_pet(name=None, timeframe=None, immortal=False):
 
 
 def main():
-    pet = new_pet()
+    pet = new_pet(timeframe=-1)
     while (pet.stats["health"] > 0):
         sleep(1)
         pet.status()
