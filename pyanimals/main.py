@@ -143,8 +143,24 @@ def randMessage(animal):
     #print random message in list 
     messageChoice=get_random_message(animalMessages[animal])
     print(f"{animal} says: {messageChoice}")
+#
+# package function: race
+#
 
-# race()
+# helper function for race: returns updated position
+def _update_position(pos, track_length):
+    return min(pos + random.randint(1, 2), track_length)
+
+# helper function for race: returns race result
+def _get_race_result(player_pos, animal_pos):
+    if animal_pos > player_pos:
+        return f"{animal.title()} is the winner. Better luck next time 😅"
+    elif player_pos > animal_pos:
+        return "Congratulations! You are the winner 🏆"
+    else:
+        return "It's a tie!"
+
+# race: displays race between player and chosen animal
 def race(animal):
     animal_emoji = get_animal_emoji(animal)
     print(f"You are racing against {animal}")
@@ -156,19 +172,18 @@ def race(animal):
     while player_pos < track_length and animal_pos < track_length:
         clearScreen()
         print(f"You are racing against {animal}")
-        player_pos += random.randint(1, 2)
-        animal_pos += random.randint(1, 2)
 
+        player_pos = _update_position(player_pos, track_length)
+        animal_pos = _update_position(animal_pos, track_length)
+
+        # display current race positions
         print("🏁" + (" " * (track_length - player_pos)) + "🏃")
         print("🏁" + (" " * (track_length - animal_pos)) + animal_emoji)
-        time.sleep(0.4)
-    
-    if animal_pos > player_pos:
-        print(f"{animal.title()} is the winner. Better luck next time 😅")
-    elif player_pos > animal_pos:
-        print("Congratulations! You are the winner 🏆")
-    else:
-        print("It's a tie!")
+        time.sleep(0.3)
+
+    # display result
+    result = _get_race_result(player_pos, animal_pos)
+    print(result)
 
 # for debugging purposes
 if __name__ == "__main__":
@@ -182,5 +197,6 @@ if __name__ == "__main__":
             move(animalText)
             print_fact()
             randMessage(animal)
+            race(animal)
         except ValueError as e:
             print(e)
