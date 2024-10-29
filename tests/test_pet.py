@@ -1,9 +1,9 @@
+import time
 import pytest
 import freezegun
 from pymagotchi.pet import Pet, new_pet
 from pymagotchi.constants import DEFAULT_TIMEFRAME, MAX_STAT_VALUE
 from pymagotchi.names import generate_name, pet_names
-from time import sleep, time
 
 
 # 1) Test Pet.time_elapsed()
@@ -11,14 +11,14 @@ from time import sleep, time
 def test_time_elapsed():
     pet = Pet(timeframe=DEFAULT_TIMEFRAME)
     with freezegun.freeze_time("2024-10-28 00:02:00"):
-        time = pet.time_elapsed()
-        assert time == 120, f"Expected 120 seconds, got {time}"
+        time_passed = pet.time_elapsed()
+        assert time_passed == 120, f"Expected 120 seconds, got {time_passed}"
     with freezegun.freeze_time("2024-10-28 00:02:30"):
-        time = pet.time_elapsed()
-        assert time == 30, f"Expected 30 seconds, got {time}"
+        time_passed = pet.time_elapsed()
+        assert time_passed == 30, f"Expected 30 seconds, got {time_passed}"
     with freezegun.freeze_time("2024-10-28 01:02:30"):
-        time = pet.time_elapsed()
-        assert time == 3600, f"Expected 3600 seconds, got {time}"
+        time_passed = pet.time_elapsed()
+        assert time_passed == 3600, f"Expected 3600 seconds, got {time_passed}"
 
 
 # 2) Test names.generate_name()
@@ -44,7 +44,7 @@ def test_default_init():
     assert pet.name in pet_names, "Expected valid pet name."
     assert pet.immortal is False, f"Default immortal should be False, instead is {pet.immortal}"
     assert pet.timeframe == DEFAULT_TIMEFRAME, f"Expected timeframe to be {DEFAULT_TIMEFRAME}, instead is {pet.timeframe}"
-    assert pet.current_time == int(time())
+    assert pet.current_time == int(time.time())
     for stat in ["health", "food", "sleep", "happiness"]:
         assert pet.stats[stat] == MAX_STAT_VALUE
     for rate in ["food", "sleep", "happiness"]:
@@ -57,7 +57,7 @@ def test_invalid_init():
     assert pet.name in pet_names, "Expected valid pet name."
     assert pet.immortal is False, f"Default immortal should be False, instead is {pet.immortal}"
     assert pet.timeframe == DEFAULT_TIMEFRAME, f"Expected default timeframe to be {DEFAULT_TIMEFRAME}, instead is {pet.timeframe}"
-    assert pet.current_time == int(time())
+    assert pet.current_time == int(time.time())
     for stat in ["health", "food", "sleep", "happiness"]:
         assert pet.stats[stat] == MAX_STAT_VALUE
     for rate in ["food", "sleep", "happiness"]:
@@ -70,7 +70,7 @@ def test_pet_initialization():
     assert pet.name == "Benny"
     assert pet.immortal is True
     assert pet.timeframe == 5
-    assert pet.current_time == int(time())
+    assert pet.current_time == int(time.time())
     for stat in ["health", "food", "sleep", "happiness"]:
         assert pet.stats[stat] == MAX_STAT_VALUE
     for rate in ["food", "sleep", "happiness"]:
@@ -84,7 +84,7 @@ def test_new_pet_default():
     assert pet.name in pet_names, "Expected valid pet name."
     assert pet.immortal is False, f"Default immortal should be False, instead is {pet.immortal}"
     assert pet.timeframe == DEFAULT_TIMEFRAME, f"Expected timeframe to be {DEFAULT_TIMEFRAME}, instead is {pet.timeframe}"
-    assert pet.current_time == int(time())
+    assert pet.current_time == int(time.time())
     for stat in ["health", "food", "sleep", "happiness"]:
         assert pet.stats[stat] == MAX_STAT_VALUE
     for rate in ["food", "sleep", "happiness"]:
@@ -121,7 +121,7 @@ def test_new_pet():
     pet = new_pet(name="Shadow", timeframe=3, immortal=False)
     assert pet.name == "Shadow", f"Expected name=Shadow, instead name={pet.name}"
     assert pet.timeframe == 3, f"Expected timeframe=3, instead timeframe={pet.timeframe}"
-    assert pet.current_time == int(time())
+    assert pet.current_time == int(time.time())
     assert pet.immortal is False, f"Expected immortal=False, instead immortal={pet.immortal}"
     for stat in ["health", "food", "sleep", "happiness"]:
         assert pet.stats[stat] == MAX_STAT_VALUE
@@ -174,10 +174,10 @@ def test_pet_status_initial(capsys):
     pet.status()
 
     captured = capsys.readouterr()
-    assert "Health: 100 " in captured.out, f"Expected 'Health: 100 ' in output"
-    assert "Food: 100 " in captured.out, f"Expected 'Food: 100 ' in output"
-    assert "Sleep: 100 " in captured.out, f"Expected 'Sleep: 100 ' in output"
-    assert "Happiness: 100" in captured.out, f"Expected 'Happiness: 100' in output"
+    assert "Health: 100 " in captured.out, "Expected 'Health: 100 ' in output"
+    assert "Food: 100 " in captured.out, "Expected 'Food: 100 ' in output"
+    assert "Sleep: 100 " in captured.out, "Expected 'Sleep: 100 ' in output"
+    assert "Happiness: 100" in captured.out, "Expected 'Happiness: 100' in output"
 
 
 @freezegun.freeze_time("2024-10-28 0:00:00")
@@ -187,10 +187,10 @@ def test_pet_status_zero(capsys):
         pet.status()
 
     captured = capsys.readouterr()
-    assert "Health: 0 " in captured.out, f"Expected 'Health: 0 ' in output"
-    assert "Food: 0 " in captured.out, f"Expected 'Food: 0 ' in output"
-    assert "Sleep: 0 " in captured.out, f"Expected 'Sleep: 0 ' in output"
-    assert "Happiness: 0" in captured.out, f"Expected 'Happiness: 0' in output"
+    assert "Health: 0 " in captured.out, "Expected 'Health: 0 ' in output"
+    assert "Food: 0 " in captured.out, "Expected 'Food: 0 ' in output"
+    assert "Sleep: 0 " in captured.out, "Expected 'Sleep: 0 ' in output"
+    assert "Happiness: 0" in captured.out, "Expected 'Happiness: 0' in output"
 
 
 @freezegun.freeze_time("2024-10-28 0:00:00")
