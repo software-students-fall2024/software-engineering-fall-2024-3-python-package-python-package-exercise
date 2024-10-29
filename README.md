@@ -1,5 +1,5 @@
 <!-- Need to finish badge -->
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/software-students-fall2024/3-python-package-ejh/actions/workflows/build.yml/badge.svg)
 
 # Python Package Exercise
 
