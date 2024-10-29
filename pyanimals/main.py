@@ -59,6 +59,10 @@ def print_fact():
     fact = get_random_fact(animal)
     print(f"\nRandom Fact: {fact}\n")
 
+#get random message
+def get_random_message(messages):
+    return random.choice(messages)
+
 # get random message for animal
 def get_random_fact(animal):
     animalFacts = {
@@ -112,6 +116,24 @@ def move(animalText):
         clearScreen()
         print("\nAnimation stopped.")
 
+#function that prints random message for each animal
+def randMessage(animal):
+    #dictionary for random messages for each animal
+    animalMessages={
+        "cat":["Meow Meow","Hiss, Hiss", "Purr Purr","I am hungry for fish!"],
+        "bunny":["Hop Hop","Munch Munch", " I am Hungry for Hay"],
+        "elephant":["Trumpet Trumpet","Snort Snort"," Theres Dust in my trunk.", "I am Hungry for Grass.", "Lets go in the Water", "Rumble Rumble"],
+        "dog":["Woof Woof","I am hungry for socks!", " I am hungry for chicken!","Lets play fetch!"],
+        "rabbit":["Hop Hop", "Nibble Nibble", "I am Hungry for carrots!"],
+    }
+    #make sure that animal entered into function is one of our animals
+    if animal not in animalMessages:
+        print("Unknown Animal. Message can't be printed try a different animal.")
+        return
+    #print random message in list 
+    messageChoice=get_random_message(animalMessages[animal])
+    print(f"{animal} says: {messageChoice}")
+
 # for debugging purposes
 if __name__ == "__main__":
     animal = input("Enter an animal (cat, bunny, elephant, rabbit): ").strip().lower()
@@ -123,5 +145,6 @@ if __name__ == "__main__":
         try:
             move(animalText)
             print_fact()
+            randMessage(animal)
         except ValueError as e:
             print(e)
