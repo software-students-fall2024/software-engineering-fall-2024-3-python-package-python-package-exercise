@@ -7,6 +7,10 @@ import time
 
 # print animal
 def get_animal(animal):
+    if animal not in ["cat", "bunny", "elephant", "rabbit"]:
+        print("No ASCII art available for " + animal + ". Please choose from:\n'cat'\n'bunny'\n'elephant'\n'rabbit")
+        return ""
+    
     if (animal == "cat"):
         output = dedent(r"""
           _
@@ -17,7 +21,6 @@ def get_animal(animal):
              /  ___________   /
             /_/             \_\
         """)
-    #replace with other animal
     elif (animal == "bunny"):
         output = dedent(r"""
               () ()
@@ -25,7 +28,6 @@ def get_animal(animal):
               (   ) 
               (")(")
         """)
-    #replace with other animal
     elif (animal == "elephant"):
         output = dedent(r"""
                  ____
@@ -35,18 +37,8 @@ def get_animal(animal):
     ^   \    ______    | 
         |_,,|      |_,,|
         """)
-    #replace with other animal
-    elif (animal == "dog"):
-        output = dedent("""
-       \   ^__^
-        \  (oo)\_______
-           (__)\       )\/\\
-               ||----w |
-               ||     ||
-        """)
     elif (animal == "rabbit"):
-        output = dedent(
-        """
+        output = dedent(r"""
             ,\\
               \\\,_
                \` ,\\
@@ -58,7 +50,7 @@ def get_animal(animal):
         """)
     # default (no animal entered from our list)
     else:
-        output = ""
+        return ""
     
     return output
 
@@ -88,12 +80,6 @@ def get_random_fact(animal):
             "Did you know bunnies are often featured in folklore and children's stories as symbols of fertility and spring"
         ],
 
-        "dog": [
-            "Did you know that dogs can be trained to detect diseases like cancer?",
-            "Did you know that a dog's nose print is as unique as a human fingerprint?",
-            "Did you know that dogs have about 18 muscles controlling their ears."
-        ],
-
         "rabbit": [
             "Did you know a rabbit's ears help regulate body temperature, especially in warm climates?",
             "Did you know a rabbits' teeth never stop growing, unlike human teeth?",
@@ -104,24 +90,15 @@ def get_random_fact(animal):
     return random.choice(fact)
 
 # primary functions
+
 # move()
 def clearScreen():
-    # for macOS/linux
-    if os.name == 'nt':  # For Windows
+    if os.name == 'nt':
         os.system('cls')
-    else:                # For macOS/Linux
+    else:
         os.system('clear')
 
-def move(animal):
-    availableAnimals = ["cat", "bunny", "elephant", "dog", "rabbit"]
-    if animal not in availableAnimals:
-        raise ValueError("Invalid animal!")
-    
-    animalText = get_animal(animal)
-    if not animalText:
-        print("No ASCII art available for this animal.")
-        return
-    
+def move(animalText):
     spaces = 0
     try:
         while spaces < 50:
@@ -137,9 +114,14 @@ def move(animal):
 
 # for debugging purposes
 if __name__ == "__main__":
-    animal = input("Enter an animal (cat, bunny, elephant, dog, rabbit): ").strip().lower()
-    try:
-        move(animal)
-        print_fact()
-    except ValueError as e:
-        print(e)
+    animal = input("Enter an animal (cat, bunny, elephant, rabbit): ").strip().lower()
+    animalText = get_animal(animal)
+    
+    if animalText == "":
+        exit()
+    else:
+        try:
+            move(animalText)
+            print_fact()
+        except ValueError as e:
+            print(e)
