@@ -9,6 +9,7 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 
 [Sandy Li](https://github.com/vernairesl)
 
+[Safia Billah](https://github.com/safiabillah)
 ## Description
 [Link to Package](link.com)
 
