@@ -6,7 +6,7 @@ have fun!
 import random
 def get_fortune_cookie():
     #load the quotes from file
-    with open ('.../resource/fortune.txt','r')as file:
+    with open ('resource/fortune.txt','r')as file:
         content = file.read()
         fortunes = [quote.strip() for quote in content.split ('%') if quote.strip()]
 
@@ -16,3 +16,6 @@ def get_fortune_cookie():
     print(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}")
 
     return fortune, lucky_num
+
+if __name__ == "__main__":
+    get_fortune_cookie()
