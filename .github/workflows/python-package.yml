@@ -25,8 +25,15 @@ jobs:
     - name: Set PIPENV_PIPFILE environment variable
       run: echo "PIPENV_PIPFILE=$GITHUB_WORKSPACE/Pipfile" >> $GITHUB_ENV
 
-    - name: Install dependencies
-      run: pipenv install --deploy --ignore-pipfile
+    - name: Install dependencies (including dev packages)
+      run: pipenv install --dev --deploy --ignore-pipfile
+
+    - name: List Installed Packages
+      run: pipenv run pip list
+
+    - name: Check pytest Installation
+      run: pipenv run pytest --version
 
     - name: Run Tests
       run: pipenv run pytest
+
