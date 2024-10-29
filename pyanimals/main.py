@@ -139,7 +139,7 @@ def randMessage(animal):
 #
 
 # helper function for race: returns animal racer
-def get_animal_emoji(animal):
+def _get_animal_emoji(animal):
     animal_emojis = {
         "cat": "🐈",
         "bunny": "🐰",
@@ -153,7 +153,7 @@ def _update_position(pos, track_length):
     return min(pos + random.randint(1, 2), track_length)
 
 # helper function for race: returns race result
-def _get_race_result(player_pos, animal_pos):
+def _get_race_result(player_pos, animal_pos, animal):
     if animal_pos > player_pos:
         return f"{animal.title()} is the winner. Better luck next time 😅"
     elif player_pos > animal_pos:
@@ -163,7 +163,7 @@ def _get_race_result(player_pos, animal_pos):
 
 # race: displays race between player and chosen animal
 def race(animal):
-    animal_emoji = get_animal_emoji(animal)
+    animal_emoji = _get_animal_emoji(animal)
     print(f"You are racing against {animal}")
 
     track_length = 20
@@ -183,8 +183,9 @@ def race(animal):
         time.sleep(0.3)
 
     # display result
-    result = _get_race_result(player_pos, animal_pos)
+    result = _get_race_result(player_pos, animal_pos, animal)
     print(result)
+    return [player_pos, animal_pos]
 
 # for debugging purposes
 if __name__ == "__main__":
