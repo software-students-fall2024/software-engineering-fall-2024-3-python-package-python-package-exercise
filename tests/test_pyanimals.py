@@ -2,14 +2,14 @@ from unittest.mock import patch
 import pytest
 from pyanimals.main import *
 
-# move test #1: valid animals
-@pytest.mark.parametrize("validAnimal", ["cat", "bunny", "elephant"])
+# move test #1: handles valid animals
+@pytest.mark.parametrize("validAnimal", ["cat", "bunny", "elephant", "rabbit"])
 def test_move_validAnimal(validAnimal):
     # check that there aren't any errors
     move(validAnimal)
 
 # move test #2: screen is cleared
-@pytest.mark.parametrize("animal", ["cat", "bunny", "elephant"])
+@pytest.mark.parametrize("animal", ["cat", "bunny", "elephant", "rabbit"])
 @patch("pyanimals.main.clearScreen")
 def test_move_clearscreen(mockClearScreen, animal):
     move(animal)
@@ -17,7 +17,7 @@ def test_move_clearscreen(mockClearScreen, animal):
     assert mockClearScreen.call_count == 25
 
 # move test #3: animal didn't move off screen
-@pytest.mark.parametrize("animal", ["cat", "bunny", "elephant"])
+@pytest.mark.parametrize("animal", ["cat", "bunny", "elephant", "rabbit"])
 @patch("pyanimals.main.clearScreen")
 @patch("builtins.print")
 def test_move_inBounds(mockInBounds, mockClearScreen, animal):
