@@ -1,1 +1,1 @@
-from virtualpet.pet import *
+from .pet import VirtualPet
