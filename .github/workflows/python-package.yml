@@ -28,7 +28,11 @@ jobs:
     - name: Install dependencies (including dev packages)
       run: pipenv install --dev --deploy --ignore-pipfile
 
+    - name: Install src as Editable Package
+      run: pipenv run pip install -e src
+
     - name: List Installed Packages
       run: pipenv run pip list
 
-
+    - name: Run Tests with pytest
+      run: pipenv run pytest --maxfail=1 --disable-warnings -v
