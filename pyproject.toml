@@ -8,7 +8,7 @@ description = "Get stock data with unwanted brainrot in your Python app."
 version = "0.1.0"
 authors = [
   { name="Reyhan Abdul Quayum", email="rrq2003@nyu.edu" },
-  { name="Rashed Alneyadi", email="raa9917@nyu.edu" },
+  { name="Rashed Ahmed Alneyadi", email="raa9917@nyu.edu" },
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
