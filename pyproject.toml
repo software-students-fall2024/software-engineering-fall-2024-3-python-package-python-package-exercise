@@ -11,7 +11,6 @@ authors = [
   { name="Rashed Ahmed Alneyadi", email="raa9917@nyu.edu" },
   { name="Sia Chen", email="mc9114@nyu.edu" },
   { name="Yu Zhang", email="yz7669@nyu.edu"},
-  
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
