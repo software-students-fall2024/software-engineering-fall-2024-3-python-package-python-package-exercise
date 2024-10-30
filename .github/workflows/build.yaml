@@ -12,13 +12,12 @@ jobs:
       - name: Install Python, pipenv and Pipfile packages
         uses: kojoru/prepare-pipenv@v2
         with:
-          python-version: ${{matrix.python-version}}
+          python-version: ${{ matrix.python-version }}
       - name: Turn on 'editable' mode
         run: |
           pipenv install -e .
       - name: Test with pytest
         run: |
-          pipenv --venv
           pipenv run python -m pytest
   deliver:
     needs: [build]
