@@ -8,10 +8,10 @@ gitcommitlogger = "*"
 requests = "*"
 pytz = "*"
 python-dateutil = "*"
-pytest = "7.1.2"
+pytest = "*"
 
 
 [dev-packages]
 
 [requires]
-python_version = "3"
+python_version = ">=3.9"
