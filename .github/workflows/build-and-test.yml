@@ -9,24 +9,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     strategy:
       matrix:
         python-version: ["3.8", "3.9"]
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Turn on 'editable' mode
+      - name: Install dependencies in deploy mode
         run: |
-          pipenv install -e .
-      - name: Test with pytest
+          pip install pipenv
+          pipenv install --deploy --system
+      - name: Run tests
         run: |
-          pipenv install pytest
-          pipenv --venv
-          pipenv run python -m pytest
+          pipenv run pytest
+
 
   deliver:
     needs: [build]
