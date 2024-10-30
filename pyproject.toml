@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Financiers"
-description = "Get stock data in your Python app."
+description = "Get stock data with unwanted brainrot in your Python app."
 version = "0.1.0"
 authors = [
   { name="Reyhan Abdul Quayum", email="rrq2003@nyu.edu" },

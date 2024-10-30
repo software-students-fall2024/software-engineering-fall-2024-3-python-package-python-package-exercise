@@ -2,6 +2,8 @@ import pandas as pd
 import requests
 from dotenv import load_dotenv
 import os
+import random
+from .quotes import quotes 
 
 load_dotenv()
 class Stock:
@@ -9,6 +11,14 @@ class Stock:
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
         
     def get_earnings(self, symbol_string):
+        """
+        Retrieves the annual and quarterly earnings (EPS) for the company of interest.
+        Arguments:
+        symbol_string: a string representing the ticker of your choice. For example: symbol=IBM.
+
+        Returns:
+        a pandas DataFrame with two columns 'date' and 'reportedEPS'  
+        """
         url = f'https://www.alphavantage.co/query?function=EARNINGS&symbol={symbol_string}&apikey={self.api_key}'
         
         response = requests.get(url)
@@ -28,5 +38,18 @@ class Stock:
         earnings_df = pd.concat([annualEarnings, quarterlyEarnings], ignore_index=True) # concat (combine) annual and quarterly earnings into a single df (dataframe)
         
         earnings_df = earnings_df.sort_values(by='date', ascending=False).reset_index(drop=True) # sort df by date (otherwise it wasn't sorted)
+        brainrot = random.choice(quotes).replace("{stock}", symbol_string) # get brainrot
+        # return the dataframe with brainrot
+        return BrainrotDataFrame(brainrot, earnings_df)
+    
+class BrainrotDataFrame:
+    def __init__(self, quote, df):
+        self.quote = quote
+        self.df = df
         
-        return earnings_df
+    def __str__(self):
+        return f"{self.quote}\n\n{self.df}"  # have it so the brainrot appears, newline, then the dataframe
+
+    def __repr__(self):
+        return self.__str__()
+

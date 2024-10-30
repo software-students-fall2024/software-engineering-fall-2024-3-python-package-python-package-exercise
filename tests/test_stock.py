@@ -20,7 +20,7 @@ class Tests:
         
         # assert df has correct columns
         expected_columns = ['date', 'reportedEPS', 'type']
-        assert list(earnings.columns) == expected_columns, "DataFrame columns do not match expected columns"
+        assert list(earnings.df.columns) == expected_columns, "DataFrame columns do not match expected columns"
         
         # checkign df is not empty
-        assert not earnings.empty, "Earnings DataFrame is empty, but it was expected to contain data"
+        assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
