@@ -1,9 +1,9 @@
 import pytest
-from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health
+from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats
 
 @pytest.fixture
 def sample_pet():
-    # Create a sample pet for testing
+    # sample pet for testing
     return Pet(name="Buddy", pet_type="dog")
 
 def test_pet_initialization(sample_pet):
@@ -36,3 +36,13 @@ def test_check_pet_level(sample_pet):
 def test_check_pet_health(sample_pet):
     health_result = check_pet_health(sample_pet)
     assert f"{sample_pet.name}'s current health is {sample_pet.health}." in health_result
+def test_check_pet_stats_correct_name(sample_pet):
+    stats_result = check_pet_stats(sample_pet, "Buddy")
+    assert "Pet: Buddy 🐕" in stats_result
+    assert "Type: Dog" in stats_result
+    assert f"Health: {sample_pet.health}/20" in stats_result
+    assert f"Mood: {sample_pet.MOOD_LEVELS.get(sample_pet.mood)}" in stats_result
+
+def test_check_pet_stats_wrong_name(sample_pet):
+    stats_result = check_pet_stats(sample_pet, "Charlie")
+    assert stats_result == "Pet not found."
