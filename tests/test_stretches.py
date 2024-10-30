@@ -1,8 +1,8 @@
 import pytest
 from codebreak.stretches import stretch_exercise
 
-def test_stretch_exercise_short():
-    result = stretch_exercise("short")
+def test_stretch_exercise_1_to_5():
+    result = stretch_exercise(3)  # Testing with a value within 1-5 minutes
     assert result in [
         "Neck Stretch: Slowly tilt your head from side to side.",
         "Shoulder Shrug: Raise your shoulders up to your ears and release.",
@@ -16,8 +16,8 @@ def test_stretch_exercise_short():
         "Seated Cat-Cow: Arch and round your back while sitting up straight."
     ]
 
-def test_stretch_exercise_medium():
-    result = stretch_exercise("medium")
+def test_stretch_exercise_6_to_10():
+    result = stretch_exercise(8)  # Testing with a value within 6-10 minutes
     assert result in [
         "Standing Forward Bend: Bend forward and reach for your toes.",
         "Chest Opener: Clasp hands behind your back and stretch.",
@@ -31,8 +31,8 @@ def test_stretch_exercise_medium():
         "Seated Hamstring Stretch: Extend one leg forward and reach towards your toes."
     ]
 
-def test_stretch_exercise_long():
-    result = stretch_exercise("long")
+def test_stretch_exercise_11_to_15():
+    result = stretch_exercise(12)  # Testing with a value within 11-15 minutes
     assert result in [
         "Downward Dog: Get on all fours and raise your hips into the air.",
         "Child's Pose: Sit back on your heels and stretch your arms forward.",
@@ -47,7 +47,8 @@ def test_stretch_exercise_long():
     ]
 
 def test_invalid_time_limit():
-    result = stretch_exercise("extra-long")
-    assert result == "Invalid time limit. Please choose 'short', 'medium', or 'long'."
+    result = stretch_exercise(20)  # Testing with a value outside the valid range
+    assert result == "Invalid time range. Please choose a time between 1 and 15 minutes."
+
 
 
