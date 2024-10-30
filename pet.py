@@ -62,7 +62,6 @@ class Pet:
         }
     }
 
-
     def __init__(self, name, pet_type):
         self.name = name
         self.type = pet_type.lower()
@@ -71,6 +70,7 @@ class Pet:
         self.experience = 0
         self.health = r.randint(15, 20)
         self.mood = 5
+
 
 def feed(pet, food):
     food_item = Pet.FOOD_MENU.get(food)
@@ -81,9 +81,17 @@ def feed(pet, food):
     pet.mood = min(10, max(1, pet.mood + food_item["mood_boost"]))
     pet.health = min(20, max(0, pet.health + food_item["health_boost"]))
 
-    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed by {food_item['mood_boost']}."
+    mood_description = Pet.MOOD_LEVELS.get(pet.mood, "neutral 😐")
+    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed to '{mood_description}'."
     health_message = f"Their health is now {pet.health}."
     return f"{mood_message} {health_message}"
 
+def check_pet_mood(pet):
+    mood_description = Pet.MOOD_LEVELS.get(pet.mood, "neutral 😐")
+    return f"{pet.name}'s current mood is '{mood_description}' (Level {pet.mood})."
 
+def check_pet_level(pet):
+    return f"{pet.name} is at Level {pet.level}."
 
+def check_pet_health(pet):
+    return f"{pet.name}'s current health is {pet.health}."
