@@ -1,6 +1,11 @@
 import pytest
-from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet
+from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet, release_pet, pets
 
+#resetting pets
+@pytest.fixture
+def reset_pets():
+    global pets
+    pets = {}  
 @pytest.fixture
 def sample_pet():
     # sample pet for testing
@@ -55,9 +60,26 @@ def test_create_pet():
     assert pet.emoji == '🐈'    
     assert pet.level == 1        
     assert 15 <= pet.health <= 20  
-    assert pet.mood == 5        
+    assert pet.mood == 5      
+    assert "Fluffy" in pets  
 
-def test_create_pet_invalid_type():
+def test_create_pet_invalid_type(reset_pets):
     pet = create_pet("Unknown", "dragon")
     assert pet.emoji == '🐾'  
-    assert pet.type == "dragon"  
+    assert pet.type == "dragon" 
+
+def test_create_duplicate_pet(reset_pets):
+    create_pet("Fluffy", "cat")
+    result = create_pet("Fluffy", "dog")
+    assert result == "A pet named Fluffy already exists."
+
+def test_release_pet(reset_pets):
+    create_pet("Buddy", "dog")
+    
+    result = release_pet("Buddy")
+    assert result == "Buddy has been released :("
+    assert "Buddy" not in pets  
+
+def test_release_pet_not_found(reset_pets):
+    result = release_pet("NonExistentPet")
+    assert result == "NonExistentPet not found!"

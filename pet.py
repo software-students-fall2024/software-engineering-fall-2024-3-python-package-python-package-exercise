@@ -1,5 +1,8 @@
 import random as r 
 
+#dictionary to store all pets
+pets = {}
+
 class Pet:
     PET_EMOJIS = {
         'python': '🐍',
@@ -72,7 +75,19 @@ class Pet:
         self.mood = 5
 
 def create_pet(pet_name, pet_type):
-    return Pet(name=pet_name, pet_type=pet_type)
+    if pet_name in pets:
+        return f"A pet named {pet_name} already exists."
+    
+    pet = Pet(name=pet_name, pet_type=pet_type)
+    pets[pet_name] = pet  
+    return pet
+
+def release_pet(pet_name):
+    if pet_name in pets:
+        del pets[pet_name]
+        return f"{pet_name} has been released :("
+    else:
+        return f"{pet_name} not found!"
 
 
 def feed(pet, food):
