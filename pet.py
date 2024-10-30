@@ -95,3 +95,16 @@ def check_pet_level(pet):
 
 def check_pet_health(pet):
     return f"{pet.name}'s current health is {pet.health}."
+
+def check_pet_stats(pet, pet_name):
+    if pet.name.lower() != pet_name.lower():
+        return "Pet not found."
+    
+    stats = f"Pet: {pet.name} {pet.emoji}\n"
+    stats += f"Type: {pet.type.capitalize()}\n"
+    stats += f"Level: {pet.level}\n"
+    stats += f"Experience: {pet.experience}\n"
+    stats += f"Health: {pet.health}/20\n"
+    stats += f"Mood: {Pet.MOOD_LEVELS.get(pet.mood, 'Unknown')}\n"
+    
+    return stats
