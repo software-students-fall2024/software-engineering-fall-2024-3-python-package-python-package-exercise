@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8,3.9]
+        python-version: [3.8, 3.9]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -21,7 +21,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install pipenv
-          pipenv install --dev
+          pipenv install --dev --python $(which python)
       - name: Run tests
         run: |
           pipenv run pytest
@@ -39,7 +39,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install pipenv
-          pipenv install --dev
+          pipenv install --dev --python $(which python)
       - name: Build the package
         run: |
           pipenv run python -m build
