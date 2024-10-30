@@ -140,6 +140,9 @@ def randMessage(animal):
 
 # helper function for race: returns animal racer
 def _get_animal_emoji(animal):
+    if animal not in ["cat", "bunny", "elephant", "rabbit"]:
+        return ""
+    
     animal_emojis = {
         "cat": "🐈",
         "bunny": "🐰",
@@ -164,6 +167,10 @@ def _get_race_result(player_pos, animal_pos, animal):
 # race: displays race between player and chosen animal
 def race(animal):
     animal_emoji = _get_animal_emoji(animal)
+    if (animal_emoji == ""):
+        print("Invalid animal. Please try again with one of the following animals:\n'cat'\n'bunny'\n'elephant'\n'rabbit")
+        return "invalid animal"
+    
     print(f"You are racing against {animal}")
 
     track_length = 20
