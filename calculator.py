@@ -15,7 +15,7 @@ def parse_eq(equation):
     operators = []
     for i, t in enumerate(parse_e):
         if i % 2 == 0:
-            if parse_e.isdigit():
+            if t.isdigit():
                 numbers.append(int(t))
             else:
                 return "Invalid equation: Expected a number."
@@ -55,7 +55,31 @@ def correct_calculator(numbers, operators):
 def wrong_calculator(numbers, operators):
     if operators:
         all_operators = ['+', '-', '*', '/']
-        current_op = operators[random.randint(0, len(operators) - 1)]
-        new_operator_choices = [op for op in all_operators if op != current_op]
+        for i in range(len(operators)):
+            current_op = operators[i]
+            new_list = [o for o in all_operators if o != current_op]
+            operators[i] = random.choice(new_list)
+    return correct_calculator(numbers, operators)
 
-    return
+def calculator(equation):
+    if not isinstance(equation, str):
+        print("Warning: Please pass the equation as a string, like '4 - 8 + 9 / 2'.")
+        return
+    
+    result = parse_eq(equation)
+    if isinstance(result, str):
+        print(result)
+        return
+    numbers, operators = result
+    probabilities = random.randint(0,1)
+    if probabilities > 0.7:
+        result = wrong_calculator(numbers[:], operators[:])
+    else:
+        result = correct_calculator(numbers[:], operators[:])
+    print(f"The result is: {result}")
+
+calculator("3 + 5 / 6")
+calculator(4 - 8 + 9 / 2)
+
+
+
