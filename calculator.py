@@ -1,9 +1,33 @@
 import random
 
-def calculator():
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    symbol = input("Enter an operation (+, -, *, /): ").strip()
+def parse_eq(equation):
+    if '.' in equation:
+        return "Invalid equation: Decimals are not allowed."
+    if equation.strip()[0] in '+-*/' or equation.strip()[-1] in '+-*/ ':
+        return "Invalid equation: Cannot start or end with an operator or space."
+    
+    parse_e = equation.split()
+
+    if len(parse_e) % 2 == 0:
+        return "Invalid equation: Equation must have even spaces between numbers and operations."
+    
+    numbers = []
+    operators = []
+    for i, t in enumerate(parse_e):
+        if i % 2 == 0:
+            if parse_e.isdigit():
+                numbers.append(int(t))
+            else:
+                return "Invalid equation: Expected a number."
+        else:
+            if t in '+-*/':
+                operators.append(t)
+            else:
+                return "Invalid equation: Expected an operator."
+    
+    return numbers, operators
+
+def calculator(numbers, operators):
     if random.choice([True, False]):
         possible_symbols = {'+', '-', '*', '/'} - {symbol}
         symbol = random.choice(list(possible_symbols))
