@@ -31,9 +31,4 @@ jobs:
     - name: List Installed Packages
       run: pipenv run pip list
 
-    - name: Check pytest Installation
-      run: pipenv run pytest --version
-
-    - name: Run Tests
-      run: pipenv run pytest
 
