@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.11, 3.12]  # Specify Python versions to test against
+        python-version: [3.8, 3.9, 3.11, 3.12]  # Specify Python versions to test
 
     steps:
     - name: Checkout code
@@ -25,13 +25,28 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    # Step 1: Install dependencies from requirements.txt
-    - name: Install dependencies
+    # Step 1: Install build tools
+    - name: Install build tools
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Installs all dependencies listed in requirements.txt
+        pip install build
 
-    # Step 2: Run tests
+    # Step 2: Build the package
+    - name: Build the package
+      run: |
+        python -m build
+
+    # Step 3: Install the built package along with runtime dependencies
+    - name: Install the package
+      run: |
+        pip install dist/*.whl  # Installs the package and runtime dependencies from pyproject.toml
+
+    # Step 4: Install development dependencies
+    - name: Install development dependencies
+      run: |
+        pip install pytest  # Manually install pytest as it's listed in optional dependencies for testing
+
+    # Step 5: Run tests
     - name: Run Tests
       run: |
         echo "Running tests..."
