@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.9, 3.11, 3.12]  # Correct versions
+        python-version: [3.9, 3.11, 3.12]
 
     steps:
     - name: Checkout repository
@@ -29,7 +29,18 @@ jobs:
     - name: Set PIPENV_PIPFILE environment variable
       run: echo "PIPENV_PIPFILE=$GITHUB_WORKSPACE/Pipfile" >> $GITHUB_ENV
 
+    - name: Verify Pipfile exists
+      run: |
+        if [ -f "$GITHUB_WORKSPACE/Pipfile" ]; then
+          echo "Pipfile found at $GITHUB_WORKSPACE."
+        else
+          echo "Pipfile NOT found at $GITHUB_WORKSPACE."
+          exit 1
+        fi
+
     - name: Install dependencies (including dev packages)
+      env:
+        PIPENV_PIPFILE: "$GITHUB_WORKSPACE/Pipfile"
       run: pipenv install --dev --deploy --ignore-pipfile
 
     - name: List Installed Packages
@@ -37,4 +48,3 @@ jobs:
 
     - name: Run Tests with pytest
       run: pipenv run pytest --maxfail=1 --disable-warnings -v
-
