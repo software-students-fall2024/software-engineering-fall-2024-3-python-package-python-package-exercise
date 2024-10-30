@@ -18,9 +18,6 @@ def is_duplicate_riddle(riddle: dict, riddles: list) -> bool:
 
 def submit_riddle(riddle: dict, riddles: list) -> str:
     try:
-        if not riddles:
-            return "Error: Riddle library is empty or could not be loaded."
-        
         if not isinstance(riddle, dict):
             return "Error: Invalid input. Please enter a dictionary for the riddle."
         

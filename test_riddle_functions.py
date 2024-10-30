@@ -101,52 +101,27 @@ def test_case_insensitive_answer(riddles):
             result = check_answer(riddle["id"], riddle["answer"][0].upper(), riddles)
             print(result)
             assert "Correct answer!" in result, f"test fails for {riddle['id']}"
-'''
-
-
-# Check answer tests
-def test_correct_answer_for_id_range_26_50(riddles):
-    print("Test correct answer")
-    for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], riddle["answer"][0], "riddleLibrary.json")
-            print(result)
-            assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
-
-def test_incorrect_answer_for_id_range_26_50(riddles):
-    print("Test incorrect answer for id range 26-50")
-    for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], "incorrect answer", "riddleLibrary.json")
-            print(result)
-            assert "Incorrect answer. Try again!" in result, f"Test fails for {riddle['id']}。"
-
-def test_case_insensitive_answer_for_id_range_26_50(riddles):
-    print("Test case insensitive")
-    for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], riddle["answer"][0].upper(), "riddleLibrary.json")
-            print(result)
-            assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
-
 
 # submit riddle tests
 def test_valid_riddle(riddles):
     print("Test valid riddle:")
-    riddle = {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
+    riddle = {"question": "What has keys but can't open lock?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
     result = submit_riddle(riddle, riddles)
-    assert "Riddle submitted successfully!" in result, "Failed: Valid riddle should be submitted successfully."
+    print(result)
+    assert "Riddle submitted successfully" in result, "Failed: Valid riddle should be submitted successfully."
 
 def test_duplicate_riddle(riddles):
     print("Test duplicate riddle:")
-    result = submit_riddle(riddles[0], riddles)
+    result = submit_riddle(riddles[50], riddles)
+    print(result)
     assert "Error: This riddle already exists in the library" in result, "Failed: Duplicate riddle should return an error."
 
 def test_invalid_input(riddles):
     print("Test invalid input:")
     riddle = "abc"
-    with pytest.raises(ValueError, match="Invalid input"):
-        submit_riddle(riddle, riddles)
+    result = submit_riddle(riddle, riddles)
+    print(result)
+    assert "Error: Invalid input" in result, "Failed: Non-dictionary input should return an error."
 
 def test_invalid_riddle_format(riddles):
     print("Test invalid riddle format:")
@@ -159,12 +134,12 @@ def test_invalid_riddle_format(riddles):
     ]
 
     for riddle in test_riddles:
-        with pytest.raises(ValueError, match="Riddle format is incorrect"):
-            submit_riddle(riddle, riddles)
+        result = submit_riddle(riddle, riddles)
+        print(result)
+        assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
 
 def test_invalid_riddle_format(tmp_path):
     print("Test invalid riddle format:")
-    temp_file = tmp_path / "temp_riddleLibrary.json"
     test_riddles = [
         {"question": "What has keys but can't open locks?", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
         {"question": "What has keys but can't open locks?", "answer": "keyboard", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
@@ -174,7 +149,6 @@ def test_invalid_riddle_format(tmp_path):
     ]
 
     for riddle in test_riddles:
-        result = submit_riddle(riddle, file_path=str(temp_file))
+        result = submit_riddle(riddle, riddles)
         print(result)
         assert "Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
-'''
