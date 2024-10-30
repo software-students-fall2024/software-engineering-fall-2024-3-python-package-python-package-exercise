@@ -87,21 +87,24 @@ def test_case_insensitive_answer_for_id_range_26_50():
             assert "Correct answer!" in result, f"test fails for {riddle['id']}"
 
 # submit riddle tests
-def test_valid_riddle():
+def test_valid_riddle(riddles):
     print("Test valid riddle:")
     riddle = {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
-    result = submit_riddle(riddle)
-    print(result)
+    result = submit_riddle(riddle, riddles)
     assert "Riddle submitted successfully!" in result, "Failed: Valid riddle should be submitted successfully."
 
-def test_invalid_input():
+def test_duplicate_riddle(riddles):
+    print("Test duplicate riddle:")
+    result = submit_riddle(riddles[0], riddles)
+    assert "Error: This riddle already exists in the library" in result, "Failed: Duplicate riddle should return an error."
+
+def test_invalid_input(riddles):
     print("Test invalid input:")
     riddle = "abc"
-    result = submit_riddle(riddle)
-    print(result)
-    assert "Error: Invalid input" in result, "Failed: Non-dictionary input should return an error."
+    with pytest.raises(ValueError, match="Invalid input"):
+        submit_riddle(riddle, riddles)
 
-def test_invalid_riddle_format():
+def test_invalid_riddle_format(riddles):
     print("Test invalid riddle format:")
     test_riddles = [
         {"question": "What has keys but can't open locks?", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
@@ -112,9 +115,8 @@ def test_invalid_riddle_format():
     ]
 
     for riddle in test_riddles:
-        result = submit_riddle(riddle)
-        print(result)
-        assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
+        with pytest.raises(ValueError, match="Riddle format is incorrect"):
+            submit_riddle(riddle, riddles)
 
 if __name__ == "__main__":
     riddles = read_file("riddleLibrary.json")
@@ -130,15 +132,15 @@ if __name__ == "__main__":
     test_case_insensitive_answer_for_id_range_26_50()
 
     #submit riddle test
-    test_valid_riddle() # riddles 应该passed as argument
-    test_invalid_input() # 针对重复riddles进行识别
-    test_invalid_riddle_format()
+    test_valid_riddle(riddles) # riddles 应该passed as argument
+    test_duplicate_riddle(riddles) 
+    test_invalid_input(riddles) # 针对重复riddles进行识别
+    test_invalid_riddle_format(riddles)
 
     #generate hint tests
     test_valid_id() # riddles 应该passed as argument
     test_invalid_input() # 生成readfile的test， 使用pytest
     test_nonexistent_id()
 
-
-    #把test都变成pytest
+#把test都变成pytest
     print("All tests completed.")

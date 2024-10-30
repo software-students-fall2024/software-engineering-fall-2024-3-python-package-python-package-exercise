@@ -1,5 +1,4 @@
 import json
-from read_file import read_file
 
 def is_valid_riddle(riddle: dict) -> bool:
     required_keys = {"question", "answer", "hint", "difficulty", "topic"}
@@ -11,23 +10,30 @@ def is_valid_riddle(riddle: dict) -> bool:
         return False
     return True
 
-def submit_riddle(riddle) -> str:
+def is_duplicate_riddle(riddle: dict, riddles: list) -> bool:
+    for existing_riddle in riddles:
+        if riddle["question"] == existing_riddle["question"]:
+            return True
+    return False
+
+def submit_riddle(riddle: dict, riddles: list) -> str:
     try:
+        if not riddles:
+            return "Error: Riddle library is empty or could not be loaded."
+        
         if not isinstance(riddle, dict):
             return "Error: Invalid input. Please enter a dictionary for the riddle."
         
         if not is_valid_riddle(riddle):
             return "Error: Riddle format is incorrect. The correct format is: {\"question\": \"...\", \"answer\": [\"...\"], \"hint\": \"...\", \"difficulty\": \"...\", \"topic\": \"...\"}."
         
-        riddles = read_file("riddleLibrary.json")
-        
-        if not riddles:
-            return "Error: Riddle library is empty or could not be loaded."
+        if is_duplicate_riddle(riddle, riddles):
+            return "Error: This riddle already exists in the library."
         
         riddle["id"] = len(riddles) + 1
         riddles.append(riddle)
         
-        with open("riddles.json", 'w') as file:
+        with open("riddleLibrary.json", 'w') as file:
             json.dump(riddles, file)
         
         return "Riddle submitted successfully!"
