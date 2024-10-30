@@ -28,11 +28,8 @@ jobs:
     - name: Install dependencies (including dev packages)
       run: pipenv install --dev --deploy --ignore-pipfile
 
-    - name: Install the Package
-      run: pip install .
-
-    - name: Verify Package Installation
-      run: pip show tamagotchi
+    - name: Install the Package in Editable Mode
+      run: pip install -e src
 
     - name: List Installed Packages
       run: pipenv run pip list
