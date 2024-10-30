@@ -8,8 +8,8 @@ gitcommitlogger = "*"
 requests = "*"
 pytz = "*"
 python-dateutil = "*"
-pytest = "*"
-exceptiongroup = "*"
+pytest = "==7.1.2"
+
 
 [dev-packages]
 
