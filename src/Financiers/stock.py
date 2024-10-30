@@ -17,7 +17,7 @@ class Stock:
         symbol_string: a string representing the ticker of your choice. For example: symbol=IBM.
 
         Returns:
-        a pandas DataFrame with two columns 'date' and 'reportedEPS'  
+        a custom pandas DataFrame BrainrotDataFrame containing a random brainrot quote and a DataFrame with two columns 'date' and 'reportedEPS'  
         """
         url = f'https://www.alphavantage.co/query?function=EARNINGS&symbol={symbol_string}&apikey={self.api_key}'
         
