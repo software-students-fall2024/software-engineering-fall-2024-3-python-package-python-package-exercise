@@ -292,7 +292,12 @@
     },
     {
         "question": "What kind of coat can only be put on when wet?",
-        "answer": ["coat of paint", "a coat of paint", "paint coat", "the paint coat"],
+        "answer": [
+            "coat of paint",
+            "a coat of paint",
+            "paint coat",
+            "the paint coat"
+        ],
         "hint": "It's used for coloring surfaces.",
         "difficulty": 2,
         "topic": "Objects",
@@ -300,7 +305,12 @@
     },
     {
         "question": "What is full of holes but still holds water?",
-        "answer": ["sponge", "a sponge", "the sponge", "sponges"],
+        "answer": [
+            "sponge",
+            "a sponge",
+            "the sponge",
+            "sponges"
+        ],
         "hint": "It's used for cleaning.",
         "difficulty": 1,
         "topic": "Objects",
@@ -308,7 +318,12 @@
     },
     {
         "question": "What has one eye but can't see?",
-        "answer": ["needle", "a needle", "the needle", "needles"],
+        "answer": [
+            "needle",
+            "a needle",
+            "the needle",
+            "needles"
+        ],
         "hint": "It's used for sewing.",
         "difficulty": 1,
         "topic": "Objects",
@@ -316,7 +331,12 @@
     },
     {
         "question": "What has to be broken before you can use it?",
-        "answer": ["egg", "an egg", "the egg", "eggs"],
+        "answer": [
+            "egg",
+            "an egg",
+            "the egg",
+            "eggs"
+        ],
         "hint": "You eat it for breakfast.",
         "difficulty": 1,
         "topic": "Food",
@@ -324,7 +344,12 @@
     },
     {
         "question": "What has an end but no beginning, a home but no family, and a space without room?",
-        "answer": ["road", "a road", "the road", "roads"],
+        "answer": [
+            "road",
+            "a road",
+            "the road",
+            "roads"
+        ],
         "hint": "You travel on it.",
         "difficulty": 3,
         "topic": "Nature",
@@ -332,7 +357,12 @@
     },
     {
         "question": "What building has the most stories?",
-        "answer": ["library", "a library", "the library", "libraries"],
+        "answer": [
+            "library",
+            "a library",
+            "the library",
+            "libraries"
+        ],
         "hint": "It's full of books.",
         "difficulty": 1,
         "topic": "Places",
@@ -340,7 +370,11 @@
     },
     {
         "question": "What tastes better than it smells?",
-        "answer": ["tongue", "the tongue", "a tongue"],
+        "answer": [
+            "tongue",
+            "the tongue",
+            "a tongue"
+        ],
         "hint": "It's part of your body.",
         "difficulty": 2,
         "topic": "Body",
@@ -348,7 +382,12 @@
     },
     {
         "question": "What has to be kept after it is given to you?",
-        "answer": ["word", "a word", "the word", "your word"],
+        "answer": [
+            "word",
+            "a word",
+            "the word",
+            "your word"
+        ],
         "hint": "It's something you promise.",
         "difficulty": 3,
         "topic": "Values",
@@ -356,7 +395,12 @@
     },
     {
         "question": "What kind of room has no doors or windows?",
-        "answer": ["mushroom", "a mushroom", "the mushroom", "mushrooms"],
+        "answer": [
+            "mushroom",
+            "a mushroom",
+            "the mushroom",
+            "mushrooms"
+        ],
         "hint": "It's something you can eat.",
         "difficulty": 2,
         "topic": "Food",
@@ -364,7 +408,11 @@
     },
     {
         "question": "What begins with T, ends with T, and has T in it?",
-        "answer": ["teapot", "a teapot", "the teapot"],
+        "answer": [
+            "teapot",
+            "a teapot",
+            "the teapot"
+        ],
         "hint": "It holds something you drink.",
         "difficulty": 3,
         "topic": "Objects",
@@ -372,7 +420,12 @@
     },
     {
         "question": "What has four fingers and a thumb, but isn't alive?",
-        "answer": ["glove", "a glove", "the glove", "gloves"],
+        "answer": [
+            "glove",
+            "a glove",
+            "the glove",
+            "gloves"
+        ],
         "hint": "You wear it in winter.",
         "difficulty": 1,
         "topic": "Objects",
@@ -380,7 +433,12 @@
     },
     {
         "question": "What has a bottom at the top?",
-        "answer": ["leg", "a leg", "the leg", "legs"],
+        "answer": [
+            "leg",
+            "a leg",
+            "the leg",
+            "legs"
+        ],
         "hint": "It's part of your body.",
         "difficulty": 2,
         "topic": "Body",
@@ -388,7 +446,11 @@
     },
     {
         "question": "What's easy to get into, but hard to get out of?",
-        "answer": ["trouble", "the trouble", "a trouble"],
+        "answer": [
+            "trouble",
+            "the trouble",
+            "a trouble"
+        ],
         "hint": "It's something you might want to avoid.",
         "difficulty": 2,
         "topic": "Values",
@@ -396,7 +458,12 @@
     },
     {
         "question": "What has words, but never speaks?",
-        "answer": ["book", "a book", "the book", "books"],
+        "answer": [
+            "book",
+            "a book",
+            "the book",
+            "books"
+        ],
         "hint": "You read it.",
         "difficulty": 1,
         "topic": "Objects",
@@ -404,7 +471,12 @@
     },
     {
         "question": "What gets bigger the more you take away?",
-        "answer": ["hole", "a hole", "the hole", "holes"],
+        "answer": [
+            "hole",
+            "a hole",
+            "the hole",
+            "holes"
+        ],
         "hint": "It's something in the ground.",
         "difficulty": 3,
         "topic": "Nature",
@@ -412,7 +484,12 @@
     },
     {
         "question": "I have keys but open no locks. I have space but no room. You can enter, but can't go outside. What am I?",
-        "answer": ["keyboard", "a keyboard", "the keyboard", "computer keyboard"],
+        "answer": [
+            "keyboard",
+            "a keyboard",
+            "the keyboard",
+            "computer keyboard"
+        ],
         "hint": "It's part of a computer.",
         "difficulty": 3,
         "topic": "Technology",
@@ -420,7 +497,12 @@
     },
     {
         "question": "What has legs, but doesn't walk?",
-        "answer": ["table", "a table", "the table", "tables"],
+        "answer": [
+            "table",
+            "a table",
+            "the table",
+            "tables"
+        ],
         "hint": "You put things on it.",
         "difficulty": 1,
         "topic": "Objects",
@@ -428,7 +510,11 @@
     },
     {
         "question": "What flies without wings?",
-        "answer": ["time", "the time", "time flies"],
+        "answer": [
+            "time",
+            "the time",
+            "time flies"
+        ],
         "hint": "It's always passing by.",
         "difficulty": 2,
         "topic": "Time",
@@ -436,7 +522,11 @@
     },
     {
         "question": "What comes down, but never goes up?",
-        "answer": ["rain", "the rain", "rainfall"],
+        "answer": [
+            "rain",
+            "the rain",
+            "rainfall"
+        ],
         "hint": "It's water from the sky.",
         "difficulty": 1,
         "topic": "Nature",
@@ -444,7 +534,12 @@
     },
     {
         "question": "What is so fragile that saying its name breaks it?",
-        "answer": ["silence", "the silence", "quiet", "stillness"],
+        "answer": [
+            "silence",
+            "the silence",
+            "quiet",
+            "stillness"
+        ],
         "hint": "It's the absence of sound.",
         "difficulty": 3,
         "topic": "Values",
@@ -452,7 +547,12 @@
     },
     {
         "question": "What kind of tree can you carry in your hand?",
-        "answer": ["palm", "a palm", "the palm", "palm tree"],
+        "answer": [
+            "palm",
+            "a palm",
+            "the palm",
+            "palm tree"
+        ],
         "hint": "It's also part of your hand.",
         "difficulty": 1,
         "topic": "Nature",
@@ -460,7 +560,11 @@
     },
     {
         "question": "Forward I am heavy, but backward I am not. What am I?",
-        "answer": ["ton", "a ton", "the ton"],
+        "answer": [
+            "ton",
+            "a ton",
+            "the ton"
+        ],
         "hint": "It's a unit of weight.",
         "difficulty": 3,
         "topic": "Words",
@@ -468,7 +572,12 @@
     },
     {
         "question": "I have branches, but no fruit, trunk, or leaves. What am I?",
-        "answer": ["bank", "a bank", "the bank", "banks"],
+        "answer": [
+            "bank",
+            "a bank",
+            "the bank",
+            "banks"
+        ],
         "hint": "It deals with money.",
         "difficulty": 2,
         "topic": "Places",
@@ -476,7 +585,12 @@
     },
     {
         "question": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?",
-        "answer": ["pencil lead", "a pencil lead", "the pencil lead", "lead in a pencil"],
+        "answer": [
+            "pencil lead",
+            "a pencil lead",
+            "the pencil lead",
+            "lead in a pencil"
+        ],
         "hint": "It's something you write with.",
         "difficulty": 3,
         "topic": "Objects",
@@ -484,7 +598,15 @@
     },
     {
         "question": "What has a head, a tail, is brown, and has no legs?",
-        "answer": ["penny", "a penny", "the penny", "coins", "coin","a coin","the coin"],
+        "answer": [
+            "penny",
+            "a penny",
+            "the penny",
+            "coins",
+            "coin",
+            "a coin",
+            "the coin"
+        ],
         "hint": "It's a form of currency.",
         "difficulty": 2,
         "topic": "Objects",
@@ -492,7 +614,10 @@
     },
     {
         "question": "What comes once in a year, twice in a month, four times in a week, and six times in a day?",
-        "answer": ["letter 'E'", "E"],
+        "answer": [
+            "letter 'E'",
+            "E"
+        ],
         "hint": "Focus on letters, not numbers.",
         "difficulty": 4,
         "topic": "Words",
@@ -500,7 +625,12 @@
     },
     {
         "question": "What can run, but never walks, has a mouth, but never talks?",
-        "answer": ["river", "a river", "the river", "rivers"],
+        "answer": [
+            "river",
+            "a river",
+            "the river",
+            "rivers"
+        ],
         "hint": "It flows naturally.",
         "difficulty": 2,
         "topic": "Nature",
@@ -508,7 +638,12 @@
     },
     {
         "question": "What has a ring but no finger?",
-        "answer": ["telephone", "a telephone", "the telephone", "telephones"], 
+        "answer": [
+            "telephone",
+            "a telephone",
+            "the telephone",
+            "telephones"
+        ],
         "hint": "It's something that can call.",
         "difficulty": 2,
         "topic": "Objects",
@@ -516,7 +651,10 @@
     },
     {
         "question": "If two's company, and three's a crowd, what are four and five?",
-        "answer": ["Nine", "9"],
+        "answer": [
+            "Nine",
+            "9"
+        ],
         "hint": "It's simple math.",
         "difficulty": 1,
         "topic": "Math",
@@ -524,7 +662,12 @@
     },
     {
         "question": "What has many keys, but can't open a single lock?",
-        "answer": ["piano", "a piano", "the piano", "pianos"],
+        "answer": [
+            "piano",
+            "a piano",
+            "the piano",
+            "pianos"
+        ],
         "hint": "It's a musical instrument.",
         "difficulty": 1,
         "topic": "Music",
@@ -532,7 +675,12 @@
     },
     {
         "question": "What starts with an E, ends with an E, but only contains one letter?",
-        "answer": ["envelope", "an envelope", "the envelope", "envelopes"],
+        "answer": [
+            "envelope",
+            "an envelope",
+            "the envelope",
+            "envelopes"
+        ],
         "hint": "It's used for sending mail.",
         "difficulty": 3,
         "topic": "Objects",
@@ -540,7 +688,12 @@
     },
     {
         "question": "What type of dress can never be worn?",
-        "answer": ["address", "an address", "the address", "addresses"],
+        "answer": [
+            "address",
+            "an address",
+            "the address",
+            "addresses"
+        ],
         "hint": "It's not clothing.",
         "difficulty": 2,
         "topic": "Words",
@@ -548,7 +701,12 @@
     },
     {
         "question": "What begins with P, ends with E, and has thousands of letters?",
-        "answer": ["post office", "a post office", "the post office", "post offices"],
+        "answer": [
+            "post office",
+            "a post office",
+            "the post office",
+            "post offices"
+        ],
         "hint": "It deals with letters.",
         "difficulty": 3,
         "topic": "Places",
@@ -556,7 +714,12 @@
     },
     {
         "question": "I'm always on the dinner table, but you don't get to eat me. What am I?",
-        "answer": ["plate", "the plate", "a plate", "plates"],
+        "answer": [
+            "plate",
+            "the plate",
+            "a plate",
+            "plates"
+        ],
         "hint": "You use them to eat.",
         "difficulty": 1,
         "topic": "Food",
@@ -564,7 +727,12 @@
     },
     {
         "question": "What is cut on a table, but never eaten?",
-        "answer": ["cards", "card", "a card", "the card"],
+        "answer": [
+            "cards",
+            "card",
+            "a card",
+            "the card"
+        ],
         "hint": "It's used for playing games.",
         "difficulty": 2,
         "topic": "Games",
@@ -572,7 +740,12 @@
     },
     {
         "question": "What can run but never walks, has a mouth but never talks?",
-        "answer": ["river", "a river", "the river", "rivers"],
+        "answer": [
+            "river",
+            "a river",
+            "the river",
+            "rivers"
+        ],
         "hint": "It flows continuously.",
         "difficulty": 2,
         "topic": "Nature",
@@ -580,7 +753,12 @@
     },
     {
         "question": "What has a thumb and four fingers, but is not alive?",
-        "answer": ["glove", "a glove", "the glove", "gloves"],
+        "answer": [
+            "glove",
+            "a glove",
+            "the glove",
+            "gloves"
+        ],
         "hint": "It's something you wear.",
         "difficulty": 1,
         "topic": "Objects",
@@ -588,7 +766,12 @@
     },
     {
         "question": "If I drink, I die. If I eat, I am fine. What am I?",
-        "answer": ["fire", "a fire", "the fire", "fires"],
+        "answer": [
+            "fire",
+            "a fire",
+            "the fire",
+            "fires"
+        ],
         "hint": "It's something hot.",
         "difficulty": 3,
         "topic": "Nature",
@@ -596,7 +779,10 @@
     },
     {
         "question": "What comes once in a second, once in a minute, but never in a thousand years?",
-        "answer": ["letter 'S'", "S"],
+        "answer": [
+            "letter 'S'",
+            "S"
+        ],
         "hint": "Focus on letters.",
         "difficulty": 4,
         "topic": "Words",
@@ -604,7 +790,11 @@
     },
     {
         "question": "What is lighter than a feather, yet the strongest man cannot hold it for much longer than a minute?",
-        "answer": ["Breath", "a breath", "the breath"],
+        "answer": [
+            "Breath",
+            "a breath",
+            "the breath"
+        ],
         "hint": "Everyone has it.",
         "difficulty": 3,
         "topic": "Nature",
@@ -612,7 +802,12 @@
     },
     {
         "question": "What can travel all around the world without leaving its corner?",
-        "answer": ["stamp", "a stamp", "the stamp", "stamps"],
+        "answer": [
+            "stamp",
+            "a stamp",
+            "the stamp",
+            "stamps"
+        ],
         "hint": "It's on letters.",
         "difficulty": 3,
         "topic": "Objects",
@@ -620,7 +815,12 @@
     },
     {
         "question": "I can only live where there is light, but I die if the light shines on me. What am I?",
-        "answer": ["shadow", "a shadow", "the shadow", "shadows"],
+        "answer": [
+            "shadow",
+            "a shadow",
+            "the shadow",
+            "shadows"
+        ],
         "hint": "It follows you.",
         "difficulty": 3,
         "topic": "Nature",
@@ -628,7 +828,12 @@
     },
     {
         "question": "What has keys but can't open doors?",
-        "answer": ["keyboard", "a keyboard", "the keyboard", "keyboards"],
+        "answer": [
+            "keyboard",
+            "a keyboard",
+            "the keyboard",
+            "keyboards"
+        ],
         "hint": "It's part of a computer.",
         "difficulty": 2,
         "topic": "Technology",
@@ -636,7 +841,12 @@
     },
     {
         "question": "What runs but never walks, has a bed but never sleeps, has a mouth but never eats?",
-        "answer": ["river", "a river", "the river", "rivers"],
+        "answer": [
+            "river",
+            "a river",
+            "the river",
+            "rivers"
+        ],
         "hint": "It flows.",
         "difficulty": 2,
         "topic": "Nature",
@@ -644,7 +854,12 @@
     },
     {
         "question": "What can't be used until it's broken?",
-        "answer": ["egg", "an egg", "the egg", "eggs"],
+        "answer": [
+            "egg",
+            "an egg",
+            "the egg",
+            "eggs"
+        ],
         "hint": "You eat it for breakfast.",
         "difficulty": 1,
         "topic": "Food",
@@ -652,15 +867,25 @@
     },
     {
         "question": "What has many keys but can't open a single lock?",
-        "answer": ["piano", "a piano", "the piano", "pianos"],
+        "answer": [
+            "piano",
+            "a piano",
+            "the piano",
+            "pianos"
+        ],
         "hint": "It's musical.",
         "difficulty": 1,
         "topic": "Music",
         "id": 71
     },
     {
-        "question": "I’m tall when I’m young and short when I’m old. What am I?",
-        "answer": ["candle", "a candle", "the candle", "candles"],
+        "question": "I\u2019m tall when I\u2019m young and short when I\u2019m old. What am I?",
+        "answer": [
+            "candle",
+            "a candle",
+            "the candle",
+            "candles"
+        ],
         "hint": "It melts as it goes.",
         "difficulty": 1,
         "topic": "Objects",
@@ -668,7 +893,12 @@
     },
     {
         "question": "What has an eye but cannot see?",
-        "answer": ["hurricane", "a hurricane", "the hurricane", "hurricanes"],
+        "answer": [
+            "hurricane",
+            "a hurricane",
+            "the hurricane",
+            "hurricanes"
+        ],
         "hint": "It's a natural phenomenon.",
         "difficulty": 2,
         "topic": "Weather",
@@ -676,7 +906,12 @@
     },
     {
         "question": "What runs but never walks, has a bed but never sleeps?",
-        "answer": ["river", "a river", "the river", "rivers"],
+        "answer": [
+            "river",
+            "a river",
+            "the river",
+            "rivers"
+        ],
         "hint": "It flows through landscapes.",
         "difficulty": 2,
         "topic": "Nature",
@@ -684,7 +919,12 @@
     },
     {
         "question": "What has teeth but cannot bite?",
-        "answer": ["comb", "a comb", "the comb", "combs"],
+        "answer": [
+            "comb",
+            "a comb",
+            "the comb",
+            "combs"
+        ],
         "hint": "It's for hair.",
         "difficulty": 1,
         "topic": "Objects",
@@ -692,7 +932,12 @@
     },
     {
         "question": "What's inside you that can be touched but can't be seen?",
-        "answer": ["heart", "a heart", "the heart", "hearts"],
+        "answer": [
+            "heart",
+            "a heart",
+            "the heart",
+            "hearts"
+        ],
         "hint": "It can represnet emotions.",
         "difficulty": 2,
         "topic": "Personal",
@@ -700,7 +945,12 @@
     },
     {
         "question": "The more of it there is, the less you see. What is it?",
-        "answer": ["darkness", "the darkness", "the dark", "dark"],
+        "answer": [
+            "darkness",
+            "the darkness",
+            "the dark",
+            "dark"
+        ],
         "hint": "It's the absence of light.",
         "difficulty": 2,
         "topic": "Nature",
@@ -708,7 +958,12 @@
     },
     {
         "question": "What can travel up and down stairs without moving?",
-        "answer": ["carpet", "a carpet", "the carpet", "carpets"],
+        "answer": [
+            "carpet",
+            "a carpet",
+            "the carpet",
+            "carpets"
+        ],
         "hint": "It covers surfaces.",
         "difficulty": 2,
         "topic": "Household Items",
@@ -716,7 +971,12 @@
     },
     {
         "question": "I can be cracked, made, told, and played. What am I?",
-        "answer": ["joke", "a joke", "the joke", "jokes"],
+        "answer": [
+            "joke",
+            "a joke",
+            "the joke",
+            "jokes"
+        ],
         "hint": "It can make people laugh.",
         "difficulty": 2,
         "topic": "Humor",
@@ -724,7 +984,12 @@
     },
     {
         "question": "I can fly without wings. I can cry without eyes. Whenever I go, darkness flies. What am I?",
-        "answer": ["cloud", "a cloud", "the cloud", "clouds"],
+        "answer": [
+            "cloud",
+            "a cloud",
+            "the cloud",
+            "clouds"
+        ],
         "hint": "You see it in the sky.",
         "difficulty": 4,
         "topic": "Nature",
@@ -732,7 +997,12 @@
     },
     {
         "question": "What has wheels and flies, but is not an aircraft?",
-        "answer": ["garbage truck", "a garbage truck", "the garbage truck", "garbage trucks"],
+        "answer": [
+            "garbage truck",
+            "a garbage truck",
+            "the garbage truck",
+            "garbage trucks"
+        ],
         "hint": "It collects waste.",
         "difficulty": 3,
         "topic": "Vehicles",
@@ -740,7 +1010,11 @@
     },
     {
         "question": "What breaks yet never falls, and what falls yet never breaks?",
-        "answer": ["day and night", "day", "night"],
+        "answer": [
+            "day and night",
+            "day",
+            "night"
+        ],
         "hint": "It happens every 24 hours.",
         "difficulty": 4,
         "topic": "Nature",
@@ -748,7 +1022,12 @@
     },
     {
         "question": "What has no body and no shape, yet can always be heard?",
-        "answer": ["voice", "a voice", "the voice", "voices"],
+        "answer": [
+            "voice",
+            "a voice",
+            "the voice",
+            "voices"
+        ],
         "hint": "You use it when you speak.",
         "difficulty": 2,
         "topic": "Abstract",
@@ -756,7 +1035,12 @@
     },
     {
         "question": "I have no life, but I can die. I don't have a body, but I can grow. What am I?",
-        "answer": ["battery", "a battery", "the battery", "batteries"],
+        "answer": [
+            "battery",
+            "a battery",
+            "the battery",
+            "batteries"
+        ],
         "hint": "It powers your devices.",
         "difficulty": 3,
         "topic": "Technology",
@@ -764,7 +1048,12 @@
     },
     {
         "question": "I am invisible, weigh nothing, and if you put me in a barrel, it will make it lighter. What am I?",
-        "answer": ["hole", "a hole", "the hole", "holes"],
+        "answer": [
+            "hole",
+            "a hole",
+            "the hole",
+            "holes"
+        ],
         "hint": "It's an absence.",
         "difficulty": 4,
         "topic": "Nature",
@@ -772,7 +1061,12 @@
     },
     {
         "question": "What has one head, one foot, and four legs?",
-        "answer": ["bed", "a bed", "the bed", "beds"],
+        "answer": [
+            "bed",
+            "a bed",
+            "the bed",
+            "beds"
+        ],
         "hint": "You sleep on it.",
         "difficulty": 1,
         "topic": "Furniture",
@@ -780,7 +1074,11 @@
     },
     {
         "question": "I am not alive, but I can grow. I don't have lungs, but I need air. What am I?",
-        "answer": ["fire", "the fire", "fires"],
+        "answer": [
+            "fire",
+            "the fire",
+            "fires"
+        ],
         "hint": "It needs oxygen to exist.",
         "difficulty": 2,
         "topic": "Nature",
@@ -788,7 +1086,11 @@
     },
     {
         "question": "I am an odd number. Take away one letter and I become even. What am I?",
-        "answer": ["seven", "the number seven", "7"],
+        "answer": [
+            "seven",
+            "the number seven",
+            "7"
+        ],
         "hint": "Think about numbers and spelling.",
         "difficulty": 3,
         "topic": "Math",
@@ -796,7 +1098,12 @@
     },
     {
         "question": "I can fly without wings. If I lose my warmth, I die. What am I?",
-        "answer": ["balloon", "a balloon", "the balloon", "hot air balloon"],
+        "answer": [
+            "balloon",
+            "a balloon",
+            "the balloon",
+            "hot air balloon"
+        ],
         "hint": "People ride on me in the sky.",
         "difficulty": 4,
         "topic": "Objects",
@@ -812,7 +1119,12 @@
     },
     {
         "question": "I shave every day, but my beard stays the same. What am I?",
-        "answer": ["barber", "a barber", "barbers", "the barber"],
+        "answer": [
+            "barber",
+            "a barber",
+            "barbers",
+            "the barber"
+        ],
         "hint": "It's a profession.",
         "difficulty": 2,
         "topic": "Jobs",
@@ -820,7 +1132,11 @@
     },
     {
         "question": "What can go up a chimney down, but not down a chimney up?",
-        "answer": ["umbrella", "an umbrella", "the umbrella"],
+        "answer": [
+            "umbrella",
+            "an umbrella",
+            "the umbrella"
+        ],
         "hint": "It's for rainy days.",
         "difficulty": 4,
         "topic": "Objects",
@@ -836,7 +1152,12 @@
     },
     {
         "question": "I am lighter than air, but a hundred people cannot lift me. What am I?",
-        "answer": ["bubble", "a bubble", "the bubble", "soap bubble"],
+        "answer": [
+            "bubble",
+            "a bubble",
+            "the bubble",
+            "soap bubble"
+        ],
         "hint": "Children love to play with me.",
         "difficulty": 3,
         "topic": "Nature",
@@ -844,7 +1165,12 @@
     },
     {
         "question": "I am not a living thing, but I can make people cry or smile. What am I?",
-        "answer": ["movie", "a movie", "the movie", "film"],
+        "answer": [
+            "movie",
+            "a movie",
+            "the movie",
+            "film"
+        ],
         "hint": "You often see me in theaters.",
         "difficulty": 2,
         "topic": "Entertainment",
@@ -852,7 +1178,12 @@
     },
     {
         "question": "What can't talk but will reply when spoken to?",
-        "answer": ["echo", "the echo", "an echo", "echoes"],
+        "answer": [
+            "echo",
+            "the echo",
+            "an echo",
+            "echoes"
+        ],
         "hint": "You can hear it when facing a canyon.",
         "difficulty": 2,
         "topic": "Nature",
@@ -860,7 +1191,12 @@
     },
     {
         "question": "What gets sharper the more you use it?",
-        "answer": ["mind", "the mind", "intelligence", "brain"],
+        "answer": [
+            "mind",
+            "the mind",
+            "intelligence",
+            "brain"
+        ],
         "hint": "It's not a physical tool.",
         "difficulty": 3,
         "topic": "Abstract",
@@ -868,7 +1204,10 @@
     },
     {
         "question": "What is always in front of you but can't be seen?",
-        "answer": ["future", "the future"],
+        "answer": [
+            "future",
+            "the future"
+        ],
         "hint": "It's yet to come.",
         "difficulty": 3,
         "topic": "Time",
@@ -876,7 +1215,12 @@
     },
     {
         "question": "If you drop me, I'm sure to crack, but give me a smile and I'll always smile back. What am I?",
-        "answer": ["mirror", "a mirror", "the mirror", "mirrors"],
+        "answer": [
+            "mirror",
+            "a mirror",
+            "the mirror",
+            "mirrors"
+        ],
         "hint": "It shows you your reflection.",
         "difficulty": 2,
         "topic": "Household Items",
@@ -884,7 +1228,12 @@
     },
     {
         "question": "What has no beginning, end, or middle?",
-        "answer": ["circle", "a circle", "circles", "the circle"],
+        "answer": [
+            "circle",
+            "a circle",
+            "circles",
+            "the circle"
+        ],
         "hint": "You can draw it with one stroke.",
         "difficulty": 1,
         "topic": "Shape",
