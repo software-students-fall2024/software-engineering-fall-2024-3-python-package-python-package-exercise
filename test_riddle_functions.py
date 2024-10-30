@@ -1,10 +1,10 @@
-from provide_hint import provide_hint
 import pytest
-from generate_riddle import generate_riddle
-from check_answer import check_answer
-from read_file import read_file
-from submit_riddle import submit_riddle
 import json
+from src.provide_hint import provide_hint
+from src.generate_riddle import generate_riddle
+from src.check_answer import check_answer
+from src.read_file import read_file
+from src.submit_riddle import submit_riddle
 
 @pytest.fixture
 def riddles():
@@ -103,12 +103,29 @@ def test_case_insensitive_answer(riddles):
             assert "Correct answer!" in result, f"test fails for {riddle['id']}"
 
 # submit riddle tests
-def test_valid_riddle(riddles):
+def test_valid_riddle(riddles, file_path="riddleLibrary.json"):
     print("Test valid riddle:")
-    riddle = {"question": "What has keys but can't open lock?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
+    riddle = {
+        "question": "What has keys but can't open lock?",
+        "answer": ["keyboard"],
+        "hint": "Used to type on a computer.",
+        "difficulty": 1,
+        "topic": "Riddles"
+    }
+    
     result = submit_riddle(riddle, riddles)
     print(result)
     assert "Riddle submitted successfully" in result, "Failed: Valid riddle should be submitted successfully."
+    
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    
+    if riddle in data:
+        data.remove(riddle)
+    
+    with open(file_path, 'w') as file:
+        json.dump(data, file, indent=4)
+
 
 def test_duplicate_riddle(riddles):
     print("Test duplicate riddle:")
