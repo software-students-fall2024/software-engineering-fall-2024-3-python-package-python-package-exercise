@@ -109,7 +109,7 @@ def check_pet_mood(pet):
     return f"{pet.name}'s current mood is '{mood_description}' (Level {pet.mood})."
 
 def check_pet_level(pet):
-    return f"{pet.name} is at Level {pet.level}."
+    return f"{pet.name} is at Level {pet.level} with {pet.experience} XP."
 
 def check_pet_health(pet):
     return f"{pet.name}'s current health is {pet.health}."
