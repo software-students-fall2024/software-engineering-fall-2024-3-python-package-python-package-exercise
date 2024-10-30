@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build and Test v2
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8,3.9, 3.10]
+        python-version: [3.8,3.9]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
