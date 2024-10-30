@@ -57,6 +57,10 @@ def get_answers(language, count=0):
         # return error message that specific language is not available
         return []
     
+    # handle invalid count
+    if count < 0:
+        count = 0
+
     sample_answers = []
     if count == 0 or count > len(answers[language]):
         for answer in answers[language]:
