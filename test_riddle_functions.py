@@ -1,5 +1,6 @@
 import pytest
 import json
+import random
 from src.provide_hint import provide_hint
 from src.generate_riddle import generate_riddle
 from src.check_answer import check_answer
@@ -132,7 +133,10 @@ def test_valid_riddle(file_path="riddleLibrary.json"):
 def test_duplicate_riddle():
     print("Test duplicate riddle:")
     riddles = read_file("riddleLibrary.json")
-    result = submit_riddle(riddles[50])
+    # Select a random riddle from the library
+    random_riddle = riddles[random.randint(0, len(riddles) - 1)]
+    # submit duplicated riddle
+    result = submit_riddle(random_riddle)
     print(result)
     assert "Error: This riddle already exists in the library" in result, "Failed: Duplicate riddle should return an error."
 
