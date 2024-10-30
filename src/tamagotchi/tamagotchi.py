@@ -47,7 +47,6 @@ def getpet(number):
     try:
         with open(filename, 'r') as f:
             pet = f.read()
-            print(pet) 
             return pet
     except FileNotFoundError:
         print(f"File {filename} not found.")
