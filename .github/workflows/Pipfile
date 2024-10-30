@@ -9,6 +9,7 @@ requests = "*"
 pytz = "*"
 python-dateutil = "*"
 pytest = "*"
+exceptiongroup = "*"
 
 [dev-packages]
 
