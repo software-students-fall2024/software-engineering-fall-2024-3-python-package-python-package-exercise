@@ -51,6 +51,6 @@ tamagotchi_cli = "tamagotchi.__main__:main"
 package_dir = {"": "src"}
 
 [tool.setuptools.package_data]
-"tamagotchi" = ["*.txt"]
+tamagotchi = ["*.txt"]
 
 
