@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 import random
-from .quotes import quotes
+from Financiers.quotes import quotes
 
 load_dotenv()
 
@@ -74,3 +74,8 @@ class BrainrotDataFrame:
 
     def __repr__(self):
         return self.__str__()
+    
+
+print("Script started.")
+print("Processing complete.")
+
