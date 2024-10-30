@@ -1,4 +1,5 @@
 import json
+from src.read_file import read_file
 
 def is_valid_riddle(riddle: dict) -> bool:
     required_keys = {"question", "answer", "hint", "difficulty", "topic"}
@@ -16,7 +17,7 @@ def is_duplicate_riddle(riddle: dict, riddles: list) -> bool:
             return True
     return False
 
-def submit_riddle(riddle: dict, riddles: list) -> str:
+def submit_riddle(riddle: dict) -> str:
     try:
         if not isinstance(riddle, dict):
             return "Error: Invalid input. Please enter a dictionary for the riddle."
@@ -24,6 +25,8 @@ def submit_riddle(riddle: dict, riddles: list) -> str:
         if not is_valid_riddle(riddle):
             return "Error: Riddle format is incorrect. The correct format is: {\"question\": \"...\", \"answer\": [\"...\"], \"hint\": \"...\", \"difficulty\": \"...\", \"topic\": \"...\"}."
         
+        riddles = read_file("riddleLibrary.json")
+
         if is_duplicate_riddle(riddle, riddles):
             return "Error: This riddle already exists in the library."
         

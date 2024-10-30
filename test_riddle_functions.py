@@ -1,5 +1,6 @@
 import pytest
 import json
+import random
 from src.provide_hint import provide_hint
 from src.generate_riddle import generate_riddle
 from src.check_answer import check_answer
@@ -33,21 +34,21 @@ def test_read_file_json_decode_error(tmp_path):
     assert result == [], "Failed: Expected an empty list for a JSON decode error."
 
 # Hint tests
-def test_hint_valid_id(riddles):
+def test_hint_valid_id():
     print("Hint Test valid ID:")
-    result = provide_hint(90, riddles) 
+    result = provide_hint(90) 
     print(result)
     assert "Hint:" in result, "Failed: Valid ID should return a hint."
 
-def test_hint_invalid_input(riddles):
+def test_hint_invalid_input():
     print("Hint Test invalid input:")
-    result = provide_hint("abc", riddles) 
+    result = provide_hint("abc") 
     print(result)
     assert "Error: Invalid input" in result, "Failed: Non-integer input should return an error."
 
-def test_hint_nonexistent_id(riddles):
+def test_hint_nonexistent_id():
     print("Hint Test nonexistent ID:")
-    result = provide_hint(999, riddles)  
+    result = provide_hint(999)  
     print(result)
     assert "Error: Riddle ID not found" in result, "Failed: Nonexistent ID should return an error."
 
@@ -104,38 +105,41 @@ def test_generate_output_type():
     assert type(generate_riddle(4)) is str
 
 #check answer tests
-def test_correct_answer(riddles):
+def test_correct_answer():
     print("test correct answer")
+    riddles = read_file("riddleLibrary.json")
     for riddle in riddles:
         if 1 <= riddle["id"] <= 100:
-            result = check_answer(riddle["id"], riddle["answer"][0], riddles)
+            result = check_answer(riddle["id"], riddle["answer"][0])
             assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
 
-def test_incorrect_answer(riddles):
+def test_incorrect_answer():
+    riddles = read_file("riddleLibrary.json")
     for riddle in riddles:
         if 1 <= riddle["id"] <= 100:
-            result = check_answer(riddle["id"], "incorrect answer", riddles)
+            result = check_answer(riddle["id"], "incorrect answer")
             assert "Incorrect answer. Try again!" in result, f"Test fails for {riddle['id']}."
 
-def test_case_insensitive_answer(riddles):
+def test_case_insensitive_answer():
+    riddles = read_file("riddleLibrary.json")
     for riddle in riddles:
         if 1 <= riddle["id"] <= 100:
-            result = check_answer(riddle["id"], riddle["answer"][0].upper(), riddles)
+            result = check_answer(riddle["id"], riddle["answer"][0].upper())
             print(result)
             assert "Correct answer!" in result, f"test fails for {riddle['id']}"
 
 # submit riddle tests
-def test_valid_riddle(riddles, file_path="riddleLibrary.json"):
+def test_valid_riddle(file_path="riddleLibrary.json"):
     print("Test valid riddle:")
     riddle = {
-        "question": "What has keys but can't open lock?",
-        "answer": ["keyboard"],
-        "hint": "Used to type on a computer.",
+        "question": "I swing through trees and chatter all day. I love bananas and in the jungle I play. What am I?",
+        "answer": ["monkey"],
+        "hint": "I am often seen hanging from branches and love to mimic sounds.",
         "difficulty": 1,
-        "topic": "Riddles"
+        "topic": "Animals"
     }
     
-    result = submit_riddle(riddle, riddles)
+    result = submit_riddle(riddle)
     print(result)
     assert "Riddle submitted successfully" in result, "Failed: Valid riddle should be submitted successfully."
     
@@ -148,19 +152,37 @@ def test_valid_riddle(riddles, file_path="riddleLibrary.json"):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
 
-
-def test_duplicate_riddle(riddles):
+def test_duplicate_riddle():
     print("Test duplicate riddle:")
-    result = submit_riddle(riddles[50], riddles)
+    riddles = read_file("riddleLibrary.json")
+    # Select a random riddle from the library
+    random_riddle = riddles[random.randint(0, len(riddles) - 1)]
+    # submit duplicated riddle
+    result = submit_riddle(random_riddle)
     print(result)
     assert "Error: This riddle already exists in the library" in result, "Failed: Duplicate riddle should return an error."
 
-def test_invalid_input(riddles):
+def test_invalid_input():
     print("Test invalid input:")
     riddle = "abc"
-    result = submit_riddle(riddle, riddles)
+    result = submit_riddle(riddle)
     print(result)
     assert "Error: Invalid input" in result, "Failed: Non-dictionary input should return an error."
+
+def test_invalid_riddle_format():
+    print("Test invalid riddle format:")
+    test_riddles = [
+        {"question": "What has keys but can't open locks?", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
+        {"question": "What has keys but can't open locks?", "answer": "keyboard", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
+        {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": "easy", "topic": "Riddles"},
+        {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1},
+        {"answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
+    ]
+
+    for riddle in test_riddles:
+        result = submit_riddle(riddle)
+        print(result)
+        assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
 
 def test_invalid_riddle_format(riddles):
     print("Test invalid riddle format:")
@@ -173,21 +195,6 @@ def test_invalid_riddle_format(riddles):
     ]
 
     for riddle in test_riddles:
-        result = submit_riddle(riddle, riddles)
+        result = submit_riddle(riddle)
         print(result)
         assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
-
-def test_invalid_riddle_format(tmp_path):
-    print("Test invalid riddle format:")
-    test_riddles = [
-        {"question": "What has keys but can't open locks?", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
-        {"question": "What has keys but can't open locks?", "answer": "keyboard", "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"},
-        {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": "easy", "topic": "Riddles"},
-        {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1},
-        {"answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
-    ]
-
-    for riddle in test_riddles:
-        result = submit_riddle(riddle, riddles)
-        print(result)
-        assert "Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
