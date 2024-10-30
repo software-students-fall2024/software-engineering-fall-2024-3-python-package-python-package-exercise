@@ -39,6 +39,9 @@ def get_ascii_art(image_path, scale=0.1, character_map=G_SCALE_1):
 
 def getpet(number):
     """Returns the pet associated with the number input"""
+    if not isinstance(number, int):
+        raise TypeError("The input must be an integer representing the pet number.")
+    
     base_dir = os.path.dirname(os.path.abspath(__file__))
     filename = os.path.join(base_dir, f'tama-{number}.txt')
     try:
