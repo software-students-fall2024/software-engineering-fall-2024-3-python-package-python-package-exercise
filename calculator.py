@@ -27,23 +27,35 @@ def parse_eq(equation):
     
     return numbers, operators
 
-def calculator(numbers, operators):
-    if random.choice([True, False]):
-        possible_symbols = {'+', '-', '*', '/'} - {symbol}
-        symbol = random.choice(list(possible_symbols))
-
-    if symbol == '+':
-        result = num1 + num2
-    elif symbol == '-':
-        result = num1 - num2
-    elif symbol == '*':
-        result = num1 * num2
-    elif symbol == '/':
-        if num2 != 0:
-            result = num1 / num2
+def correct_calculator(numbers, operators):
+    i = 0
+    while i < len(operators):
+        if operators[i] in ('*', '/'):
+            if operators[i] == '*':
+                result = numbers[i] * numbers[i + 1]
+            elif operators[i] == '/':
+                if numbers[i + 1] != 0:
+                    result = numbers[i] // numbers[i + 1] 
+                else:
+                    return "Can't do division by zero"
+            numbers[i:i + 2] = [result]
+            operators.pop(i)
         else:
-            result = "Can't do division by zero"
-    else:
-        result = "Invalid operation"
+            i += 1
+    
+    result = numbers[0]
+    for i in range(len(operators)):
+        if operators[i] == '+':
+            result += numbers[i + 1]
+        elif operators[i] == '-':
+            result -= numbers[i + 1]
 
-    print(f"The result is: {result}")
+    return result
+
+def wrong_calculator(numbers, operators):
+    if operators:
+        all_operators = ['+', '-', '*', '/']
+        current_op = operators[random.randint(0, len(operators) - 1)]
+        new_operator_choices = [op for op in all_operators if op != current_op]
+
+    return
