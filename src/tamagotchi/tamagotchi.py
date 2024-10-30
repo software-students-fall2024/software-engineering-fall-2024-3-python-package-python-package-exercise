@@ -8,20 +8,17 @@ G_SCALE_2 = '@%#*+=-:. '
 def get_ascii_art(image_path, scale=0.1, character_map=G_SCALE_1):
     """Converts an image to ASCII art using the specified character map."""
     try:
-        # Open the image
         image = Image.open(image_path)
 
-        # Convert to grayscale
         image = image.convert("L")
 
-        # Resize the image to make it suitable for ASCII art
+
         width, height = image.size
         aspect_ratio = height / width
         new_width = int(width * scale)
-        new_height = int(new_width * aspect_ratio * 0.55)  # Adjust for character aspect ratio
+        new_height = int(new_width * aspect_ratio * 0.55)  
         image = image.resize((new_width, new_height))
 
-        # Generate ASCII art
         ascii_art = ""
         for y in range(new_height):
             for x in range(new_width):
@@ -30,7 +27,7 @@ def get_ascii_art(image_path, scale=0.1, character_map=G_SCALE_1):
                 ascii_art += ascii_char
             ascii_art += "\n"
         
-        print(ascii_art)  # Print the ASCII art to the console
+        print(ascii_art)  
         return ascii_art
 
     except FileNotFoundError:
