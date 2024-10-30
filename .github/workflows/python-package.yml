@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.9, 3.11, 3.12]  
-        
+        python-version: [3.9, 3.11, 3.12]
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -26,15 +26,20 @@ jobs:
     - name: Install pipenv
       run: python -m pip install --upgrade pip pipenv
 
-    - name: Verify Pipfile location
+    - name: Verify Pipfile and Set PIPENV_PIPFILE
       run: |
         echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
-        if [ -f "$GITHUB_WORKSPACE/Pipfile" ]; then
-          echo "Pipfile found at $GITHUB_WORKSPACE."
+        export PIPENV_PIPFILE="$GITHUB_WORKSPACE/Pipfile"
+        echo "Setting PIPENV_PIPFILE to $PIPENV_PIPFILE"
+        
+        # Verify if Pipfile exists at the specified path
+        if [ -f "$PIPENV_PIPFILE" ]; then
+          echo "Pipfile found at $PIPENV_PIPFILE."
         else
-          echo "Pipfile NOT found at $GITHUB_WORKSPACE."
+          echo "Pipfile NOT found at $PIPENV_PIPFILE."
           exit 1
         fi
+      shell: bash
 
     - name: Install dependencies (including dev packages)
       env:
@@ -50,4 +55,3 @@ jobs:
       env:
         PIPENV_PIPFILE: "$GITHUB_WORKSPACE/Pipfile"
       run: pipenv run pytest --maxfail=1 --disable-warnings -v
-
