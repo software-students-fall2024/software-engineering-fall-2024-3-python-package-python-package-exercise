@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "kaomoji"
+name = "tamagotchi"
 description = "Create and interact with your very own Tamagotchi character using Python! \\(^ 3 ^)/"
 version = "0.1.0"
 authors = [
   { name="Sahar Bueno-Abdala", email="sb8249@nyu.edu"},
-  { name=" ", email=" "}
+  { name="a", email="a@gmail.com"},
   { name="Jessica Xu", email="kx2053@nyu.edu"}
 ]
 license = { file = "LICENSE" }

@@ -1,4 +1,4 @@
-from tamagotchi import tamagotchi as t
+import tamagotchi.tamagotchi as t
 
 def main():
     t.getpet(1)
