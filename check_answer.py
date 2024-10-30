@@ -1,12 +1,10 @@
 from read_file import read_file
 
-def check_answer(riddle_id: int, user_answer: str, fileName: str) -> str:
+def check_answer(riddle_id: int, user_answer: str, riddles: list) -> str:
     try:
         if not isinstance(riddle_id, int) or riddle_id < 0:
             return "Error: Invalid input. Please enter a non-negative integer for the riddle ID."
-        
-        riddles = read_file(fileName)
-        
+                
         if not riddles:
             return "Error: Riddle library is empty or could not be loaded."
         for riddle in riddles:

@@ -60,23 +60,23 @@ def test_generate_output_type():
     assert type(generate_riddle(4)) is str
 
 #check answer tests
-def test_correct_answer_for_id_range_26_50():
+def test_correct_answer():
     print("test correct answer")
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 100:
+        if 1 <= riddle["id"] <= 100:
             result = check_answer(riddle["id"], riddle["answer"][0], FILE_PATH)
             assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
 
 def test_incorrect_answer(riddles):
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 100:
+        if 1 <= riddle["id"] <= 100:
             result = check_answer(riddle["id"], "incorrect answer", FILE_PATH)
             assert "Incorrect answer. Try again!" in result, f"Test fails for {riddle['id']}."
 
 def test_case_insensitive_answer(riddles):
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], riddle["answer"][0].upper(), "riddleLibrary.json")
+        if 1 <= riddle["id"] <= 100:
+            result = check_answer(riddle["id"], riddle["answer"][0].upper(), FILE_PATH)
             print(result)
             assert "Correct answer!" in result, f"test fails for {riddle['id']}"
 
