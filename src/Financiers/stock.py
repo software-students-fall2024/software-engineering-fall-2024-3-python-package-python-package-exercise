@@ -14,7 +14,7 @@ class Stock:
 
     def get_earnings(self, symbol_string):
         """
-        Retrieves the annual and quarterly earnings (EPS) for the company of interest.
+        Retrieves the annual and quarterly earnings (EPS) for the company of interest
         Arguments:
         symbol_string: a string representing the ticker of your choice. For example: symbol=IBM.
 
