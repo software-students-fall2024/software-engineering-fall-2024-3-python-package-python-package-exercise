@@ -71,17 +71,19 @@ class Pet:
         self.experience = 0
         self.health = r.randint(15, 20)
         self.mood = 5
-        
-    def feed(self, food):
-        food = self.FOOD_MENU.get(food)
-        
-        if not food:
-            return f"{food} is not on the menu!"
-        
-        self.mood = min(10, max(1, self.mood + food["mood_boost"]))
-        self.health = min(20, max(0,self.health + food["health_boost"]))
 
-        
-        mood_message = f"{self.name} ate {food['emoji']} and their mood changed by {food['mood_boost']}."
-        health_message = f"Their health is now {self.health}."
-        return f"{mood_message} {health_message}"
+def feed(pet, food):
+    food_item = Pet.FOOD_MENU.get(food)
+
+    if not food_item:
+        return f"{food} is not on the menu!"
+
+    pet.mood = min(10, max(1, pet.mood + food_item["mood_boost"]))
+    pet.health = min(20, max(0, pet.health + food_item["health_boost"]))
+
+    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed by {food_item['mood_boost']}."
+    health_message = f"Their health is now {pet.health}."
+    return f"{mood_message} {health_message}"
+
+
+
