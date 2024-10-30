@@ -11,21 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.11"]
+        python-version: ["3.9", "3.11", "3.12"]  # Add 3.12 to the matrix
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies in deploy mode
+      - name: Install dependencies with pipenv
         run: |
           pip install pipenv
-          pipenv install --deploy --system
+          pipenv install --python $(which python) --deploy --system
       - name: Run tests
         run: |
           pipenv run pytest
-
 
   deliver:
     needs: [build]
@@ -33,13 +32,16 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
+      - name: Set up Python
+        uses: actions/setup-python@v3
         with:
           python-version: "3.9"
+      - name: Install pipenv and dependencies
+        run: |
+          pip install pipenv
+          pipenv install --python $(which python)
       - name: Build package
         run: |
-          pipenv install build
           pipenv run python -m build .
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
