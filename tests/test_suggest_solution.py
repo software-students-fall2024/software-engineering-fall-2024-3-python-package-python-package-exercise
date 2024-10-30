@@ -6,7 +6,7 @@ from pyexcuses.exc import ProgrammingLanguageNotFoundError
 
 def test_suggest_solution_default():
     """
-    Verify suggest_solution() returns a non-empty string.
+    Verify that suggest_solution() returns a non-empty string.
     """
     actual = (
         pyexcuses.suggest_solution()
@@ -21,7 +21,7 @@ def test_suggest_solution_default():
 
 def test_suggest_solution_spanish():
     """
-    Verify suggest_solution() returns a non-empty string in spanish mode.
+    Verify that suggest_solution() returns a non-empty string in spanish mode.
     """
     actual = pyexcuses.suggest_solution(
         spoken_language="es"
@@ -36,7 +36,7 @@ def test_suggest_solution_spanish():
 
 def test_suggest_solution_invalid_spokenlanguage():
     """
-    Verify suggest_solution() will fail if given a fake spoken language.
+    Verify that suggest_solution() will fail if given a fake spoken language.
     """
     with pytest.raises(SpokenLanguageNotFoundError) as exception:
         pyexcuses.suggest_solution(spoken_language="no")
@@ -47,7 +47,7 @@ def test_suggest_solution_invalid_spokenlanguage():
 
 def test_suggest_solution_invalid_programminglanguage():
     """
-    Verify suggest_solution() will fail if given a fake programming language.
+    Verify that suggest_solution() will fail if given a fake programming language.
     """
     with pytest.raises(ProgrammingLanguageNotFoundError) as exception:
         pyexcuses.suggest_solution(programming_language="c#")

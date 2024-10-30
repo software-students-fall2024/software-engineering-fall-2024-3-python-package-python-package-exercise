@@ -37,6 +37,7 @@ Access the **solutions** in your own project by importing `pyexcuses` and using 
 ```pycon
 >>> import pyexcuses
 >>> print(pyexcuses.suggest_solution())
+Try running it on a Friday—bugs don't like weekends.
 ```
 
 Similarly, we have solutions for different languages and programming languages:
