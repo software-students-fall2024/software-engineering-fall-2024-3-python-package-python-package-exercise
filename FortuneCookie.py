@@ -7,7 +7,7 @@ def quoteGetter(fortuneAmount, fortuneType):
     fortunes+=1
     if fortuneType == "g":
             f = open("GoodFortune.txt", "r")
-            fortune = random.randrange(0, 50, 1)
+            fortune = random.randrange(0, 35, 1)
             cur = 0
             for line in f:
                 # Print chosen line
@@ -21,7 +21,7 @@ def quoteGetter(fortuneAmount, fortuneType):
             fortuneType = input("Type G for Good, Type B for Bad:")
     else:
             f = open("BadFortune.txt", "r")
-            fortune = random.randrange(0, 50, 1)
+            fortune = random.randrange(0, 35, 1)
             cur = 0
             for line in f:
                 # Print chosen line
@@ -72,15 +72,15 @@ if fortuneCustom == "c":
 
 else:
     #TODO: code for custom re-indent for purchased
-    fortuneAmount = input("You can have up to 50 so how many fortune cookies do you want:")
+    fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
 
     if fortuneAmount != 0:
-        if fortuneAmount < 0 or fortuneAmount > 50:
+        if fortuneAmount < 0 or fortuneAmount > 35:
             i = 0
             while i == 0:
                 print("Inavlid Fortune amount, try again.")
-                fortuneAmount = input("You can have up to 50 so how many fortune cookies do you want:")
-                if fortuneAmount > -1 and fortuneAmount < 50:
+                fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
+                if fortuneAmount > -1 and fortuneAmount < 35:
                     i = 1
     else:
         if fortuneAmount == 0:
@@ -94,6 +94,8 @@ else:
                     #TODO use quoteGetter
                     print("What kind of fortune do you want? ")
                     fortuneType = input("Type G for Good, Type B for Bad:")
+                    #credit to https://www.houstonpress.com/restaurants/fortune-cookie-sayings-youd-never-want-to-get-6412278 for bad fortunes
+                    #credit to https://www.quora.com/If-you-were-a-fortune-cookie-writer-what-funny-and-unexpected-fortunes-would-you-include for bad fortunes
                     quoteGetter(fortuneAmount, fortuneType)
                     fortuneCookie()
                     
