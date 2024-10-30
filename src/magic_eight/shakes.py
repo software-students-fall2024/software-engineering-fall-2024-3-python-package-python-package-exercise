@@ -1,0 +1,3 @@
+shakes = {
+    "en":"shaking..."
+}
