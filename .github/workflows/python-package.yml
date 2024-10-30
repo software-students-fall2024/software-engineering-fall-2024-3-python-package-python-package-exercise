@@ -32,7 +32,7 @@ jobs:
       run: pip install .
 
     - name: Verify Package Installation
-      run: pip show tamagotchipy
+      run: pip show tamagotchi
 
     - name: List Installed Packages
       run: pipenv run pip list
