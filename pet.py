@@ -71,6 +71,9 @@ class Pet:
         self.health = r.randint(15, 20)
         self.mood = 5
 
+def create_pet(pet_name, pet_type):
+    return Pet(name=pet_name, pet_type=pet_type)
+
 
 def feed(pet, food):
     food_item = Pet.FOOD_MENU.get(food)

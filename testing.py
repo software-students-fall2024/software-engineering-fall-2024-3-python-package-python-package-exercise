@@ -1,5 +1,5 @@
 import pytest
-from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats
+from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet
 
 @pytest.fixture
 def sample_pet():
@@ -46,3 +46,18 @@ def test_check_pet_stats_correct_name(sample_pet):
 def test_check_pet_stats_wrong_name(sample_pet):
     stats_result = check_pet_stats(sample_pet, "Charlie")
     assert stats_result == "Pet not found."
+
+def test_create_pet():
+    pet = create_pet("Fluffy", "cat")
+    assert isinstance(pet, Pet)  
+    assert pet.name == "Fluffy"  
+    assert pet.type == "cat"     
+    assert pet.emoji == '🐈'    
+    assert pet.level == 1        
+    assert 15 <= pet.health <= 20  
+    assert pet.mood == 5        
+
+def test_create_pet_invalid_type():
+    pet = create_pet("Unknown", "dragon")
+    assert pet.emoji == '🐾'  
+    assert pet.type == "dragon"  
