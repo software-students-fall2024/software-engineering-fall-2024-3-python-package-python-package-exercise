@@ -8,6 +8,7 @@ build = "*"
 twine = "*"
 pytest = "*"
 exceptiongroup = "*"
+tomli = "*"
 
 [dev-packages]
 
