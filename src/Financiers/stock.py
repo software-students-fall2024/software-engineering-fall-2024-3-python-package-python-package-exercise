@@ -12,6 +12,7 @@ class Stock:
     def __init__(self):
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
 
+    # TODO: add optional argument for quarterly or annual
     def get_earnings(self, symbol_string):
         """
         Retrieves the annual and quarterly earnings (EPS) for the company of interest
