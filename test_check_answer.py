@@ -1,6 +1,7 @@
 from check_answer import check_answer
 from read_file import read_file
 
+
 def test_correct_answer_for_id_range_26_50():
     print("test correct answer")
     riddles = read_file("riddleLibrary.json")
