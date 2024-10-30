@@ -14,3 +14,5 @@ def timer():
             print(f"Time left: {remaining} seconds")
             time.sleep(1)
         print("Done!")
+
+timer()
