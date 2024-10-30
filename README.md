@@ -1,3 +1,16 @@
 # Python Package Exercise
+Badge goes here <br>
+## Contributors
+[Lucia Song](https://github.com/lys7942) <br>
+[Chelsea Hodgson](https://github.com/Chelsea-Hodgson) <br>
+[Yeshni Savadatti](https://github.com/yeshnii) <br>
 
-An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
+## Description
+
+## Usage
+
+### Command Line
+
+### Import into Project
+
+## Contributing 
