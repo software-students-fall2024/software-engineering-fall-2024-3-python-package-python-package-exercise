@@ -21,7 +21,7 @@ Access the excuses in your own project by importing `pyexcuses` and using the fu
 It works on my machine, but maybe the server environment is different.
 ```
 
-We can use spoken languages for English and Spanish, and we have excuses for different programming language:
+We can use spoken languages for English and Spanish, and we have excuses for different programming languages:
 
 ```pycon
 >>> import pyexcuses
@@ -29,6 +29,24 @@ We can use spoken languages for English and Spanish, and we have excuses for dif
 Funciona en mi máquina, pero quizás el entorno del servidor sea diferente
 >>> print(pyexcuses.generate_excuse("es", "javascript"))  # spanish excuse for javascript programming language
 El CSS está luchando con JavaScript de nuevo.
+```
+
+Access the solutions in your own project by importing `pyexcuses` and using the function
+`suggest_solution`:
+
+```pycon
+>>> import pyexcuses
+>>> print(pyexcuses.suggest_solution())
+```
+
+Similarly, we have solutions for different languages and programming languages:
+
+```pycon
+>>> import pyexcuses
+>>> print(pyexcuses.suggest_solution("es"))  # spanish solution
+"¿Has probado a añadir más comentarios a tu código?
+>>> print(pyexcuses.suggest_solution("es", "javascript"))  # spanish solution for javascript programming language
+¿Has probado a añadir más puntos y comas? A JavaScript le encantan.
 ```
 
 ## Team members
