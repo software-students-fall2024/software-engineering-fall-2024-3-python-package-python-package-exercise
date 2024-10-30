@@ -20,7 +20,7 @@ class Tests:
 
     def test_suggest_solution(self):
         """
-        Verify suggest_solution() returns a non-empty string.
+        Verify that suggest_solution() returns a non-empty string.
         """
         actual = (
             pyexcuses.suggest_solution()
