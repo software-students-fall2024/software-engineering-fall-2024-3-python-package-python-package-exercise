@@ -5,6 +5,7 @@ from src.generate_riddle import generate_riddle
 from src.check_answer import check_answer
 from src.read_file import read_file
 from src.submit_riddle import submit_riddle
+from unittest.mock import patch
 
 @pytest.fixture
 def riddles():
@@ -60,7 +61,7 @@ def test_generate_input_type():
     with pytest.raises(ValueError):
         generate_riddle(5)
 
-def test_generate_correctness(riddles):
+def test_generate_difficulty(riddles):
     print("Start test generate correctness")
     def find_question_diff(question: str):
         for riddle in riddles:
@@ -73,6 +74,27 @@ def test_generate_correctness(riddles):
     assert find_question_diff(generate_riddle(3)) == 3
     assert find_question_diff(generate_riddle(4)) == 4
 
+
+mock_riddle_data = [
+{"question": "What has keys but can't open locks?", "difficulty": 1},
+{"question": "What runs but never walks?", "difficulty": 2},
+{"question": "What has a face and two hands but no arms or legs?", "difficulty": 3},
+{"question": "What gets wetter as it dries?", "difficulty": 4}
+]
+    
+@patch('src.generate_riddle.read_file', return_value=mock_riddle_data)
+def test_generate_correctness(mock_read_file):
+    result = generate_riddle(1)
+    assert result in ["What has keys but can't open locks?"]
+
+    result = generate_riddle(2)
+    assert result in ["What runs but never walks?"]
+
+    result = generate_riddle(3)
+    assert result in ["What has a face and two hands but no arms or legs?"]
+
+    result = generate_riddle(4)
+    assert result in ["What gets wetter as it dries?"]
 
 def test_generate_output_type():
     print("Start test generate output")

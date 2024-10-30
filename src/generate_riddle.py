@@ -14,9 +14,7 @@ def generate_riddle(difficulty: int) -> str:
     for riddle in riddle_lib:
         if riddle['difficulty'] == difficulty:
             riddles.append(riddle)
-
+            
     random_element = random.choice(riddles)
     return random_element['question']
 
-
-# print(generate_riddle(4))
