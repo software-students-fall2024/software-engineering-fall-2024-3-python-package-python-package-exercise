@@ -105,7 +105,7 @@ def test_case_insensitive_answer(riddles):
 # submit riddle tests
 def test_valid_riddle(riddles):
     print("Test valid riddle:")
-    riddle = {"question": "What has keys but can't open lock?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
+    riddle = {"question": "What has keys but can't open locks?", "answer": ["keyboard"], "hint": "Used to type on a computer.", "difficulty": 1, "topic": "Riddles"}
     result = submit_riddle(riddle, riddles)
     print(result)
     assert "Riddle submitted successfully" in result, "Failed: Valid riddle should be submitted successfully."
@@ -151,4 +151,4 @@ def test_invalid_riddle_format(tmp_path):
     for riddle in test_riddles:
         result = submit_riddle(riddle, riddles)
         print(result)
-        assert "Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
+        assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
