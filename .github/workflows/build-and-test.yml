@@ -22,6 +22,8 @@ jobs:
           pip install --upgrade pip
           pip install pipenv
           pipenv install --dev --python $(which python)
+      - name: Install exceptiongroup
+        run: pip install exceptiongroup
       - name: Run tests
         run: |
           pipenv run pytest
