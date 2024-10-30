@@ -5,6 +5,11 @@ from check_answer import check_answer
 from read_file import read_file
 from submit_riddle import submit_riddle
 import json
+FILE_PATH = "riddleLibrary.json"
+@pytest.fixture
+def riddles():
+    """Fixture to load riddles from the file."""
+    return read_file(FILE_PATH)
 
 #generate hint tests
 def test_valid_id():
@@ -59,32 +64,23 @@ def test_generate_output_type():
     assert type(generate_riddle(3)) is str
     assert type(generate_riddle(4)) is str
 
-#check answer tests
-def test_correct_answer_for_id_range_26_50():
-    print("test correct answer")
+def test_correct_answer(riddles):
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], riddle["answer"][0], "riddleLibrary.json")
-            print(result)
+        if 26 <= riddle["id"] <= 100:
+            result = check_answer(riddle["id"], riddle["answer"][0], FILE_PATH)
             assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
 
-def test_incorrect_answer_for_id_range_26_50():
-    print("test incorrect answer for id range 26-50")
-    riddles = read_file("riddleLibrary.json")
+def test_incorrect_answer(riddles):
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], "incorrect answer", "riddleLibrary.json")
-            print(result)
-            assert "Incorrect answer. Try again!" in result, f"Test fails for {riddle['id']}。"
+        if 26 <= riddle["id"] <= 100:
+            result = check_answer(riddle["id"], "incorrect answer", FILE_PATH)
+            assert "Incorrect answer. Try again!" in result, f"Test fails for {riddle['id']}."
 
-def test_case_insensitive_answer_for_id_range_26_50():
-    print("test cases insentitive")
-    riddles = read_file("riddleLibrary.json")
+def test_case_insensitive_answer(riddles):
     for riddle in riddles:
-        if 26 <= riddle["id"] <= 50:
-            result = check_answer(riddle["id"], riddle["answer"][0].upper(), "riddleLibrary.json")
-            print(result)
-            assert "Correct answer!" in result, f"test fails for {riddle['id']}"
+        if 26 <= riddle["id"] <= 100:
+            result = check_answer(riddle["id"], riddle["answer"][0].upper(), FILE_PATH)
+            assert "Correct answer!" in result, f"Test fails for {riddle['id']}"
 
 # submit riddle tests
 def test_valid_riddle(riddles):
