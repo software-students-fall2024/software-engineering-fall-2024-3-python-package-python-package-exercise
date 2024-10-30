@@ -4,6 +4,7 @@ from generate_riddle import generate_riddle
 from check_answer import check_answer
 from read_file import read_file
 from submit_riddle import submit_riddle
+import json
 
 #generate hint tests
 def test_valid_id():
@@ -24,20 +25,39 @@ def test_nonexistent_id():
     print(result)
     assert "Error: Riddle ID not found" in result, "Failed: Nonexistent ID should return an error."
 
-#geenrate riddle tests
-def test_generate_riddle():
-    assert generate_riddle(1)["difficulty"] == 1
-    assert generate_riddle(2)["difficulty"] == 2
-    assert generate_riddle(3)["difficulty"] == 3
-    assert generate_riddle(4)["difficulty"] == 4
-    assert type(generate_riddle(4)) is dict
-    assert type(generate_riddle(4)['question']) is str
+#generate riddle tests
+def test_generate_input_type():
+    print("Start test generate input")
     with pytest.raises(TypeError):
         generate_riddle("string")
     with pytest.raises(ValueError):
         generate_riddle(-1)
     with pytest.raises(ValueError):
         generate_riddle(5)
+
+def test_generate_correctness():
+    # Mock??? 
+    print("Start test generate correctness")
+    def find_question_diff(question: str):
+        with open("riddleLibrary.json", 'r') as file:
+            riddles = json.load(file)
+        for riddle in riddles:
+            if riddle['question'] == question:
+                return riddle['difficulty']
+        return -1
+    
+    assert find_question_diff(generate_riddle(1)) == 1
+    assert find_question_diff(generate_riddle(2)) == 2
+    assert find_question_diff(generate_riddle(3)) == 3
+    assert find_question_diff(generate_riddle(4)) == 4
+
+
+def test_generate_output_type():
+    print("Start test generate output")
+    assert type(generate_riddle(1)) is str
+    assert type(generate_riddle(2)) is str
+    assert type(generate_riddle(3)) is str
+    assert type(generate_riddle(4)) is str
 
 #check answer tests
 def test_correct_answer_for_id_range_26_50():
@@ -102,7 +122,9 @@ if __name__ == "__main__":
     riddles = read_file("riddleLibrary.json")
 
     #generate riddle tests
-    test_generate_riddle() # 拆成 3 个 # return string #在test里面核对 # 使用统一接口
+    test_generate_input_type() # 拆成 3 个 # return string #在test里面核对 # 使用统一接口
+    test_generate_output_type()
+    test_generate_correctness()
 
     #check answer tests
     test_correct_answer_for_id_range_26_50() # riddles 应该passed as argument
