@@ -1,6 +1,6 @@
-from answers import answers
-from questions import questions
-from shakes import shakes
+from .answers import answers
+from .questions import questions
+from .shakes import shakes
 import random
 import time
 
