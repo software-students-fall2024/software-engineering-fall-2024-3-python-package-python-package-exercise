@@ -1,10 +1,11 @@
 from src.read_file import read_file
 
-def provide_hint(riddle_id, riddles) -> str:
-
+def provide_hint(riddle_id) -> str:
     try:
         if not isinstance(riddle_id, int) or riddle_id < 0:
             return "Error: Invalid input. Please enter a non-negative integer for the riddle ID."
+
+        riddles = read_file("riddleLibrary.json")
 
         if not riddles:
             return "Error: Riddle library is empty or could not be loaded."
