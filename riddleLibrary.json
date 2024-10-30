@@ -1,7 +1,11 @@
 [
     {
         "question": "What has keys but can't open locks?",
-        "answer": "piano",
+        "answer": [
+            "piano",
+            "a piano",
+            "the piano"
+        ],
         "hint": "It produces music.",
         "difficulty": 2,
         "topic": "Objects",
@@ -9,7 +13,9 @@
     },
     {
         "question": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
-        "answer": "echo",
+        "answer": [
+            "echo"
+        ],
         "hint": "It's something you can hear but cannot see.",
         "difficulty": 3,
         "topic": "Nature",
@@ -17,7 +23,11 @@
     },
     {
         "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
-        "answer": "M",
+        "answer": [
+            "M",
+            "a M",
+            "the M"
+        ],
         "hint": "Focus on the letters.",
         "difficulty": 4,
         "topic": "Words",
@@ -25,7 +35,11 @@
     },
     {
         "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
-        "answer": "map",
+        "answer": [
+            "map",
+            "a map",
+            "the map"
+        ],
         "hint": "It's something you use to locate places.",
         "difficulty": 3,
         "topic": "Objects",
@@ -33,7 +47,9 @@
     },
     {
         "question": "The more of this there is, the less you see. What is it?",
-        "answer": "darkness",
+        "answer": [
+            "darkness"
+        ],
         "hint": "It's the opposite of light.",
         "difficulty": 2,
         "topic": "Nature",
@@ -41,7 +57,11 @@
     },
     {
         "question": "What has a heart that doesn't beat?",
-        "answer": "artichoke",
+        "answer": [
+            "artichoke",
+            "an artichoke",
+            "the artichoke"
+        ],
         "hint": "It's a vegetable.",
         "difficulty": 2,
         "topic": "Food",
@@ -49,7 +69,11 @@
     },
     {
         "question": "What can travel around the world while staying in a corner?",
-        "answer": "stamp",
+        "answer": [
+            "stamp",
+            "a stamp",
+            "the stamp"
+        ],
         "hint": "It's something you stick on mail.",
         "difficulty": 3,
         "topic": "Objects",
@@ -57,7 +81,11 @@
     },
     {
         "question": "What gets wetter as it dries?",
-        "answer": "towel",
+        "answer": [
+            "towel",
+            "a towel",
+            "the towel"
+        ],
         "hint": "You use it after a shower.",
         "difficulty": 2,
         "topic": "Objects",
@@ -65,7 +93,11 @@
     },
     {
         "question": "I'm tall when I'm young, and I'm short when I'm old. What am I?",
-        "answer": "candle",
+        "answer": [
+            "candle",
+            "a candle",
+            "the candle"
+        ],
         "hint": "It burns slowly.",
         "difficulty": 2,
         "topic": "Objects",
@@ -73,7 +105,9 @@
     },
     {
         "question": "What can you catch but not throw?",
-        "answer": "cold",
+        "answer": [
+            "cold"
+        ],
         "hint": "It's an illness.",
         "difficulty": 1,
         "topic": "Health",
@@ -81,7 +115,10 @@
     },
     {
         "question": "What goes up but never comes down?",
-        "answer": "age",
+        "answer": [
+            "age",
+            "the age"
+        ],
         "hint": "It increases with time.",
         "difficulty": 1,
         "topic": "Time",
@@ -89,7 +126,11 @@
     },
     {
         "question": "What has an eye but can't see?",
-        "answer": "needle",
+        "answer": [
+            "needle",
+            "a needle",
+            "the needle"
+        ],
         "hint": "It's used for sewing.",
         "difficulty": 1,
         "topic": "Objects",
@@ -97,7 +138,10 @@
     },
     {
         "question": "What belongs to you but is used more by others?",
-        "answer": "name",
+        "answer": [
+            "name",
+            "a name"
+        ],
         "hint": "People call you by it.",
         "difficulty": 2,
         "topic": "Personal",
@@ -105,7 +149,11 @@
     },
     {
         "question": "I'm light as a feather, yet the strongest man can't hold me for much longer than a minute. What am I?",
-        "answer": "breath",
+        "answer": [
+            "breath",
+            "a breath",
+            "the breath"
+        ],
         "hint": "Everyone has it, but it's not visible.",
         "difficulty": 3,
         "topic": "Nature",
@@ -113,7 +161,11 @@
     },
     {
         "question": "What has many teeth, but can't bite?",
-        "answer": "comb",
+        "answer": [
+            "comb",
+            "a comb",
+            "the comb"
+        ],
         "hint": "It's used on hair.",
         "difficulty": 1,
         "topic": "Objects",
@@ -121,7 +173,11 @@
     },
     {
         "question": "I'm taken from a mine, and shut up in a wooden case, from which I'm never released, and yet I am used by almost every person. What am I?",
-        "answer": "pencil lead",
+        "answer": [
+            "pencil lead",
+            "a pencil lead",
+            "the pencil lead"
+        ],
         "hint": "It's something you write with.",
         "difficulty": 3,
         "topic": "Objects",
@@ -129,7 +185,11 @@
     },
     {
         "question": "I have a tail and a head, but no body. What am I?",
-        "answer": "coin",
+        "answer": [
+            "coin",
+            "a coin",
+            "the coin"
+        ],
         "hint": "You use it to buy things.",
         "difficulty": 2,
         "topic": "Objects",
@@ -137,7 +197,11 @@
     },
     {
         "question": "If you have me, you want to share me. If you share me, you haven't got me. What am I?",
-        "answer": "secret",
+        "answer": [
+            "secret",
+            "a secret",
+            "the secret"
+        ],
         "hint": "It's something you keep hidden.",
         "difficulty": 3,
         "topic": "Personal",
@@ -145,7 +209,11 @@
     },
     {
         "question": "The more you take, the more you leave behind. What am I?",
-        "answer": "footsteps",
+        "answer": [
+            "footsteps",
+            "a footsteps",
+            "the footsteps"
+        ],
         "hint": "They're left when you walk.",
         "difficulty": 2,
         "topic": "Nature",
@@ -153,7 +221,11 @@
     },
     {
         "question": "What has a neck but no head?",
-        "answer": "bottle",
+        "answer": [
+            "bottle",
+            "a bottle",
+            "the bottle"
+        ],
         "hint": "You pour liquids from it.",
         "difficulty": 1,
         "topic": "Objects",
@@ -161,7 +233,11 @@
     },
     {
         "question": "What has hands but can't clap?",
-        "answer": "clock",
+        "answer": [
+            "clock",
+            "a clock",
+            "the clock"
+        ],
         "hint": "It tells time.",
         "difficulty": 1,
         "topic": "Time",
@@ -169,7 +245,11 @@
     },
     {
         "question": "What runs around the whole yard without moving?",
-        "answer": "fence",
+        "answer": [
+            "fence",
+            "a fence",
+            "the fence"
+        ],
         "hint": "It's a barrier.",
         "difficulty": 2,
         "topic": "Objects",
@@ -177,7 +257,11 @@
     },
     {
         "question": "I can fly without wings. I can cry without eyes. Wherever I go, darkness flies. What am I?",
-        "answer": "cloud",
+        "answer": [
+            "cloud",
+            "a cloud",
+            "the cloud"
+        ],
         "hint": "It floats in the sky and brings rain.",
         "difficulty": 2,
         "topic": "Weather",
@@ -185,7 +269,10 @@
     },
     {
         "question": "What can fill a room but takes up no space?",
-        "answer": "light",
+        "answer": [
+            "light",
+            "the light"
+        ],
         "hint": "It allows you to see.",
         "difficulty": 2,
         "topic": "Nature",
@@ -193,62 +280,65 @@
     },
     {
         "question": "What has a face and two hands but no arms or legs?",
-        "answer": "clock",
+        "answer": [
+            "clock",
+            "a clock",
+            "the clock"
+        ],
         "hint": "It's used to tell time.",
         "difficulty": 1,
         "topic": "Objects",
         "id": 25
     },
-        {
-            "question": "What kind of coat can only be put on when wet?",
-            "answer": ["coat of paint", "a coat of paint", "paint coat", "the paint coat"],
-            "hint": "It's used for coloring surfaces.",
-            "difficulty": 2,
-            "topic": "Objects",
-            "id": 26
-        },
-        {
-            "question": "What is full of holes but still holds water?",
-            "answer": ["sponge", "a sponge", "the sponge", "sponges"],
-            "hint": "It's used for cleaning.",
-            "difficulty": 1,
-            "topic": "Objects",
-            "id": 27
-        },
-        {
-            "question": "What has one eye but can't see?",
-            "answer": ["needle", "a needle", "the needle", "needles"],
-            "hint": "It's used for sewing.",
-            "difficulty": 1,
-            "topic": "Objects",
-            "id": 28
-        },
-        {
-            "question": "What has to be broken before you can use it?",
-            "answer": ["egg", "an egg", "the egg", "eggs"],
-            "hint": "You eat it for breakfast.",
-            "difficulty": 1,
-            "topic": "Food",
-            "id": 29
-        },
-        {
-            "question": "What has an end but no beginning, a home but no family, and a space without room?",
-            "answer": ["road", "a road", "the road", "roads"],
-            "hint": "You travel on it.",
-            "difficulty": 3,
-            "topic": "Nature",
-            "id": 30
-        },
-        {
-            "question": "What building has the most stories?",
-            "answer": ["library", "a library", "the library", "libraries"],
-            "hint": "It's full of books.",
-            "difficulty": 1,
-            "topic": "Places",
-            "id": 31
-        },
-    
-        {
+    {
+        "question": "What kind of coat can only be put on when wet?",
+        "answer": ["coat of paint", "a coat of paint", "paint coat", "the paint coat"],
+        "hint": "It's used for coloring surfaces.",
+        "difficulty": 2,
+        "topic": "Objects",
+        "id": 26
+    },
+    {
+        "question": "What is full of holes but still holds water?",
+        "answer": ["sponge", "a sponge", "the sponge", "sponges"],
+        "hint": "It's used for cleaning.",
+        "difficulty": 1,
+        "topic": "Objects",
+        "id": 27
+    },
+    {
+        "question": "What has one eye but can't see?",
+        "answer": ["needle", "a needle", "the needle", "needles"],
+        "hint": "It's used for sewing.",
+        "difficulty": 1,
+        "topic": "Objects",
+        "id": 28
+    },
+    {
+        "question": "What has to be broken before you can use it?",
+        "answer": ["egg", "an egg", "the egg", "eggs"],
+        "hint": "You eat it for breakfast.",
+        "difficulty": 1,
+        "topic": "Food",
+        "id": 29
+    },
+    {
+        "question": "What has an end but no beginning, a home but no family, and a space without room?",
+        "answer": ["road", "a road", "the road", "roads"],
+        "hint": "You travel on it.",
+        "difficulty": 3,
+        "topic": "Nature",
+        "id": 30
+    },
+    {
+        "question": "What building has the most stories?",
+        "answer": ["library", "a library", "the library", "libraries"],
+        "hint": "It's full of books.",
+        "difficulty": 1,
+        "topic": "Places",
+        "id": 31
+    },
+    {
         "question": "What tastes better than it smells?",
         "answer": ["tongue", "the tongue", "a tongue"],
         "hint": "It's part of your body.",
