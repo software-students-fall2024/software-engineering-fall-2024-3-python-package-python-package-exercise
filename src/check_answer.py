@@ -1,4 +1,4 @@
-from read_file import read_file
+from src.read_file import read_file
 
 def check_answer(riddle_id: int, user_answer: str, riddles: list) -> str:
     try:
