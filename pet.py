@@ -81,13 +81,13 @@ def feed(pet, food):
     pet.mood = min(10, max(1, pet.mood + food_item["mood_boost"]))
     pet.health = min(20, max(0, pet.health + food_item["health_boost"]))
 
-    mood_description = Pet.MOOD_LEVELS.get(pet.mood, "neutral 😐")
-    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed to '{mood_description}'."
+    mood_description = Pet.MOOD_LEVELS.get(pet.mood, 'neutral 😐')
+    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed to {mood_description}."
     health_message = f"Their health is now {pet.health}."
     return f"{mood_message} {health_message}"
 
 def check_pet_mood(pet):
-    mood_description = Pet.MOOD_LEVELS.get(pet.mood, "neutral 😐")
+    mood_description = Pet.MOOD_LEVELS.get(pet.mood, 'neutral 😐')
     return f"{pet.name}'s current mood is '{mood_description}' (Level {pet.mood})."
 
 def check_pet_level(pet):
