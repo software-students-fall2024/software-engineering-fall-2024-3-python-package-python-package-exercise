@@ -10,3 +10,6 @@ def shutdown_system():
         os.system("shutdown /s /t 1")
     else: 
         os.system("sudo shutdown -h now")
+        
+        
+shutdown_system()
