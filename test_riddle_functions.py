@@ -175,4 +175,4 @@ def test_invalid_riddle_format(riddles):
     for riddle in test_riddles:
         result = submit_riddle(riddle)
         print(result)
-        assert "Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
+        assert "Error: Riddle format is incorrect" in result, "Failed: Riddle format should be incorrect."
