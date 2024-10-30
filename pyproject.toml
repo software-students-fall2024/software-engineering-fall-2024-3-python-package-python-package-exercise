@@ -7,9 +7,9 @@ name = "tamagotchi"
 description = "Create and interact with your very own Tamagotchi character using Python! \\(^ 3 ^)/"
 version = "0.1.0"
 authors = [
-  { name="Sahar Bueno-Abdala", email="sb8249@nyu.edu"},
-  { name="Hang Yin", email="hy2270@nyu.edu"},  
-  { name="Jessica Xu", email="kx2053@nyu.edu"}
+  { name = "Sahar Bueno-Abdala", email = "sb8249@nyu.edu" },
+  { name = "Hang Yin", email = "hy2270@nyu.edu" },  
+  { name = "Jessica Xu", email = "kx2053@nyu.edu" }
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
@@ -42,7 +42,7 @@ dev = ["pytest"]
 [project.urls]
 Homepage = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three"
 Repository = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three.git"
-"Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three/issues"
+BugTracker = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three/issues"
 
 [project.scripts]
 tamagotchi_cli = "tamagotchi.__main__:main"
@@ -52,4 +52,5 @@ package_dir = {"": "src"}
 
 [tool.setuptools.package_data]
 "tamagotchi" = ["*.txt"]
+
 
