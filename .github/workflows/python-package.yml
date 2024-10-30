@@ -31,8 +31,13 @@ jobs:
     - name: Install the Package
       run: pip install .
 
+    - name: Verify Package Installation
+      run: pip show tamagotchipy
+
     - name: List Installed Packages
       run: pipenv run pip list
 
     - name: Run Tests with pytest
+      env:
+        PYTHONPATH: "$GITHUB_WORKSPACE/src"
       run: pipenv run pytest --maxfail=1 --disable-warnings -v
