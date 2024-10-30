@@ -12,7 +12,7 @@ pip3 install pyexcuses
 
 ### Python
 
-Access the excuses in your own project by importing `pyexcuses` and using the function
+Access the **excuses** in your own project by importing `pyexcuses` and using the function
 `generate_excuse`:
 
 ```pycon
@@ -31,7 +31,7 @@ Funciona en mi máquina, pero quizás el entorno del servidor sea diferente
 El CSS está luchando con JavaScript de nuevo.
 ```
 
-Access the solutions in your own project by importing `pyexcuses` and using the function
+Access the **solutions** in your own project by importing `pyexcuses` and using the function
 `suggest_solution`:
 
 ```pycon
