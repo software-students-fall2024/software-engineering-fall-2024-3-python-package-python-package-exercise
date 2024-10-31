@@ -54,6 +54,19 @@ class Pet:
         result = " | ".join(parts)
         print(result)
 
+    def feed(self):
+        self.stats["food"] = min(self.stats["food"] + 20, MAX_STAT_VALUE)
+        print(f"{self.name} has been fed!")
+
+    def play(self):
+        self.stats["happiness"] = min(self.stats["happiness"] + 20, MAX_STAT_VALUE)
+        print(f"{self.name} enjoyed playing with you!")
+
+    def sleep(self):
+        self.stats["sleep"] = min(self.stats["sleep"] + 20, MAX_STAT_VALUE)
+        print(f"{self.name} had a nice nap!")
+    
+
 
 # Wrapper to make new pet object
 def new_pet(name=None, timeframe=None, immortal=False):
@@ -82,13 +95,13 @@ def new_pet(name=None, timeframe=None, immortal=False):
     pet = Pet(name, timeframe, immortal)
     return pet
 
-
+"""
 def main():
     pet = new_pet(timeframe=-1)
     while (pet.stats["health"] > 0):
         sleep(1)
         pet.status()
 
-
 if __name__ == "__main__":
     main()
+"""
