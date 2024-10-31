@@ -54,18 +54,43 @@ class Pet:
         result = " | ".join(parts)
         print(result)
 
-    def feed(self):
-        self.stats["food"] = min(self.stats["food"] + 20, MAX_STAT_VALUE)
-        print(f"{self.name} has been fed!")
+    def feed(self, amount):
+        if not isinstance(amount, int) or amount < 0:
+            print("Invalid food amount.")
+            return
+        self.stats["food"] = min(self.stats["food"] + amount, MAX_STAT_VALUE)
+        print(f"{self.name} has been fed with {amount} food points!")
 
-    def play(self):
-        self.stats["happiness"] = min(self.stats["happiness"] + 20, MAX_STAT_VALUE)
-        print(f"{self.name} enjoyed playing with you!")
+    def play(self, duration):
+        if not isinstance(duration, int) or duration < 0:
+            print("Invalid play duration.")
+            return
+        self.stats["happiness"] = min(self.stats["happiness"] + duration, MAX_STAT_VALUE)
+        print(f"{self.name} enjoyed playing with you for {duration} time units!")
 
-    def sleep(self):
-        self.stats["sleep"] = min(self.stats["sleep"] + 20, MAX_STAT_VALUE)
-        print(f"{self.name} had a nice nap!")
-    
+    def sleep(self, duration):
+        if not isinstance(duration, int) or duration < 0:
+            print("Invalid sleep duration.")
+            return
+        self.stats["sleep"] = min(self.stats["sleep"] + duration, MAX_STAT_VALUE)
+        print(f"{self.name} slept for {duration} time units!")
+
+    def rename(self, new_name):
+        if isinstance(new_name, str) and new_name.strip():
+            self.name = new_name
+            print(f"Your pet's name is now {self.name}!")
+        else:
+            print("Invalid name. Please enter a valid name.")
+
+    def display_art(self):
+        if self.stats["health"] > 50:
+            print(r"""
+               ^_^
+            """)
+        else:
+            print(r"""
+               T_T
+            """)
 
 
 # Wrapper to make new pet object
