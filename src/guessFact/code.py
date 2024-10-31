@@ -7,7 +7,7 @@ def main_function() -> None:
     print("Your task is to guess which statement is true.")
     print("Let's get started")
     print("Please choose a category:")
-    categories = {"1": "category1","2": "category2","3": "category3"}
+    categories = {"1": "Music","2": "category2","3": "category3"}
     for key, value in categories.items():
         print(f"{key}: {value}")
     category_choice = input("Enter the number of your chosen category: ")
@@ -17,7 +17,7 @@ def main_function() -> None:
         category_choice = input("Please enter the number 1, 2, or 3 to choose the category").strip()
     print("Please choose a sub-category:")
     if category_choice=="1":
-        sub_categories = {"1": "sub-category1","2": "sub-category2","3": "sub-category3"}
+        sub_categories = {"1": "Classical","2": "Jazz","3": "Pop"}
         for key, value in sub_categories.items():
             print(f"{key}: {value}")
         sub_choice = input("Enter the number of your chosen sub-category: ")
@@ -26,7 +26,7 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        category1(sub_choice)
+        Music(sub_choice)
     elif category_choice=="2":
         sub_categories = {"1": "sub-category1","2": "sub-category2","3": "sub-category3"}
         for key, value in sub_categories.items():
@@ -55,7 +55,7 @@ def category_choice_validation(category_choice: str) -> bool:
     true if valid, false otherwise"""
     return (category_choice in {"1","2","3"})
 
-def category1(sub_choice: int) -> None:
+def Music(sub_choice: int) -> None:
     """argument: sub_choice (int), which will be 1, 2, or 3
     
     the function should do the following:
@@ -75,7 +75,9 @@ def category1(sub_choice: int) -> None:
     
     6. tell the user whether she/he is correct or not
     
-    7. give a little bit explanation for both statements"""
+    7. give a little bit explanation for both statements
+    
+    8. write >= 3 tests for this function in the test_code.py"""
     
     #below is just a placeholder
     print("category1 check")
@@ -100,7 +102,9 @@ def category2(sub_choice: int) -> None:
     
     6. tell the user whether she/he is correct or not
     
-    7. give a little bit explanation for both statements"""
+    7. give a little bit explanation for both statements
+    
+    8. write >= 3 tests for this function in the test_code.py"""
     
     #below is just a placeholder
     print("category2 check")
@@ -125,7 +129,9 @@ def category3(sub_choice: int) -> None:
     
     6. tell the user whether she/he is correct or not
     
-    7. give a little bit explanation for both statements"""
+    7. give a little bit explanation for both statements
+    
+    8. write >= 3 tests for this function in the test_code.py"""
     
     #below is just a placeholder
     print("category3 check")
