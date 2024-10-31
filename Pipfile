@@ -7,11 +7,13 @@ name = "pypi"
 build = "*"
 twine = "*"
 pytest = "*"
+exceptiongroup = "*"
 
 [dev-packages]
 pytest = "*"
 build = "*"
 twine = "*"
+exceptiongroup = "*"
 
 [requires]
 python_version = "3.9"
