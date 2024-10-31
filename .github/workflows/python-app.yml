@@ -30,6 +30,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       env:
-        PYTHONPATH: src
+        PYTHONPATH: src python -m unittest discover -s tests
       run: |
         pytest tests/ --doctest-modules
