@@ -5,7 +5,7 @@ import time
 
 # helper functions
 
-# print animal
+# get ASCII art for animal
 def get_animal(animal):
     if animal not in ["cat", "bunny", "elephant", "rabbit"]:
         print("No ASCII art available for " + animal + ". Please choose from:\n'cat'\n'bunny'\n'elephant'\n'rabbit")
@@ -95,28 +95,39 @@ def get_random_fact(animal):
 
 # primary functions
 
-# move()
+#
+# package function: move
+#
+
+# helper function: clear screen
 def clearScreen():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
+# move: moves animal across terminal
 def move(animalText):
     spaces = 0
+
     try:
         while spaces < 50:
             clearScreen()
+            
             for line in animalText.split('\n'):
-                print(" " * spaces + line)
+                print((" " * spaces) + line)
+            
             time.sleep(0.1)
             spaces += 2
-            
     except KeyboardInterrupt:
         clearScreen()
-        print("\nAnimation stopped.")
+        print("Move stopped!")
 
-#function that prints random message for each animal
+#
+# package function: random message
+#
+
+#randMessage: prints random message for each animal
 def randMessage(animal):
     #dictionary for random messages for each animal
     animalMessages={
