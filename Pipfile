@@ -11,9 +11,9 @@ python-dateutil = "*"
 
 [dev-packages]
 pytest = "*"
-build = "*"
 twine = "*"
 exceptiongroup = "*"
+build = "*"
 
 [requires]
 python_version = ">=3.9"

@@ -33,3 +33,6 @@ dev = ["pytest"]
 
 [project.scripts]
 pet = "pet:main"
+
+[tool.setuptools]
+packages = ["pet"]
