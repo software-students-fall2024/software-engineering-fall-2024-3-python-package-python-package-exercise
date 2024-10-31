@@ -1,4 +1,4 @@
-name: Run Pytest
+name: Run Moo Test
 
 on:
   pull_request:
