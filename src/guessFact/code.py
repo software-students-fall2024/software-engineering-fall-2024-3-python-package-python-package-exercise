@@ -60,7 +60,7 @@ def category1(sub_choice: int) -> None:
     
     the function should do the following:
     
-    1. use a dictionary to store the two groups of statements 
+    1. store the two groups of statements 
     (one fact & one fabrication + another fact & another fabrication) 
     and their corresponding explanations
     
@@ -85,7 +85,7 @@ def category2(sub_choice: int) -> None:
     
     the function should do the following:
     
-    1. use a dictionary to store the two groups of statements 
+    1. store the two groups of statements 
     (one fact & one fabrication + another fact & another fabrication) 
     and their corresponding explanations
     
@@ -110,7 +110,7 @@ def category3(sub_choice: int) -> None:
     
     the function should do the following:
     
-    1. use a dictionary to store the two groups of statements 
+    1. store the two groups of statements 
     (one fact & one fabrication + another fact & another fabrication) 
     and their corresponding explanations
     
