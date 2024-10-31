@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.11", "3.12"]  # Add 3.12 to the matrix
+        python-version: ["3.9", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -19,35 +19,28 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install pipenv
-        run: |
-          pip install pipenv
-      - name: Clear cache
-        run: |
-          pipenv --rm || true
+        run: pip install pipenv
       - name: Install dependencies with pipenv
-        run: |
-          pipenv install --python $(which python) --deploy --system
+        run: pipenv install --python $(which python)
       - name: Run tests
-        run: |
-          pipenv run pytest
+        run: pipenv run pytest
 
   deliver:
     needs: [build]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: "3.12"
-      - name: Install pipenv and dependencies
-        run: |
-          pip install pipenv
-          pipenv install --python $(which python)
+      - name: Install pipenv
+        run: pip install pipenv
+      - name: Install dependencies with pipenv
+        run: pipenv install --python $(which python)
       - name: Build package
-        run: |
-          pipenv run python -m build .
+        run: pipenv run python -m build .
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
