@@ -126,3 +126,6 @@ def check_pet_stats(pet, pet_name):
     stats += f"Mood: {Pet.MOOD_LEVELS.get(pet.mood, 'Unknown')}\n"
     
     return stats
+
+def main():
+    print("main function")
