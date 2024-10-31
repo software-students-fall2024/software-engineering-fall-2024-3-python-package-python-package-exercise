@@ -19,7 +19,7 @@ def base64(str, type="encode"):
     elif type == "decode":
         if not all(char in base64_Chars or char == '=' for char in str): 
             print("Invalid format: Only base64 Characters are allowed(A-Z, a-z, 0-9, +, /, =)")
-            return -1
+            return None
         
         str = str.rstrip("=")
         
@@ -32,12 +32,12 @@ def base64(str, type="encode"):
         return decodedStr
     else:
         print("Invalid action type: Please select 'encode' or 'decode'.") 
-        return -1
+        return None
         
         
     
-str = "H"
-encoded = base64(str, "encode")
-print(encoded)
-print(base64(encoded, "decode"))
+# str = "="
+# encoded = base64(str, "encode")
+# print(encoded)
+# print(base64(encoded, "decode"))
         

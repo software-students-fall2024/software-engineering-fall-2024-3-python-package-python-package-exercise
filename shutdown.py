@@ -4,6 +4,7 @@ import time
 import platform
 import subprocess
 from timer import timer
+
 def shutdown_system():
     system_os = platform.system()
     print("Computer will shutdown in 20 seconds, please save your important files ASAP!")
@@ -14,5 +15,3 @@ def shutdown_system():
         subprocess.call(['osascript', '-e','tell app "System Events" to shut down'])
     else:  
         os.system("sudo shutdown -h now")
-
-shutdown_system()
