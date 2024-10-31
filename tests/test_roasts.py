@@ -97,3 +97,40 @@ class Tests:
         assert roasts.advice_roast("gardening", -1) == "You call that effort in gardening? I've seen potatoes put in more work."
 
     #-----------------------------------------------------------------------------------------------------------------------------------
+
+    # Tests for `get_n_names` function
+    def test_get_n_names(self):
+        assert len(roasts.get_n_names()) == 2
+        assert len(roasts.get_n_names(10)) == 10
+        assert len(roasts.get_n_names(10000)) == len(roasts.get_n_names(1000))
+
+    # Tests for `get_roast` function
+    def test_get_roast(self):
+        roast = roasts.get_roast()
+        assert isinstance(roast, str)
+        assert roast != ""
+
+    # Tests for `get_roast_template` function
+    def test_get_roast_template(self):
+        roast_template = roasts.get_roast_template()
+        assert roast_template.format(*["apple", "orange", "banana"]) != roast_template.format(*["apple", "orange", "banana"])
+        assert roast_template.format(*["apple", "orange", "banana"]) != roast_template.format(*["banana", "apple", "orange"])
+
+    # Tests for `roast` function
+    def test_roast(self):
+        names = ["bear", "tiger"]
+        roast1 = roasts.roast(names=names)
+        assert isinstance(roast1, str)
+        assert "bear" not in roast1 and "tiger" not in roast1
+        roast2 = roasts.roast(mode=1, names=names)
+        assert isinstance(roast2, str)
+        assert "bear" not in roast2 and "tiger" not in roast2
+        roast3 = roasts.roast(mode=2, names=names)
+        assert isinstance(roast3, str)
+        assert "bear" in roast3 or "tiger" in roast3
+        roast4 = roasts.roast(mode=-1, names=names)
+        assert isinstance(roast4, str)
+        assert "bear" in roast4 or "tiger" in roast4
+        roast5 = roasts.roast(mode=1000, names=names)
+        assert isinstance(roast5, str)
+        assert "bear" in roast5 or "tiger" in roast5

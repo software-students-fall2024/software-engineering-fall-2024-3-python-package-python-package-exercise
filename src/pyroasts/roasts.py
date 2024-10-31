@@ -94,14 +94,14 @@ def get_roast_template():
     """
     return random.choice(roast_templates)
 
-def roast(mode=1):
+def roast(mode=1, names=get_n_names(10)):
     """
     Generate a roast given the desired mode of roasting selected
     """
     if mode == 1:
         return get_roast()
     else:
-        return get_roast_template().format(*get_n_names(10))
+        return get_roast_template().format(*names)
     
 ## example for how to test these out
 # for i in range(10):
