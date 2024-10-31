@@ -153,9 +153,10 @@ def test_release_pet_not_found(reset_pets):
     result = release_pet("NonExistentPet")
     assert result == "NonExistentPet not found!"
 
-def test_release_pet_not_found(reset_pets):
-    result = release_pet("NonExistentPet")
-    assert result == "NonExistentPet not found!"
+# Temporary commented out
+#def test_release_pet_not_found(reset_pets):
+#    result = release_pet("NonExistentPet")
+#    assert result == "NonExistentPet not found!"
 
 def test_release_multiple_pets(reset_pets):
     create_pet("Buddy", "dog")
