@@ -100,31 +100,54 @@ class Tests:
 
     # Tests for `get_n_names` function
     def test_get_n_names(self):
+        # default should return two names
         assert len(roasts.get_n_names()) == 2
+        # given n=10 this should return ten names
         assert len(roasts.get_n_names(10)) == 10
+        # given an n that is greater than the list of names, function should return all names without error
         assert len(roasts.get_n_names(10000)) == len(roasts.get_n_names(1000))
+        # check that the result is a list of strings
+        names = roasts.get_n_names()
+        assert isinstance(names, list)
+        assert all(isinstance(name, str) for name in names)
+        # names should not be empty
+        assert len(names) > 0
 
     # Tests for `get_roast` function
     def test_get_roast(self):
-        roast = roasts.get_roast()
-        assert isinstance(roast, str)
-        assert roast != ""
+        roast1 = roasts.get_roast()
+        # ensure that roast is actually generated
+        assert isinstance(roast1, str)
+        # there should be no empty strings
+        assert roast1 != ""
+        # consecutive calls should yield different roasts
+        roasts_set = {roasts.get_roast() for _ in range(100)}
+        assert len(roasts_set) > 1
 
     # Tests for `get_roast_template` function
     def test_get_roast_template(self):
         roast_template = roasts.get_roast_template()
+        # ensure that roast template is actually generated
+        assert isinstance(roast_template, str)
+        # there should be no empty strings
+        assert roast_template != ""
+        # same order of inputs should yield identical strings
         assert roast_template.format(*["apple", "orange", "banana"]) != roast_template.format(*["apple", "orange", "banana"])
+        # different order of inputs should yield different strings
         assert roast_template.format(*["apple", "orange", "banana"]) != roast_template.format(*["banana", "apple", "orange"])
 
     # Tests for `roast` function
     def test_roast(self):
         names = ["bear", "tiger"]
         roast1 = roasts.roast(names=names)
+        # default mode should not use the names for formatting
         assert isinstance(roast1, str)
         assert "bear" not in roast1 and "tiger" not in roast1
+        # mode 1 should not use the names for formatting
         roast2 = roasts.roast(mode=1, names=names)
         assert isinstance(roast2, str)
         assert "bear" not in roast2 and "tiger" not in roast2
+        # any mode that is not the default or is not mode 1 should use the names for formatting
         roast3 = roasts.roast(mode=2, names=names)
         assert isinstance(roast3, str)
         assert "bear" in roast3 or "tiger" in roast3
