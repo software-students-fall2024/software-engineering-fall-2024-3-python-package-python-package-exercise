@@ -14,3 +14,5 @@ def shutdown_system():
         subprocess.call(['osascript', '-e','tell app "System Events" to shut down'])
     else:  
         os.system("sudo shutdown -h now")
+
+shutdown_system()
