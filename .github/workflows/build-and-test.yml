@@ -18,6 +18,10 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Clear cache
+        run: |
+          pipenv --rm || true
+        
       - name: Install dependencies with pipenv
         run: |
           pip install pipenv
