@@ -120,11 +120,11 @@ def move(animalText):
 def randMessage(animal):
     #dictionary for random messages for each animal
     animalMessages={
-        "cat":["Meow Meow","Hiss, Hiss", "Purr Purr","I am hungry for fish!"],
-        "bunny":["Hop Hop","Munch Munch", " I am Hungry for Hay"],
-        "elephant":["Trumpet Trumpet","Snort Snort"," Theres Dust in my trunk.", "I am Hungry for Grass.", "Lets go in the Water", "Rumble Rumble"],
-        "dog":["Woof Woof","I am hungry for socks!", " I am hungry for chicken!","Lets play fetch!"],
-        "rabbit":["Hop Hop", "Nibble Nibble", "I am Hungry for carrots!"],
+        "cat": ["Meow Meow", "Hiss, Hiss", "Purr Purr", "I am hungry for fish!"],
+        "bunny": ["Hop Hop", "Munch Munch", "I am Hungry for Hay"],
+        "elephant": ["Trumpet Trumpet", "Snort Snort", "Theres Dust in my trunk.", "I am Hungry for Grass.", "Lets go in the Water", "Rumble Rumble"],
+        "dog": ["Woof Woof", "I am hungry for socks!", "I am hungry for chicken!", "Lets play fetch!"],
+        "rabbit": ["Hop Hop", "Nibble Nibble", "I am hungry for carrots!"],
     }
     #make sure that animal entered into function is one of our animals
     if animal not in animalMessages:
