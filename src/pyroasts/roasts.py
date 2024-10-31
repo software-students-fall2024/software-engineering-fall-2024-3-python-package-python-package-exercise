@@ -70,3 +70,42 @@ def advice_roast(topic: str, sarcasm_level: int) -> str:
     return roasts.get(sarcasm_level, f"You call that effort in {topic}? I've seen potatoes put in more work.")
 
 #----------------------------------------------------------------------------------------------------------------------------------
+"""
+Inspiration for many of the "roasts"
+https://markkuperala.com/wp-content/uploads/2024/05/A-List-of-Funny-Insults.pdf
+https://aok.heavengames.com/cgi-bin/forums/display.cgi?action=st&fn=22&tn=33840&st=25
+"""
+from helper import generic_roasts, names, roast_templates
+def get_roast():
+    """
+    Get a single random roast from the list of roasts
+    """
+    return random.choice(generic_roasts)
+
+def get_n_names(n=2):
+    """
+    Get n random insulting names from the list of insulting names
+    """
+    return [name.lower() for name in random.sample(names, min(n, len(names)))]
+
+def get_roast_template():
+    """
+    Get a single random roast template from the list of roast templates
+    """
+    return random.choice(roast_templates)
+
+def roast(mode=1, names=get_n_names(10)):
+    """
+    Generate a roast given the desired mode of roasting selected
+    """
+    if mode == 1:
+        return get_roast()
+    else:
+        return get_roast_template().format(*names)
+    
+## example for how to test these out
+# for i in range(10):
+#     print(roast(1))
+#     print(roast(2))
+
+#----------------------------------------------------------------------------------------------------------------------------------
