@@ -17,7 +17,7 @@ def morse(str, type="encode"):
     if type == "encode":
         if not all(char.isalnum() or char.isspace() for char in str): 
             print("Invalid format: Only alphanumeric characters and spaces are allowed.")
-            return -1
+            return None
         morseCode = []
         for char in str.upper():
             if char in morseDict:
@@ -26,7 +26,7 @@ def morse(str, type="encode"):
     elif type == "decode":
         if not all(char.isspace() or char == '.' or char == '-' for char in str): 
             print("Invalid format: Only dots, dashes, and spaces are allowed for decoding")
-            return -1
+            return None
         words = str.split('   ')
         decodedText = []
         
@@ -39,7 +39,7 @@ def morse(str, type="encode"):
         return ' '.join(decodedText)
     else:
         print("Invalid action type: Please select 'encode' or 'decode'.") 
-        return -1
+        return None
 
             
     
