@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9d51fcd2974ebbd7115f6867586f44acee526ac524c581224beeaff422607016"
+            "sha256": "d71c709057663a9afb0f2895e1251309806626ec590390ef034f6eedf102b53e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -159,6 +159,15 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==0.21.2"
+        },
+        "exceptiongroup": {
+            "hashes": [
+                "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b",
+                "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==1.2.2"
         },
         "idna": {
             "hashes": [
@@ -520,6 +529,15 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==0.21.2"
+        },
+        "exceptiongroup": {
+            "hashes": [
+                "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b",
+                "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==1.2.2"
         },
         "idna": {
             "hashes": [
