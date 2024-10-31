@@ -27,9 +27,9 @@ classifiers = [
 dev = ["pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/nyu-software-engineering/python-package-example"
-"Repository" = "https://github.com/nyu-software-engineering/python-package-example.git"
-"Bug Tracker" = "https://github.com/nyu-software-engineering/python-package-example/issues"
+"Homepage" = "https://github.com/software-students-fall2024/3-python-package-job-offer-plz"
+"Repository" = "https://github.com/software-students-fall2024/3-python-package-job-offer-plz.git"
+"Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-job-offer-plz/issues"
 
 [project.scripts]
 pet = "pet:main"
