@@ -70,15 +70,15 @@ def decode(str, type):
         decodedSegments = []
         
         i = 0
-        while i < len(encoded_str):
+        while i < len(str):
             
             segmentLength = random.randint(1, 5)
             segmentEnd = i + segmentLength
-            if segmentEnd <= len(encoded_str): 
-                segment = encoded_str[i:segmentEnd]
+            if segmentEnd <= len(str): 
+                segment = str[i:segmentEnd]
             else: 
-                segment = encoded_str[i: len(encoded_str)]
-                segmentLength = len(encoded_str) - i
+                segment = str[i: len(str)]
+                segmentLength = len(str) - i
             
             i += segmentLength
 
