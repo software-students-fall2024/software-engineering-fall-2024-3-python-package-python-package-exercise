@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ee5bffa59cef5feec1577247aa465c4508c24dec703f2f83bb03ab7690e3587e"
+            "sha256": "33f6889333ec41e51a01381f07c650ca79216ba6255b0aabdbd3e011dbe9052b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -151,6 +151,10 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.10"
+        },
+        "pet": {
+            "editable": true,
+            "file": "."
         },
         "python-dateutil": {
             "hashes": [

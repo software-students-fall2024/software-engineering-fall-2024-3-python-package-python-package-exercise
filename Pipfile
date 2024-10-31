@@ -8,6 +8,7 @@ gitcommitlogger = "*"
 requests = "*"
 pytz = "*"
 python-dateutil = "*"
+pet = {file = ".", editable = true}
 
 [dev-packages]
 pytest = "*"

@@ -39,6 +39,8 @@ jobs:
         run: pip install pipenv
       - name: Install dependencies with pipenv
         run: pipenv install --dev --python $(which python)
+      - name: Install package in editable mode
+        run: pipenv install -e .
       - name: Build package
         run: pipenv run python -m build .
       - name: Publish to PyPI

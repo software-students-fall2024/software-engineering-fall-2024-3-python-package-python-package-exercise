@@ -1,5 +1,16 @@
 import pytest
-from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet, release_pet, pets
+
+from pet.pet import (
+    Pet,
+    create_pet,
+    release_pet,
+    feed,
+    check_pet_mood,
+    check_pet_level,
+    check_pet_health,
+    check_pet_stats,
+    pets,
+)
 
 #resetting pets
 @pytest.fixture
