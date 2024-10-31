@@ -1,5 +1,5 @@
 
-def morse(str, type):
+def morse(str, type="encode"):
     morseDict = {
         'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
         'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',

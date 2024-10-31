@@ -36,4 +36,3 @@ def timer(countdown_time=20):
                 return
         print("Done!")
 
-timer()
