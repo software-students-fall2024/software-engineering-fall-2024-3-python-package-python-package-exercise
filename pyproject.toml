@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "guessFact"
 description = "A Python package lets users select any month of the year to reveal two unique facts about it. One fact is true, and one is a playful fabrication, and the user need to identify the correct one."
-version = "0.1.1"
+version = "0.2.0"
 authors = [
   { name="Hanna Han", email="mh6161@nyu.edu" },
   { name="Wilson Xu", email="wx2105@nyu.edu" },
@@ -27,9 +27,7 @@ classifiers = [
 dev = ["pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/software-students-fall2024/3-python-package-thecoders2"
-"Repository" = "https://github.com/software-students-fall2024/3-python-package-thecoders2.git"
-"Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-thecoders2/issues"
+"Repository" = "https://github.com/software-students-fall2024/3-python-package-thecoders2"
 
 [project.scripts]
 guessFact = "guessFact.__main__:main"
