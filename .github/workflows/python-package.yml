@@ -30,5 +30,3 @@ jobs:
 
     - name: List Installed Packages
       run: pipenv run pip list
-
-
