@@ -95,7 +95,7 @@ class Tests:
     def test_advice_roast_edge_cases(self):
         assert roasts.advice_roast("", 2) == "Your attempt at  is so inspiring, it's a shame nobody's watching."
         assert roasts.advice_roast("gardening", -1) == "You call that effort in gardening? I've seen potatoes put in more work."
-
+        
     #-----------------------------------------------------------------------------------------------------------------------------------
 
     # Tests for `get_n_names` function
