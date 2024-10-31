@@ -1,1 +1,0 @@
-from .interrupting_cow import moo
