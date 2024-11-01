@@ -1,4 +1,4 @@
-## Riddle Library Handler ![Riddle Library Handler](https://github.com/software-students-fall2024/3-python-package-codecrafter/actions/workflows/riddle_package.yml/badge.svg) ##
+## Riddle Library Handler | ![Riddle Library Handler](https://github.com/software-students-fall2024/3-python-package-codecrafter/actions/workflows/riddle_package.yml/badge.svg) ##
 
 ## Overview
 
