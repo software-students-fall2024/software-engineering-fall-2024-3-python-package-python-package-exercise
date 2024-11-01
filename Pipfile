@@ -12,7 +12,6 @@ Pillow = "*"
 
 [dev-packages]
 pytest = "*"
-flake8 = "*"  # Added Flake8 for linting support
 
 [requires]
 python_version = "3"
