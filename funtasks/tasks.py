@@ -54,10 +54,10 @@ def random_daily_goal(daily_goal_time:int):
     longtasks=["Run a marathon","Travel to Australia","Write a book","Adopt a dog","Watch a movie","Learn a new language"]
     if daily_goal_time<=15:
         task=random.choice(sub15tasks)
-        return f"Random task: {task}!"
-    elif daily_goal_time>15 and daily_goal_time<=30:
+        return f"Quick task: {task}!"
+    elif daily_goal_time<=30:
         task=random.choice(sub30tasks)
-        return f"Random task: {task}!"
+        return f"Moderate task: {task}!"
     else:
         task=random.choice(longtasks)
-        return f"Random task: {task}!"
+        return f"Long task: {task}!"
