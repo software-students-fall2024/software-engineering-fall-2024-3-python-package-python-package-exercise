@@ -1,4 +1,4 @@
-# PYTHON PACKAGE EXERCISE
+# Python Package Exercise
 
 ## Shakespeare Quote Generator
 
@@ -6,7 +6,7 @@
 
 Our Python package generates humorous quotes based on Shakespeare’s writings with a computer science twist to it!
 
-Package Page: [Link](https://pypi.org/)
+***Package Page:*** [Link](https://pypi.org/)
 
 ## Package Installation
 
