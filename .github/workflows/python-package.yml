@@ -1,32 +1,40 @@
-name: CI
+name: Python Package CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: '3.12'  
 
-    - name: Install pipenv
-      run: python -m pip install --upgrade pip pipenv
+    - name: Install dependencies with pipenv
+      run: |
+        pip install pipenv
+        pipenv install --deploy --ignore-pipfile
 
-    - name: Set PIPENV_PIPFILE environment variable
-      run: echo "PIPENV_PIPFILE=$GITHUB_WORKSPACE/Pipfile" >> $GITHUB_ENV
+    - name: Run tests
+      run: |
+        pipenv run pytest tests --maxfail=5 --disable-warnings
 
-    - name: Install dependencies (including dev packages)
-      run: pipenv install --dev --deploy --ignore-pipfile
+    - name: Lint with flake8
+      run: |
+        pipenv run pip install flake8
+        pipenv run flake8 src tests  # Adjust paths as needed
 
-    - name: List Installed Packages
-      run: pipenv run pip list
+    - name: Build Package
+      run: |
+        pipenv run python setup.py sdist bdist_wheel
