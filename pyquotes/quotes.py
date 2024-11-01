@@ -11,6 +11,14 @@ inspirational = [
     {"quote": "Our lives are defined by opportunities, even the ones we miss.", "movie": "The Curious Case of Benjamin Button"},
     {"quote": "Dream big and dare to fail.", "movie": "Norma Rae"},
     {"quote": "Ernest Hemingway once wrote, 'The world is a fine place and worth fighting for.' I agree with the second part.", "movie": "Seven"},
+     {"quote": "It's not our abilities that show what we truly are… it is our choices.", "movie": "Harry Potter and the Chamber of Secrets"},
+    {"quote": "Do, or do not. There is no try.", "movie": "Star Wars: The Empire Strikes Back"},
+    {"quote": "To see the world, things dangerous to come to, to see behind walls, draw closer, to find each other, and to feel. That is the purpose of life.", "movie": "The Secret Life of Walter Mitty"},
+    {"quote": "Oh yes, the past can hurt. But you can either run from it, or learn from it.", "movie": "The Lion King"},
+    {"quote": "You have within you right now, everything you need to deal with whatever the world can throw at you.", "movie": "The Help"},
+    {"quote": "Hope is a good thing, maybe the best of things, and no good thing ever dies.", "movie": "The Shawshank Redemption"},
+    {"quote": "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.", "movie": "Harry Potter and the Prisoner of Azkaban"},
+    {"quote": "Great men are not born great, they grow great.", "movie": "The Godfather"},
 ]
 
 sad = [
@@ -23,6 +31,14 @@ sad = [
     {"quote": "I don't regret the things I've done, but those I did not do.", "movie": "Dead Poet's Society"},
     {"quote": "I don’t want to survive. I want to live!", "movie": "The Pursuit of Happyness"},
     {"quote": "Thanks for the adventures; now go have a new one! Love, Ellie.", "movie": "Up"},
+    {"quote": "I wish I knew how to quit you.", "movie": "Brokeback Mountain"},
+    {"quote": "It’s only after we’ve lost everything that we’re free to do anything.", "movie": "Fight Club"},
+    {"quote": "I miss you so much it hurts.", "movie": "Pearl Harbor"},
+    {"quote": "Sometimes I wish I had never met you, because then I could go to sleep at night not knowing there was someone like you out there.", "movie": "Good Will Hunting"},
+    {"quote": "I think we both know that you are not the love of my life. But you are the love of my right now.", "movie": "How to Be Single"},
+    {"quote": "I will return. I will find you. Love you. Marry you. And live without shame.", "movie": "Atonement"},
+    {"quote": "You have no idea what loss is.", "movie": "Logan"},
+    {"quote": "It was the best of times, it was the worst of times.", "movie": "A Tale of Two Cities"},
 ]
 
 funny = [
@@ -34,6 +50,14 @@ funny = [
     {"quote": "She's a full-on Monet. It's like a painting, see? From far away, it's okay. But up close, it's a big old mess", "movie": "Clueless"},
     {"quote": "Why can't you just be happy for me and then go home and talk behind my back later like a normal person!?", "movie": "Bridesmaids"},
     {"quote": "Say hello to my little friend", "movie": "Scarface"},
+    {"quote": "I am Groot.", "movie": "Guardians of the Galaxy"},
+    {"quote": "Gentlemen, you can't fight in here! This is the War Room!", "movie": "Dr. Strangelove"},
+    {"quote": "I feel the need—the need for speed!", "movie": "Top Gun"},
+    {"quote": "My precious!", "movie": "The Lord of the Rings: The Two Towers"},
+    {"quote": "You want to know how I got these scars?", "movie": "The Dark Knight"},
+    {"quote": "You smell like beef and cheese, you don’t smell like Santa.", "movie": "Elf"},
+    {"quote": "I’m in a glass case of emotion!", "movie": "Anchorman: The Legend of Ron Burgundy"},
+    {"quote": "I am serious. And don't call me Shirley.", "movie": "Airplane!"},
 ]
 
 iconic = [
@@ -45,4 +69,12 @@ iconic = [
     {"quote": "I simply am not there.", "movie": "American Psycho"},
     {"quote": "For Narnia and for Aslan!", "movie": "Narnia"},
     {"quote": "To infinity and beyond!", "movie": "Toy Story"},
+    {"quote": "Here's looking at you, kid.", "movie": "Casablanca"},
+    {"quote": "You talking to me?", "movie": "Taxi Driver"},
+    {"quote": "I'll be back.", "movie": "The Terminator"},
+    {"quote": "Keep your friends close, but your enemies closer.", "movie": "The Godfather Part II"},
+    {"quote": "I love the smell of napalm in the morning.", "movie": "Apocalypse Now"},
+    {"quote": "You can’t handle the truth!", "movie": "A Few Good Men"},
+    {"quote": "Go ahead, make my day.", "movie": "Sudden Impact"},
+    {"quote": "Frankly, my dear, I don’t give a damn.", "movie": "Gone with the Wind"},
 ]
