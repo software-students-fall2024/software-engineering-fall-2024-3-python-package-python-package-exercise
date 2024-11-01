@@ -37,6 +37,11 @@ def main():
     # Clear tasks and test random_task with no tasks
     tasks.clear()
     print(random_task())
+
+    # Testing random_task with a single task
+    print("\n### Random Task (One Task) ###")
+    tasks["Groceries"] = {"urgency": 3, "completed": False}
+    print(random_task())
     
     # 4. Set daily goals based on available time
     print("\n### Daily Goals ###")
