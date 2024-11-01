@@ -44,3 +44,32 @@ def test_exit():
     pet = VirtualPet("TestPet")
     pet.exit()
     assert pet.active == False, "Pet should not be active after exit"
+
+def test_take_shower():
+    """Test the take_shower() functionality"""
+    pet = VirtualPet("TestPet")
+    pet.cleanness = 2
+
+    # Take a shower to reset cleanness
+    pet.take_shower()
+    assert pet.cleanness == 10, "Cleanness should be reset to 10 after a shower"
+    assert pet.dirty_command_count == 0, "Dirty command count should be reset to 0 after a shower"
+
+def test_restart():
+    """Test the restart() functionality"""
+    pet = VirtualPet("TestPet")
+
+    # Assign non-default values
+    pet.happiness = 1
+    pet.cleanness = 6
+    pet.is_sleeping = True
+    pet.dirty_command_count = 3
+
+    # Reset everything
+    pet.restart()
+
+    assert pet.happiness == 10, "Happiness should be reset to 10 after restart"
+    assert pet.cleanness == 10, "Cleanness should be reset to 10 after restart"
+    assert not pet.is_sleeping, "Pet should not be sleeping after restart"
+    assert pet.dirty_command_count == 0, "Dirty command count should be reset to 0 after restart"
+    assert pet.active == True, "Pet should be active after restart"

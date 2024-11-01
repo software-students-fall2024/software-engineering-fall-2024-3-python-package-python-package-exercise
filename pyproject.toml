@@ -9,6 +9,7 @@ version = "0.1.0"
 authors = [
   { name="Foo Barstein", email="foo.barstein@onepotcooking.com" },
   { name="Applejam-ovo", email="ql2138@nyu.edu" },
+  { name="ElaineR02", email="pl2355nyu.edu" }
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
