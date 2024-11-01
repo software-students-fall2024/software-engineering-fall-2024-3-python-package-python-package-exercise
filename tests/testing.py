@@ -1,5 +1,5 @@
 import pytest
-from pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet, release_pet, pets
+from petpy.src.pet import Pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats, create_pet, release_pet, pets
 
 #resetting pets
 @pytest.fixture
