@@ -85,8 +85,45 @@ def Music(sub_choice: int) -> None:
 def Coffee(sub_choice: int) -> None:
 
     #subcategories: 1.historical tales; 2.coffee culture; 3.scientific facts
+    """
+    1.1.
+        1.According to legend, coffee was coffee was discovered when a goat herder noticed his goats’ energy after eating coffee berries
+        2.In 15th-century Yemen, coffee beans were so valuable that merchants would trade them for gemstones.
+    1.2
+        1.In medieval Ethiopia, coffee was once taxed under a 'wakefulness tax'
+        2.The Arabic root word for coffe -- qahwa -- originally refered to a type of wine
+    2.1
+        1.According to global trade data, coffee is indeed one of the most traded commodities, second only to oil
+        2.2.In a remote mountain village in Nepal, monks practice “coffee meditation
+    2.2
+        1.Finland consistently ranks first in coffee consumption per capita
+        2.In a small town in France, it’s customary to clink coffee mugs before every sip. Local folklore says it helps people “toast” the spirit of the coffee bean for good energy
+    3.1
+        1.In the highlands of Peru, there is a rare coffee plant that only blooms at midnight on full moons, releasing an unusually sweet aroma. The coffee from these “Lunar Beans” is said to have a mellow, caramel flavor
+        2.Coffee is one of the richest sources of antioxidants in the average diet, even more than some fruits and vegetables
+    3.2
+        1.Studies have found that just holding a warm cup of coffee can affect your perception and behavior.
+        2.In a lab experiment, researchers in Iceland developed coffee beans that change color according to the drinker’s mood. These “Mood Beans” are still in development but are said to go from green (calm) to red (excited) as you take a sip
 
-    facts = ["truth\nlie", "lie\ntruth", "truth\nlie", "truth\nlie", "lie\ntruth", "truth\nlie"]
+    """
+
+    facts = ["1.According to legend, coffee was coffee was discovered when a goat herder noticed his 'goats' energy after eating coffee berries"\
+            "\n2.In 15th-century Yemen, coffee beans were so valuable that merchants would trade them for gemstones", 
+
+            "1.In medieval Ethiopia, coffee was once taxed under a 'wakefulness tax'"\
+            "\n2.The Arabic root word for coffe -- qahwa -- originally refered to a type of wine", 
+
+            "1.According to global trade data, coffee is indeed one of the most traded commodities, second only to oil”\
+            \n2.In a remote mountain village in Nepal, monks practice “coffee meditation", 
+            
+            "1.Finland consistently ranks first in coffee consumption per capita"\
+            "\n2.In a small town in France, it’s customary to clink coffee mugs before every sip. Local folklore says it helps people “toast” the spirit of the coffee bean for good energy", 
+            
+            "1.In the highlands of Peru, there is a rare coffee plant that only blooms at midnight on full moons, releasing an unusually sweet aroma. The coffee from these “Lunar Beans” is said to have a mellow, caramel flavor"\
+            "\n2.Coffee is one of the richest sources of antioxidants in the average diet, even more than some fruits and vegetables", 
+            
+            "1.Studies have found that just holding a warm cup of coffee can affect your perception and behavior."\
+            "\n2.In a lab experiment, researchers in Iceland developed coffee beans that change color according to the drinker’s mood. These “Mood Beans” are still in development but are said to go from green (calm) to red (excited) as you take a sip"]
     explanation = ["11", "12", "21", "22", "31", "32"]
     truth = [1, 2, 1, 1, 2, 1]
     
