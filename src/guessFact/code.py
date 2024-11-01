@@ -7,7 +7,7 @@ def main_function() -> None:
     print("Your task is to guess which statement is true.")
     print("Let's get started")
     print("Please choose a category:")
-    categories = {"1": "Music","2": "Coffee","3": "category3"}
+    categories = {"1": "Music","2": "Coffee","3": "Food"}
     for key, value in categories.items():
         print(f"{key}: {value}")
     category_choice = input("Enter the number of your chosen category: ")
@@ -38,8 +38,8 @@ def main_function() -> None:
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
         Coffee(sub_choice)
-    else:
-        sub_categories = {"1": "sub-category1","2": "sub-category2","3": "sub-category3"}
+    else: # Food category
+        sub_categories = {"1": "Desserts","2": "International Cuisines","3": "Street Food"}
         for key, value in sub_categories.items():
             print(f"{key}: {value}")
         sub_choice = input("Enter the number of your chosen sub-category: ")
@@ -48,7 +48,7 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        category3(sub_choice)
+        Food(sub_choice)
 
 def category_choice_validation(category_choice: str) -> bool:
     """the function the check whether the user enter a valid category choice: 
@@ -114,7 +114,7 @@ def Coffee(sub_choice: int) -> None:
     #below is just a placeholder
     print("category2 check")
 
-def category3(sub_choice: int) -> None:
+def Food(sub_choice: int) -> None:
     """argument: sub_choice (int), which will be 1, 2, or 3
     
     the function should do the following:
