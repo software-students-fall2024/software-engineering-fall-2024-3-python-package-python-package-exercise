@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "guessFact"
 description = "A Python package lets users select any month of the year to reveal two unique facts about it. One fact is true, and one is a playful fabrication, and the user need to identify the correct one."
-version = "0.2.1"
+version = "0.2.2"
 authors = [
   { name="Hanna Han", email="mh6161@nyu.edu" },
   { name="Wilson Xu", email="wx2105@nyu.edu" },
