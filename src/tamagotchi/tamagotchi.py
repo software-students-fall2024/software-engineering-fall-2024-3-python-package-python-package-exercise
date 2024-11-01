@@ -79,6 +79,7 @@ class Tamagotchi:
                     ascii_art += ascii_char
                 ascii_art += "\n"
             
+            self.ascii_art_label = ascii_art
             print(ascii_art)  
             return ascii_art
 
