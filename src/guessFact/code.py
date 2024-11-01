@@ -7,7 +7,7 @@ def main_function() -> None:
     print("Your task is to guess which statement is true.")
     print("Let's get started")
     print("Please choose a category:")
-    categories = {"1": "Music","2": "category2","3": "category3"}
+    categories = {"1": "Music","2": "Coffee","3": "category3"}
     for key, value in categories.items():
         print(f"{key}: {value}")
     category_choice = input("Enter the number of your chosen category: ")
@@ -27,8 +27,8 @@ def main_function() -> None:
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
         Music(sub_choice)
-    elif category_choice=="2":
-        sub_categories = {"1": "sub-category1","2": "sub-category2","3": "sub-category3"}
+    elif category_choice=="2":#historical tales; coffee culture; scientific facts
+        sub_categories = {"1": "historical tales","2": "coffee culture","3": "scientific facts"}
         for key, value in sub_categories.items():
             print(f"{key}: {value}")
         sub_choice = input("Enter the number of your chosen sub-category: ")
@@ -37,7 +37,7 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        category2(sub_choice)
+        Coffee(sub_choice)
     else:
         sub_categories = {"1": "sub-category1","2": "sub-category2","3": "sub-category3"}
         for key, value in sub_categories.items():
@@ -82,7 +82,13 @@ def Music(sub_choice: int) -> None:
     #below is just a placeholder
     print("category1 check")
 
-def category2(sub_choice: int) -> None:
+def Coffee(sub_choice: int) -> None:
+    #subcategories: historical tales; coffee culture; scientific facts
+
+    #facts = ["truth\nlie", "lie\ntruth", "trueth\nlie"]
+    #truth = [1, 2, 1]
+
+
     """argument: sub_choice (int), which will be 1, 2, or 3
     
     the function should do the following:
@@ -90,7 +96,6 @@ def category2(sub_choice: int) -> None:
     1. store the two groups of statements 
     (one fact & one fabrication + another fact & another fabrication) 
     and their corresponding explanations
-    
     2. randomly print one group to user, which will be two statements
     
     3. prompt user to enter 1 or 2 to choose the fact
