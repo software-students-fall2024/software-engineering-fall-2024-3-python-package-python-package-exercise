@@ -35,7 +35,7 @@ Generates a random riddle based on the specified difficulty level.
 
 - **Example:**
 
-  ```
+  ```python
   import riddle_library_handler
 
   # Generate a riddle of difficulty level 2
