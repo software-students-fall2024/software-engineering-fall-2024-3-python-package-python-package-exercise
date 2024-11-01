@@ -83,10 +83,30 @@ def Music(sub_choice: int) -> None:
     print("category1 check")
 
 def Coffee(sub_choice: int) -> None:
-    #subcategories: historical tales; coffee culture; scientific facts
 
-    #facts = ["truth\nlie", "lie\ntruth", "trueth\nlie"]
-    #truth = [1, 2, 1]
+    #subcategories: 1.historical tales; 2.coffee culture; 3.scientific facts
+
+    facts = ["truth\nlie", "lie\ntruth", "truth\nlie", "truth\nlie", "lie\ntruth", "truth\nlie"]
+    explanation = ["11", "12", "21", "22", "31", "32"]
+    truth = [1, 2, 1, 1, 2, 1]
+    
+    #randomly generate 0 or 1
+    random_value = int(__import__('time').time() * 1000) % 2
+
+    #print facts
+    print(facts[(sub_choice -1)*2+random_value])
+
+    while True:
+        fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
+        if fact_choice_validation(fact_choice):
+            break
+        fact_choice = input("Invalid input. Please enter either 1 or 2.").strip()
+
+    if fact_choice == truth[sub_choice + random_value]:
+        print("You are right!")
+    else:
+        print("You are wrong!")
+        
 
 
     """argument: sub_choice (int), which will be 1, 2, or 3
