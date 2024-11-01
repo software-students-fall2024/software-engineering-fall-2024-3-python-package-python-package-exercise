@@ -17,6 +17,7 @@ name = "testpypi"
 examplepackagefb1258 = {version = "==0.0.7", index = "testpypi"}
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3.11"
