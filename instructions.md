@@ -40,7 +40,7 @@ To merge code from a feature branch into the `main` branch, do the following:
 
 1. Create a pull request from the feature branch to the `main` branch.
 1. Ask a fellow developer to review your code.
-1. The reviewer must review the code and run unit tests to verify that the functions behave as expepcted.
+1. The reviewer must review the code and run unit tests to verify that the functions behave as expected.
 1. If the reviewer has any concerns, discuss then and make any changes agreed upon.
 1. Merge the pull request into the `main` branch.
 1. Delete the feature branch.
