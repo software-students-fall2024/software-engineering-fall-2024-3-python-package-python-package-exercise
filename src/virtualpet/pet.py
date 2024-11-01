@@ -42,7 +42,11 @@ class VirtualPet:
     def display_status(self):
         print(f"\n{self.get_emoji()}")
         print(f"Current Happiness Level: {self.happiness}, Cleanness Level: {self.cleanness}")
-    
+ 
+    def create_a_pet():
+        name = input("Enter your pet's name: ")
+        return VirtualPet(name)
+        
     def feed_pet(self):
         if self.is_sleeping:
             print(f"{self.name} is sleeping!")
