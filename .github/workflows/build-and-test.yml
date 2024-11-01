@@ -43,6 +43,8 @@ jobs:
         run: pipenv install -e .
       - name: Build package
         run: pipenv run python -m build .
+      - name: Check distribution with twine
+        run: pipenv run twine check dist/*
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

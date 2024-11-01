@@ -18,7 +18,6 @@ keywords = ["python", "package", "build", "tutorial"]
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Intended Audience :: Entertainment",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
 ]
@@ -35,4 +34,6 @@ dev = ["pytest"]
 pet = "pet:main"
 
 [tool.setuptools]
-packages = ["pet"]
+packages = { find = { exclude = ["tests", "tests.*"]} }
+
+
