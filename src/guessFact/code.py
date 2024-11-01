@@ -144,30 +144,6 @@ def Coffee(sub_choice: int) -> None:
     else:
         print("You are wrong!")
         
-
-
-    """argument: sub_choice (int), which will be 1, 2, or 3
-    
-    the function should do the following:
-    
-    1. store the two groups of statements 
-    (one fact & one fabrication + another fact & another fabrication) 
-    and their corresponding explanations
-    2. randomly print one group to user, which will be two statements
-    
-    3. prompt user to enter 1 or 2 to choose the fact
-    
-    4. use while loop and fact_choice_validation function below to prompt again 
-    until the fact_choice is valid
-    
-    5. check whether the user's answer correct
-    
-    6. tell the user whether she/he is correct or not
-    
-    7. give a little bit explanation for both statements
-    
-    8. write >= 3 tests for this function in the test_code.py"""
-    
     #below is just a placeholder
     print("category2 check")
 
