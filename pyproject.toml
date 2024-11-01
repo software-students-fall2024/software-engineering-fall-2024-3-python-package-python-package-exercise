@@ -7,6 +7,9 @@ name = "Ascii_Art_TNH"
 version = "0.0.1"
 authors = [
   { name="Hugo Bray", email="hwb4547@nyu.edu" },
+  { name="Tamara Bueno", email="tb2803@nyu.edu"},
+  { name="Nuzhat Bushra", email="ntb5562@nyu.edu"},
+  { name="Melanie Zhang", email="mz3138@nyu.edu"}
 ]
 description = "A small silly package which prints ASCII art based on certain inputs. Watch out for the interrupting cow"
 readme = "README.md"
