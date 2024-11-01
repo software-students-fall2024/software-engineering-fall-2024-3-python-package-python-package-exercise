@@ -95,13 +95,19 @@ def feed(pet, food):
 
     if not food_item:
         return f"{food} is not on the menu!"
+    
+    initial_mood = pet.mood
+    initial_health = pet.health
 
     pet.mood = min(10, max(1, pet.mood + food_item["mood_boost"]))
     pet.health = min(20, max(0, pet.health + food_item["health_boost"]))
 
+    mood_change = pet.mood - initial_mood
+    health_change = pet.health - initial_health
+
     mood_description = Pet.MOOD_LEVELS.get(pet.mood, 'neutral 😐')
-    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed to {mood_description}."
-    health_message = f"Their health is now {pet.health}."
+    mood_message = f"{pet.name} ate {food_item['emoji']} and their mood changed to '{mood_description}' (ΔMood: {mood_change})."
+    health_message = f"Their health is now {pet.health} (ΔHealth: {health_change})."
     return f"{mood_message} {health_message}"
 
 def check_pet_mood(pet):
