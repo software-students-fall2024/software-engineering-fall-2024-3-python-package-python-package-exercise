@@ -1,29 +1,33 @@
+import noises
 import gallery
 
-def parse_input(user_input):
-    # Type of the input-make sure string
-    # Strip trailing spaces
-    while(True):
-      if user_input.strip()!="":
-        animal = user_input.split(" ")
-        #calls print_art or print_noise
-        if animal in gallery.animals:
-          print_art(animal)
+def ascii_art(user_input):
+  # Type of the input-make sure string
+  # Strip trailing spaces
+  animal_array = parse_input(user_input)
+  for animal in animal_array:
+    # If animal is in the gallery
+    if animal in gallery.animals:
+      print_art(animal)
+    elif animal in noises.animal_noises:
+      print(print_art(get_noise(animal)))
+    else:
+      # If animal is not in the gallery
+      wrong_input(animal, len(animal_array))
 
-      # getting animal name from the user
-      user_input = input("Enter an animal or exit : ")
-      
-      if user_input == "exit":
-        break
+def parse_input(user_input):
+  inputs = []
+  inputs = user_input.split(" ")
+  return inputs
 
 def print_art(animal):
   #match animal with art
   #calls print_noise or wrong_input
   return(gallery.animals.get(animal))
 
-def print_noise(animal):
+def get_noise(noise):
    #match animal with noise
-   noises = {}
+   return(noises.get(noise))
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
@@ -67,20 +71,4 @@ _\.\/|   /'--'oOOOOOOo'--'\
     print(flowers)
   else:
     print(flower)
-  
-
-  
-
-def main():
-  # getting animal name from the user
-  user_input = input("Enter an animal: ")
-  parse_input(user_input)
-
-
-
-  
-
-
-
-if __name__ == "__main__":
-  main()
+  return
