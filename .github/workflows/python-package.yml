@@ -19,12 +19,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'  
+        python-version: '3.12'  # Replace '3.x' with your desired Python version
 
     - name: Install dependencies with pipenv
       run: |
         pip install pipenv
-        pipenv install --deploy --ignore-pipfile
+        pipenv install --deploy --ignore-pipfile --dev
 
     - name: Run tests
       run: |
@@ -35,6 +35,8 @@ jobs:
         pipenv run pip install flake8
         pipenv run flake8 src tests  # Adjust paths as needed
 
-    - name: Build Package
+    - name: Build Package with Poetry
+      if: exists('pyproject.toml')
       run: |
-        pipenv run python setup.py sdist bdist_wheel
+        pip install poetry
+        poetry build
