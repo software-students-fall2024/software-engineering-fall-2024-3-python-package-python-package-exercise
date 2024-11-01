@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest moo_test.py
+          pytest tests/moo_test.py
