@@ -57,12 +57,30 @@ def test_complete_nonexist():
 #random task tests
     
 #TEST 1
-
+def test_random_task_no_tasks():
+    tasks.clear()
+    result = random_task()
+    assert result == "No tasks available."
 
 #TEST 2
-    
+def test_random_task_one_task():
+    tasks.clear()
+    tasks["Single Task"] = {"urgency": 2, "completed": False}
+    result = random_task()
+    assert result == "Random task: Single Task with urgency 2"
 
 #TEST 3
+def test_random_task_multiple_tasks():
+    tasks.clear()
+    tasks["Task 1"] = {"urgency": 2, "completed": False}
+    tasks["Task 2"] = {"urgency": 4, "completed": False}
+    tasks["Task 3"] = {"urgency": 5, "completed": False}
+    result = random_task()
+    assert re.match(r"Random task: .* with urgency \d", result)
+    task_name = result.split(": ")[1].split(" with urgency")[0]
+    assert task_name in tasks
+
+
     
 ##############################
 #daily goal task tests
