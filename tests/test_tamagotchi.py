@@ -2,6 +2,8 @@ import pytest
 from PIL import Image
 from src.tamagotchi import tamagotchi
 import os
+import tkinter as tk
+from unittest.mock import patch
 
 # Mock data
 test_image_path = "test_image.png"
@@ -68,3 +70,41 @@ def test_getpet_non_numeric_input(tamagotchi_instance):
     """Test getpet with a non-numeric input to check error handling."""
     with pytest.raises(TypeError):
         tamagotchi_instance.getpet("not_a_number")
+        
+def test_run_game():
+    # Create an instance of Tamagotchi
+    tamagotchi_instance = tamagotchi.Tamagotchi()
+
+    # Save the original mainloop method
+    original_mainloop = tk.Tk.mainloop
+
+    # Define a custom mainloop to inject test code
+    def custom_mainloop(self):
+        if not hasattr(self, '_test_scheduled'):
+            self._test_scheduled = True
+
+            if self == tamagotchi_instance.root:
+                # Schedule the interaction for the root window
+                def simulate_user_interaction():
+                    # Simulate entering the pet's name
+                    tamagotchi_instance.name_entry.insert(0, "Fluffy")
+                    # Simulate clicking the "Start Game" button
+                    tamagotchi_instance.start_game()
+                self.after(100, simulate_user_interaction)
+            elif self == tamagotchi_instance.game_win:
+                # Schedule the closure of the game window
+                def close_game_window():
+                    # Quit the mainloop to end the test
+                    tamagotchi_instance.game_win.quit()
+                    tamagotchi_instance.game_win.destroy()
+                self.after(100, close_game_window)
+
+        # Call the original mainloop
+        original_mainloop(self)
+
+    # Monkeypatch tkinter.Tk.mainloop with our custom_mainloop
+    with patch.object(tk.Tk, 'mainloop', new=custom_mainloop):
+        tamagotchi_instance.run_game()
+
+    # Perform assertions after the GUI has closed
+    assert tamagotchi_instance.name == "Fluffy"
