@@ -7,14 +7,18 @@ def main():
     
     # 1. Add tasks
     print("\n### Adding Tasks ###")
-    print(add_task("Do laundry", 3))
-    print(add_task("Grocery shopping", 2))
-    print(add_task("Walk the dog", 4))
-
+    try:
+        print(add_task("Do laundry", 3))
+        print(add_task("Grocery shopping", 2))
+        print(add_task("Walk the dog", 4))
+    except ValueError as e:
+        print(e)
     
     # Attempt to add a duplicate task
-    print(add_task("Do laundry", 3))
-
+    try:
+        print(add_task("Do laundry", 3))
+    except ValueError as e:
+        print(e)
     
     # 2. Complete a task
     print("\n### Completing Tasks ###")
