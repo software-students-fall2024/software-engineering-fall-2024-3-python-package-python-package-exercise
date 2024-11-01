@@ -1,41 +1,37 @@
-name: CI / CD
-on: [pull_request]
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on tags that start with "v", e.g., v1.0, v1.1, etc.
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.11"]
+    permissions:
+      contents: read
+      id-token: write  # Required for PyPI publishing with OIDC
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Turn on 'editable' mode
+          python-version: '3.12'
+
+      - name: Install dependencies
         run: |
-          pipenv install -e .
-      - name: Test with pytest
-        run: |
-          pipenv install pytest
-          pipenv --venv
-          pipenv run python -m pytest
-  deliver:
-    needs: [build]
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
-      - name: Build package
-        run: |
-          pipenv install build
-          pipenv run python -m build .
-      - name: tamagotchi-pypi-token
+          pip install build
+          pip install twine
+
+      - name: Build the package
+        run: python -m build
+
+      - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository-url: https://test.pypi.org/legacy/
+          user: "__token__"
+          password: "${{ secrets.TEST_PYPI_API_TOKEN }}"
+          repository_url: "https://test.pypi.org/legacy/"
