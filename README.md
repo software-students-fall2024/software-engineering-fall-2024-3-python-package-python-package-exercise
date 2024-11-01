@@ -1,25 +1,24 @@
-# Riddle Generator
-
-[![PyPI Version](https://img.shields.io/pypi/v/riddle-generator)](https://pypi.org/project/riddle-generator/)
+## Riddle Library Handler
 
 ## Overview
 
-**Riddle Generator** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
-
+**Riddle Library Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
+## PyPI Link
+![PyPI Version](https://pypi.org/project/riddle-library-handler/0.1.0/#modal-close)
 ## Installation
 
 Install the package via pip:
 
 ```bash
-pip install riddle-generator
+pip install riddle-library-handler==0.1.0
 ```
 
 ## Usage
 
 ### Importing the Package
 
-```python
-import riddle_generator
+```
+import riddle_library_handler
 ```
 
 ### Functions and Examples
@@ -37,10 +36,10 @@ Generates a random riddle based on the specified difficulty level.
 - **Example:**
 
   ```
-  import riddle_generator
+  import riddle_library_handler
 
   # Generate a riddle of difficulty level 2
-  riddle = riddle_generator.generate_riddle(2)
+  riddle = riddle_library_handler.generate_riddle(2)
   print(f"Here's your riddle: {riddle}")
   ```
 
@@ -57,20 +56,20 @@ Checks if the provided answer to the riddle is correct.
 
 - **Example:**
 
-  ```
-  import riddle_generator
+  ```python
+  import riddle_library_handler
 
   # Check the answer to a riddle with ID 5
-  result = riddle_generator.check_answer(5, 'shadow')
+  result = riddle_library_handler.check_answer(5, 'shadow')
   print(result)  # Outputs: "Correct answer!" or "Incorrect answer. Try again!"
   ```
 
-#### Function 3: `submit_riddle(custom_riddle: dict) -> str`
+#### Function 3: `submit_riddle(riddle: dict) -> str`
 
 Allows users to submit their own riddles to the library.
 
 - **Parameters:**
-  - `custom_riddle` (dict): A dictionary containing the riddle's details.
+  - `riddle` (dict): A dictionary containing the riddle's details.
 
     - `question` (str): The riddle's question.
     - `answer` (list): A list of acceptable answers.
@@ -84,7 +83,7 @@ Allows users to submit their own riddles to the library.
 - **Example:**
 
   ```python
-  import riddle_generator
+  import riddle_library_handler
 
   # Define your custom riddle
   my_riddle = {
@@ -96,8 +95,8 @@ Allows users to submit their own riddles to the library.
   }
 
   # Submit the riddle
-  response = riddle_generator.submit_riddle(my_riddle)
-  print(response)  # Outputs: "Riddle submitted successfully"
+  response = riddle_library_handler.submit_riddle(my_riddle)
+  print(response)  # Outputs: "Riddle submitted successfully!"
   ```
 
 #### Function 4: `provide_hint(riddle_id: int) -> str`
@@ -113,34 +112,15 @@ Provides a hint for the specified riddle.
 - **Example:**
 
   ```python
-  import riddle_generator
+  import riddle_library_handler
 
   # Get a hint for a riddle
-  hint = riddle_generator.provide_hint(5)
+  hint = riddle_library_handler.provide_hint(5)
   print(hint)  # Outputs the hint for the riddle
   ```
 
-#### Function 5: `read_file(file_path: str) -> list`
 
-Reads the riddle library from a JSON file.
-
-- **Parameters:**
-  - `file_path` (str): Path to the JSON file containing riddles.
-
-- **Returns:**
-  - A list of riddle dictionaries.
-
-- **Example:**
-
-  ```python
-  import riddle_generator
-
-  # Read riddles from a file
-  riddles = riddle_generator.read_file('riddleLibrary.json')
-  print(riddles)
-  ```
-
-_**For more examples, check out** [this example program](https://github.com/yourusername/riddle-generator/blob/main/example_program.py)._
+_**For more examples, check out** [this example program]()._
 
 ## Contributing
 
@@ -149,7 +129,7 @@ _**For more examples, check out** [this example program](https://github.com/your
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/riddle-generator.git
+   git clone https://github.com/software-students-fall2024/3-python-package-codecrafter
    ```
 
 
@@ -175,7 +155,7 @@ _**For more examples, check out** [this example program](https://github.com/your
 
 - **Run Tests:**
 
-  We use `pytest` for testing. In test.py file, running this file by using pytest.
+  We use `pytest` for testing.
 
   ```bash
   pytest
@@ -213,16 +193,16 @@ To merge code from a feature branch into `main`:
 
 ## Contributors
 
-- [Teammate 1](https://github.com/teammate1)
-- [Teammate 2](https://github.com/teammate2)
-- [Teammate 3](https://github.com/teammate3)
-- [Teammate 4](https://github.com/teammate4)
+- [Contributor 1](https://github.com/contributor1)
+- [Contributor 2](https://github.com/contributor2)
+- [Contributor 3](https://github.com/contributor3)
+- [Contributor 4](https://github.com/contributor4)
 
 ## Instructions for Running the Project
 
 ### For Developers
 
-1. **Ensure Python 3.9 or higher is installed** on your system.
+1. **Ensure Python 3.7 or higher is installed** on your system.
 
 2. **Clone the repository and set up the environment** as described in the [Contributing](#contributing) section.
 
@@ -237,7 +217,7 @@ To merge code from a feature branch into `main`:
 1. **Install the package via pip:**
 
    ```bash
-   pip install riddle-generator
+   install riddle-library-handler==0.1.0
    ```
 
 2. **Use the package in your Python scripts** as shown in the [Usage](#usage) examples.
@@ -251,4 +231,7 @@ No environment variables are required for basic usage.
 ### Importing Starter Data
 
 The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project.
+
+
+
 
