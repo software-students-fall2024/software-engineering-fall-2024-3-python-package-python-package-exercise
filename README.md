@@ -37,7 +37,9 @@ if there are any "secret" configuration files, such as .env or similar files, th
 3. Install pipenv locally: ```python3 -m pip install --user pipenv```
 
 4. Navigate to project directory
+   
       Mac: ```cd ~/Desktop/Project3```
+   
       Windows: ```cd %UserProfile%\Desktop\Project3```
 
 5. Create & activate virtual env: ```pipenv shell```
@@ -47,7 +49,9 @@ if there are any "secret" configuration files, such as .env or similar files, th
 7. Install PyTest for testing: ```pipenv install pytest --dev```
 
 8. Run tests
+   
       Mac: ```PYTHONPATH=src pytest tests/test_codeshakespeare.py```
+   
       Windows: ```$env:PYTHONPATH="src"; pytest tests/test_codeshakespeare.py```
 
 
