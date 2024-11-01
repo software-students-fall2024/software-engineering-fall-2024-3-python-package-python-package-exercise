@@ -5,6 +5,9 @@ def ascii_art(user_input):
   # Type of the input-make sure string
   # Strip trailing spaces
   animal_array = parse_input(user_input)
+  if len(animal_array) == 0:
+    wrong_input("nothing", 0)
+    return
   for animal in animal_array:
     # If animal is in the gallery
     if animal in gallery.animals:
