@@ -2,11 +2,14 @@
 
 neutral = [
     "Funciona en mi máquina, pero quizás el entorno del servidor sea diferente.",
+    "Creo que un rayo cósmico está impactando al servidor en el momento equivocado.",
+    "Estoy seguro de que es un problema de caché. ¿Has intentado borrar el caché?",
 ]
 
 javascript = [
     "El CSS está luchando con JavaScript de nuevo.",
     "Probablemente se deba a que el código se está ejecutando en modo descuidado en lugar de en modo estricto.",
+    "Creo que un console.log() extraviado está causando interferencias.",
 ]
 
 python = [
