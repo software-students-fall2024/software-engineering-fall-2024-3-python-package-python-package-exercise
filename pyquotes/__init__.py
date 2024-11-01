@@ -1,0 +1,1 @@
+from pyquotes.quote_of_the_day import get_quote_of_the_day
