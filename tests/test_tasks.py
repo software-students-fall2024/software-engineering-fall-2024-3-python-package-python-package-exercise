@@ -57,7 +57,10 @@ def test_complete_nonexist():
 #random task tests
     
 #TEST 1
-
+def test_random_task_no_tasks():
+    tasks.clear()
+    result = random_task()
+    assert result == "No tasks available."
 
 #TEST 2
     
