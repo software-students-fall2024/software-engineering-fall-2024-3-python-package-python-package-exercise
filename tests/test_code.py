@@ -48,6 +48,29 @@ def test_main_function_case2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Capt
     for segment in expected_output_segments:
         assert segment in output
 
+def test_main_function_case3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
+    inputs = iter(["1","3"])
+    monkeypatch.setattr("builtins.input",lambda _: next(inputs))
+    main_function()
+    captured = capfd.readouterr()
+    expected_output_segments = [
+        "Welcome to the Guess the Fact Game!",
+        "In this game, you'll be presented with two statements about a chosen topic.",
+        "Your task is to guess which statement is true.",
+        "Let's get started",
+        "Please choose a category:",
+        "1: Music",
+        "2: category2",
+        "3: category3",
+        "Please choose a sub-category:",
+        "1: Classical",
+        "2: Jazz",
+        "3: Pop"
+    ]
+    output = captured.out
+    for segment in expected_output_segments:
+        assert segment in output
+
 #Test for fact_choice_validation function
 def test_fact_choice_validation_case1() -> None:
     assert fact_choice_validation("1") == True
