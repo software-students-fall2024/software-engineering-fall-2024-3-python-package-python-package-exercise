@@ -57,7 +57,7 @@ class Tamagotchi:
         game_window.mainloop()
                    
             
-    def get_ascii_art(image_path, scale=0.1, character_map=G_SCALE_1):
+    def get_ascii_art(self, image_path, scale=0.1, character_map=G_SCALE_1):
         """Converts an image to ASCII art using the specified character map."""
         try:
             image = Image.open(image_path)

@@ -1,11 +1,15 @@
 import pytest
 from PIL import Image
-from tamagotchi import get_ascii_art, getpet, G_SCALE_1, G_SCALE_2
+from src.tamagotchi import tamagotchi
 import os
 
 # Mock data
 test_image_path = "test_image.png"
-ascii_art_sample = "This is a sample ASCII art"
+
+@pytest.fixture
+def tamagotchi_instance():
+    """Fixture to create a Tamagotchi instance."""
+    return tamagotchi.Tamagotchi()
 
 @pytest.fixture
 def create_test_image():
@@ -15,39 +19,52 @@ def create_test_image():
     yield test_image_path
     os.remove(test_image_path)  
 
-def test_get_ascii_art_valid_image(create_test_image):
+def test_get_ascii_art_valid_image(tamagotchi_instance, create_test_image):
     """Test get_ascii_art with a valid image."""
-    ascii_art = get_ascii_art(create_test_image, scale=0.1, character_map=G_SCALE_1)
+    ascii_art = tamagotchi_instance.get_ascii_art(create_test_image, scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1)
     assert ascii_art is not None
     assert isinstance(ascii_art, str)
     assert len(ascii_art) > 0
 
-def test_get_ascii_art_invalid_path():
+def test_get_ascii_art_invalid_path(tamagotchi_instance):
     """Test get_ascii_art with an invalid image path."""
-    ascii_art = get_ascii_art("non_existent_image.png", scale=0.1, character_map=G_SCALE_1)
+    ascii_art = tamagotchi_instance.get_ascii_art("non_existent_image.png", scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1)
     assert ascii_art is None
 
-def test_get_ascii_art_different_character_map(create_test_image):
+def test_get_ascii_art_different_character_map(tamagotchi_instance, create_test_image):
     """Test get_ascii_art with a different character map."""
-    ascii_art = get_ascii_art(create_test_image, scale=0.1, character_map=G_SCALE_2)
+    ascii_art = tamagotchi_instance.get_ascii_art(create_test_image, scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_2)
     assert ascii_art is not None
     assert isinstance(ascii_art, str)
     assert len(ascii_art) > 0
 
-def test_getpet_valid_file():
+def test_getpet_valid_file(tamagotchi_instance, tmp_path):
     """Test getpet with a valid pet file."""
-    number = 1
-    pet_art = getpet(number)
-    assert pet_art is not None
-    assert isinstance(pet_art, str)
-    assert len(pet_art) > 0
+    # Create a temporary pet file
+    pet_number = 1
+    pet_content = "Sample Pet ASCII Art"
+    pet_file = tmp_path / f"tama-{pet_number}.txt"
+    pet_file.write_text(pet_content)
 
-def test_getpet_invalid_file():
+    # Mock the base_dir to tmp_path
+    original_dir = tamagotchi_instance.getpet.__globals__['os'].path.dirname
+    tamagotchi_instance.getpet.__globals__['os'].path.dirname = lambda _: tmp_path
+
+    try:
+        pet_art = tamagotchi_instance.getpet(pet_number)
+        assert pet_art == pet_content
+    finally:
+        # Restore the original dirname function
+        tamagotchi_instance.getpet.__globals__['os'].path.dirname = original_dir
+
+def test_getpet_invalid_file(tamagotchi_instance, tmp_path):
     """Test getpet with an invalid file number."""
-    pet_art = getpet(999)  
+    # Ensure no such file exists
+    pet_number = 999
+    pet_art = tamagotchi_instance.getpet(pet_number)
     assert pet_art is None
 
-def test_getpet_non_numeric_input():
+def test_getpet_non_numeric_input(tamagotchi_instance):
     """Test getpet with a non-numeric input to check error handling."""
     with pytest.raises(TypeError):
-        getpet("not_a_number")
+        tamagotchi_instance.getpet("not_a_number")
