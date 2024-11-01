@@ -1,10 +1,12 @@
 ## Riddle Library Handler
 
+![Riddle Library Handler](https://github.com/github/docs/actions/workflows/riddle_package.yml/badge.svg)
+
 ## Overview
 
 **Riddle Library Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
 ## PyPI Link
-[PyPI Likn](https://pypi.org/project/riddle-library-handler/0.1.0/#modal-close)
+[PyPI Link](https://pypi.org/project/riddle-library-handler/0.1.0/#modal-close)
 ## Installation
 
 Install the package via pip:
