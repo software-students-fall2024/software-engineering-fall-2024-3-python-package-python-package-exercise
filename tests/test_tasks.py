@@ -63,6 +63,12 @@ def test_random_task_no_tasks():
     assert result == "No tasks available."
 
 #TEST 2
+def test_random_task_one_task():
+    tasks.clear()
+    tasks["Single Task"] = {"urgency": 2, "completed": False}
+    result = random_task()
+    assert result == "Random task: Single Task with urgency 2"
+
     
 
 #TEST 3
