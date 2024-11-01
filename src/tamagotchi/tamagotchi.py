@@ -17,6 +17,7 @@ class Tamagotchi:
         self.root = None
         self.ascii_art_label = ""  # pet image store
         self.name_entry = None
+        self.game_win = None
 
     def start_game(self):
         pet_name = self.name_entry.get()  # Get the pet name from the input field
@@ -29,12 +30,12 @@ class Tamagotchi:
         # Destroy the main entry window
         self.root.destroy()
 
-        game_window = tk.Tk()
-        game_window.title(f"{self.name}'s Tamagotchi")
+        self.game_win = tk.Tk()
+        self.game_win.title(f"{self.name}'s Tamagotchi")
 
         # pet display
         ascii_art_display = tk.Text(
-            game_window, 
+            self.game_win, 
             font=("Courier", 8), 
             bg=self.background, 
             fg="black",  # Changed from "white" to "black"
@@ -47,14 +48,14 @@ class Tamagotchi:
         ascii_art_display.pack()  
 
         # Feed button
-        feed_button = tk.Button(game_window, text="Feed", command=lambda: self.feed(self.food))
+        feed_button = tk.Button(self.game_win, text="Feed", command=lambda: self.feed(self.food))
         feed_button.pack()
 
         # Pat button
-        pat_button = tk.Button(game_window, text="Pat", command=lambda: self.pat(1))
+        pat_button = tk.Button(self.game_win, text="Pat", command=lambda: self.pat(1))
         pat_button.pack()
 
-        game_window.mainloop()
+        self.game_win.mainloop()
                    
             
     def get_ascii_art(self, image_path, scale=0.1, character_map=G_SCALE_1):
