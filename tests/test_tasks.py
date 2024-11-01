@@ -1,4 +1,5 @@
 import pytest
+import re
 from funtasks.tasks import add_task, complete_task, random_task, random_daily_goal, tasks
 
 ##############################
@@ -13,28 +14,40 @@ def test_add_task():
     assert tasks["Do laundry"]["completed"]==False
 
 #TEST 2
-    
-
+def test_add_duplicate_task():
+    tasks.clear()
+    add_task("Grocery shopping", 3)
+    with pytest.raises(ValueError) as exc_info:
+        add_task("Grocery shopping", 3)
+    assert str(exc_info.value)=="Task 'Grocery shopping' already exists."
 
 #TEST 3
-    
+def test_add_new_category_task():
+    tasks.clear()
+    result=add_task("Walk the dog", 4)
+    assert result=="Task 'Walk the dog' added with urgency 4."
+    assert "Walk the dog" in tasks
+    assert tasks["Walk the dog"]["urgency"]==4
+    assert tasks["Walk the dog"]["completed"]==False    
 
 ##############################
 #complete task tests
-    
+
+#TEST 1
 def test_complete_incomplete():
     """Test completing an existing, incomplete task."""
-    tasks["Incomplete Task"] = {"completed": False}
+    tasks["Incomplete Task"] = {"urgency": 3, "completed": False}
     result = complete_task("Incomplete Task")
-    assert result == "Task successfully completed!"
-    assert tasks["Incomplete Task"]["completed"]
+    assert result == "Task 'Incomplete Task' completed!"
 
+#TEST 2
 def test_complete_completed():
     """Test attempting to complete an already completed task."""
-    tasks["Completed Task"] = {"completed": True}
+    tasks["Completed Task"] = {"urgency": 3, "completed": True}
     result = complete_task("Completed Task")
-    assert result == "Task already completed."
+    assert result == "Task 'Completed Task' already completed."
 
+#TEST 3
 def test_complete_nonexist():
     """Test attempting to complete a non-existent task."""
     result = complete_task("Nonexistent Task")
@@ -55,11 +68,17 @@ def test_complete_nonexist():
 #daily goal task tests
     
 #TEST 1
-
+def test_random_daily_goal_quick():
+    result=random_daily_goal(10)
+    assert re.match(r"Quick task: .*!",result)
 
 #TEST 2
-    
+def test_random_daily_goal_moderate():
+    result=random_daily_goal(25)
+    assert re.match(r"Moderate task: .*!",result)
 
 #TEST 3
-    
+def test_random_daily_goal_long():
+    result=random_daily_goal(60)
+    assert re.match(r"Long task: .*!",result)
 ##############################
