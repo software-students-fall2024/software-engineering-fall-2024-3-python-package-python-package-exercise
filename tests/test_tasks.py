@@ -80,8 +80,6 @@ def test_random_task_multiple_tasks():
     task_name = result.split(": ")[1].split(" with urgency")[0]
     assert task_name in tasks
 
-
-    
 ##############################
 #daily goal task tests
     
