@@ -63,3 +63,19 @@ def generate_excuse(
         raise ProgrammingLanguageNotFoundError(
             "That programming language isn't in our system ):"
         )
+
+
+def list_available_options(
+    option_type: Literal["spoken_language", "programming_language"]
+) -> list[str]:
+    """
+    Lists available spoken or programming languages based on the option type.
+    """
+    if option_type == "spoken_language":
+        return list(SPOKENLANGUAGE_VALUES)
+    elif option_type == "programming_language":
+        return list(PROGRAMMINGLANGUAGE_VALUES)
+    else:
+        raise ValueError(
+            "Invalid option type. Choose either 'spoken_language' or 'programming_language'."
+        )
