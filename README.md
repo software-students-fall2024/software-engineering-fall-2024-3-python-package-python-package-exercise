@@ -8,7 +8,7 @@ Our Python package generates humorous quotes based on Shakespeare’s writings w
 
 Package Page: [Link](https://pypi.org/)
 
-## INSTALLATION
+## Package Installation
 
 To install the package, run:
 
@@ -16,13 +16,13 @@ To install the package, run:
 pip install xxxx
 ```
 
-## CONTRIBUTION
+## Contributing
 
 - Description of how a developer who wants to import your project into their own code can do so - include documentation and code examples for all functions in your package and a link to an example Python program that uses each of them.
 
 - How a developer who wants to contribute to your project can set up the virtual environment, install dependencies, and build and test your package for themselves.
 
-## INSTRUCTIONS
+## How to Configure & Run Our Package
 
 - Instructions for how to configure and run all parts of your project for any developer on any platform - these instructions must work!
 
@@ -55,7 +55,7 @@ pip install xxxx
       *Windows:* ```$env:PYTHONPATH="src"; pytest tests/test_codeshakespeare.py```
 
 
-## TEAM MEMBERS
+## Team Members
 
 - ***Emily Huang:*** ([emilyjhuang](https://github.com/emilyjhuang))
 - ***Wenli Shi:*** ([WenliShi2332](https://github.com/WenliShi2332))
