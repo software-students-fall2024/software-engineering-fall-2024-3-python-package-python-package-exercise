@@ -1,43 +1,59 @@
 import pytest
-import time
-import schedule 
+from unittest.mock import Mock, call
 import random as r 
 
-from physicalexercise import Exercise, activate_exercises, run_exercise
+from physicalexercise import Exercise, activate_exercises
 
-class ExerciseTests: 
-    def initialize_exercise(): 
-        exercise = Exercise("Jogging", "5 minutes", "12 minutes", "18 minutes", "Cardio")
-        assert exercise.name == "Jogging"
-        assert exercise.low_intensity_duration == "5 minutes"
-        assert exercise.medium_intensity_duration == "12 minutes"
-        assert exercise.high_intensity_duration == "18 minutes"
-        assert exercise.type == "Cardio"
+class TestExercise: 
 
-    def get_exercise_attributes(): 
+    def test_get_exercise_attributes(self): 
         exercise = Exercise("Seated Spinal Twist", "30 seconds", "1 minute", "2 minutes", "Stretching")
         assert exercise.get_name() == "Seated Spinal Twist"
-        assert exercise.get_low_intensity_duration() == "15"
-        assert exercise.get_high_intensity_duration() == "35"
-        assert exercise.get_med_intensity_duration() == "25"
+        assert exercise.get_low_intensity_duration() == "30 seconds"
+        assert exercise.get_medium_intensity_duration() == "1 minute"
+        assert exercise.get_high_intensity_duration() == "2 minutes"
         assert exercise.get_type() == "Stretching"
     
-    def get_exercise_output_low(capsys):
-        exercise = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
-        exercise.output("low")
+    def test_get_exercise_output_low(self,capsys):
+        exercise1 = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
+        exercise1.output("low")
         low_output = capsys.readouterr()
-        assert "Your exercise is: Walking for 5 minutes" in low_output.out
+        assert "STOP YOUR WORK...time for an exercise break\n\nYour exercise is: Walking for 5 minutes\n" in low_output.out
 
-    def get_exercise_output_med(capsys):
-        exercise = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
-        exercise.output("med")
-        low_output = capsys.readouterr()
-        assert "Your exercise is: Walking for 10 minutes" in low_output.out 
+    def test_get_exercise_output_med(self,capsys):
+        exercise2 = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
+        exercise2.output("med")
+        med_output = capsys.readouterr()
+        assert "STOP YOUR WORK...time for an exercise break\n\nYour exercise is: Walking for 10 minutes\n" in med_output.out 
 
-    def get_exercise_output_high(capsys):  
-        exercise = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
-        exercise.output("high")
-        low_output = capsys.readouterr()
-        assert "Your exercise is: Walking for 15 minutes" in low_output.out
+    def test_get_exercise_output_high(self,capsys):  
+        exercise3 = Exercise("Walking", "5 minutes", "10 minutes", "15 minutes", "Cardio")
+        exercise3.output("high")
+        high_output = capsys.readouterr()
+        assert "STOP YOUR WORK...time for an exercise break\n\nYour exercise is: Walking for 15 minutes\n" in high_output.out
+
+    def test_activate_exercises(self,monkeypatch): 
+        current_exercises = [Exercise("Walking", "8 minutes", "14 minutes", "20 minutes", "Cardio"),Exercise("Jogging", "5 minutes", "12 minutes", "18 minutes", "Cardio"),Exercise("Seated Spinal Twist", "30 seconds", "1 minute", "2 minutes", "Stretching")]
+        ask_quit = [False]
+
+        user_input = iter(["done"])
+        monkeypatch.setattr("builtins.input", lambda _: next(user_input))
+
+        activate_exercises(current_exercises, "low", ask_quit)
+        assert ask_quit[0] == True
+        
+
+    """WIP: def run_exercise_test_high(monkeypatch): 
+        current_exercises = [Exercise("Walking", "8 minutes", "14 minutes", "20 minutes", "Cardio"),Exercise("Jogging", "5 minutes", "12 minutes", "18 minutes", "Cardio"),Exercise("Seated Spinal Twist", "30 seconds", "1 minute", "2 minutes", "Stretching")]
+        
+        monkeypatch.setattr(r, "randint", lambda a, b: 0)  # Always pick "low" intensity and first exercise
+
+    
+        run_exercise(current_exercises, "mix")
+        assert current_exercises[0].output_called_with == "low"""
+        
+
+        
+
 
 

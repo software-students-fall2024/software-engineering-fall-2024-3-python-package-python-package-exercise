@@ -3,12 +3,12 @@ import schedule
 import random as r 
 
 class Exercise:
-    def __init__(self, name: str, low_intensity_duration: str, medium_intensity_duration: str, high_intensity_duration: str, type: str):
+    def __init__(self, name: str, low_intensity_duration: str, medium_intensity_duration: str, high_intensity_duration: str, exercise_type: str):
         self.name = name
         self.low_intensity_duration = low_intensity_duration
         self.medium_intensity_duration = medium_intensity_duration
         self.high_intensity_duration = high_intensity_duration
-        self.type = type
+        self.exercise_type = exercise_type
 
     def get_name(self): 
         return self.name
@@ -16,39 +16,39 @@ class Exercise:
     def get_low_intensity_duration(self): 
         return self.low_intensity_duration
 
-    def get_med_intensity_duration(self): 
-        return self.get_med_intensity_duration
+    def get_medium_intensity_duration(self): 
+        return self.medium_intensity_duration
         
     def get_high_intensity_duration(self): 
         return self.high_intensity_duration
     
     def get_type(self): 
-        return self.type
+        return self.exercise_type
     
     def output(self,intensity):
         print("STOP YOUR WORK...time for an exercise break\n")
 
-        if (self.type=="cardio"):
-            if (intensity=="high"):
+        if (self.exercise_type.strip().lower()=="cardio"):
+            if (intensity.strip().lower()=="high"):
                 print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_high_intensity_duration()}") 
-            elif (intensity=="low"):
+            elif (intensity.strip().lower()=="low"):
                 print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_low_intensity_duration()}")
             else: 
-                print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_med_intensity_duration()}")
-        elif (self.type=="stretching"):
-            if (intensity=="high"):
+                print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_medium_intensity_duration()}")
+        elif (self.exercise_type.strip().lower()=="stretching"):
+            if (intensity.strip().lower()=="high"):
                 print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_high_intensity_duration()}") 
-            elif (intensity=="low"):
+            elif (intensity.strip().lower()=="low"):
                 print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_low_intensity_duration()}")
             else: 
-                print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_med_intensity_duration()}")
+                print(f"Your exercise is: {self.get_name().capitalize()} for {self.get_medium_intensity_duration()}")
         else:
-            if (intensity=="high"):
+            if (intensity.strip().lower()=="high"):
                 print(f"Your exercise is: {self.get_high_intensity_duration()} {self.get_name().capitalize()}") 
-            elif (intensity=="low"):
+            elif (intensity.strip().lower()=="low"):
                 print(f"Your exercise is: {self.get_low_intensity_duration()} {self.get_name().capitalize()}")
             else: 
-                print(f"Your exercise is: {self.get_med_intensity_duration()} {self.get_name().capitalize()}")
+                print(f"Your exercise is: {self.get_medium_intensity_duration()} {self.get_name().capitalize()}")
         
 
 
@@ -57,10 +57,10 @@ class Exercise:
 
 
 
-def activate_exercises(current_exercises,all_exercises, intensity, ask_quit):
+def activate_exercises(current_exercises,intensity, ask_quit):
     done = False
     ask_quit[0] = True
-    run_exercise(current_exercises,all_exercises,intensity)
+    run_exercise(current_exercises,intensity)
     while not (done): 
         done_response = input("type 'done' when you've finished your exercise: ")
         if (done_response.strip().lower()=="done"): 
@@ -68,20 +68,20 @@ def activate_exercises(current_exercises,all_exercises, intensity, ask_quit):
  
 
 
-def run_exercise(current_exercises,all_exercises,intensity):
+def run_exercise(current_exercises,intensity):
     if intensity == "mix": 
         current_intensity = r.randint(0,2)
         if current_intensity==0:
-            excercise_ind = r.randint(0,len(all_exercises)-1)
-            all_exercises[excercise_ind].output("low")
+            excercise_ind = r.randint(0,len(current_exercises)-1)
+            current_exercises[excercise_ind].output("low")
 
         elif current_intensity==1:
-            excercise_ind = r.randint(0,len(all_exercises)-1)
-            all_exercises[excercise_ind].output("medium") 
+            excercise_ind = r.randint(0,len(current_exercises)-1)
+            current_exercises[excercise_ind].output("medium") 
 
         elif current_intensity==2:
-            excercise_ind = r.randint(0,len(all_exercises)-1)
-            all_exercises[excercise_ind].output("high") 
+            excercise_ind = r.randint(0,len(current_exercises)-1)
+            current_exercises[excercise_ind].output("high") 
 
     else: 
         excercise_ind = r.randint(0,len(current_exercises)-1)
@@ -108,7 +108,7 @@ def run():
     side_reach = Exercise("Side Reaches", "1-2 minutes", "3-5 minutes", "5 minutes", "Stretching")
     exercises.append(side_reach)
 
-    active_exercises = {}
+    active_exercises = []
     active_intensity = None 
     acceptable_input_et = False 
     acceptable_input_i = False 
@@ -139,9 +139,7 @@ def run():
                         active_exercises.append(ex)
             elif (response.strip().lower()=="mix"):
                 acceptable_input_et = True 
-                for ex in exercises: 
-                    if (ex.get_type()=="mix"): 
-                        active_exercises.append(ex)
+                active_exercises = exercises
             elif (response.strip().lower()=="q"):
                 acceptable_input_et = True 
                 return 0
