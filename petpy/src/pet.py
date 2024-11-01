@@ -123,6 +123,6 @@ def check_pet_stats(pet, pet_name):
     stats += f"Level: {pet.level}\n"
     stats += f"Experience: {pet.experience}\n"
     stats += f"Health: {pet.health}/20\n"
-    stats += f"Mood: {Pet.MOOD_LEVELS.get(pet.mood, 'Unknown')}\n"
+    stats += f"Mood: {Pet.MOOD_LEVELS.get(pet.mood, 'Unknown')}"
     
     return stats
