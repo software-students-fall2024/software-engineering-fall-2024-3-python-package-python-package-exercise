@@ -22,13 +22,20 @@ def test_add_task():
 ##############################
 #complete task tests
     
-#TEST 1
+def test_complete_incomplete():
+    tasks["Incomplete Task"] = {"completed": False}
+    result = complete_task("Incomplete Task")
+    assert result == "Task successfully completed!"
+    assert tasks["Incomplete Task"]["completed"]
 
+def test_complete_completed():
+    tasks["Completed Task"] = {"completed": True}
+    result = complete_task("Completed Task")
+    assert result == "Task already completed."
 
-#TEST 2
-    
-
-#TEST 3
+def test_complete_nonexist():
+    result = complete_task("Nonexistent Task")
+    assert result == "Task 'Nonexistent Task' not found."
     
 ##############################
 #random task tests
