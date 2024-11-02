@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 import random
-from .quotes import quotes
+from quotes import quotes
 
 load_dotenv()
 
@@ -58,7 +58,7 @@ class Stock:
             "{stock}", symbol_string
         )  # get brainrot
         # return the dataframe with brainrot
-        return BrainrotDataFrame(brainrot, earnings_df)
+        return BrainrotWrapper(brainrot, earnings_df)
 
     def forecast_prices(self, symbol_string, days=30):
         """
@@ -79,18 +79,64 @@ class Stock:
         })
 
         brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
-        return BrainrotDataFrame(brainrot, forecast_df)
+        return BrainrotWrapper(brainrot, forecast_df)
+    
+    def company_overview(self,symbol_string):
+        """
+        Provides general company overview
+        Arguments:
+        symbol_string: stock ticker.
 
-class BrainrotDataFrame:
-    """
-    A custom DataFrame wrapper class that adds brainrot quote above the DataFrame output
-    """
-    def __init__(self, quote, df):
-        self.quote = quote
-        self.df = df
+        Returns:
+        Returns a Company object with relevant information.
+        """
+        
+        url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol_string}&apikey={self.api_key}"
+        response = requests.get(url)
+        data = response.json()
+    
+        companyObj = Company(data)
+        
+        brainrot = random.choice(quotes).replace(
+            "{stock}", symbol_string
+        ) 
+        
+        # return the dataframe with brainrot
+        return BrainrotWrapper(brainrot, companyObj)
+    
+class Company:
+    def __init__(self, CompanyJsonObj):
+        self.symbol = CompanyJsonObj['Symbol']
+        self.name = CompanyJsonObj['Name']
+        self.description = CompanyJsonObj['Description']
+        self.CIK = CompanyJsonObj['CIK']
+        self.country = CompanyJsonObj['Country']
+        self.sector = CompanyJsonObj['Sector']
+        self.industry = CompanyJsonObj['Industry']
+        
 
     def __str__(self):
-        return f"{self.quote}\n\n{self.df}"  # have it so the brainrot appears, newline, then the dataframe
+        return (
+            f"Company Information:\n"
+            f"Symbol: {self.symbol}\n"
+            f"Name: {self.name}\n"
+            f"Description: {self.description}\n"
+            f"CIK: {self.CIK}\n"
+            f"Country: {self.country}\n"
+            f"Sector: {self.sector}\n"
+            f"Industry: {self.industry}"
+        )
+
+class BrainrotWrapper:
+    """
+    A custom wrapper class that adds brainrot quote above the original output
+    """
+    def __init__(self, quote, object):
+        self.quote = quote
+        self.object = object
+
+    def __str__(self):
+        return f"{self.quote}\n\n{self.object}"  # have it so the brainrot appears, newline, then the dataframe
 
     def __repr__(self):
         return self.__str__()
