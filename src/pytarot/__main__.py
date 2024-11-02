@@ -14,9 +14,9 @@ def get_luckyDay():
     line = luckyday_module.get_lucky_day()
     print(line)
 
-# def get_answersOfWisdom ():
-#     line = luckyday_module.get_answers_of_wisdom()
-#     print(line)
+def get_answersOfWisdom ():
+    line = answers_of_wisdom_module.get_answers_of_wisdom()
+    print(line)
 
 
 if __name__ == "__main__":
