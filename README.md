@@ -1,18 +1,18 @@
-![Riddle Library Handler](https://github.com/software-students-fall2024/3-python-package-codecrafter/actions/workflows/riddle_package.yml/badge.svg)
-## Riddle Library Handler##
+![Riddle Handler](https://github.com/software-students-fall2024/3-python-package-codecrafter/actions/workflows/riddle_package.yml/badge.svg)
+## Riddle Handler
 
 ## Overview
 
-**Riddle Library Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
+**Riddle Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
 ## PyPI Link
-[Riddle Library Handler](https://pypi.org/project/riddle-library-handler/0.1.0/#modal-close)
+[Riddle Handler](https://pypi.org/project/riddle-handler/1.0.0/)
 
 ## Installation
 
 Install the package via pip:
 
 ```bash
-pip install riddle-library-handler==0.1.0
+pip install riddle-handler==1.0.0
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ pip install riddle-library-handler==0.1.0
 ### Importing the Package
 
 ```
-import riddle_library_handler
+import riddle_handler
 ```
 
 ### Functions and Examples
@@ -38,10 +38,10 @@ Generates a random riddle based on the specified difficulty level.
 - **Example:**
 
   ```python
-  import riddle_library_handler
+  import riddle_handler
 
   # Generate a riddle of difficulty level 2
-  riddle = riddle_library_handler.generate_riddle(2)
+  riddle = riddle_handler.generate_riddle(2)
   print(f"Here's your riddle: {riddle}")
   ```
 
@@ -59,10 +59,10 @@ Checks if the provided answer to the riddle is correct.
 - **Example:**
 
   ```python
-  import riddle_library_handler
+  import riddle_handler
 
   # Check the answer to a riddle with ID 5
-  result = riddle_library_handler.check_answer(5, 'shadow')
+  result = riddle_handler.check_answer(5, 'shadow')
   print(result)  # Outputs: "Correct answer!" or "Incorrect answer. Try again!"
   ```
 
@@ -85,7 +85,7 @@ Allows users to submit their own riddles to the library.
 - **Example:**
 
   ```python
-  import riddle_library_handler
+  import riddle_handler
 
   # Define your custom riddle
   my_riddle = {
@@ -97,7 +97,7 @@ Allows users to submit their own riddles to the library.
   }
 
   # Submit the riddle
-  response = riddle_library_handler.submit_riddle(my_riddle)
+  response = riddle_handler.submit_riddle(my_riddle)
   print(response)  # Outputs: "Riddle submitted successfully!"
   ```
 
@@ -114,10 +114,10 @@ Provides a hint for the specified riddle.
 - **Example:**
 
   ```python
-  import riddle_library_handler
+  import riddle_handler
 
   # Get a hint for a riddle
-  hint = riddle_library_handler.provide_hint(5)
+  hint = riddle_handler.provide_hint(5)
   print(hint)  # Outputs the hint for the riddle
   ```
 
@@ -204,7 +204,7 @@ To merge code from a feature branch into `main`:
 
 ### For Developers
 
-1. **Ensure Python 3.7 or higher is installed** on your system.
+1. **Ensure Python 3.9 or higher is installed** on your system.
 
 2. **Clone the repository and set up the environment** as described in the [Contributing](#contributing) section.
 
@@ -219,7 +219,7 @@ To merge code from a feature branch into `main`:
 1. **Install the package via pip:**
 
    ```bash
-   install riddle-library-handler==0.1.0
+   install riddle_handler==1.0.0
    ```
 
 2. **Use the package in your Python scripts** as shown in the [Usage](#usage) examples.
@@ -233,7 +233,5 @@ No environment variables are required for basic usage.
 ### Importing Starter Data
 
 The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project.
-
-
 
 
