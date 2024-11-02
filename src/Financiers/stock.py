@@ -60,6 +60,26 @@ class Stock:
         # return the dataframe with brainrot
         return BrainrotDataFrame(brainrot, earnings_df)
 
+    def forecast_prices(self, symbol_string, days=30):
+        """
+        Forecasts stock prices using a simple model.
+        Arguments:
+        symbol_string: stock ticker.
+        days: how far into the future to forecast (default: 30 days).
+
+        Returns:
+        A DataFrame with forecasted dates and predicted prices.
+            """
+        price_data = self.get_price_data(symbol_string).df
+        # Placeholder for ARIMA or similar forecasting model
+        forecasted_prices = [random.uniform(100, 150) for _ in range(days)]  # Mock data
+        forecast_df = pd.DataFrame({
+            'date': pd.date_range(start=price_data['date'].max(), periods=days + 1, freq='D')[1:],
+            'predicted_price': forecasted_prices
+        })
+
+        brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
+        return BrainrotDataFrame(brainrot, forecast_df)
 
 class BrainrotDataFrame:
     """
