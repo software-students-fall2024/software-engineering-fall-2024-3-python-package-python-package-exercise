@@ -11,3 +11,5 @@ build = "*"
 twine = "*"
 regex = "*"
 
+[requires]
+python_version = "3"
