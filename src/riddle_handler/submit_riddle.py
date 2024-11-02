@@ -1,24 +1,6 @@
 import json
 from src.riddle_handler.read_file import read_file
 
-''' helper functions
-def is_valid_riddle(riddle: dict) -> bool:
-    required_keys = {"question", "answer", "hint", "difficulty", "topic"}
-    if not all(key in riddle for key in required_keys):
-        return False
-    if not isinstance(riddle["answer"], list):
-        return False
-    if not isinstance(riddle["difficulty"], int):
-        return False
-    return True
-
-def is_duplicate_riddle(riddle: dict, riddles: list) -> bool:
-    for existing_riddle in riddles:
-        if riddle["question"] == existing_riddle["question"]:
-            return True
-    return False
-'''
-    
 def submit_riddle(riddle: dict) -> str:
     try:
         if not isinstance(riddle, dict):
