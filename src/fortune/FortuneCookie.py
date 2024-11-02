@@ -103,7 +103,6 @@ def addQuote(userQuote, quoteType):
 
 def cookieScript(fortuneCustom):
     #Param is c to create your own fortune cookie or p to purchase some
-    print("Welcome to Scooby's Fortunes!")
     #fortuneCustom = input("Would you like to create your own fortune cookie or purchase some, enter c for create or p for purchase:")
     if fortuneCustom == "c":
         userQuote = input("Enter your desired fortune:")
@@ -146,7 +145,12 @@ def cookieScript(fortuneCustom):
                     fortuneCookie()
     print("Goodbye!")
 
+def main() :
+    print("Welcome to Scooby's Fortunes!")
+    cookieScript("c")
+    cookieScript("p")
+    return
 
-if __name__ == "__cookieScript__":
-   cookieScript("c")
-   cookieScript("p")
+
+if __name__ == "__main__":
+   main()
