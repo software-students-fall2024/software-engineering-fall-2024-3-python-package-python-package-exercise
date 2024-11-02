@@ -90,19 +90,41 @@ class Stock:
         Returns:
         Returns a Company object with relevant information.
         """
+        if not symbol_string:
+            print("Error: No symbol provided.")
+            return None
         
         url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol_string}&apikey={self.api_key}"
-        response = requests.get(url)
-        data = response.json()
-    
-        companyObj = Company(data)
         
-        brainrot = random.choice(quotes).replace(
-            "{stock}", symbol_string
-        ) 
+        try: 
+            response = requests.get(url)
+            data = response.json()
+
+            #exception handling
+            if not data or "Symbol" not in data:
+                print(f"Error: No data found for symbol '{symbol_string}'. Please check if the symbol is correct.")
+                return None
         
-        # return the dataframe with brainrot
-        return BrainrotWrapper(brainrot, companyObj)
+            companyObj = Company(data)
+            
+            brainrot = random.choice(quotes).replace(
+                "{stock}", symbol_string
+            ) 
+            
+            # return the Company object with brainrot
+            return BrainrotWrapper(brainrot, companyObj)
+        
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err}")
+        except requests.exceptions.ConnectionError:
+            print("Error: Could not connect to AlphaVantage API. Check your network connection.")
+        except requests.exceptions.Timeout:
+            print("Error: The request to AlphaVantage API timed out.")
+        except requests.exceptions.RequestException as req_err:
+            print(f"An error occurred: {req_err}")
+        except ValueError:
+            print("Error: Received invalid JSON response from AlphaVantage API.")
+        return None
     
 class Company:
     def __init__(self, CompanyJsonObj):
@@ -143,5 +165,7 @@ class BrainrotWrapper:
     
 
 print("Script started.")
+# stock = Stock()
+# print(stock.company_overview("IBM"))
 print("Processing complete.")
 
