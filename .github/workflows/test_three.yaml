@@ -1,12 +1,18 @@
-name: wrong_test
+name: wrong_input Test
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - "**"
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -19,4 +25,4 @@ jobs:
 
       - name: Run wrong_test
         run: |
-          python -m unittest tests/wrong_test.py
+          python -m pytest tests/wrong_test.py
