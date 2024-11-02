@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pytextalterations"
 description = "A package that alters text in four different ways."
-version = "0.0.0"
+version = "0.0.1"
 authors = [
     { name="Neha Magesh", email="nm3818@nyu.edu" },
     { name="Luca Ignatescu", email="lucaignatescu003@gmail.com"}
@@ -28,6 +28,3 @@ dev = ["pytest"]
 "Homepage" = "https://github.com/software-students-fall2024/3-python-package-subwaysurfers"
 "Repository" = "https://github.com/software-students-fall2024/3-python-package-subwaysurfers.git"
 "Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-subwaysurfers/issues"
-
-[project.scripts]
-pytextalterations = "pytextalterations.__main__:main"
