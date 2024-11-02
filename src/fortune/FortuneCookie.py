@@ -101,17 +101,15 @@ def addQuote(userQuote, quoteType):
         f.close()
     return
 
-def main():
-    print("Welcome to Scooby's Fortunes!")
-    #maybe implement better loop/swicth for multiple options
-    fortuneCustom = input("Would you like to create your own fortune cookie or purchase some, enter c for create or p for purchase:")
+def cookieScript(fortuneCustom):
+    #Param is c to create your own fortune cookie or p to purchase some
+    #fortuneCustom = input("Would you like to create your own fortune cookie or purchase some, enter c for create or p for purchase:")
     if fortuneCustom == "c":
         userQuote = input("Enter your desired fortune:")
         customFortuneCookie(userQuote)
         #might be too similar to other fortune cookie functions could change to have params be c or p and then do either customCookie or the code below for purchase
 
     else:
-        #TODO: code for custom re-indent for purchased
         fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
 
         if fortuneAmount != 0:
@@ -147,6 +145,12 @@ def main():
                     fortuneCookie()
     print("Goodbye!")
 
+def main() :
+    print("Welcome to Scooby's Fortunes!")
+    cookieScript("c")
+    cookieScript("p")
+    return
+
 
 if __name__ == "__main__":
-    main()
+   main()
