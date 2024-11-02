@@ -25,4 +25,4 @@ jobs:
 
       - name: Run input_parse_test
         run: |
-          python path/to/your/input_parse_test.py
+          python -m pytest tests/input_parse_test.py

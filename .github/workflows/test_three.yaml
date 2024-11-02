@@ -19,4 +19,4 @@ jobs:
 
       - name: Run wrong_test
         run: |
-          python -m pytest
+          python -m unittest tests/wrong_test.py
