@@ -28,9 +28,12 @@ def print_art(animal):
   #calls print_noise or wrong_input
   return(gallery.animals.get(animal))
 
+
 def get_noise(noise):
    #match animal with noise
-   return(noises.get(noise))
+
+  # return(noises.get(noise))
+  return animal_noises.get(noise)
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
