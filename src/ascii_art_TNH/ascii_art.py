@@ -1,5 +1,6 @@
-import noises
-import gallery
+import src.ascii_art_TNH.noises as noises
+import src.ascii_art_TNH.gallery as gallery
+from .noises import animal_noises #testing this
 
 def ascii_art(user_input):
   # Type of the input-make sure string
