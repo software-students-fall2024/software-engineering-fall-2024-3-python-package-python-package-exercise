@@ -1,5 +1,5 @@
 animal_noises = {
-    "moo": "cow",
+   "moo": "cow",
     "woof": "dog",
     "meow": "cat",
     "neigh": "horse",
@@ -14,18 +14,4 @@ animal_noises = {
     "hiss": "snake",
     "hoot": "owl",
     "growl": "bear",
-    "bleat": "goat",
-    "croak": "toad",
-    "whinny": "pony",
-    "squeak": "mouse",
-    "trumpet": "elephant",
-    "howl": "wolf",
-    "caw": "crow",
-    "gobble": "turkey",
-    "screech": "eagle",
-    "grunt": "boar",
-    "hum": "hummingbird",
-    "squawk": "parrot",
-    "whistle": "dolphin",
-    "yelp": "fox"
 }
