@@ -1,0 +1,35 @@
+name: Publish to PyPI
+
+on:
+  push:
+    branches: [ main ]  
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3  
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"  
+
+      - name: Install dependencies with pipenv
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev  
+
+      - name: Build the package
+        run: |
+          pipenv run python -m build  
+
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+        run: |
+          pipenv run twine upload dist/*
