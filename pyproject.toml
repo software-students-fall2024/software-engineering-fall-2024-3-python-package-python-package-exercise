@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tamagotchi"
 description = "Create and interact with your very own Tamagotchi character using Python! \\(^ 3 ^)/"
-version = "0.1.1"
+version = "0.1.0"
 authors = [
   { name = "Sahar Bueno-Abdala", email = "sb8249@nyu.edu" },
   { name = "Hang Yin", email = "hy2270@nyu.edu" },  
@@ -26,6 +26,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Communications :: Chat",
     "Topic :: Games/Entertainment",
     "Topic :: Software Development :: Libraries :: Python Modules",
