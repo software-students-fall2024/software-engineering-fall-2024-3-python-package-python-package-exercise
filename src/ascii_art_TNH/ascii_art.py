@@ -1,6 +1,5 @@
-import src.ascii_art_TNH.noises as noises
-import src.ascii_art_TNH.gallery as gallery
-from .noises import animal_noises #testing this
+import noises
+import gallery
 
 def ascii_art(user_input):
   # Type of the input-make sure string
@@ -22,7 +21,11 @@ def ascii_art(user_input):
 def parse_input(user_input):
   inputs = []
   inputs = user_input.split(" ")
-  return inputs
+  clean_input = []
+  for input in inputs:
+    if input != "" and input.isalpha():
+      clean_input.append(input)
+  return clean_input
 
 def print_art(animal):
   #match animal with art

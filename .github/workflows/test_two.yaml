@@ -1,4 +1,4 @@
-name: Run input_parse_test on Pull Request
+name: parse_input Test
 
 on:
   pull_request:
