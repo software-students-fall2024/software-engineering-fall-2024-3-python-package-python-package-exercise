@@ -1,3 +1,4 @@
+import random
 """This file should contains the code that will be implemented"""
 
 def main_function() -> None:
@@ -99,6 +100,15 @@ def Music(sub_choice: int) -> None:
         2: [ 1, 2 ],
         3: [ 1, 2 ]
     }
+
+    statements = facts[sub_choice]
+    selected_statement = random.choice(statements)
+
+    while True:
+        choice = input("Which of the following statements is true? Please enter 1 or 2:")
+        if fact_choice_validation(choice):
+            break
+        print("Invalid choice. Please enter either 1 or 2.")
 
     print("category1 check")
 
