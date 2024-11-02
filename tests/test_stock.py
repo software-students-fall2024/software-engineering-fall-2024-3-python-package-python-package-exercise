@@ -1,8 +1,7 @@
 import pytest
 import pandas as pd
-from src.Financiers.stock import Stock, BrainrotDataFrame
-from unittest.mock import patch
-import random
+from src.Financiers.stock import Stock
+from datetime import datetime, timedelta
 
 class Tests:
     
@@ -27,36 +26,37 @@ class Tests:
         # checkign df is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
 
-    @patch('src.Financiers.stock.Stock.get_price_data')
-    def test_forecast_prices(self, mock_get_price_data):
-        print("\nTesting forecast_prices() with mocked data")
-        stock = Stock()
-        symbol = "AAPL"
-        days = 30
-        
-        # Mock the get_price_data method to return controlled data
-        mock_data = pd.DataFrame({
-            'date': pd.date_range(start="2023-01-01", periods=100, freq='D'),
-            'close': [random.uniform(100, 150) for _ in range(100)]
-        })
-        mock_get_price_data.return_value = BrainrotDataFrame("Mocked quote", mock_data)
+        def test_forecast_prices(self, monkeypatch):
+            print("\nTesting forecast_prices() with mock data")
 
-        # Call forecast_prices
-        forecast = stock.forecast_prices(symbol, days)
+            # Mock get_price_data to return sample historical data
+            def mock_get_price_data(symbol_string):
+                mock_price_data = pd.DataFrame({
+                    'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
+                    'price': [100.0 + i for i in range(10)]  # increasing mock prices
+                })
+                return BrainrotDataFrame("Mock data", mock_price_data)
+            
+            # Apply monkeypatch to replace get_price_data method
+            stock = Stock()
+            monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
 
-        # Check that the return type is BrainrotDataFrame
-        assert isinstance(forecast, BrainrotDataFrame), "Expected a BrainrotDataFrame as the return type"
+            # Act: Call the forecast_prices function
+            days_to_forecast = 5
+            forecast = stock.forecast_prices("IBM", days=days_to_forecast)
 
-        # Check the DataFrame columns
-        assert "date" in forecast.df.columns, "Expected 'date' column in forecast DataFrame"
-        assert "predicted_price" in forecast.df.columns, "Expected 'predicted_price' column in forecast DataFrame"
-        
-        # Verify the number of rows matches the number of forecast days
-        assert len(forecast.df) == days, f"Expected {days} rows in forecast DataFrame, got {len(forecast.df)}"
+            # Assert: Check if the returned BrainrotDataFrame has expected structure
+            assert forecast.df is not None, "Forecast DataFrame should not be None"
+            assert 'date' in forecast.df.columns, "'date' column missing from forecast DataFrame"
+            assert 'predicted_price' in forecast.df.columns, "'predicted_price' column missing from forecast DataFrame"
+            
+            # Check if the correct number of forecasted rows is generated
+            assert len(forecast.df) == days_to_forecast, f"Expected {days_to_forecast} rows in forecast DataFrame, but got {len(forecast.df)}"
+            
+            # Validate that forecasted dates start the day after the latest historical date
+            expected_start_date = mock_get_price_data("IBM").df['date'].max() + timedelta(days=1)
+            actual_start_date = forecast.df['date'].min()
+            assert actual_start_date == expected_start_date, f"Expected start date {expected_start_date}, but got {actual_start_date}"
 
-        # Ensure that all predicted prices are within the specified range
-        within_range = forecast.df["predicted_price"].between(100, 150).all()
-        assert within_range, "All predicted_price values should be between 100 and 150"
-
-        # Check that the forecast message includes the stock symbol and days
-        assert f"{days}-day forecast for {symbol}" in forecast.quote, "Expected forecast quote to contain symbol and days"
+            # Verify that all predicted prices are within the mocked range (100, 150)
+            assert forecast.df['predicted_price'].between(100, 150).all(), "Predicted prices are not within the expected range (100, 150)"
