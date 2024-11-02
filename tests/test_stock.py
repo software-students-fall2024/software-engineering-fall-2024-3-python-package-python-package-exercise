@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from src.Financiers.stock import Stock
+from src.Financiers.stock import Stock, BrainrotDataFrame
 from datetime import datetime, timedelta
 
 class Tests:
