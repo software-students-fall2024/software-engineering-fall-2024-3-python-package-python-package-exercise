@@ -12,12 +12,12 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 1. [Install pipenv]...
 
 ## How to install and use this package
-
-Try
+...
 
 ## How to run unit tests
-
-...
+Test are included within the 'test' directory. To run these test...
+1. Install pytest in a virtual enviorment
+2. Run the test from the main project directory: 'python3 -m pytest'.
 
 ## Pro tip
 
