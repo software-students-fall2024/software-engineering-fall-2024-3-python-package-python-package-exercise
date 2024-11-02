@@ -78,8 +78,28 @@ def Music(sub_choice: int) -> None:
     7. give a little bit explanation for both statements
     
     8. write >= 3 tests for this function in the test_code.py"""
-    
-    #below is just a placeholder
+
+    facts = {
+        1: [
+            "Fact 1: Beethoven continued to compose even after he lost his hearing.\nFact 2: Wolfgang Amadeus Mozart wrote over 1,000 symphonies in his lifetime.\n",
+            "Fact 1: Frédéric Chopin was known for his operas and symphonies.\nFact 2: Johann Sebastian Bach had 20 children.\n"
+        ],
+        2: [
+            "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact2: Jazz originated in London during the 19th century.\n",
+            "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
+        ],
+        3: [
+            "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time.\nFact 2: The Rolling Stones were originally known as The Blueberries.\n",
+            "Fact 1: The Beatles were the first band to perform on the moon.\nFact 2: The Beatles were originally known as The Quarrymen.\n"
+        ]
+    }
+
+    truths = {
+        1: [ 1, 2 ],
+        2: [ 1, 2 ],
+        3: [ 1, 2 ]
+    }
+
     print("category1 check")
 
 def Coffee(sub_choice: int) -> None:
