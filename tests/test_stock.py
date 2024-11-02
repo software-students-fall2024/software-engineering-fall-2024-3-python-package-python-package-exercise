@@ -27,6 +27,7 @@ class Tests:
         # checkign df is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
 
+    @patch('src.Financiers.stock.Stock.get_price_data')
     def test_forecast_prices(self, mock_get_price_data):
         print("\nTesting forecast_prices() with mocked data")
         stock = Stock()
