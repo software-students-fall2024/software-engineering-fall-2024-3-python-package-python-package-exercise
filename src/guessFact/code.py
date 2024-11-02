@@ -119,7 +119,7 @@ def Music(sub_choice: int) -> None:
             break
         print("Invalid choice. Please enter either 1 or 2.")
 
-    if choice == truths[sub_choice][statementIndex]:
+    if int(choice) == truths[sub_choice][statementIndex]:
         print("You are right!")
     else:
         print("You are wrong!")
