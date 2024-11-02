@@ -1,5 +1,5 @@
 import pytest
-from package.FortuneCookie import quoteGetter, customFortuneCookie, addQuote, fortuneCookie, randomFortuneCookie
+from src.fortune.FortuneCookie import quoteGetter, customFortuneCookie, addQuote, fortuneCookie, randomFortuneCookie
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
