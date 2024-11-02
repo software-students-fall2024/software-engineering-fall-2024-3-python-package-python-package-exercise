@@ -4,9 +4,10 @@ def base64(str, type="encode"):
     type =  type.lower()
     
     if type == "encode":
+        if str == "": return ""
         binaryStr = ''.join([format(ord(char), '08b') for char in str])
         
-        paddingLength = 6- len(binaryStr) % 6
+        paddingLength = 6 - len(binaryStr) % 6
         binaryStr = binaryStr + '0' * paddingLength
         
         sixBitChunks = [binaryStr[i:i+6] for i in range(0, len(binaryStr), 6)]
