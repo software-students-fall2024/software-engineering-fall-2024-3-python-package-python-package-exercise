@@ -124,7 +124,14 @@ def Coffee(sub_choice: int) -> None:
             
             "1.Studies have found that just holding a warm cup of coffee can affect your perception and behavior."\
             "\n2.In a lab experiment, researchers in Iceland developed coffee beans that change color according to the drinker’s mood. These “Mood Beans” are still in development but are said to go from green (calm) to red (excited) as you take a sip"]
-    explanation = ["11", "12", "21", "22", "31", "32"]
+    
+    explanation = ["choice 2 is made up. The legend in choice 1 comes from Ethiopia", 
+                   "choice 1 is made up. As for choice 2, when coffee spread to Europe, it eventually morphed into caffè in Italian and coffee in English", 
+                   "choice 2 is made up. Coffee is indeed the second traded commodities", 
+                   "choice 2 is made up. Finland tops the list for coffee consumption per capita. On average, a Finnish person drinks nearly four cups a day!", 
+                   "choice 1 is made up. Unfortunatly we don't mood beans in real world", 
+                   "choice 2 is made up. People holding warm beverages often feel more positive toward others and even perceive the environment as warmer. This psychological effect, known as embodied cognition, links physical warmth with emotional warmth"]
+    
     truth = [1, 2, 1, 1, 2, 1]
     
     #randomly generate 0 or 1
@@ -138,15 +145,17 @@ def Coffee(sub_choice: int) -> None:
         fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
         if fact_choice_validation(fact_choice):
             break
-        fact_choice = input("Invalid input. Please enter either 1 or 2.").strip()
+        fact_choice = input("Invalid input. Please enter either 1 or 2:").strip()
+    
+    fact_choice = int(fact_choice)
 
-    if fact_choice == truth[sub_choice + random_value]:
-        print("You are right!")
+    if fact_choice == truth[(sub_choice -1)*2+random_value]:
+        print("You are right, "+explanation[(sub_choice -1)*2+random_value])
     else:
-        print("You are wrong!")
+        print("You are wrong, "+explanation[(sub_choice -1)*2+random_value])
         
     #below is just a placeholder
-    print("category2 check")
+    #pyprint("category2 check")
 
 def Food(sub_choice: int) -> None:
     """argument: sub_choice (int), which will be 1, 2, or 3
