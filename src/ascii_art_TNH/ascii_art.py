@@ -1,5 +1,5 @@
-import noises
-import gallery
+import src.ascii_art_TNH.noises as noises
+import src.ascii_art_TNH.gallery as gallery
 
 def ascii_art(user_input):
   # Type of the input-make sure string
@@ -37,16 +37,16 @@ def wrong_input(animals, length):
   #if one animal, print flower
   # reference: https://www.asciiart.eu/plants/flowers
   flowers = r"""
-        ,,,                      ,,,
-       {{{}}    ,,,             {{{}}    ,,,
-    ,,, ~Y~    {{{}},,,      ,,, ~Y~    {{{}},,,
-   {{}}} |/,,,  ~Y~{{}}}    {{}}} |/,,,  ~Y~{{}}}
-    ~Y~ \|{{}}}/\|/ ~Y~  ,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,
-    \|/ \|/~Y~  \|,,,|/ {{}}}\|/ \|/~Y~  \|,,,|/ {{}}}
-    \|/ \|/\|/  \{{{}}/  ~Y~ \|/ \|/\|/  \{{{}}/  ~Y~
-    \|/\\|/\|/ \\|~Y~//  \|/ \|/\\|/\|/ \\|~Y~//  \|/
-    \|//\|/\|/,\\|/|/|// \|/ \|//\|/\|/,\\|/|/|// \|/
-jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              ,,,                      ,,,
+        {{{}}    ,,,             {{{}}    ,,,
+      ,,, ~Y~    {{{}},,,      ,,, ~Y~    {{{}},,,
+    {{}}} |/,,,  ~Y~{{}}}    {{}}} |/,,,  ~Y~{{}}}
+      ~Y~ \|{{}}}/\|/ ~Y~  ,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,
+      \|/ \|/~Y~  \|,,,|/ {{}}}\|/ \|/~Y~  \|,,,|/ {{}}}
+      \|/ \|/\|/  \{{{}}/  ~Y~ \|/ \|/\|/  \{{{}}/  ~Y~
+      \|/\\|/\|/ \\|~Y~//  \|/ \|/\\|/\|/ \\|~Y~//  \|/
+      \|//\|/\|/,\\|/|/|// \|/ \|//\|/\|/,\\|/|/|// \|/
+  jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   """
   flower = r""" 
                .-.'  '.-.
@@ -69,9 +69,8 @@ _\.\/|   /'--'oOOOOOOo'--'\
           //
          |/
   """
-  print("Sorry we do not have", animals)
   if(length>1):
-    print(flowers)
+    return flowers
   else:
-    print(flower)
-  return
+    return flower
+  

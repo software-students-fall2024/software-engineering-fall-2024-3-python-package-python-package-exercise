@@ -1,5 +1,5 @@
 import pytest
-from ascii_art_TNH.ascii_art import parse_input
+from src.ascii_art_TNH.ascii_art import parse_input
 
 def test_parse_input_single_word():
     user_input = "cat"
