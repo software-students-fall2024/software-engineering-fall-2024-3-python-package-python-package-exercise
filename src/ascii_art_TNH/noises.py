@@ -13,5 +13,5 @@ animal_noises = {
     "buzz": "bee",
     "hiss": "snake",
     "hoot": "owl",
-    "growl": "bear",
+    "growl": "bear"
 }
