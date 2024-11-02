@@ -86,7 +86,7 @@ def Music(sub_choice: int) -> None:
             "Fact 1: Frédéric Chopin was known for his operas and symphonies.\nFact 2: Johann Sebastian Bach had 20 children.\n"
         ],
         2: [
-            "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact2: Jazz originated in London during the 19th century.\n",
+            "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact 2: Jazz originated in London during the 19th century.\n",
             "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
         ],
         3: [
@@ -101,7 +101,14 @@ def Music(sub_choice: int) -> None:
         3: [ 1, 2 ]
     }
 
+    explanations = {
+        1: ["Beethoven composed the moonlight sonata after his loss of hearing.", "Chopin was known primarily for his piano compositions, not his symphony work."],
+        2: ["Armstrongs influence on jazz extends even to today.", "Armstrongs distinctive singing captured the attention of audiences country wide."],
+        3: ["Michael Jacksons album hit the best sellers list at the time.", "The beatles were not the first band to perform on the moon."]
+    }
+
     sub_choice = int(sub_choice)
+    
     statements = facts[sub_choice]
     statementIndex = random.randint(0, 1)
     selected_statement = statements[statementIndex]
@@ -117,7 +124,7 @@ def Music(sub_choice: int) -> None:
     else:
         print("You are wrong!")
 
-    print("category1 check")
+    print("Explanation: " + explanations[sub_choice][statementIndex])
 
 def Coffee(sub_choice: int) -> None:
 
