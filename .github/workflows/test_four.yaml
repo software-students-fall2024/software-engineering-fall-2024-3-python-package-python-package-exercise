@@ -1,5 +1,5 @@
 name: get_noise_test Test
-
+ 
 on:
   pull_request:
     branches:
@@ -25,4 +25,4 @@ jobs:
 
       - name: Run get_noise_test
         run: |
-          pytest -m tests/get_noise_test.py
+          python -m pytest tests/get_noise_test.py
