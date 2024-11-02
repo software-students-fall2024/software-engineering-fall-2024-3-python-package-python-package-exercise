@@ -43,3 +43,41 @@ def magic_8ball(question):
         "Cannot predict now"
     ]
     return f"Question: {question}\nAnswer: {random.choice(responses)}"
+
+def main():
+    while True:
+        print("\n=== Mystic Fortune Teller ===")
+        print("1. Zodiac Fortune")
+        print("2. Lucky Number")
+        print("3. Fortune Cookie")
+        print("4. Magic 8 Ball")
+        print("5. Exit")
+        
+        choice = input("\nChoose your option (1-5): ")
+        
+        if choice == "1":
+            sign = input("Enter your zodiac sign (e.g., Aries): ")
+            print("\nYour fortune is:", zodiac_fortune(sign))
+            
+        elif choice == "2":
+            name = input("Enter your name: ")
+            print("\nYour lucky number is:", lucky_number(name))
+            
+        elif choice == "3":
+            want_lucky = input("Want extra luck? (yes/no): ").lower() == 'yes'
+            print("\nYour fortune cookie says:", fortune_cookie(want_lucky))
+            
+        elif choice == "4":
+            question = input("What's your question? ")
+            print("\n", magic_8ball(question))
+            
+        elif choice == "5":
+            print("Thank you for using Mystic Fortune Teller. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()

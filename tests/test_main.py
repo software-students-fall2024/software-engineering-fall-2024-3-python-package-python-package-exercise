@@ -11,12 +11,7 @@ def test_zodiac_fortune_special_sign():
     assert zodiac_fortune("UnknownZodiac") == "Your zodiac sign is too special, I can't predict it"
 
 
-
-
-
-
 def test_lucky_number():
-    
     assert 0 <= lucky_number("RandomName") < 100
 
 # make sure same name return same lucky number
