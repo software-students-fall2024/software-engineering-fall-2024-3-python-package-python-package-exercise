@@ -1,36 +1,41 @@
-name: Python Test Workflow
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name: CI / CD
+on: [pull_request]
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 5
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.12]
-
+        python-version: ["3.9", "3.11"]
     steps:
-    - name: Check out the code
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install dependencies
-      run: |
-        pip install pipenv
-        pipenv install --dev
-
-    - name: Run tests
-      run: |
-        pipenv run pytest
-
+      - uses: actions/checkout@v4
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Turn on 'editable' mode
+        run: |
+          pipenv install -e .
+      - name: Test with pytest
+        run: |
+          pipenv install pytest
+          pipenv --venv
+          pipenv run python -m pytest
+  deliver:
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
+      - name: Build package
+        run: |
+          pipenv install build
+          pipenv run python -m build .
+      - name: tamagotchi-pypi-token
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
