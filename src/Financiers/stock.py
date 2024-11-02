@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 import random
-from quotes import quotes
+from .quotes import quotes
 
 load_dotenv()
 
