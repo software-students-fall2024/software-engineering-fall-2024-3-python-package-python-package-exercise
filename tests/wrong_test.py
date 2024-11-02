@@ -3,7 +3,7 @@ from src.ascii_art_TNH.ascii_art import wrong_input
 
 class Tests:
   def test_wrong_input_multi1(self):
-      result = wrong_input("frog frog",2)
+      result = wrong_input("ant bunny",2)
       flowers = r"""
               ,,,                      ,,,
         {{{}}    ,,,             {{{}}    ,,,

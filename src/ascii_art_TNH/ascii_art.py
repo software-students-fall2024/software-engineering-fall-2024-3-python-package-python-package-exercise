@@ -14,7 +14,7 @@ def ascii_art(user_input):
     return
   for animal in animal_array:
     # If animal is in the gallery
-    if animal in gallery.animals and animal in noises.animal_noises.values():
+    if animal in gallery.animals and animal in noises.animal_noises:
       print(print_art(animal))
       print(get_noise(animal))
     else:
@@ -36,15 +36,9 @@ def print_art(animal):
   return(gallery.animals.get(animal))
 
 
-def get_noise(noise):
+def get_noise(animal):
    #match animal with noise
-
-  # return(noises.get(noise))
-  if noise in animal_noises:
-        return animal_noises.get(noise)
-  else:
-    print("Wrong output: Animal noise not recognized")
-  return None #does this need to be updated?
+  return animal_noises.get(animal)
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
