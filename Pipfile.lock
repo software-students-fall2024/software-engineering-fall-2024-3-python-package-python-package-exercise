@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7785a6e9fffadf152452b7406b26e62ef1d4efa23c58fb622733ea73331a678b"
+            "sha256": "cfbfa554d79516631722d4ceee505d08192046094ba323f5696175ebe44b05f2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,8 @@
             }
         ]
     },
-    "default": {
+    "default": {},
+    "develop": {
         "backports.tarfile": {
             "hashes": [
                 "sha256:77e284d754527b01fb1e6fa8a1afe577858ebe4e9dad8919e34c862cb399bc34",
@@ -189,7 +190,7 @@
                 "sha256:45e54197d28b7a7f1559e60b95e7c567032b602131fbd588f1497f47880aa68b",
                 "sha256:71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version < '3.10.2'",
             "version": "==8.5.0"
         },
         "iniconfig": {
@@ -516,6 +517,5 @@
             "markers": "python_version >= '3.8'",
             "version": "==3.20.2"
         }
-    },
-    "develop": {}
+    }
 }
