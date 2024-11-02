@@ -37,7 +37,7 @@ def quoteGetter(fortuneAmount, fortuneType):
 
 def customFortuneCookie(userQuote) :
     #prints image of fortune cookie with quote
-    addQuote(userQuote)
+    addQuote(userQuote, "g")
     fortune_cookie_image = f"""                                                                                                    
                                                                                                         
                                                                                                         
@@ -87,9 +87,10 @@ def randomFortuneCookie(fortuneAmount) :
     #caps at 5
     return
 
-def addQuote(userQuote): 
+def addQuote(userQuote, quoteType): 
     #adds to quote file
-    fortuneType = input("Is this fortune good, type g, or bad, type b:")
+    fortuneType = quoteType
+    #input("Is this fortune good, type g, or bad, type b:")
     if fortuneType == "g":
         f = open("GoodFortune.txt", "a")
         f.write(userQuote)
@@ -100,50 +101,52 @@ def addQuote(userQuote):
         f.close()
     return
 
+def main():
+    print("Welcome to Scooby's Fortunes!")
+    #maybe implement better loop/swicth for multiple options
+    fortuneCustom = input("Would you like to create your own fortune cookie or purchase some, enter c for create or p for purchase:")
+    if fortuneCustom == "c":
+        userQuote = input("Enter your desired fortune:")
+        customFortuneCookie(userQuote)
+        #might be too similar to other fortune cookie functions could change to have params be c or p and then do either customCookie or the code below for purchase
 
-print("Welcome to Scooby's Fortunes!")
-#maybe implement better loop/swicth for multiple options
-fortuneCustom = input("Would you like to create your own fortune cookie or purchase some, enter c for create or p for purchase:")
-if fortuneCustom == "c":
-    userQuote = input("Enter your desired fortune:")
-    customFortuneCookie(userQuote)
-    #might be too similar to other fortune cookie functions could change to have params be c or p and then do either customCookie or the code below for purchase
-
-else:
-    #TODO: code for custom re-indent for purchased
-    fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
-
-    if fortuneAmount != 0:
-        if fortuneAmount < 0 or fortuneAmount > 35:
-            i = 0
-            while i == 0:
-                print("Inavlid Fortune amount, try again.")
-                fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
-                if fortuneAmount > -1 and fortuneAmount < 35:
-                    i = 1
     else:
-        if fortuneAmount == 0:
-            print("Sad to see you go.")
+        #TODO: code for custom re-indent for purchased
+        fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
+
+        if fortuneAmount != 0:
+            if fortuneAmount < 0 or fortuneAmount > 35:
+                i = 0
+                while i == 0:
+                    print("Inavlid Fortune amount, try again.")
+                    fortuneAmount = input("You can have up to 35 so how many fortune cookies do you want:")
+                    if fortuneAmount > -1 and fortuneAmount < 35:
+                        i = 1
         else:
-            if fortuneAmount < 6:
-                fortuneRandom = input("Would you like a random fortune, yes or no:")
-                if fortuneRandom == "yes":
-                    randomFortuneCookie(fortuneAmount)
-                else:
-                    #TODO use quoteGetter
+            if fortuneAmount == 0:
+                print("Sad to see you go.")
+            else:
+                if fortuneAmount < 6:
+                    fortuneRandom = input("Would you like a random fortune, yes or no:")
+                    if fortuneRandom == "yes":
+                        randomFortuneCookie(fortuneAmount)
+                    else:
+                        #TODO use quoteGetter
+                        print("What kind of fortune do you want? ")
+                        fortuneType = input("Type G for Good, Type B for Bad:")
+                        #credit to https://www.houstonpress.com/restaurants/fortune-cookie-sayings-youd-never-want-to-get-6412278 for bad fortunes
+                        #credit to https://www.quora.com/If-you-were-a-fortune-cookie-writer-what-funny-and-unexpected-fortunes-would-you-include for bad fortunes
+                        quoteGetter(fortuneAmount, fortuneType)
+                        fortuneCookie()
+                        
+                else: 
+                    #TODO: run functions
                     print("What kind of fortune do you want? ")
                     fortuneType = input("Type G for Good, Type B for Bad:")
-                    #credit to https://www.houstonpress.com/restaurants/fortune-cookie-sayings-youd-never-want-to-get-6412278 for bad fortunes
-                    #credit to https://www.quora.com/If-you-were-a-fortune-cookie-writer-what-funny-and-unexpected-fortunes-would-you-include for bad fortunes
                     quoteGetter(fortuneAmount, fortuneType)
                     fortuneCookie()
-                    
-            else: 
-                #TODO: run functions
-                print("What kind of fortune do you want? ")
-                fortuneType = input("Type G for Good, Type B for Bad:")
-                quoteGetter(fortuneAmount, fortuneType)
-                fortuneCookie()
-print("Goodbye!")
+    print("Goodbye!")
 
 
+if __name__ == "__main__":
+    main()
