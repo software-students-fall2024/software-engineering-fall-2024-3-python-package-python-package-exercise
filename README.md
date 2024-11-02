@@ -195,10 +195,10 @@ To merge code from a feature branch into `main`:
 
 ## Contributors
 
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
-- [Contributor 3](https://github.com/contributor3)
-- [Contributor 4](https://github.com/contributor4)
+- [Alex](https://github.com/alexyujiuqiao)
+- [Haoyi](https://github.com/hw2782)
+- [Keven](https://github.com/BlackCloud-K)
+- [Nicole](https://github.com/niki531)
 
 ## Instructions for Running the Project
 
