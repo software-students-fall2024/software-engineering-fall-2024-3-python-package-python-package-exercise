@@ -8,8 +8,9 @@ pytest = "*"
 build = "*"
 twine = "*"
 regex = "*"
+re    = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = ">=3.8,<4.0"
