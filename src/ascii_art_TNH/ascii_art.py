@@ -1,5 +1,8 @@
-import noises
-import gallery
+# import noises
+# import gallery
+import src.ascii_art_TNH.noises as noises
+from .noises import animal_noises #testing this
+import src.ascii_art_TNH.gallery as gallery
 
 def ascii_art(user_input):
   # Type of the input-make sure string
@@ -28,9 +31,12 @@ def print_art(animal):
   #calls print_noise or wrong_input
   return(gallery.animals.get(animal))
 
+
 def get_noise(noise):
    #match animal with noise
-   return(noises.get(noise))
+
+  # return(noises.get(noise))
+  return animal_noises.get(noise)
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
