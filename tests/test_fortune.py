@@ -34,10 +34,10 @@ class Tests:
 
     def test_customFortuneCookie(self, capsys):
         """
-        Verify get() function and make sure it returns a non-empty string.
+        Verify customFortuneCookie() function and make sure it returns a non-empty string.
         Note that for example purposes, we have not used the example_fixture in this test functino.
         """
-        # since get returns a random string, run it a bunch of times and verify the output
+
         for i in range(100):
             test_outputImage = f"""                                                                                                    
                                                                                                         
@@ -80,5 +80,30 @@ class Tests:
             assert (".@@*#@+%#" in actual_captured.out), f"Expected the text printed by customFortuneCookie() contain an ASCII image."
             assert ("An exciting opportunity lies ahead of you." in actual_captured.out), f"Expected the text printed by customFortuneCookie() to contain the input quote: 'An exciting opportunity lies ahead of you.'"
 
+    def test_addQuote(self):
+
+        quotes = [
+            "The best way to predict the future is to create it.",
+            "Happiness is not something ready-made. It comes from your own actions.",
+            "You will find great success in your endeavors.",
+            "Your hard work will soon pay off.",
+            "Adventure awaits you around the corner.",
+            "Believe you can and you're halfway there.",
+            "A friend is someone who knows all about you and still loves you.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "You will make a change for the better.",
+            "Your talents will be recognized and suitably rewarded."
+        ]
+
+        """
+        Verify addQuote() function and make sure it returns a non-empty string.
+        Note that for example purposes, we have not used the example_fixture in this test functino.
+        """
+        
+        for i in range(10):
+            addQuote(quotes[i], "g")
+            f = open("GoodFortune.txt", "r")
+            content = f.read()
+            assert (quotes[i] in content), f"Expected the new quote in GoodFortune text file."
     def test_1(self):
         assert True  # Replace with actual tests
