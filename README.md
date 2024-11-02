@@ -3,7 +3,7 @@
 [![Run Moo Test](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_one.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_one.yaml)
 [![Run input_parse_test](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_two.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_two.yaml)
 [![Run wrong_test](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_three.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_two.yaml)
-[![Run get_noise_test]()(https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_four.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_four.yaml)
+[![Run get_noise_test](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_four.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-tnh-tnh-needs-help/actions/workflows/test_four.yaml)
 
 An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
 
