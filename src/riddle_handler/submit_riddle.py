@@ -1,5 +1,5 @@
 import json
-from src.riddle_handler.read_file import read_file
+from .read_file import read_file
 
 def submit_riddle(riddle: dict) -> str:
     try:
