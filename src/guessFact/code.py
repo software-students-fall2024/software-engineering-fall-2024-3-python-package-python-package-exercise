@@ -96,19 +96,26 @@ def Music(sub_choice: int) -> None:
     }
 
     truths = {
-        1: [ 1, 2 ],
+        1: [ 1, 1 ],
         2: [ 1, 2 ],
         3: [ 1, 2 ]
     }
 
+    sub_choice = int(sub_choice)
     statements = facts[sub_choice]
-    selected_statement = random.choice(statements)
+    statementIndex = random.randint(0, 1)
+    selected_statement = statements[statementIndex]
 
     while True:
-        choice = input("Which of the following statements is true? Please enter 1 or 2:")
+        choice = input("Which of the following statements is true? Please enter 1 or 2:\n" + selected_statement)
         if fact_choice_validation(choice):
             break
         print("Invalid choice. Please enter either 1 or 2.")
+
+    if choice == truths[sub_choice][statementIndex]:
+        print("You are right!")
+    else:
+        print("You are wrong!")
 
     print("category1 check")
 
