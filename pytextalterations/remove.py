@@ -3,7 +3,7 @@ import re
 
 def removepunctuation(str):
     """
-    This function takes an input string and then converts it to lower case
+    This function takes an input String and then converts it to lower case
     and removes all punctuation
 
     We imported regular expression to make this process easier
