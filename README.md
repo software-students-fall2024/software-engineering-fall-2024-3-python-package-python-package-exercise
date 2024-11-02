@@ -134,52 +134,76 @@ _**For more examples, check out** [this example program](https://github.com/soft
    git clone https://github.com/software-students-fall2024/3-python-package-codecrafter
    ```
 
+2. **Install `pipenv`:**
 
-2. **Install pipenv if you haven't already:**
+If you haven’t installed `pipenv` yet, use the following command:
 
-   ```bash
-   pip install pipenv
-   ```
+```bash
+pip install pipenv
+```
 
-3. **Set up virtual environment:**
-  And you can create a virtual environment for the app with the command,
+3. **Set Up the Virtual Environment:**
 
-  on Mac:
+To create a virtual environment and install dependencies using the `Pipfile`, run:
+
+```bash
+pipenv install
+```
+
+This command will read the `Pipfile` and create a virtual environment with all the specified dependencies.
+
+If you only want to create the environment without installing dependencies, you can use:
+
+```bash
+pipenv install --ignore-pipfile
+```
+
+4. **Activate the Virtual Environment:**
+
+To activate the virtual environment, use:
+
+```bash
+pipenv shell
+```
+
+This command works on both Mac and Windows, as `pipenv` will automatically locate and activate the correct environment.
+
+5. **Install Additional Dependencies(If Needed):**
+
+If you need to add more dependencies later, you can use the following commands:
+
+- For production dependencies:
 
   ```bash
-  python3 -m venv .venv
-  ```
-  on Windows:
-  ```bash
-  py -m venv .venv
+  pipenv install <package-name>
   ```
 
-  To activate the virtual environment named `.venv`...
-
-  on Mac:
+- For development dependencies (e.g., testing or debugging tools):
 
   ```bash
-  source .venv/bin/activate
+  pipenv install --dev <package-name>
   ```
 
-  on Windows:
+6. **Exit the Virtual Environment:**
 
-  ```bash
-  .venv\Scripts\activate.bat
-  ```
+To exit the virtual environment, simply type:
 
-4. **Install dependencies:**
-  The `pip` settings file named, `requirements.txt` contains a list of dependencies - other Python modules that this app depends upon to run. Install all required Python dependencies using `pip3`:
+```bash
+exit
+```
 
-  on Mac:
-  ```bash
-  pip3 install -r requirements.txt
-  ```
+Or press `Ctrl + D`.
 
-  on Windows:
-  ```bash
-  pip install -r requirements.txt
-  ```
+7. **Remove the Virtual Environmen:**
+
+If you need to delete the virtual environment, use:
+
+```bash
+pipenv --rm
+```
+
+This will remove the virtual environment associated with the `Pipfile`.
+
 
 ### Building and Testing
 
@@ -280,7 +304,7 @@ No environment variables are required for basic usage.
 
 ### Importing Starter Data
 
-**The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project.**
+**The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project. You can use our library from [this link](https://github.com/software-students-fall2024/3-python-package-codecrafter/blob/main/riddleLibrary.json) or you can build your own by creating a `riddleLibrary.json` file.**
 
 ## Update Log
 v1.0.3
