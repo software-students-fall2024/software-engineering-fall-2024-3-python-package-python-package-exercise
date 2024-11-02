@@ -39,3 +39,4 @@ jobs:
           user: __token__
           password: ${{ secrets.__token__ }}
           repository-url: https://upload.pypi.org/legacy/
+          skip_existing: true
