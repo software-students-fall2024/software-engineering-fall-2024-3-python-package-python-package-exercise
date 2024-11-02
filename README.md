@@ -244,7 +244,7 @@ To merge code from a feature branch into `main`:
 
 ### For Developers
 
-1. **Ensure Python 3.9 or higher is installed** on your system.
+1. **Ensure Python 3.11 or higher is installed** on your system.
 
 2. **Clone the repository and set up the environment** as described in the [Contributing](#contributing) section.
 
