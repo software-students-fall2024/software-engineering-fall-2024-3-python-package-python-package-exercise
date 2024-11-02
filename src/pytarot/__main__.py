@@ -4,7 +4,9 @@ import pytarot.answersofwisdom as answers_of_wisdom_module
 
 
 def main():
-    print("default method")
+    print(f"Welcome to Pytarot! Type get_trueLover to get a true lover, 
+          get_luckyDay to get a lucky day, 
+          or get_answersOfWisdom to get answers of wisdom.")
 
 def get_trueLover():
     line = truelover_module.get_true_lover()
