@@ -8,8 +8,10 @@ gitcommitlogger = "*"
 requests = "*"
 pytz = "*"
 python-dateutil = "*"
+Pillow = "*"
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3"
