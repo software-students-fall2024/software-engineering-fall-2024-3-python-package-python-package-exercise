@@ -1,5 +1,5 @@
 # Python Package Exercise
-Badge goes here <br>
+![build](https://github.com/software-students-fall2024/3-python-package-scooby-gang/actions/workflows/build.yaml/badge.svg) <br>
 ## Contributors
 [Lucia Song](https://github.com/lys7942) <br>
 [Chelsea Hodgson](https://github.com/Chelsea-Hodgson) <br>
