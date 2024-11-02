@@ -18,10 +18,10 @@ def test_parse_input_trailing_spaces():
 
 def test_parse_input_empty_string():
     user_input = ""
-    expected_output = [""]
+    expected_output = []
     assert parse_input(user_input) == expected_output
 
 def test_parse_input_only_spaces():
     user_input = "     "
-    expected_output = [""]
+    expected_output = []
     assert parse_input(user_input) == expected_output
