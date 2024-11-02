@@ -16,7 +16,6 @@ def getMultipleFortunes(n):
     
     return result
 
-
 result = getMultipleFortunes(5)
 for fortune, num in result:
     print(f"Fortune: {fortune}\nNumber: {num}\n")
