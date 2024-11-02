@@ -130,6 +130,7 @@ def Coffee(sub_choice: int) -> None:
     #randomly generate 0 or 1
     random_value = int(__import__('time').time() * 1000) % 2
 
+    sub_choice = int(sub_choice)
     #print facts
     print(facts[(sub_choice -1)*2+random_value])
 
