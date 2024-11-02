@@ -1,4 +1,4 @@
-name: Run get_noise_test on Pull Request
+name: get_noise_test Test
 
 on:
   pull_request:
