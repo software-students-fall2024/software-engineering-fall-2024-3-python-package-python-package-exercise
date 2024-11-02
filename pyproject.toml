@@ -8,6 +8,7 @@ description = "A package that alters text in four different ways."
 version = "0.0.0"
 authors = [
     { name="Neha Magesh", email="nm3818@nyu.edu" },
+    { name="Luca Ignatescu", email="lucaignatescu003@gmail.com"}
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
