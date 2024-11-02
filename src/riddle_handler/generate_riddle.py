@@ -1,6 +1,6 @@
 import json
 import random
-from src.riddle_handler.read_file import read_file
+from .read_file import read_file
 
 def generate_riddle(difficulty: int) -> str:
     if type(difficulty) is not int:

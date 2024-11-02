@@ -1,4 +1,4 @@
-from src.riddle_handler.read_file import read_file
+from .read_file import read_file
 
 def provide_hint(riddle_id) -> str:
     try:
