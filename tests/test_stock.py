@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from src.Financiers.stock import Stock, BrainrotDataFrame
+from src.Financiers.stock import Stock, BrainrotWrapper
 from datetime import datetime, timedelta
 
 class Tests:
@@ -35,7 +35,7 @@ class Tests:
                     'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
                     'price': [100.0 + i for i in range(10)]  # increasing mock prices
                 })
-                return BrainrotDataFrame("Mock data", mock_price_data)
+                return BrainrotWrapper("Mock data", mock_price_data)
             
             # Apply monkeypatch to replace get_price_data method
             stock = Stock()
@@ -45,7 +45,7 @@ class Tests:
             days_to_forecast = 5
             forecast = stock.forecast_prices("IBM", days=days_to_forecast)
 
-            # Assert: Check if the returned BrainrotDataFrame has expected structure
+            # Assert: Check if the returned BrainrotWrapper has expected structure
             assert forecast.df is not None, "Forecast DataFrame should not be None"
             assert 'date' in forecast.df.columns, "'date' column missing from forecast DataFrame"
             assert 'predicted_price' in forecast.df.columns, "'predicted_price' column missing from forecast DataFrame"
