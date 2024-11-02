@@ -41,7 +41,11 @@ def get_noise(noise):
    #match animal with noise
 
   # return(noises.get(noise))
-  return animal_noises.get(noise)
+  if noise in animal_noises:
+        return animal_noises.get(noise)
+  else:
+    print("Wrong output: Animal noise not recognized")
+  return None #does this need to be updated?
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
