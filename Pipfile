@@ -8,7 +8,6 @@ pytest = "*"
 build = "*"
 twine = "*"
 regex = "*"
-re    = "*"
 
 [dev-packages]
 
