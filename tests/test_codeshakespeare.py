@@ -81,6 +81,7 @@ class TestCodeShakespeare(unittest.TestCase):
         """Test the default behavior of the get_random_shakespeare_quote function."""
         result = get_random_shakespeare_quote()
         print(f"Default quote result: {result}")
+
         playful_quotes = [
             "To code, or not to code, that is the question.",
             "Cry havoc and let slip the bugs of war!",
@@ -115,6 +116,7 @@ class TestCodeShakespeare(unittest.TestCase):
         """Test default behavior of the generate_shakespearean_commit_message function."""
         result = generate_shakespearean_commit_message()
         print(f"Default commit message result: {result}")
+
         victorious_messages = [
             "Commit thy changes, for they doth bring glory!",
             "Thine errors are slain, and the code is just!",
@@ -122,5 +124,6 @@ class TestCodeShakespeare(unittest.TestCase):
         ]
         self.assertIn(result, victorious_messages)
 
+# Main code
 if __name__ == '__main__':
     unittest.main()
