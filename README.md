@@ -8,6 +8,7 @@
 An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
 
 ## How this package was created
+
 1. [Install pipenv]...
 
 ## How to install and use this package
@@ -19,7 +20,9 @@ Test are included within the 'test' directory. To run these test...
 2. Run the test from the main project directory: 'python3 -m pytest'.
 
 ## Pro tip
+
 ...
 
 ## Continuous integration
+
 This project uses a continuous integration workflow that builds and runs unit tests automatically with every _push_ of the code to GitHub.
