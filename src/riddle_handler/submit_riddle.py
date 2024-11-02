@@ -1,5 +1,5 @@
 import json
-from src.read_file import read_file
+from src.riddle_handler.read_file import read_file
 
 def is_valid_riddle(riddle: dict) -> bool:
     required_keys = {"question", "answer", "hint", "difficulty", "topic"}

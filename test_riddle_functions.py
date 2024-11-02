@@ -1,11 +1,11 @@
 import pytest
 import json
 import random
-from src.provide_hint import provide_hint
-from src.generate_riddle import generate_riddle
-from src.check_answer import check_answer
-from src.read_file import read_file
-from src.submit_riddle import submit_riddle
+from src.riddle_handler.provide_hint import provide_hint
+from src.riddle_handler.generate_riddle import generate_riddle
+from src.riddle_handler.check_answer import check_answer
+from src.riddle_handler.read_file import read_file
+from src.riddle_handler.submit_riddle import submit_riddle
 from unittest.mock import patch
 
 @pytest.fixture
@@ -83,7 +83,7 @@ mock_riddle_data = [
 {"question": "What gets wetter as it dries?", "difficulty": 4}
 ]
     
-@patch('src.generate_riddle.read_file', return_value=mock_riddle_data)
+@patch('src.riddle_handler.generate_riddle.read_file', return_value=mock_riddle_data)
 def test_generate_correctness(mock_read_file):
     result = generate_riddle(1)
     assert result in ["What has keys but can't open locks?"]
@@ -164,10 +164,11 @@ def test_duplicate_riddle():
 
 def test_invalid_input():
     print("Test invalid input:")
-    riddle = "abc"
-    result = submit_riddle(riddle)
-    print(result)
-    assert "Error: Invalid input" in result, "Failed: Non-dictionary input should return an error."
+    test_riddles = ["", None, 12345, 3.14, "@#$%^&*()", "   ",["This", "is", "a", "list"]]
+    for riddle in test_riddles:
+        result = submit_riddle(riddle)
+        print(result)
+        assert "Error: Invalid input" in result, "Failed: Non-dictionary input should return an error."
 
 def test_invalid_riddle_format():
     print("Test invalid riddle format:")
