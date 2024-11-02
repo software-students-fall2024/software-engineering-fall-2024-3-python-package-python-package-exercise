@@ -6,3 +6,7 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 - **Boming Zhang** (bz2196) [GitHub Profile](https://github.com/BomingZhang-coder)
 - **Annabeth Gao** (mg6839) [GitHub Profile](https://github.com/bellinimoon)
 - **Jack Zhang** (yz6973) [GitHub Profile](https://github.com/yz6973)
+
+## Product Description
+
+## System Setup and Environment Configuration Guide
