@@ -17,7 +17,7 @@ class Tests:
   jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   """
       assert result.strip() == flowers.strip()
-  def test_wrong_input_multi2(self):
+  def test_wrong_input_nothing(self):
       result = wrong_input("noting", 0)
       vase = r"""
           *
@@ -36,8 +36,32 @@ class Tests:
         /\\/\
   """
       assert result.strip() == vase.strip()
-  def test_wrong_input_single(self):
+  def test_wrong_input_single1(self):
      result = wrong_input("sheep", 1)
+     flower = r""" 
+                .-.'  '.-.
+            .-(   \  /   )-.
+          /   '..oOOo..'   \
+  ,       \.--.oOOOOOOo.--./
+  |\  ,   (   :oOOOOOOo:   )
+  _\.\/|   /'--'oOOOOOOo'--'\
+  '-.. ;/| \   .''oOOo''.   /
+  .--`'. :/|'-(   /  \   )-'
+  '--. `. / //'-'.__.'-;
+    `'-,_';//      ,  /|
+          '((       |\/./_
+            \\  . |\; ..-'
+            \\ |\: .'`--.
+              \\, .' .--'
+              ))'_,-'`
+        jgs  //-'
+            // 
+            //
+          |/
+    """
+     assert result.strip() == flower.strip()
+  def test_wrong_input_single2(self):
+     result = wrong_input("nonexistent", 1)
      flower = r""" 
                 .-.'  '.-.
             .-(   \  /   )-.
