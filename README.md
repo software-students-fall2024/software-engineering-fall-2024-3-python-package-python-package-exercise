@@ -5,14 +5,14 @@
 
 **Riddle Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
 ## PyPI Link
-[Riddle Handler](https://pypi.org/project/riddle-handler/1.0.2/)
+[Riddle Handler](https://pypi.org/project/riddle-handler/1.0.3/)
 
 ## Installation
 
 Install the package via pip:
 
 ```bash
-pip install riddle-handler==1.0.2
+pip install riddle-handler==1.0.3
 ```
 
 ## Usage
@@ -89,11 +89,11 @@ Allows users to submit their own riddles to the library.
 
   # Define your custom riddle
   my_riddle = {
-      "question": "I speak without a mouth and hear without ears. What am I?",
-      "answer": ["echo"],
-      "hint": "You can hear me but cannot see me.",
-      "difficulty": 2,
-      "topic": "Mystery"
+        "question": "I can move, yet I stay in one place; People use me to send messages, but I'm nowhere to be seen; Anytime, anywhere, you can call for me, and I'll always be there. What am I?",
+        "answer": ["sound"],
+        "hint": "You can hear me but cannot see me.",
+        "difficulty": 3,
+        "topic": "Communication"
   }
 
   # Submit the riddle
@@ -122,7 +122,7 @@ Provides a hint for the specified riddle.
   ```
 
 
-_**For more examples, check out** [this example program]()._
+_**For more examples, check out** [this example program](https://github.com/software-students-fall2024/3-python-package-codecrafter/blob/main/example_program.py)._
 
 ## Contributing
 
@@ -141,17 +141,45 @@ _**For more examples, check out** [this example program]()._
    pip install pipenv
    ```
 
-3. **Create a virtual environment and install dependencies:**
+3. **Set up virtual environment:**
+  And you can create a virtual environment for the app with the command,
 
-   ```bash
-   pipenv install --dev
-   ```
+  on Mac:
 
-4. **Activate the virtual environment:**
+  ```bash
+  python3 -m venv .venv
+  ```
+  on Windows:
+  ```bash
+  py -m venv .venv
+  ```
 
-   ```bash
-   pipenv shell
-   ```
+  To activate the virtual environment named `.venv`...
+
+  on Mac:
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
+  on Windows:
+
+  ```bash
+  .venv\Scripts\activate.bat
+  ```
+
+4. **Install dependencies:**
+  The `pip` settings file named, `requirements.txt` contains a list of dependencies - other Python modules that this app depends upon to run. Install all required Python dependencies using `pip3`:
+
+  on Mac:
+  ```bash
+  pip3 install -r requirements.txt
+  ```
+
+  on Windows:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ### Building and Testing
 
@@ -166,6 +194,16 @@ _**For more examples, check out** [this example program]()._
 - **Build Package:**
 
   Use `build` to create the package artifacts.
+  
+  For Mac:
+
+
+  ```bash
+  python3 -m build
+  ```
+
+  For Windows:
+
 
   ```bash
   python -m build
@@ -178,6 +216,8 @@ _**For more examples, check out** [this example program]()._
   ```bash
   twine upload dist/*
   ```
+
+  Note that API key should only be acquired by contacting administrators
 
 ### Git Workflow
 
@@ -209,6 +249,14 @@ To merge code from a feature branch into `main`:
 2. **Clone the repository and set up the environment** as described in the [Contributing](#contributing) section.
 
 3. **Run the example program:**
+  
+  For Mac:
+
+   ```bash
+   python3 example_program.py
+   ```
+
+  For Windows:
 
    ```bash
    python example_program.py
@@ -219,7 +267,7 @@ To merge code from a feature branch into `main`:
 1. **Install the package via pip:**
 
    ```bash
-   install riddle_handler==1.0.0
+   install riddle-handler==1.0.3
    ```
 
 2. **Use the package in your Python scripts** as shown in the [Usage](#usage) examples.
@@ -232,9 +280,12 @@ No environment variables are required for basic usage.
 
 ### Importing Starter Data
 
-The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project.
+**The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project.**
 
-### Update Log
+## Update Log
+v1.0.3
+Bug Fix: Resolved an issue where the package has no attribute.
+
 v1.0.2
 Bug Fix: Resolved an issue where the package appeared empty after installation.
 Documentation: Updated README with clearer instructions and added installation and usage details specific to Windows.

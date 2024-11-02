@@ -20,11 +20,11 @@ def main():
     # Example 3: Submit a custom riddle to the library
     print("\nExample 3: Submit a Custom Riddle")
     custom_riddle = {
-        "question": "I speak without a mouth and hear without ears. What am I?",
-        "answer": ["echo"],
+        "question": "I can move, yet I stay in one place; People use me to send messages, but I'm nowhere to be seen; Anytime, anywhere, you can call for me, and I'll always be there. What am I?",
+        "answer": ["sound"],
         "hint": "You can hear me but cannot see me.",
-        "difficulty": 2,
-        "topic": "Mystery"
+        "difficulty": 3,
+        "topic": "Communication"
     }
     submission_response = riddle_handler.submit_riddle(custom_riddle)
     print(f"Riddle submission response: {submission_response}")
