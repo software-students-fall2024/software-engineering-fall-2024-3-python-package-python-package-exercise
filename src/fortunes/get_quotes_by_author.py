@@ -131,7 +131,3 @@ def get_quotes_by_author(quotes_dict):
         # Did not find the person, ask user again
         else:
             print("Person not found. Please choose again.")
-
-if __name__ == "__main__":
-    quotes_dict = parse_fortune_file('./src/fortunes/fortune.txt')
-    get_quotes_by_author(quotes_dict)
