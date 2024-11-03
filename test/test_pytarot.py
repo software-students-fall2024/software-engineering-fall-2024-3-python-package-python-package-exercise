@@ -168,3 +168,55 @@ class Tests:
 
 
     #answers of wisdom tests
+    # Test 1: Ensure the function returns a non-empty string
+    def test_get_answers_of_wisdom_non_empty(self):
+        """
+        Verify that get_answers_of_wisdom() returns a non-empty string.
+        """
+        result = get_answers_of_wisdom()
+        
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
+
+    # Test 2: Ensure the output is one of the expected pieces of wisdom
+    def test_get_answers_of_wisdom_content():
+        """
+        Verify that get_answers_of_wisdom() returns a valid answer from the wisdom_list.
+        """
+        wisdom_list = [
+            "Patience is a virtue. Good things come to those who wait.",
+            "The journey of a thousand miles begins with a single step.",
+            "Believe in yourself, and the universe will align to support you.",
+            "Sometimes, the best decision is no decision at all.",
+            "Don’t count the days, make the days count.",
+            "Let go of what you can’t change and focus on what you can control.",
+            "Trust the timing of your life.",
+            "Happiness is a choice, not a result.",
+            "If you want to go fast, go alone. If you want to go far, go together.",
+            "Embrace the uncertainty; sometimes the best stories come from the unexpected.",
+            "Life is about learning from every experience, good or bad.",
+            "Take life one day at a time and live in the moment.",
+            "Your vibe attracts your tribe; be mindful of your energy.",
+            "Opportunities don’t happen, you create them.",
+            "Success is not the key to happiness. Happiness is the key to success."
+            "You don’t need to have it all figured out to move forward.",
+            "Growth comes when you step outside your comfort zone.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Every day may not be good, but there’s something good in every day.",
+            "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+            "Dream big, start small, and act now.",
+            "Failure is simply the opportunity to begin again, this time more intelligently.",
+            "Courage is not the absence of fear, but the triumph over it."
+        ]
+        
+        result = get_answers_of_wisdom()
+        
+        assert result in wisdom_list, "The result should be an answer from the wisdom list."
+
+    # Test 3: Ensure the function outputs different results for uniqueness
+    def test_get_answers_of_wisdom_uniqueness():
+        """
+        Run get_answers_of_wisdom() multiple times and check for output uniqueness.
+        """
+        results = {get_answers_of_wisdom() for _ in range(10)}
+        assert len(results) > 1, "The function should generate unique answers."
