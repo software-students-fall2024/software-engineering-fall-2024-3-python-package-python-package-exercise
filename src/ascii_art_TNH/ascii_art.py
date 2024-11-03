@@ -14,13 +14,12 @@ def ascii_art(user_input):
     return
   for animal in animal_array:
     # If animal is in the gallery
-    if animal in gallery.animals:
-      print_art(animal)
-    elif animal in noises.animal_noises:
-      print(print_art(get_noise(animal)))
+    if animal in gallery.animals and animal in noises.animal_noises:
+      print(print_art(animal))
+      print(get_noise(animal))
     else:
       # If animal is not in the gallery
-      wrong_input(animal, len(animal_array))
+      print(wrong_input(animal, len(animal_array)))
 
 def parse_input(user_input):
   inputs = []
@@ -37,20 +36,15 @@ def print_art(animal):
   return(gallery.animals.get(animal))
 
 
-def get_noise(noise):
+def get_noise(animal):
    #match animal with noise
-
-  # return(noises.get(noise))
-  if noise in animal_noises:
-        return animal_noises.get(noise)
-  else:
-    print("Wrong output: Animal noise not recognized")
-  return None #does this need to be updated?
+  return animal_noises.get(animal)
 
 def wrong_input(animals, length):
   #if multiple animals were inputed, print flowers
   #if one animal, print flower
   # reference: https://www.asciiart.eu/plants/flowers
+  print("Sorry we do not have art of", ", ".join(animals))
   flowers = r"""
               ,,,                      ,,,
         {{{}}    ,,,             {{{}}    ,,,
