@@ -182,19 +182,19 @@ def Food(sub_choice: int) -> None:
 
     explanation = [
         "Choice 2 is made up. Mille-Feuille has always been known for its thin pastry layers.",
-        "Choice 2 is made up. Sushi indeed started as a preservation method but the concept of rolls came much later.",
-        "Choice 1 is made up. Bangkok is known as a hub for street food but there was never a restriction based on daylight.",
-        "Choice 2 is made up. Macarons were originally made with almonds and later evolved into the modern ganache filling.",
+        "Choice 2 is made up. Sushi indeed started as a preservation method, but the concept of rolls came much later.",
+        "Choice 1 is made up. Bangkok is known for street food but there was no restriction based on daylight.",
+        "Choice 2 is made up. Macarons were originally made with almonds and evolved into modern ganache filling.",
         "Choice 1 is made up. Tacos originated from Mexican miners.",
-        "Choice 2 is made up. The first recorded ice cream flavors were based on fruit and honey, not pistachio."
+        "Choice 2 is made up. Early ice cream flavors were fruit-based, not pistachio."
     ]
 
     truth = [1, 1, 2, 1, 2, 1]
 
-    # Randomly pick a group of facts
+    
     random_value = int(__import__('time').time() * 1000) % 2
-
     sub_choice = int(sub_choice)
+
     print(facts[(sub_choice - 1) * 2 + random_value])
 
     fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
