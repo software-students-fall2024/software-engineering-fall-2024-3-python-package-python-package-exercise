@@ -1,13 +1,11 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "your_project_name"
+name = "fortune.package"
 version = "0.1.0"
-
 description = "A funny fortunes generator package"
-
 readme = "README.md"
 authors = [
     { name = "Yuhao Sheng", email = "ys4689@nyu.edu" },
@@ -21,10 +19,11 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["your_package"]
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+exclude = ["tests*"]
 
 [project.optional-dependencies]
 dev = [
@@ -33,4 +32,3 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-
