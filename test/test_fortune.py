@@ -35,8 +35,3 @@ def test_send_fortune_email_invalid_email():
 
     with pytest.raises(Exception):
         send_fortune_email(recipient_email, fortune)
-=======
-import pytest
-
-from src.fortune import send_email
->>>>>>> adddedd968dbe83bc6782f06abc01a180f5a7c2b
