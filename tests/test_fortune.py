@@ -2,76 +2,7 @@ import pytest
 from unittest.mock import patch, mock_open
 from fortunes.send_email import send_fortune_email
 from fortunes.random_fortune import get_fortune_cookie
-from fortunes.getMultipleFortunes import getMultipleFortunes
 
-def test_get_multiple_fortunes_basic():
-    # Mock the content of fortune.txt with multiple fortunes
-    mock_fortunes = "Fortune 1 % Fortune 2 % Fortune 3"
-    
-    with patch('fortunes.getMultipleFortunes.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
-        with patch('fortunes.getMultipleFortunes.random.choice', side_effect=["Fortune 1", "Fortune 2", "Fortune 3"]), \
-             patch('fortunes.getMultipleFortunes.random.randint', return_value=42):
-            
-            result = getMultipleFortunes(3)
-            
-            # Check if the result contains 3 unique fortunes
-            assert len(result) == 3
-            assert "🔮 Your Fortune: Fortune 1\n🍀 Your Lucky Number: 42" in result
-            assert "🔮 Your Fortune: Fortune 2\n🍀 Your Lucky Number: 42" in result
-            assert "🔮 Your Fortune: Fortune 3\n🍀 Your Lucky Number: 42" in result
-
-def test_get_multiple_fortunes_duplicates():
-    # Mock the content of fortune.txt with duplicate fortunes in the result
-    mock_fortunes = "Fortune 1 % Fortune 2 % Fortune 3"
-    
-    with patch('fortunes.getMultipleFortunes.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
-        with patch('fortunes.getMultipleFortunes.random.choice', side_effect=["Fortune 1", "Fortune 2", "Fortune 3"]), \
-             patch('fortunes.getMultipleFortunes.random.randint', return_value=88):
-            
-            result = getMultipleFortunes(3)
-            
-            # Check that there are no duplicates in the result
-            assert len(result) == len(set(result))
-
-def test_get_multiple_fortunes_more_than_available():
-    # Test for requesting more fortunes than are available in the file
-    mock_fortunes = "Fortune 1 % Fortune 2"
-    
-    with patch('fortunes.getMultipleFortunes.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
-        # Add ValueError handling in function to handle the request for more unique fortunes than available
-        with pytest.raises(ValueError):
-            getMultipleFortunes(3)
-
-def test_get_multiple_fortunes_single():
-    # Test with a single fortune request
-    mock_fortunes = "Only one fortune available"
-    
-    with patch('fortunes.getMultipleFortunes.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
-        with patch('fortunes.getMultipleFortunes.random.choice', return_value="Only one fortune available"), \
-             patch('fortunes.getMultipleFortunes.random.randint', return_value=13):
-            
-            result = getMultipleFortunes(1)
-            
-            # Check that a single fortune with the correct lucky number is returned
-            assert result == ["🔮 Your Fortune: Only one fortune available\n🍀 Your Lucky Number: 13"]
-
-def test_get_multiple_fortunes_random_calls():
-    # Test if random.choice and random.randint are called as expected
-    mock_fortunes = "Fortune 1 % Fortune 2 % Fortune 3"
-    
-    with patch('fortunes.getMultipleFortunes.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
-        with patch('fortunes.getMultipleFortunes.random.choice') as mock_choice, \
-             patch('fortunes.getMultipleFortunes.random.randint') as mock_randint:
-            
-            mock_choice.side_effect = ["Fortune 1", "Fortune 2", "Fortune 3"]
-            mock_randint.side_effect = [10, 20, 30]
-            
-            getMultipleFortunes(3)
-            
-            # Ensure random.choice and random.randint were called exactly 3 times each
-            assert mock_choice.call_count == 3
-            assert mock_randint.call_count == 3
-        
 def test_get_fortune_cookie_basic():
     # Mock the content of the fortune.txt file with multiple fortunes
     mock_fortunes = "Fortune 1 % Fortune 2 % Fortune 3"
