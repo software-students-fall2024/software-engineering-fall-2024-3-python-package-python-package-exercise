@@ -109,7 +109,7 @@ def Music(sub_choice: int) -> None:
     sub_choice = int(sub_choice)
     
     statements = facts[sub_choice]
-    statementIndex = 0
+    statementIndex = int(__import__('time').time() * 1000) % 2
     selected_statement = statements[statementIndex]
 
     while True:
