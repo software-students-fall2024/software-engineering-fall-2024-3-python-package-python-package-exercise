@@ -1,4 +1,3 @@
-import random
 """This file should contains the code that will be implemented"""
 
 def main_function() -> None:
@@ -110,7 +109,7 @@ def Music(sub_choice: int) -> None:
     sub_choice = int(sub_choice)
     
     statements = facts[sub_choice]
-    statementIndex = random.randint(0, 1)
+    statementIndex = 0
     selected_statement = statements[statementIndex]
 
     while True:
