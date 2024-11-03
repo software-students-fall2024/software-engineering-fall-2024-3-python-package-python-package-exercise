@@ -15,10 +15,13 @@ def get_fortune_cookie():
     fortune = random.choice(fortunes)
     lucky_num = random.randint(0, 99)
     
-    # Print the fortune and number to the user
-    print(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}")
-
-    return fortune, lucky_num
+    # Return the formatted fortune and lucky number
+    return f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}"
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     get_fortune_cookie()
+=======
+    one = get_fortune_cookie()
+    print(one)
+>>>>>>> cd44edecdd7e2fb969f51cac073a80b20eefa4ec
