@@ -107,7 +107,7 @@ def Coffee(sub_choice: int) -> None:
 
     """
 
-    facts = ["1.According to legend, coffee was coffee was discovered when a goat herder noticed his 'goats' energy after eating coffee berries"\
+    facts = ["1.According to legend, coffee was discovered when a goat herder noticed his 'goats' energy after eating coffee berries"\
             "\n2.In 15th-century Yemen, coffee beans were so valuable that merchants would trade them for gemstones", 
 
             "1.In medieval Ethiopia, coffee was once taxed under a 'wakefulness tax'"\
@@ -141,8 +141,9 @@ def Coffee(sub_choice: int) -> None:
     #print facts
     print(facts[(sub_choice -1)*2+random_value])
 
+    fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
+
     while True:
-        fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
         if fact_choice_validation(fact_choice):
             break
         fact_choice = input("Invalid input. Please enter either 1 or 2:").strip()
