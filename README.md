@@ -54,6 +54,5 @@ Similarly, we have solutions for different languages and programming languages:
 
 - [Darren Zou](https://github.com/darrenzou)
 - [Peter D'Angelo](https://github.com/dangelo729)
-- [Jack Zhang](https://github.com/yz6973)
 - [Gene Park](https://github.com/geneparkmcs)
 - [Joseph Chege](https://github.com/JosephChege4)
