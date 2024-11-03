@@ -15,7 +15,3 @@ def getMultipleFortunes(n):
         result.append(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {num}")
     
     return result
-
-if __name__ == "__main__":
-    result = getMultipleFortunes(5)
-    print(result)
