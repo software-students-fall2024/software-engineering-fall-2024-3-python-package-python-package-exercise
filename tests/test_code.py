@@ -1,5 +1,5 @@
 import pytest
-from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee
+from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee, Music
 
 #Test for main_function
 def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
@@ -243,3 +243,30 @@ def test_Coffee_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Ca
         assert "You are wrong," in out
     else:
         assert "You are right," in out
+
+def test_Music_valid_result1( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(1)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    assert "You are right!" in out
+
+def test_Music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(2)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    output1 = "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact 2: Jazz originated in London during the 19th century.\n"
+    output2 = "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
+    print("------------------------------------") # TEST
+    print(out) # TEST
+    if output1 in out:
+        assert "You are right!" in out
+    else:
+        assert "You are wrong!" in out
