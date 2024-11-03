@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5bc6cdc81e873f1bc3334db0540b38a19c956ef948e20caf00b53dfc6f654329"
+            "sha256": "ade42facf4231517dd6bc69eebc92303b7060fd54dbb6b173276933479032882"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,15 @@
         ]
     },
     "default": {
+        "gitcommitlogger": {
+            "hashes": [
+                "sha256:3badf5db541d81cc3473882d9d255dabc66cd413e780ccb4fe6b320afddedcd0",
+                "sha256:7bafd58d46441b8c01b0f5706e7242df0ff841b3f87a7f621979577758546869"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==1.2.5"
+        },
         "iniconfig": {
             "hashes": [
                 "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3",
