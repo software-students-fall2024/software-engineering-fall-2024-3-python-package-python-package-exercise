@@ -3,7 +3,7 @@ from src.guessFact.code import main_function, category_choice_validation, fact_c
 
 #Test for main_function
 def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["1","1"])
+    inputs = iter(["1","1","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
@@ -26,7 +26,7 @@ def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Capt
         assert segment in output
 
 def test_main_function_case2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["4","1","a","1"])
+    inputs = iter(["4","1","a","1","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
@@ -49,7 +49,7 @@ def test_main_function_case2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Capt
         assert segment in output
 
 def test_main_function_case3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["1","3"])
+    inputs = iter(["1","3","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
