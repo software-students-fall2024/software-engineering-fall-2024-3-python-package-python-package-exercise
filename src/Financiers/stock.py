@@ -59,6 +59,29 @@ class Stock:
         )  # get brainrot
         # return the dataframe with brainrot
         return BrainrotDataFrame(brainrot, earnings_df)
+   
+    def get_price_data(self, symbol_string):
+        """
+        Retrieves daily stock price data for the specified symbol.
+        Arguments:
+        symbol_string: Stock ticker as a string.
+
+        Returns:
+        BrainrotDataFrame containing the historical price data.
+        """
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol_string}&apikey={self.api_key}"
+        response = requests.get(url)
+        data = response.json()
+
+        # Process JSON response to DataFrame
+        time_series = data.get("Time Series (Daily)", {})
+        price_data = pd.DataFrame({
+            "date": pd.to_datetime(list(time_series.keys())),
+            "price": [float(value["4. close"]) for value in time_series.values()]
+        }).sort_values(by="date")
+
+        brainrot = f"Historical prices for {symbol_string}. Embrace the data!"
+        return BrainrotDataFrame(brainrot, price_data)
 
     def forecast_prices(self, symbol_string, days=30):
         """
