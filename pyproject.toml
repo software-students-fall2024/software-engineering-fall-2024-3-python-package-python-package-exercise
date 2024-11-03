@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "guessFact"
-description = "A Python package lets users select a category and sub-category to 
+description = """A Python package lets users select a category and sub-category to 
 reveal two unique facts about it. One fact is true, while the other is a playful fabrication, 
-and the user needs to identify the correct one."
+and the user needs to identify the correct one."""
 version = "0.2.11"
 authors = [
   { name="Hanna Han", email="mh6161@nyu.edu" },

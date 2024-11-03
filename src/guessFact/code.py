@@ -26,9 +26,9 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        Music(sub_choice)
-    elif category_choice=="2":#historical tales; coffee culture; scientific facts
-        sub_categories = {"1": "historical tales","2": "coffee culture","3": "scientific facts"}
+        music(sub_choice)
+    elif category_choice=="2":
+        sub_categories = {"1": "Historical Tales","2": "Coffee Culture","3": "Scientific Facts"}
         for key, value in sub_categories.items():
             print(f"{key}: {value}")
         sub_choice = input("Enter the number of your chosen sub-category: ")
@@ -37,7 +37,7 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        Coffee(sub_choice)
+        coffee(sub_choice)
     else: # Food category
         sub_categories = {"1": "Desserts","2": "International Cuisines","3": "Street Food"}
         for key, value in sub_categories.items():
@@ -48,14 +48,14 @@ def main_function() -> None:
                 break
             sub_choice = input(
                 "Please enter the number 1, 2, or 3 to choose the sub-category").strip()
-        Food(sub_choice)
+        food(sub_choice)
 
 def category_choice_validation(category_choice: str) -> bool:
     """the function the check whether the user enter a valid category choice: 
     true if valid, false otherwise"""
     return (category_choice in {"1","2","3"})
 
-def Music(sub_choice: int) -> None:
+def music(sub_choice: int) -> None:
     """argument: sub_choice (int), which will be 1, 2, or 3
     
     the function should do the following:
@@ -126,7 +126,7 @@ def Music(sub_choice: int) -> None:
 
     print("Explanation: " + explanations[sub_choice][statementIndex])
 
-def Coffee(sub_choice: int) -> None:
+def coffee(sub_choice: int) -> None:
 
     #subcategories: 1.historical tales; 2.coffee culture; 3.scientific facts
     """
@@ -202,7 +202,7 @@ def Coffee(sub_choice: int) -> None:
     #below is just a placeholder
     #pyprint("category2 check")
 
-def Food(sub_choice: int) -> None:
+def food(sub_choice: int) -> None:
 
     facts = [
         "1. The French dessert 'Mille-Feuille' is known for its hundreds of layers of thin pastry and cream."\
