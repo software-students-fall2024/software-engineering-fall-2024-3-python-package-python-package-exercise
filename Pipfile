@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gitcommitlogger = "*"
+requests = "*"
+pytz = "*"
+python-dateutil = "*"
+pytest = "*"
+funky-fortune = {file = ".", editable = true}
+
+[dev-packages]
+pytest = "*"
+build = "*"
+twine = "*"
+
+[requires]
+python_version = "3"
