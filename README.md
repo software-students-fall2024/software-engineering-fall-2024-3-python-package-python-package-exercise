@@ -14,6 +14,104 @@ https://pypi.org/project/codebreak/0.1/
 ## Developer Instructions 
 how a developer who wants to import your project into their own code can do so - include documentation and code examples for all functions in your package and a link to an example Python program that uses each of them.
 
+Step 1: Install the Package
+To use codebreak in your project, first install it from PyPI. In your terminal or command prompt, type:
+```
+pip install codebreak
+```
+
+Step 2: Import and Use the Package
+After installation, you can import CodeBreak modules and functions directly into your Python code. Below is a description of each function and class in the package, along with usage examples.
+
+Function Documentation and Examples
+1. Eye Exercise (eye_exercise function)
+Provides a quick eye exercise suggestion based on the specified duration in seconds.
+
+Function: eye_exercise(duration: int) -> str
+Parameters:
+duration (int): The duration for the exercise (options: 10, 20, or 60 seconds)
+Returns: A string describing an eye exercise suggestion for the specified duration.
+Example Usage:
+
+```
+from codebreak.eye_exercises import eye_exercise
+
+# Get a 10-second eye exercise suggestion
+print(eye_exercise(10))
+```
+
+2. Mental Exercise (mental_exercise function)
+Provides a mental exercise suggestion based on the type of break desired.
+
+Function: mental_exercise(break_type: str) -> str
+Parameters:
+break_type (str): The type of mental break (options: 'focus', 'creativity', 'mindfulness')
+Returns: A string describing a mental exercise suggestion for the specified type.
+Example Usage:
+```
+from codebreak.mental_exercises import mental_exercise
+
+# Get a mental exercise suggestion for creativity
+print(mental_exercise("creativity"))
+```
+3. Physical Exercise (Exercise class)
+The Exercise class provides instructions for a physical exercise, allowing different intensity levels.
+
+Class: Exercise
+Methods:
+get_name(): Returns the exercise name as a string.
+output(intensity: str): Prints instructions for the exercise based on the specified intensity ('low', 'medium', or 'high').
+Example Usage:
+
+```
+from codebreak.physical_exercise import Exercise
+
+# Create an instance of the Exercise class for jogging
+jogging = Exercise("Jogging", "5 minutes", "10 minutes", "15 minutes", "Cardio")
+
+# Print a high-intensity exercise suggestion
+jogging.output("high")
+```
+
+4. Stretch Exercise (stretch_exercise function)
+Suggests a stretch exercise based on the available time in minutes.
+
+Function: stretch_exercise(minutes: int) -> str
+Parameters:
+minutes (int): Available time for stretching (between 1 and 15 minutes)
+Returns: A string describing a stretching exercise suggestion for the specified duration.
+Example Usage:
+```
+from codebreak.stretches import stretch_exercise
+
+# Get a 5-minute stretching exercise suggestion
+print(stretch_exercise(5))
+```
+Step 3: Example Program
+To see all functions in action, try running the example program on GitHub. This example demonstrates each function in the package and shows how to use them in a Python script.
+
+Here’s an overview of the example_program.py file:
+
+```
+from codebreak.eye_exercises import eye_exercise
+from codebreak.mental_exercises import mental_exercise
+from codebreak.physical_exercise import Exercise
+from codebreak.stretches import stretch_exercise
+
+# Example usage of eye exercise function
+print("Eye Exercise:", eye_exercise(10))
+
+# Example usage of mental exercise function
+print("Mental Exercise:", mental_exercise("creativity"))
+
+# Example usage of Exercise class
+jogging = Exercise("Jogging", "5 minutes", "10 minutes", "15 minutes", "Cardio")
+jogging.output("medium")
+
+# Example usage of stretch exercise function
+print("Stretch Exercise:", stretch_exercise(8))
+```
+
 ## Developer Contributions
 how a developer who wants to contribute to your project can set up the virtual environment, install dependencies, and build and test your package for themselves.
 ###Fork and Clone the Repository
