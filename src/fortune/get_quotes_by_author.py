@@ -1,3 +1,4 @@
+
 def get_quotes_by_author(quotes_dict):
     while True:
         # Ask the user to input the person name that they want quotes from
@@ -7,7 +8,7 @@ def get_quotes_by_author(quotes_dict):
             choice = input("Do you want a random quote or multiple quotes? Enter 'one' or 'multiple': ").strip().lower()
             # User only wants one quote
             if choice == 'one':
-                quote = getRandomQuote(quotes_dict[author])
+                quote = get_fortune_cookie(quotes_dict[author])
                 print(f"\n{quote}\n  ~ {author}")
             # User wants multiple quotes
             elif choice == 'multiple':
@@ -21,7 +22,7 @@ def get_quotes_by_author(quotes_dict):
                             print("Please enter a positive integer.")
                     except ValueError:
                         print("Please enter a valid integer.")
-                quotes = getMultipleRandomQuotes(quotes_dict[author], num_quotes)
+                quotes = getMultipleFortunes(quotes_dict[author], num_quotes)
                 print()
                 for q in quotes:
                     print(f"{q}\n  ~ {author}\n")
