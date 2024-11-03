@@ -25,6 +25,7 @@ classifiers = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+
 [project.optional-dependencies]
 dev = ["pytest"]
 
@@ -34,4 +35,4 @@ dev = ["pytest"]
 "Bug Tracker" = "https://github.com/nyu-software-engineering/python-package-example/issues"
 
 [project.scripts]
-pytarot = "pytarot.__main__:main"
+pytarot = "src.pytarot.__main__:main"
