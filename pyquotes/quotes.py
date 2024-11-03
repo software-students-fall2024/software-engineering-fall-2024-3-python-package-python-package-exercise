@@ -69,12 +69,12 @@ iconic = [
     {"quote": "I simply am not there.", "movie": "American Psycho"},
     {"quote": "For Narnia and for Aslan!", "movie": "Narnia"},
     {"quote": "To infinity and beyond!", "movie": "Toy Story"},
-    {"quote": "Here's looking at you, kid.", "movie": "Casablanca"},
-    {"quote": "You talking to me?", "movie": "Taxi Driver"},
-    {"quote": "I'll be back.", "movie": "The Terminator"},
-    {"quote": "Keep your friends close, but your enemies closer.", "movie": "The Godfather Part II"},
-    {"quote": "I love the smell of napalm in the morning.", "movie": "Apocalypse Now"},
-    {"quote": "You can’t handle the truth!", "movie": "A Few Good Men"},
-    {"quote": "Go ahead, make my day.", "movie": "Sudden Impact"},
-    {"quote": "Frankly, my dear, I don’t give a damn.", "movie": "Gone with the Wind"},
+ tests
 ]
+quote_categories = {
+    "inspirational": inspirational,
+    "sad": sad,
+    "funny": funny,
+    "iconic": iconic
+}
+
