@@ -12,7 +12,7 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 
 **Pytarot** is a lighthearted Python package designed to offer fun and whimsical insights into life’s mysteries. This package includes:
 1. **Random Answers of Wisdom**: Provides insightful or humorous responses to user questions.
-2. **Daily Horoscope**: Delivers a light-hearted horoscope based on astrological signs.
+2. **Daily Action**: Randomly generate positive reminders and suggestions for the day.
 3. **True Lover Generator**: Randomly generates a “true lover” profile for fun.
 4. **Lucky Day Generator**: Suggests a lucky day in the current month for the user.
 
@@ -60,6 +60,7 @@ from pytarot import luckyday, truelover, answersofwisdom
 print(answersofwisdom.get_answers_of_wisdom())
 print(luckyday.get_lucky_day())
 print(truelover.get_true_lover())
+print(positive_action.get_positive_message())
 ```
 
 6. **Running `main.py`**  
