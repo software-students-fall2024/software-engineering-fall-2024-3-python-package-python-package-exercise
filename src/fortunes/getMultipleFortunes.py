@@ -16,7 +16,3 @@ def getMultipleFortunes(n):
     
     return result
 
-if __name__ == "__main__":
-    result = getMultipleFortunes(5)
-    for fortune, num in result:
-        print(f"Fortune: {fortune}\nNumber: {num}\n")
