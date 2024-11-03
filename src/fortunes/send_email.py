@@ -1,3 +1,4 @@
+# send_email.py
 import smtplib
 from typing import Union, List
 from email.mime.text import MIMEText

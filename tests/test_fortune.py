@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import patch, mock_open
+from fortunes.get_quotes_by_author import get_quotes_by_author
 from fortunes.send_email import send_fortune_email
 from fortunes.random_fortune import get_fortune_cookie
 from fortunes.getMultipleFortunes import getMultipleFortunes
@@ -213,3 +214,80 @@ def test_send_fortune_email_with_special_characters():
         instance.starttls.assert_called_once()
         instance.login.assert_called_once()
         instance.sendmail.assert_called_once()
+
+# sample quotes dictionary
+quotes_dict = {
+    "Albert Claude": [
+        "Once Ptolemy and Plato, yesterday Newton, today Einstein, and tomorrow new faiths, new beliefs, and new dimensions.",
+        "When I went to the University, the medical school was the only place where one could hope to find the means to study life, its nature, its origins, and its ills.",
+        "Looking back 25 years later, what I may say is that the facts have been far better than the dreams. In the long course of cell life on this earth it remained, for our age for our generation, to receive the full ownership of our inheritance.",
+    ],
+    "Mikhail Bakunin": [
+        "The urge to destroy is also a creative urge.",
+        "If God really existed, it would be necessary to abolish Him.",
+        "People go to church for the same reasons they go to a tavern: to stupefy themselves, to forget their misery, to imagine themselves, for a few minutes anyway, free and happy."
+    ]
+}
+
+@patch('builtins.input', side_effect=['Albert Claude', 'one'])
+@patch('fortunes.get_quotes_by_author.random.choice', return_value="Once Ptolemy and Plato, yesterday Newton, today Einstein, and tomorrow new faiths, new beliefs, and new dimensions.")
+@patch('fortunes.get_quotes_by_author.random.randint', return_value=42)
+def test_get_one_quote(mock_input, mock_choice, mock_randint):
+
+    quotes = get_quotes_by_author(quotes_dict)
+    assert len(quotes) == 1
+    assert "🔮 Your Fortune: Once Ptolemy and Plato, yesterday Newton, today Einstein, and tomorrow new faiths, new beliefs, and new dimensions." in quotes[0]
+    assert "🍀 Your Lucky Number: 42" in quotes[0]
+
+@patch('builtins.input', side_effect=['Mikhail Bakunin', 'multiple', '2'])
+@patch('fortunes.get_quotes_by_author.random.sample', return_value=[
+    "The urge to destroy is also a creative urge.",
+    "If God really existed, it would be necessary to abolish Him."
+])
+@patch('fortunes.get_quotes_by_author.random.randint', side_effect=[17, 23])
+def test_get_multiple_quotes(mock_input, mock_sample, mock_randint):
+
+    quotes = get_quotes_by_author(quotes_dict)
+    assert len(quotes) == 2
+    assert "🔮 Your Fortune: The urge to destroy is also a creative urge." in quotes[0]
+    assert "🍀 Your Lucky Number: 17" in quotes[0]
+    assert "🔮 Your Fortune: If God really existed, it would be necessary to abolish Him." in quotes[1]
+    assert "🍀 Your Lucky Number: 23" in quotes[1]
+
+@patch('builtins.input', side_effect=['Non Existent Author'])
+def test_invalid_author(mock_input):
+    with pytest.raises(StopIteration):
+        get_quotes_by_author(quotes_dict)
+
+@patch('builtins.input', side_effect=['Albert Claude', 'multiple', '10'])
+@patch('fortunes.get_quotes_by_author.random.sample', return_value=[
+    "Once Ptolemy and Plato, yesterday Newton, today Einstein, and tomorrow new faiths, new beliefs, and new dimensions.",
+    "When I went to the University, the medical school was the only place where one could hope to find the means to study life, its nature, its origins, and its ills.",
+    "Looking back 25 years later, what I may say is that the facts have been far better than the dreams. In the long course of cell life on this earth it remained, for our age for our generation, to receive the full ownership of our inheritance."
+])
+@patch('fortunes.get_quotes_by_author.random.randint', side_effect=[5, 12, 30])
+def test_get_more_quotes_than_available(mock_input, mock_sample, mock_randint):
+
+    quotes = get_quotes_by_author(quotes_dict)
+    assert len(quotes) == 3
+    assert "🔮 Your Fortune: Once Ptolemy and Plato, yesterday Newton, today Einstein, and tomorrow new faiths, new beliefs, and new dimensions." in quotes[0]
+    assert "🍀 Your Lucky Number: 5" in quotes[0]
+    assert "🔮 Your Fortune: When I went to the University, the medical school was the only place where one could hope to find the means to study life, its nature, its origins, and its ills." in quotes[1]
+    assert "🍀 Your Lucky Number: 12" in quotes[1]
+    assert "🔮 Your Fortune: Looking back 25 years later, what I may say is that the facts have been far better than the dreams. In the long course of cell life on this earth it remained, for our age for our generation, to receive the full ownership of our inheritance." in quotes[2]
+    assert "🍀 Your Lucky Number: 30" in quotes[2]
+
+@patch('builtins.input', side_effect=['Albert Claude', 'invalid_choice'])
+def test_invalid_choice(mock_input):
+    with pytest.raises(StopIteration):
+        get_quotes_by_author(quotes_dict)
+
+@patch('builtins.input', side_effect=['Albert Claude', 'multiple', '-5'])
+def test_negative_number_of_quotes(mock_input):
+    with pytest.raises(StopIteration):
+        get_quotes_by_author(quotes_dict)
+
+@patch('builtins.input', side_effect=['Albert Claude', 'multiple', 'abc'])
+def test_non_integer_number_of_quotes(mock_input):
+    with pytest.raises(StopIteration):
+        get_quotes_by_author(quotes_dict)

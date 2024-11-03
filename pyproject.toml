@@ -5,16 +5,18 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fortune.package"
 version = "0.1.0"
-description = "..."
+description = "A funny fortunes generator package"
 readme = "README.md"
 authors = [
     { name = "Yuhao Sheng", email = "ys4689@nyu.edu" },
+    { name = "Ryoma Nagano", email = "rn2247@nyu.edu" },
+    { name = "Qiyuan Yin", email = "qy765@nyu.edu" },
+    { name = "Andrea Tang", email = "xt2073@nyu.edu" },
 ]
 license = { text = "MIT" }
 dependencies = [
     "python-dotenv",
 ]
-requires-python = ">=3.10, <4.0"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
