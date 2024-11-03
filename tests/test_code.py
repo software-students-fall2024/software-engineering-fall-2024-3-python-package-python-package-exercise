@@ -391,7 +391,7 @@ def test_music_valid_result1( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Cap
 
     # compare output with expected result
     out = capfd.readouterr().out
-    assert "You are right!" in out
+    assert "You are right" in out
 
 def test_music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
     # input user choice
@@ -401,11 +401,11 @@ def test_music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Cap
 
     # compare output with expected result
     out = capfd.readouterr().out
-    output1 = "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz."
+    output1 = "1. Louis Armstrong’s influential trumpet playing helped shape modern jazz."
     if output1 in out:
-        assert "You are right!" in out
+        assert "You are right" in out
     else:
-        assert "You are wrong!" in out
+        assert "You are wrong" in out
 
 def test_music_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
     # input user choice
@@ -415,8 +415,8 @@ def test_music_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Cap
 
     # compare output with expected result
     out = capfd.readouterr().out
-    output1 = "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time."
+    output1 = "1. Michael Jackson’s album Thriller is the best-selling album of all time."
     if output1 in out:
-        assert "You are right!" in out
+        assert "You are right" in out
     else:
-        assert "You are wrong!" in out
+        assert "You are wrong" in out
