@@ -18,4 +18,5 @@ def getMultipleFortunes(n):
 
 if __name__ == "__main__":
     result = getMultipleFortunes(5)
-    print(result)
+    for fortune, num in result:
+        print(f"Fortune: {fortune}\nNumber: {num}\n")
