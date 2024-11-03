@@ -1,5 +1,5 @@
-![Build and Test](https://github.com/bellinimoon/itsover/actions/workflows/build-test.yml/badge.svg)
-![Event Logger](https://github.com/bellinimoon/itsover/actions/workflows/event-logger.yml/badge.svg)
+[![Build and Test](https://github.com/software-students-fall2024/3-python-package-itsover/actions/workflows/build-test.yml/badge.svg?branch=main)](https://github.com/software-students-fall2024/3-python-package-itsover/actions/workflows/build-test.yml)
+[![log github events](https://github.com/software-students-fall2024/3-python-package-itsover/actions/workflows/event-logger.yml/badge.svg?branch=main)](https://github.com/software-students-fall2024/3-python-package-itsover/actions/workflows/event-logger.yml)
 
 # Python Package Exercise
 
