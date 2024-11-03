@@ -103,7 +103,75 @@ class Stock:
 
         brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
         return BrainrotDataFrame(brainrot, forecast_df)
+    
+    def company_overview(self,symbol_string):
+        """
+        Provides general company overview
+        Arguments:
+        symbol_string: stock ticker.
 
+        Returns:
+        Returns a Company object with relevant information.
+        """
+        if not symbol_string:
+            print("Error: No symbol provided.")
+            return None
+        
+        url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol_string}&apikey={self.api_key}"
+        
+        try: 
+            response = requests.get(url)
+            data = response.json()
+
+            #exception handling
+            if not data or "Symbol" not in data:
+                print(f"Error: No data found for symbol '{symbol_string}'. Please check if the symbol is correct.")
+                return None
+        
+            companyObj = Company(data)
+            
+            brainrot = random.choice(quotes).replace(
+                "{stock}", symbol_string
+            ) 
+            
+            # return the Company object with brainrot
+            return BrainrotWrapper(brainrot, companyObj)
+        
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err}")
+        except requests.exceptions.ConnectionError:
+            print("Error: Could not connect to AlphaVantage API. Check your network connection.")
+        except requests.exceptions.Timeout:
+            print("Error: The request to AlphaVantage API timed out.")
+        except requests.exceptions.RequestException as req_err:
+            print(f"An error occurred: {req_err}")
+        except ValueError:
+            print("Error: Received invalid JSON response from AlphaVantage API.")
+        return None
+    
+class Company:
+    def __init__(self, CompanyJsonObj):
+        self.symbol = CompanyJsonObj['Symbol']
+        self.name = CompanyJsonObj['Name']
+        self.description = CompanyJsonObj['Description']
+        self.CIK = CompanyJsonObj['CIK']
+        self.country = CompanyJsonObj['Country']
+        self.sector = CompanyJsonObj['Sector']
+        self.industry = CompanyJsonObj['Industry']
+        
+
+    def __str__(self):
+        return (
+            f"Company Information:\n"
+            f"Symbol: {self.symbol}\n"
+            f"Name: {self.name}\n"
+            f"Description: {self.description}\n"
+            f"CIK: {self.CIK}\n"
+            f"Country: {self.country}\n"
+            f"Sector: {self.sector}\n"
+            f"Industry: {self.industry}"
+        )
+        
 class BrainrotDataFrame:
     """
     A custom DataFrame wrapper class that adds brainrot quote above the DataFrame output
@@ -114,6 +182,20 @@ class BrainrotDataFrame:
 
     def __str__(self):
         return f"{self.quote}\n\n{self.df}"  # have it so the brainrot appears, newline, then the dataframe
+
+    def __repr__(self):
+        return self.__str__()
+
+class BrainrotWrapper:
+    """
+    A custom wrapper class that adds brainrot quote above the original output
+    """
+    def __init__(self, quote, object):
+        self.quote = quote
+        self.object = object
+
+    def __str__(self):
+        return f"{self.quote}\n\n{self.object}"  # have it so the brainrot appears, newline, then the dataframe
 
     def __repr__(self):
         return self.__str__()
