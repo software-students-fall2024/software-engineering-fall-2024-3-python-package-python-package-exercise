@@ -19,9 +19,5 @@ def get_fortune_cookie():
     return f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}"
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    get_fortune_cookie()
-=======
     one = get_fortune_cookie()
     print(one)
->>>>>>> cd44edecdd7e2fb969f51cac073a80b20eefa4ec
