@@ -179,7 +179,7 @@ class Tests:
         assert len(result) > 0, "The result should not be an empty string."
 
     # Test 2: Ensure the output is one of the expected pieces of wisdom
-    def test_get_answers_of_wisdom_content():
+    def test_get_answers_of_wisdom_content(self):
         """
         Verify that get_answers_of_wisdom() returns a valid answer from the wisdom_list.
         """
@@ -214,7 +214,7 @@ class Tests:
         assert result in wisdom_list, "The result should be an answer from the wisdom list."
 
     # Test 3: Ensure the function outputs different results for uniqueness
-    def test_get_answers_of_wisdom_uniqueness():
+    def test_get_answers_of_wisdom_uniqueness(self):
         """
         Run get_answers_of_wisdom() multiple times and check for output uniqueness.
         """
