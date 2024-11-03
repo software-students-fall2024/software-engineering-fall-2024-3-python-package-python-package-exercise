@@ -65,5 +65,7 @@ Garage Team
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, recipient_email, msg.as_string())
             print("Email sent successfully.")
+            pass
     except Exception as e:
         print(f"Failed to send email: {e}")
+        raise
