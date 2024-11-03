@@ -1,3 +1,6 @@
+![Build and Test](https://github.com/bellinimoon/itsover/actions/workflows/build-test.yml/badge.svg)
+![Event Logger](https://github.com/bellinimoon/itsover/actions/workflows/event-logger.yml/badge.svg)
+
 # Python Package Exercise
 
 An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
@@ -15,6 +18,8 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 2. **Daily Action**: Randomly generate positive reminders and suggestions for the day.
 3. **True Lover Generator**: Randomly generates a “true lover” profile for fun.
 4. **Lucky Day Generator**: Suggests a lucky day in the current month for the user.
+
+## A link to the Pytarot package on PyPI: https://pypi.org/project/pytarot/0.1.0/
 
 ## System Setup and Environment Configuration Guide
 
