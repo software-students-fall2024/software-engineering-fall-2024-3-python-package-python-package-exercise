@@ -267,3 +267,17 @@ def test_Music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Cap
         assert "You are right!" in out
     else:
         assert "You are wrong!" in out
+
+def test_Music_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(3)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    output1 = "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time."
+    if output1 in out:
+        assert "You are right!" in out
+    else:
+        assert "You are wrong!" in out
