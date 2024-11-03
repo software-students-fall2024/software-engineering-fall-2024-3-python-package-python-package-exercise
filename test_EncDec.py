@@ -1,8 +1,9 @@
 import pytest
 from morse import morse
 from b64 import base64
+from caesar import caesar
 
-#Morse Tests
+# Morse Tests
 valid_char = "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"
 morse_encoded = (
     ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..   ----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----."
@@ -27,7 +28,7 @@ def test_morse_invalid_characters_decode():
 def test_morse_invalid_type():
     assert morse("HELLO", "translate") is None, f"5. Expected morse() with invalid type to return None."
     
-#Base64 Tests
+# Base64 Tests
 @pytest.mark.parametrize("inp, expected", [("base64+=./", "YmFzZTY0Kz0uLw=="), ("", "")])
 def test_b64_encode(inp, expected):
     actual = base64(inp, "encode")
@@ -44,6 +45,21 @@ def test_b64_invalid_characters():
 def test_b64_invalid_type():
     assert base64("Hello", "translate") is None, f"9. Expected base64() with invalid type to return None."
     
+# Caesar Tests
+@pytest.mark.parametrize("inp_str, shift, expected", [("Caesar", 4, "Geiwev"), ("hello4U!", -1, "gdkkn4T!"), ("No Shift", 0, "No Shift"), ("", 1, "")])
+def test_caesar_encode(inp_str, shift, expected):
+    actual = caesar(inp_str, shift, "encode")
+    assert actual == expected, f"10. Expected encoding caesar() to return \n{expected}. Instead, it returned \n{actual}."
 
+@pytest.mark.parametrize("inp_str, shift, expected", [("Geiwev", 4, "Caesar"), ("gdkkn4T!", -1, "hello4U!"), ("No Shift", 0, "No Shift"), ("", True, "")])
+def test_caesar_decode(inp_str, shift, expected):
+    actual = caesar(inp_str, shift, "decode")
+    assert actual == expected, f"11. Expected decoding caesar() to return \n{expected}. Instead, it returned \n{actual}."
+    
+@pytest.mark.parametrize("shift", [(3.14), (4.0 / 2), ("shift")])
+def test_morse_invalid_shift(shift):
+    assert caesar("Hello", shift) is None, f"12. Expected caesar() with invalid shift to return None."
 
+def test_b64_invalid_type():
+    assert base64("Hello", type="translate") is None, f"13. Expected caesar() with invalid type to return None."
     
