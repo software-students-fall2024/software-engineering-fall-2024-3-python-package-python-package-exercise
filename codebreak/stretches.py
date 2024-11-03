@@ -1,17 +1,17 @@
 import random
 
-def stretch_exercise(time_limit):
+def stretch_exercise(minutes):
     """
-    Suggests a random stretching exercise based on the time available.
-    
+    Suggests a random stretching exercise based on the time available in minutes.
+
     Parameters:
-    time_limit (str): The amount of time available for the stretch ('short', 'medium', 'long').
-    
+    minutes (int): The amount of time available for the stretch in minutes.
+
     Returns:
     str: A random stretch suggestion.
     """
     stretches = {
-        "short": [
+        "1-5": [
             "Neck Stretch: Slowly tilt your head from side to side.",
             "Shoulder Shrug: Raise your shoulders up to your ears and release.",
             "Wrist Stretch: Extend your arm and gently pull your fingers back.",
@@ -23,7 +23,7 @@ def stretch_exercise(time_limit):
             "Shoulder Rolls: Roll your shoulders forward and backward.",
             "Seated Cat-Cow: Arch and round your back while sitting up straight."
         ],
-        "medium": [
+        "6-10": [
             "Standing Forward Bend: Bend forward and reach for your toes.",
             "Chest Opener: Clasp hands behind your back and stretch.",
             "Seated Twist: Sit up straight, and twist gently to each side.",
@@ -35,7 +35,7 @@ def stretch_exercise(time_limit):
             "Calf Stretch: Place hands on a wall and stretch your calf by pushing your heel back.",
             "Seated Hamstring Stretch: Extend one leg forward and reach towards your toes."
         ],
-        "long": [
+        "11-15": [
             "Downward Dog: Get on all fours and raise your hips into the air.",
             "Child's Pose: Sit back on your heels and stretch your arms forward.",
             "Pigeon Pose: Bring one knee forward and extend the other leg back.",
@@ -48,17 +48,23 @@ def stretch_exercise(time_limit):
             "Cat-Cow: Get on all fours, arch your back, then round it."
         ]
     }
-    
-    # Get the list of stretches based on the time limit
-    available_stretches = stretches.get(time_limit.lower(), [])
-    
-    # Select a random stretch from the list if there are options available
-    if available_stretches:
-        return random.choice(available_stretches)
+
+    # Determine which time range to use based on the minutes provided
+    if 1 <= minutes <= 5:
+        available_stretches = stretches["1-5"]
+    elif 6 <= minutes <= 10:
+        available_stretches = stretches["6-10"]
+    elif 11 <= minutes <= 15:
+        available_stretches = stretches["11-15"]
     else:
-        return "Invalid time limit. Please choose 'short', 'medium', or 'long'."
+        return "Invalid time range. Please choose a time between 1 and 15 minutes."
+
+    # Select and return a random stretch from the appropriate list
+    return random.choice(available_stretches)
 
 # Example usage
-print(stretch_exercise("short"))
-print(stretch_exercise("medium"))
-print(stretch_exercise("long"))
+print(stretch_exercise(3))  # Should choose from the "1-5" list
+print(stretch_exercise(8))  # Should choose from the "6-10" list
+print(stretch_exercise(12)) # Should choose from the "11-15" list
+print(stretch_exercise(20)) # Should return the error message
+
