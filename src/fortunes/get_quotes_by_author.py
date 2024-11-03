@@ -53,8 +53,6 @@ def get_positive_integer(prompt):
         except ValueError:
             print("Please enter a valid integer.")
 
-import re
-
 def parse_fortune_file(file_path):
     quotes_dict = {}
 
