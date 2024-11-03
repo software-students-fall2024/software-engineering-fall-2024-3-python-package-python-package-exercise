@@ -1,6 +1,9 @@
 from time import sleep
 from .pet import new_pet
 
+# pipenv run python -m pymagotchi
+# pipenv run pytest
+
 def main():
     pet = new_pet()  
 
