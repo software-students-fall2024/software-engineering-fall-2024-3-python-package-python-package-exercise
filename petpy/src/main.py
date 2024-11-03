@@ -142,9 +142,6 @@ def main():
             print(f"{current_pet.name} has left you")
             current_pet = None
             current_menu = MAIN_MENU
-
-
-
-
+            
 if __name__ == "__main__":
     main()
