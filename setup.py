@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="codebreak",
-    version="0.1",
+    verion="0.1.2",
     packages=find_packages(),
-    description="A lighthearted package for random stretch suggestions.",
-    author="Your Team",
+    description="A package to help Python developers take healthy breaks with different types of exercises.",
+    author="The Fixers",
     install_requires=[
         "schedule==1.2.2"
     ],
