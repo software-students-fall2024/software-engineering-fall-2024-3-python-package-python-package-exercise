@@ -1,3 +1,5 @@
+from random_fortune import get_fortune_cookie
+from getMultipleFortunes import getMultipleFortunes
 
 def get_quotes_by_author(quotes_dict):
     while True:
