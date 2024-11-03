@@ -4,8 +4,6 @@ import tkinter as tk
 
 # create your own tamagotchi
 
-
-
 class Tamagotchi:
     G_SCALE_1 = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "
     G_SCALE_2 = '@%#*+=-:. '
