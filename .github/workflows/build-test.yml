@@ -1,11 +1,11 @@
-name: CI Build and Test
+name: Build and Test
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+    push:
+        branches: [main, master, pipfile-experiment]
+    pull_request:
+        types: [opened, closed]
+        branches: [main, master, pipfile-experiment]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
