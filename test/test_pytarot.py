@@ -97,6 +97,126 @@ class Tests:
             assert keyword in result, f"The result should contain '{keyword}'"
 
 
-#lucky day tests
-#answers of wisdom tests
-#positive action tests
+    #lucky day tests
+    # Test 1: Ensure the function returns a valid string
+    def test_get_lucky_day_non_empty(self):
+        """
+        Verify that get_lucky_day() returns a non-empty string.
+        """
+        result = get_lucky_day()
+        
+        # Check that the result is a non-empty string
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
+
+    # Test 2: Ensure the output is in the correct format
+    def test_get_lucky_day_format(self):
+        """
+        Verify that get_lucky_day() returns a result in the correct format (Month/Day).
+        """
+        result = get_lucky_day()
+        
+        try:
+            month, day = result.split(' ')[-1].split('/')
+            assert month.isalpha(), "The month should be in word format."
+            assert day.isdigit() and 1 <= int(day) <= 31, "The day should be a number between 1 and 31."
+        except ValueError:
+            assert False, "The output format should be 'Your lucky day is: Month/Day'."
+
+    # Test 3: Ensure the function covers all months
+    def test_get_lucky_day_coverage(self):
+        """
+        Run the function multiple times and ensure that all months appear at least once.
+        """
+        months_generated = {get_lucky_day().split(' ')[-1].split('/')[0] for _ in range(100)}
+        expected_months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        
+
+        assert expected_months.issubset(months_generated), "The function should generate all months over multiple runs."
+
+
+    #positive action tests
+
+    # Test 1: Ensure the function returns a non-empty string
+    def test_get_positive_message_non_empty(self):
+        """
+        Verify that get_positive_message() returns a non-empty string.
+        """
+        result = get_positive_action()
+        
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
+
+    # Test 2: Ensure the output contains both a positive message and a suggestion
+    def test_get_positive_message_structure(self):
+        """
+        Verify that get_positive_message() contains both a positive message and a suggestion in the output.
+        """
+        result = get_positive_action()
+        
+        assert "Today's Positive Message: '" in result, "The result should contain the label for the positive message."
+        assert "Suggestion: " in result, "The result should contain the label for the suggestion."
+
+    # Test 3: Ensure the function outputs different results for uniqueness
+    def test_get_positive_message_uniqueness(self):
+        """
+        Run get_positive_message() multiple times and check for output uniqueness.
+        """
+        results = {get_positive_action() for _ in range(10)}
+        assert len(results) > 1, "The function should generate unique positive messages and suggestions."
+
+
+
+    #answers of wisdom tests
+    # Test 1: Ensure the function returns a non-empty string
+    def test_get_answers_of_wisdom_non_empty(self):
+        """
+        Verify that get_answers_of_wisdom() returns a non-empty string.
+        """
+        result = get_answers_of_wisdom()
+        
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
+
+    # Test 2: Ensure the output is one of the expected pieces of wisdom
+    def test_get_answers_of_wisdom_content(self):
+        """
+        Verify that get_answers_of_wisdom() returns a valid answer from the wisdom_list.
+        """
+        wisdom_list = [
+            "Patience is a virtue. Good things come to those who wait.",
+            "The journey of a thousand miles begins with a single step.",
+            "Believe in yourself, and the universe will align to support you.",
+            "Sometimes, the best decision is no decision at all.",
+            "Don’t count the days, make the days count.",
+            "Let go of what you can’t change and focus on what you can control.",
+            "Trust the timing of your life.",
+            "Happiness is a choice, not a result.",
+            "If you want to go fast, go alone. If you want to go far, go together.",
+            "Embrace the uncertainty; sometimes the best stories come from the unexpected.",
+            "Life is about learning from every experience, good or bad.",
+            "Take life one day at a time and live in the moment.",
+            "Your vibe attracts your tribe; be mindful of your energy.",
+            "Opportunities don’t happen, you create them.",
+            "Success is not the key to happiness. Happiness is the key to success."
+            "You don’t need to have it all figured out to move forward.",
+            "Growth comes when you step outside your comfort zone.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Every day may not be good, but there’s something good in every day.",
+            "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+            "Dream big, start small, and act now.",
+            "Failure is simply the opportunity to begin again, this time more intelligently.",
+            "Courage is not the absence of fear, but the triumph over it."
+        ]
+        
+        result = get_answers_of_wisdom()
+        
+        assert result in wisdom_list, "The result should be an answer from the wisdom list."
+
+    # Test 3: Ensure the function outputs different results for uniqueness
+    def test_get_answers_of_wisdom_uniqueness(self):
+        """
+        Run get_answers_of_wisdom() multiple times and check for output uniqueness.
+        """
+        results = {get_answers_of_wisdom() for _ in range(10)}
+        assert len(results) > 1, "The function should generate unique answers."
