@@ -22,3 +22,63 @@ git clone https://github.com/software-students-fall2024/3-python-package-the-fix
 
 ### Setting up a virtual environment 
 The virtual environment pipenv can be installed with the command
+``` 
+pip install pipenv
+``` 
+
+To activate the environment, run
+``` 
+pipenv shell
+``` 
+
+### Installing dependencies
+
+To install pytest, run the commands
+``` 
+pipenv install pytest
+``` 
+``` 
+pipenv install random
+``` 
+
+In the pipenv environment, run to install all dependencies. The Pipfile can alternatively used.
+``` 
+pipenv install -r requirements.txt
+``` 
+
+### Build the package 
+If you haven’t already installed build then run the command
+``` 
+pip install build 
+``` 
+To build the package run the command 
+``` 
+python -m build
+``` 
+Make changes on the local repository on a new branch using the command
+``` 
+git checkout -b feature/your-feature-name
+``` 
+Stage changes, commit the changes, and push the changes to the forked repository on Github. It is important to note that to prevent merge conflicts, git pull is always recommended before pushing any changes. 
+``` 
+git add .
+git commit -m "Add description of your changes"
+git push origin branch-name
+``` 
+Go to the forked repository on GitHub and create a pull request for the branch that was just pushed. Select ‘Compare & pull request.’ and submit the pull request to the original repository. 
+
+## Teammates 
+[Nick Burwell](https://github.com/nickburwell)
+[Finn Eskeland](https://github.com/finn1003)
+[Jessie Kim](https://github.com/jessiekim0)
+[Dasha Miroshnichenko](https://github.com/dm5198)
+
+## Configuration 
+instructions for how to configure and run all parts of your project for any developer on any platform - these instructions must work!
+Mac
+Windows
+Linux 
+
+## Other
+instructions for how to set up any environment variables and import any starter data into the database, as necessary, for the system to operate correctly when run.
+if there are any "secret" configuration files, such as .env or similar files, that are not included in the version control repository, exact instructions for how to create them and what their contents should be must be supplied to the course admins by the due date.
