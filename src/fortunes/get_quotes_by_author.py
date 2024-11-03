@@ -1,4 +1,3 @@
-
 from random_fortune import get_fortune_cookie
 from getMultipleFortunes import getMultipleFortunes
 import importlib.resources
