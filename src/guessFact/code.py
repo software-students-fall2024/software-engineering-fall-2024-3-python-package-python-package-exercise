@@ -5,7 +5,7 @@ def main_function() -> None:
     print("Welcome to the Guess the Fact Game!")
     print("In this game, you'll be presented with two statements about a chosen topic.")
     print("Your task is to guess which statement is true.")
-    print("Let's get started")
+    print("Let's get started!")
     print("Please choose a category:")
     categories = {"1": "Music","2": "Coffee","3": "Food"}
     for key, value in categories.items():
@@ -81,16 +81,16 @@ def music(sub_choice: int) -> None:
 
     facts = {
         1: [
-            "Fact 1: Beethoven continued to compose even after he lost his hearing.\nFact 2: Wolfgang Amadeus Mozart wrote over 1,000 symphonies in his lifetime.\n",
-            "Fact 1: Frédéric Chopin was known for his operas and symphonies.\nFact 2: Johann Sebastian Bach had 20 children.\n"
+            "1. Beethoven continued to compose even after he lost his hearing.\n2. Wolfgang Amadeus Mozart wrote over 1,000 symphonies in his lifetime.",
+            "1. Frédéric Chopin was known for his operas and symphonies.\n2. Johann Sebastian Bach had 20 children."
         ],
         2: [
-            "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact 2: Jazz originated in London during the 19th century.\n",
-            "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
+            "1. Louis Armstrong’s influential trumpet playing helped shape modern jazz.\n2. Jazz originated in London during the 19th century.",
+            "1. Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\n2. Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing."
         ],
         3: [
-            "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time.\nFact 2: The Rolling Stones were originally known as The Blueberries.\n",
-            "Fact 1: The Beatles were the first band to perform on the moon.\nFact 2: The Beatles were originally known as The Quarrymen.\n"
+            "1. Michael Jackson’s album Thriller is the best-selling album of all time.\n2. The Rolling Stones were originally known as The Blueberries.",
+            "1. The Beatles were the first band to perform on the moon.\n2. The Beatles were originally known as The Quarrymen."
         ]
     }
 
@@ -111,20 +111,16 @@ def music(sub_choice: int) -> None:
     statements = facts[sub_choice]
     statementIndex = int(__import__('time').time() * 1000) % 2
     selected_statement = statements[statementIndex]
-
+    print(selected_statement)
+    choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
     while True:
-        print("Which of the following statements is true? Please enter 1 or 2:\n" + selected_statement)
-        choice = input("")
         if fact_choice_validation(choice):
             break
-        print("Invalid choice. Please enter either 1 or 2.")
-
+        choice = input("Invalid input. Please enter either 1 or 2:")
     if int(choice) == truths[sub_choice][statementIndex]:
-        print("You are right!")
+        print("You are right, "+explanations[sub_choice][statementIndex])
     else:
-        print("You are wrong!")
-
-    print("Explanation: " + explanations[sub_choice][statementIndex])
+        print("You are wrong, "+explanations[sub_choice][statementIndex])
 
 def coffee(sub_choice: int) -> None:
 
@@ -191,16 +187,11 @@ def coffee(sub_choice: int) -> None:
         if fact_choice_validation(fact_choice):
             break
         fact_choice = input("Invalid input. Please enter either 1 or 2:").strip()
-    
     fact_choice = int(fact_choice)
-
     if fact_choice == truth[(sub_choice -1)*2+random_value]:
         print("You are right, "+explanation[(sub_choice -1)*2+random_value])
     else:
         print("You are wrong, "+explanation[(sub_choice -1)*2+random_value])
-        
-    #below is just a placeholder
-    #pyprint("category2 check")
 
 def food(sub_choice: int) -> None:
 
