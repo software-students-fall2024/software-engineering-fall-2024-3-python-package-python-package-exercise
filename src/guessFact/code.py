@@ -114,7 +114,7 @@ def Music(sub_choice: int) -> None:
 
     while True:
         print("Which of the following statements is true? Please enter 1 or 2:\n" + selected_statement)
-        choice = input()
+        choice = input("")
         if fact_choice_validation(choice):
             break
         print("Invalid choice. Please enter either 1 or 2.")
