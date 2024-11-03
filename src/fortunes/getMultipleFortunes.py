@@ -16,3 +16,4 @@ def getMultipleFortunes(n):
         result.append(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {num}")
     
     return result
+
