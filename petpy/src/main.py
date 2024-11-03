@@ -1,4 +1,4 @@
-import pet
+import petpy
 
 MAIN_MENU = 0
 PET_MENU = 1
@@ -7,7 +7,7 @@ current_menu = MAIN_MENU
 current_pet = None
 
 def adopt_pet():
-    available_pet_types = list(pet.Pet.PET_EMOJIS.keys())
+    available_pet_types = list(petpy.Pet.PET_EMOJIS.keys())
     print("Available pet types:", ", ".join(available_pet_types))
     
     pet_name = input("Name your pet: ")
@@ -17,11 +17,11 @@ def adopt_pet():
         print("Invalid pet type! Please choose a pet from the list.")
         pet_type = input("Please pick a pet that is available: ").strip().lower()
     
-    my_pet = pet.create_pet(pet_name, pet_type)
+    my_pet = petpy.create_pet(pet_name, pet_type)
     print(f"Congrats! You've adopted {my_pet.name} the {my_pet.type} {my_pet.emoji}.")
 
 def feed_pet():
-    available_foods = list(pet.Pet.FOOD_MENU.keys())
+    available_foods = list(petpy.Pet.FOOD_MENU.keys())
     print("\nAvailable foods for your pet:", ", ".join(available_foods))
     food = input("What would you like to feed your pet? Pick from the list above: ").strip().lower()
 
@@ -37,7 +37,7 @@ def main_menu():
 
     print("\n" + "=" * 20 + "MAIN MENU" + "=" * 20)
     print("Your pets:")
-    for pet in pet.pets.values():
+    for pet in petpy.pets.values():
         print(f"- {pet.name} the {pet.type} {pet.emoji}")
     
     print("\nWhat would you like to do?")
@@ -51,8 +51,8 @@ def main_menu():
 
         while True:
             choice_pet = input("Enter the name of your pet: ")
-            if choice_pet in pet.pets.keys():
-                current_pet = pet.pets.get(choice_pet)
+            if choice_pet in petpy.pets.keys():
+                current_pet = petpy.pets.get(choice_pet)
                 current_menu = PET_MENU
                 break
             else:
@@ -84,28 +84,28 @@ def pet_menu(pet):
     choice = input("\nEnter the number of your choice: ")
     if choice == '1':
         food = feed_pet()
-        print(pet.feed(pet, food))
+        print(petpy.feed(pet, food))
         input("\nPress Enter to continue...\n")
     elif choice == '2':
-        pet.train_pet(pet)
+        petpy.train_pet(pet)
         input("\nPress Enter to continue...\n")
     elif choice == '3':
-        pet.fight(pet)
+        petpy.fight(pet)
         input("\nPress Enter to continue...\n")
     elif choice == '4':
-        print(pet.get_pet_stats(pet, pet.name))
+        print(petpy.get_pet_stats(pet, pet.name))
         input("\nPress Enter to continue...\n")
     elif choice == '5':
-        print(pet.get_pet_mood(pet))
+        print(petpy.get_pet_mood(pet))
         input("\nPress Enter to continue...\n")
     elif choice == '6':
-        print(pet.get_pet_health(pet))
+        print(petpy.get_pet_health(pet))
         input("\nPress Enter to continue...\n")
     elif choice == '7':
-        print(pet.get_pet_level(pet))
+        print(petpy.get_pet_level(pet))
         input("\nPress Enter to continue...\n")
     elif choice == '8':
-        pet.release_pet(pet.name)
+        petpy.release_pet(pet.name)
         print(f"{pet.name}: Thank you, sensei. See you never >:(\n")
         current_pet = None
     elif choice == '9':
@@ -121,9 +121,9 @@ def main():
     print("Welcome to Pet-py o.O!\n")
 
     while True:
-        prev_pet_count = len(pet.pets)
+        prev_pet_count = len(petpy.pets)
         
-        if not pet.pets:
+        if not petpy.pets:
             current_menu = MAIN_MENU
             print("You have no pets. Please adopt one first.")
             adopt_pet()
@@ -138,7 +138,7 @@ def main():
                 else:
                     pet_menu(current_pet)
 
-        if len(pet.pets) < prev_pet_count:
+        if len(petpy.pets) < prev_pet_count:
             print(f"{current_pet.name} has left you")
             current_pet = None
             current_menu = MAIN_MENU
