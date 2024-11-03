@@ -1,6 +1,6 @@
 import random
 
-def get_positive_message():
+def get_positive_action():
     messages = [
         "Every step you take counts, no matter how small.",
         "Today is a new beginning, seize the opportunity.",
