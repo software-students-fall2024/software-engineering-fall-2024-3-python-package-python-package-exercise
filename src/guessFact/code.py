@@ -234,8 +234,6 @@ def Food(sub_choice: int) -> None:
     ]
 
     truth = [1, 1, 2, 1, 2, 1]
-
-    
     random_value = int(__import__('time').time() * 1000) % 2
     sub_choice = int(sub_choice)
 
@@ -254,10 +252,6 @@ def Food(sub_choice: int) -> None:
         print("You are right, " + explanation[(sub_choice - 1) * 2 + random_value])
     else:
         print("You are wrong, " + explanation[(sub_choice - 1) * 2 + random_value])
-
-    
-    #below is just a placeholder
-    #print("category3 check")
 
 def fact_choice_validation(fact_choice: str) -> bool:
     """the function the check whether the user enter a valid fact choice: 
