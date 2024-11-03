@@ -1,0 +1,1 @@
+from pyquotes.quote_from_category import list_quote_by_category
