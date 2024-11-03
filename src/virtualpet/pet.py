@@ -55,6 +55,29 @@ class VirtualPet:
         self._display_status()
 
     ###
+    def play_with_pet(self, action: Literal['hug', 'pet', 'kiss']):
+        if self.is_sleeping:
+            print(f"{self.name} is sleeping!")
+            return
+        
+        action_impact = {
+            'hug': {'happiness': 2, 'cleanness': -1},
+            'pet': {'happiness': 1, 'cleanness': -1},
+            'kiss': {'happiness': 3, 'cleanness': -1}
+        }
+        
+        if action not in action_impact:
+            print(f"Invalid action. Please choose from 'hug', 'pet', or 'kiss'.")
+            return
+
+        impact = action_impact[action]
+        self.happiness = min(10, self.happiness + impact['happiness'])
+        self.cleanness = max(1, self.cleanness + impact['cleanness'])
+        
+        self._check_cleanness()
+        self._display_status()
+
+    ###
     def exit(self):
         self.active = False
         print(f"Goodbye, {self.name}! Thanks for the memories!")
