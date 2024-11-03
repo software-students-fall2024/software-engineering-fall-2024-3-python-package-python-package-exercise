@@ -55,7 +55,7 @@ python
 5. **Import and test the package functions**:
 
 ```python
-from pytarot import luckyday, truelover, answersofwisdom, positive_action
+from src.pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover
 
 print(answersofwisdom.get_answers_of_wisdom())
 print(luckyday.get_lucky_day())
