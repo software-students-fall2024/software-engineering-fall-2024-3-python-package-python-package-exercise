@@ -1,9 +1,9 @@
 import pytest
-from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee, Food
+from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee, Music, Food
 
 #Test for main_function
 def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["1","1"])
+    inputs = iter(["1","1","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
@@ -26,7 +26,7 @@ def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Capt
         assert segment in output
 
 def test_main_function_case2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["4","1","a","1"])
+    inputs = iter(["4","1","a","1","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
@@ -49,7 +49,7 @@ def test_main_function_case2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Capt
         assert segment in output
 
 def test_main_function_case3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
-    inputs = iter(["1","3"])
+    inputs = iter(["1","3","1"])
     monkeypatch.setattr("builtins.input",lambda _: next(inputs))
     main_function()
     captured = capfd.readouterr()
@@ -330,3 +330,41 @@ def test_Food_valid_result3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.Captu
         assert True
     else:
         assert False, "The test failed because no valid result was found in the output."
+
+def test_Music_valid_result1( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(1)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    assert "You are right!" in out
+
+def test_Music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(2)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    output1 = "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz."
+    if output1 in out:
+        assert "You are right!" in out
+    else:
+        assert "You are wrong!" in out
+
+def test_Music_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    # input user choice
+    monkeypatch.setattr("builtins.input",lambda _: "1")
+
+    Music(3)
+
+    # compare output with expected result
+    out = capfd.readouterr().out
+    output1 = "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time."
+    if output1 in out:
+        assert "You are right!" in out
+    else:
+        assert "You are wrong!" in out

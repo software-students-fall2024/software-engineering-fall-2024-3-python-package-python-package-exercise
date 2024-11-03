@@ -78,9 +78,53 @@ def Music(sub_choice: int) -> None:
     7. give a little bit explanation for both statements
     
     8. write >= 3 tests for this function in the test_code.py"""
+
+    facts = {
+        1: [
+            "Fact 1: Beethoven continued to compose even after he lost his hearing.\nFact 2: Wolfgang Amadeus Mozart wrote over 1,000 symphonies in his lifetime.\n",
+            "Fact 1: Frédéric Chopin was known for his operas and symphonies.\nFact 2: Johann Sebastian Bach had 20 children.\n"
+        ],
+        2: [
+            "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact 2: Jazz originated in London during the 19th century.\n",
+            "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
+        ],
+        3: [
+            "Fact 1: Michael Jackson’s album Thriller is the best-selling album of all time.\nFact 2: The Rolling Stones were originally known as The Blueberries.\n",
+            "Fact 1: The Beatles were the first band to perform on the moon.\nFact 2: The Beatles were originally known as The Quarrymen.\n"
+        ]
+    }
+
+    truths = {
+        1: [ 1, 1 ],
+        2: [ 1, 2 ],
+        3: [ 1, 2 ]
+    }
+
+    explanations = {
+        1: ["Beethoven composed the moonlight sonata after his loss of hearing.", "Chopin was known primarily for his piano compositions, not his symphony work."],
+        2: ["Armstrongs influence on jazz extends even to today.", "Armstrongs distinctive singing captured the attention of audiences country wide."],
+        3: ["Michael Jacksons album hit the best sellers list at the time.", "The beatles were not the first band to perform on the moon."]
+    }
+
+    sub_choice = int(sub_choice)
     
-    #below is just a placeholder
-    print("category1 check")
+    statements = facts[sub_choice]
+    statementIndex = 0
+    selected_statement = statements[statementIndex]
+
+    while True:
+        choice = input("Which of the following statements is true? Please enter 1 or 2:\n")
+        print(selected_statement)
+        if fact_choice_validation(choice):
+            break
+        print("Invalid choice. Please enter either 1 or 2.")
+
+    if int(choice) == truths[sub_choice][statementIndex]:
+        print("You are right!")
+    else:
+        print("You are wrong!")
+
+    print("Explanation: " + explanations[sub_choice][statementIndex])
 
 def Coffee(sub_choice: int) -> None:
 
