@@ -1,3 +1,3 @@
 import pytest
+from unittest.mock import patch
 
-from src.fortune import send_email

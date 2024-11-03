@@ -3,9 +3,9 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "your_project_name"
+name = "fortunes"
 version = "0.1.0"
-description = "A short description of your project"
+description = "Fortunes package"
 readme = "README.md"
 authors = [
     { name = "Yuhao Sheng", email = "ys4689@nyu.edu" },
@@ -14,14 +14,13 @@ license = { text = "MIT" }
 dependencies = [
     "python-dotenv",
 ]
+requires-python = ">=3.10, <4.0"
 
 [tool.setuptools]
-packages = ["your_package"]
+packages = ["fortunes"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [project.optional-dependencies]
-dev = [
-    "pytest",
-]
+dev = ["pytest"]
