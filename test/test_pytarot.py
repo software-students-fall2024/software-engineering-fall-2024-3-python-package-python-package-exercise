@@ -97,75 +97,74 @@ class Tests:
             assert keyword in result, f"The result should contain '{keyword}'"
 
 
-#lucky day tests
+    #lucky day tests
+    # Test 1: Ensure the function returns a valid string
+    def test_get_lucky_day_non_empty(self):
+        """
+        Verify that get_lucky_day() returns a non-empty string.
+        """
+        result = get_lucky_day()
+        
+        # Check that the result is a non-empty string
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
 
-# Test 1: Ensure the function returns a valid string
-def test_get_lucky_day_non_empty():
-    """
-    Verify that get_lucky_day() returns a non-empty string.
-    """
-    result = get_lucky_day()
-    
-    # Check that the result is a non-empty string
-    assert isinstance(result, str), "The result should be a string."
-    assert len(result) > 0, "The result should not be an empty string."
+    # Test 2: Ensure the output is in the correct format
+    def test_get_lucky_day_format(self):
+        """
+        Verify that get_lucky_day() returns a result in the correct format (Month/Day).
+        """
+        result = get_lucky_day()
+        
+        try:
+            month, day = result.split(' ')[-1].split('/')
+            assert month.isalpha(), "The month should be in word format."
+            assert day.isdigit() and 1 <= int(day) <= 31, "The day should be a number between 1 and 31."
+        except ValueError:
+            assert False, "The output format should be 'Your lucky day is: Month/Day'."
 
-# Test 2: Ensure the output is in the correct format
-def test_get_lucky_day_format():
-    """
-    Verify that get_lucky_day() returns a result in the correct format (Month/Day).
-    """
-    result = get_lucky_day()
-    
-    try:
-        month, day = result.split(' ')[-1].split('/')
-        assert month.isalpha(), "The month should be in word format."
-        assert day.isdigit() and 1 <= int(day) <= 31, "The day should be a number between 1 and 31."
-    except ValueError:
-        assert False, "The output format should be 'Your lucky day is: Month/Day'."
+    # Test 3: Ensure the function covers all months
+    def test_get_lucky_day_coverage(self):
+        """
+        Run the function multiple times and ensure that all months appear at least once.
+        """
+        months_generated = {get_lucky_day().split(' ')[-1].split('/')[0] for _ in range(100)}
+        expected_months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        
 
-# Test 3: Ensure the function covers all months
-def test_get_lucky_day_coverage():
-    """
-    Run the function multiple times and ensure that all months appear at least once.
-    """
-    months_generated = {get_lucky_day().split(' ')[-1].split('/')[0] for _ in range(100)}
-    expected_months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-    
-
-    assert expected_months.issubset(months_generated), "The function should generate all months over multiple runs."
-
-
-#positive action tests
-
-# Test 1: Ensure the function returns a non-empty string
-def test_get_positive_message_non_empty():
-    """
-    Verify that get_positive_message() returns a non-empty string.
-    """
-    result = get_positive_message()
-    
-    assert isinstance(result, str), "The result should be a string."
-    assert len(result) > 0, "The result should not be an empty string."
-
-# Test 2: Ensure the output contains both a positive message and a suggestion
-def test_get_positive_message_structure():
-    """
-    Verify that get_positive_message() contains both a positive message and a suggestion in the output.
-    """
-    result = get_positive_message()
-    
-    assert "Today's Positive Message: '" in result, "The result should contain the label for the positive message."
-    assert "Suggestion: " in result, "The result should contain the label for the suggestion."
-
-# Test 3: Ensure the function outputs different results for uniqueness
-def test_get_positive_message_uniqueness():
-    """
-    Run get_positive_message() multiple times and check for output uniqueness.
-    """
-    results = {get_positive_message() for _ in range(10)}
-    assert len(results) > 1, "The function should generate unique positive messages and suggestions."
+        assert expected_months.issubset(months_generated), "The function should generate all months over multiple runs."
 
 
+    #positive action tests
 
-#answers of wisdom tests
+    # Test 1: Ensure the function returns a non-empty string
+    def test_get_positive_message_non_empty(self):
+        """
+        Verify that get_positive_message() returns a non-empty string.
+        """
+        result = get_positive_action()
+        
+        assert isinstance(result, str), "The result should be a string."
+        assert len(result) > 0, "The result should not be an empty string."
+
+    # Test 2: Ensure the output contains both a positive message and a suggestion
+    def test_get_positive_message_structure(self):
+        """
+        Verify that get_positive_message() contains both a positive message and a suggestion in the output.
+        """
+        result = get_positive_action()
+        
+        assert "Today's Positive Message: '" in result, "The result should contain the label for the positive message."
+        assert "Suggestion: " in result, "The result should contain the label for the suggestion."
+
+    # Test 3: Ensure the function outputs different results for uniqueness
+    def test_get_positive_message_uniqueness(self):
+        """
+        Run get_positive_message() multiple times and check for output uniqueness.
+        """
+        results = {get_positive_action() for _ in range(10)}
+        assert len(results) > 1, "The function should generate unique positive messages and suggestions."
+
+
+
+    #answers of wisdom tests
