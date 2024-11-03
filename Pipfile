@@ -9,6 +9,9 @@ requests = "*"
 python-dotenv = "*"
 pytest = "*"
 build = "*"
+matplotlib = "*"
+numpy = "*"
+datetime = "*"
 
 [dev-packages]
 
