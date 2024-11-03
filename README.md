@@ -27,7 +27,7 @@ pipenv shell
 ```
 python3 program_filename.py
 ```
-Try running the package directly
+Try running the package directly:
 1. Create and activate up the `pipenv` virtual environment as shown above
 2. Run the package directly from the command line
 ```
