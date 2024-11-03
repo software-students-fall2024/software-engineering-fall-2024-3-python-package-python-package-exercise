@@ -60,7 +60,7 @@ You can run individual functions directly in the Python interactive shell or use
 5. **Import and test the package functions**:
 
    ```python
-   from src.pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover
+   from pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover, get_positive_action
 
    print(answersofwisdom.get_answers_of_wisdom())
    print(luckyday.get_lucky_day())
@@ -97,3 +97,53 @@ Unit tests are located in the `test` directory and can be run using `pytest`.
    python -m pytest
    ```
 
+## Contributing to Pytarot
+
+We welcome contributions from developers who want to improve Pytarot! Please follow the steps below to set up your development environment.
+
+### Setting Up the Development Environment
+
+1. **Fork the Repository**: First, fork the repository to your GitHub account.
+
+2. **Clone Your Fork**:
+   ```shell
+   git clone https://github.com/yourusername/pytarot.git
+   cd pytarot
+   ```
+3. **Set Up a Virtual Environment with Pipenv**: Install all dependencies in editable mode:
+
+   ```shell
+   pipenv install -e .
+   ```
+
+4. **Activate the Virtual Environment**:
+
+   ```shell
+   pipenv shell
+   ```
+
+5. **Install Development Dependencies**: If there are additional tools like `pytest` for testing, make sure they’re installed:
+
+   ```shell
+   pipenv install --dev
+   ```
+
+6. **Building and Testing**:To ensure your changes work as expected, please follow these steps:
+
+   **Run Unit Tests**: Make sure all tests pass before submitting a pull request.
+
+   ```shell
+   python -m pytest
+   ```
+   
+   **Make Your Changes**: Implement new features or bug fixes in your development branch.
+
+   **Commit and Push Changes**: Use meaningful commit messages.
+
+   ```shell
+   git add .
+   git commit -m "Description of changes"
+   git push origin branch-name
+   ```
+
+   **Submit a Pull Request**: Open a pull request on the main repository for review.
