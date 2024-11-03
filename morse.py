@@ -1,5 +1,5 @@
 
-def morse(str, type="encode"):
+def morse(string, type="encode"):
     morse_dict = {
         'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
         'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',
@@ -15,19 +15,19 @@ def morse(str, type="encode"):
     type = type.lower()
     
     if type == "encode":
-        if not all(char.isalnum() or char.isspace() for char in str): 
+        if not all(char.isalnum() or char.isspace() for char in string): 
             print("Invalid format: Only alphanumeric characters and spaces are allowed.")
             return None
         morse_code = []
-        for char in str.upper():
+        for char in string.upper():
             if char in morse_dict:
                 morse_code.append(morse_dict[char])
         return ' '.join(morse_code)
     elif type == "decode":
-        if not all(char.isspace() or char == '.' or char == '-' for char in str): 
+        if not all(char.isspace() or char == '.' or char == '-' for char in string): 
             print("Invalid format: Only dots, dashes, and spaces are allowed for decoding")
             return None
-        words = str.split('   ')
+        words = string.split('   ')
         decoded_text = []
         
         for word in words:

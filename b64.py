@@ -1,11 +1,11 @@
-def base64(str, type="encode"):
+def base64(string, type="encode"):
     base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
     
     type =  type.lower()
     
     if type == "encode":
-        if str == "": return ""
-        binary_str = ''.join([format(ord(char), '08b') for char in str])
+        if string == "": return ""
+        binary_str = ''.join([format(ord(char), '08b') for char in string])
         
         padding_length = 6 - len(binary_str) % 6
         binary_str = binary_str + '0' * padding_length
@@ -18,13 +18,13 @@ def base64(str, type="encode"):
 
         return base64_encoded + padding
     elif type == "decode":
-        if not all(char in base64_chars or char == '=' for char in str): 
+        if not all(char in base64_chars or char == '=' for char in string): 
             print("Invalid format: Only base64 Characters are allowed(A-Z, a-z, 0-9, +, /, =)")
             return None
         
-        str = str.rstrip("=")
+        string = string.rstrip("=")
         
-        binary_str = ''.join([format(base64_chars.index(char), '06b') for char in str])
+        binary_str = ''.join([format(base64_chars.index(char), '06b') for char in string])
         
         byte_chunk = [binary_str[i:i+8] for i in range(0, len(binary_str), 8)]
         
@@ -37,8 +37,8 @@ def base64(str, type="encode"):
         
         
     
-# str = "="
-# encoded = base64(str, "encode")
+# string = "="
+# encoded = base64(string, "encode")
 # print(encoded)
 # print(base64(encoded, "decode"))
         
