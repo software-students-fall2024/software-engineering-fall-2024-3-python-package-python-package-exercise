@@ -1,5 +1,5 @@
 import pytest
-from pytextalterations import removepunctuation
+from pytextalterations.remove import removepunctuation
 
 class Tests:
 
