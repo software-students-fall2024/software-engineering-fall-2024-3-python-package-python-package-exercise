@@ -3,6 +3,9 @@ import pandas as pd
 from src.Financiers.stock import Stock, Company, BrainrotDataFrame, BrainrotWrapper
 from datetime import datetime, timedelta
 import numpy as np
+import random
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
 
 class MockResponse:
     def __init__(self, status_code, json={}):
