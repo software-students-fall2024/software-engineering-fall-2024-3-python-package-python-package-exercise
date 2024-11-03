@@ -204,31 +204,61 @@ def Coffee(sub_choice: int) -> None:
     #pyprint("category2 check")
 
 def Food(sub_choice: int) -> None:
-    """argument: sub_choice (int), which will be 1, 2, or 3
+
+    facts = [
+        "1. The French dessert 'Mille-Feuille' is known for its hundreds of layers of thin pastry and cream."\
+        "\n2. The original 'Mille-Feuille' was made using rice paper instead of pastry.",
+        
+        "1. Sushi originally started as a preservation method for fish in ancient China."\
+        "\n2. Sushi rolls were initially created as a quick snack for soldiers in medieval Japan.",
+        
+        "1. Street food vendors in Bangkok were once forbidden to sell food during daylight hours to prevent congestion."\
+        "\n2. Bangkok is known as the 'Street Food Capital' because it holds the world record for the highest number of street vendors per square mile.",
+        
+        "1. French macarons were actually created in Italy and brought to France by Catherine de' Medici."\
+        "\n2. The original macarons were filled with custard, not ganache or buttercream.",
+        
+        "1. The first recipe for 'tacos' was published in a 19th-century cookbook in Spain."\
+        "\n2. Tacos are considered to have originated from silver miners in 18th-century Mexico.",
+        
+        "1. Ice cream was once considered an expensive luxury reserved for royal families."\
+        "\n2. The first recorded flavor of ice cream was pistachio, which originated in Persia."
+    ]
+
+    explanation = [
+        "Choice 2 is made up. Mille-Feuille has always been known for its thin pastry layers.",
+        "Choice 2 is made up. Sushi indeed started as a preservation method, but the concept of rolls came much later.",
+        "Choice 1 is made up. Bangkok is known for street food but there was no restriction based on daylight.",
+        "Choice 2 is made up. Macarons were originally made with almonds and evolved into modern ganache filling.",
+        "Choice 1 is made up. Tacos originated from Mexican miners.",
+        "Choice 2 is made up. Early ice cream flavors were fruit-based, not pistachio."
+    ]
+
+    truth = [1, 1, 2, 1, 2, 1]
+
     
-    the function should do the following:
-    
-    1. store the two groups of statements 
-    (one fact & one fabrication + another fact & another fabrication) 
-    and their corresponding explanations
-    
-    2. randomly print one group to user, which will be two statements
-    
-    3. prompt user to enter 1 or 2 to choose the fact
-    
-    4. use while loop and fact_choice_validation function below to prompt again 
-    until the fact_choice is valid
-    
-    5. check whether the user's answer correct
-    
-    6. tell the user whether she/he is correct or not
-    
-    7. give a little bit explanation for both statements
-    
-    8. write >= 3 tests for this function in the test_code.py"""
+    random_value = int(__import__('time').time() * 1000) % 2
+    sub_choice = int(sub_choice)
+
+    print(facts[(sub_choice - 1) * 2 + random_value])
+
+    fact_choice = input("Which fun fact do you think is true? Please type 1 or 2: ")
+
+    while True:
+        if fact_choice_validation(fact_choice):
+            break
+        fact_choice = input("Invalid input. Please enter either 1 or 2:").strip()
+
+    fact_choice = int(fact_choice)
+
+    if fact_choice == truth[(sub_choice - 1) * 2 + random_value]:
+        print("You are right, " + explanation[(sub_choice - 1) * 2 + random_value])
+    else:
+        print("You are wrong, " + explanation[(sub_choice - 1) * 2 + random_value])
+
     
     #below is just a placeholder
-    print("category3 check")
+    #print("category3 check")
 
 def fact_choice_validation(fact_choice: str) -> bool:
     """the function the check whether the user enter a valid fact choice: 

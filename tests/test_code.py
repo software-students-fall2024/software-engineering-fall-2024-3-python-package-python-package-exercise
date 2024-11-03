@@ -1,5 +1,5 @@
 import pytest
-from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee, Music
+from src.guessFact.code import main_function, category_choice_validation, fact_choice_validation, Coffee, Music, Food
 
 #Test for main_function
 def test_main_function_case1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture) -> None:
@@ -243,6 +243,93 @@ def test_Coffee_valid_result3( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Ca
         assert "You are wrong," in out
     else:
         assert "You are right," in out
+
+
+# Test for Food function output and choices
+def test_Food_valid_output_choices1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 1
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    possible_outputs = [
+        "1. The French dessert 'Mille-Feuille' is known for its hundreds of layers of thin pastry and cream."\
+        "\n2. The original 'Mille-Feuille' was made using rice paper instead of pastry.",
+        
+        "1. Sushi originally started as a preservation method for fish in ancient China."\
+        "\n2. Sushi rolls were initially created as a quick snack for soldiers in medieval Japan."
+    ]
+    assert any(possible_output in out for possible_output in possible_outputs)
+
+def test_Food_valid_output_choices2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 2
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    possible_outputs = [
+        "1. Street food vendors in Bangkok were once forbidden to sell food during daylight hours to prevent congestion."\
+        "\n2. Bangkok is known as the 'Street Food Capital' because it holds the world record for the highest number of street vendors per square mile.",
+        
+        "1. French macarons were actually created in Italy and brought to France by Catherine de' Medici."\
+        "\n2. The original macarons were filled with custard, not ganache or buttercream."
+    ]
+    assert any(possible_output in out for possible_output in possible_outputs)
+
+def test_Food_valid_output_choices3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 3
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    possible_outputs = [
+        "1. The first recipe for 'tacos' was published in a 19th-century cookbook in Spain."\
+        "\n2. Tacos are considered to have originated from silver miners in 18th-century Mexico.",
+        
+        "1. Ice cream was once considered an expensive luxury reserved for royal families."\
+        "\n2. The first recorded flavor of ice cream was pistachio, which originated in Persia."
+    ]
+    assert any(possible_output in out for possible_output in possible_outputs)
+
+# Test for correct result output
+def test_Food_valid_result1(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 1
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    if "You are right," in out:
+        assert True
+    elif "You are wrong," in out:
+        assert True
+    else:
+        assert False, "The test failed because no valid result was found in the output."
+
+def test_Food_valid_result2(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 2
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    if "You are right," in out:
+        assert True
+    elif "You are wrong," in out:
+        assert True
+    else:
+        assert False, "The test failed because no valid result was found in the output."
+
+def test_Food_valid_result3(monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
+    sub_choice = 3
+    monkeypatch.setattr("builtins.input", lambda _: "1")
+    Food(sub_choice)
+    out = capfd.readouterr().out
+
+    if "You are right," in out:
+        assert True
+    elif "You are wrong," in out:
+        assert True
+    else:
+        assert False, "The test failed because no valid result was found in the output."
 
 def test_Music_valid_result1( monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture):
     # input user choice
