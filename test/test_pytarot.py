@@ -1,12 +1,6 @@
 import pytest
 
-# import src.pytarot.truelover as truelover_module
-# import src.pytarot.luckyday as luckyday_module
-# import src.pytarot.answersofwisdom as answers_of_wisdom_module
-from src.pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover
-
-
-
+from src.pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover, get_positive_action
 
 class Tests:
     #
@@ -39,8 +33,12 @@ class Tests:
         actual = True  # the value we see in reality
         assert actual == expected, "Expected True to be equal to True!"
 
-    #true lover tests
 
+
+
+
+    #true lover tests
+    #test1
     def test_get_true_lover_non_empty(self):
         """
         Verify get_true_lover() function and make sure it returns a non-empty string.
@@ -50,7 +48,7 @@ class Tests:
         # Check that the result is a non-empty string
         assert isinstance(result, str), "The result should be a string."
         assert len(result) > 0, "The result should not be an empty string."
-
+    #test2
     def test_get_true_lover_content(self):
         """
         Verify get_true_lover() function and make sure it contains all the necessary elements.
@@ -81,14 +79,14 @@ class Tests:
         assert any(eye_color in result for eye_color in eye_colors), "The result should contain an eye color."
         assert any(hair_color in result for hair_color in hair_colors), "The result should contain a hair color."
         assert any(residence in result for residence in residences), "The result should contain a residence type."
-
+    #test3
     def test_get_true_lover_uniqueness(self):
         """
         Verify get_true_lover() function and make sure it has some uniqueness to its output.
         """
         results = {get_true_lover() for _ in range(10)}
         assert len(results) > 1, "The function should generate some unique profiles."
-
+    #test4
     def test_get_true_lover_format_keywords(self):
         """
         Verify get_true_lover() function and make sure it has the mandatory keywords in the output.
@@ -99,3 +97,6 @@ class Tests:
             assert keyword in result, f"The result should contain '{keyword}'"
 
 
+#lucky day tests
+#answers of wisdom tests
+#positive action tests
