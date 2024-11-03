@@ -17,7 +17,3 @@ def get_fortune_cookie():
     
     # Return the formatted fortune and lucky number
     return f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}"
-
-if __name__ == "__main__":
-    one = get_fortune_cookie()
-    print(one)

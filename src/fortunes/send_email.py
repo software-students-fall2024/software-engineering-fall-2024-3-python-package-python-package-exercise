@@ -65,20 +65,7 @@ Garage Team
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, recipient_email, msg.as_string())
             print("Email sent successfully.")
+            pass
     except Exception as e:
         print(f"Failed to send email: {e}")
-
-
-# some testing
-fortune = "You will have an amazing day!"
-fortune1 = "Opportunities are on the horizon."
-
-single_fortune = f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: 7"
-multiple_fortunes = [
-    f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: 7",
-    f"🔮 Your Fortune: {fortune1}\n🍀 Your Lucky Number: 15"
-]
-
-if __name__ == "__main__":
-    send_fortune_email("ys4689@nyu.edu", single_fortune)
-    send_fortune_email("ys4689@@nyu.edu", multiple_fortunes)
+        raise

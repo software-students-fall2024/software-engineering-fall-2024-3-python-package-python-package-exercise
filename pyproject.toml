@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fortune.package"
+version = "0.1.0"
+description = "..."
+readme = "README.md"
+authors = [
+    { name = "Yuhao Sheng", email = "ys4689@nyu.edu" },
+]
+license = { text = "MIT" }
+dependencies = [
+    "python-dotenv",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
