@@ -109,12 +109,12 @@ def Music(sub_choice: int) -> None:
     sub_choice = int(sub_choice)
     
     statements = facts[sub_choice]
-    statementIndex = 0
+    statementIndex = int(__import__('time').time() * 1000) % 2
     selected_statement = statements[statementIndex]
 
     while True:
-        choice = input("Which of the following statements is true? Please enter 1 or 2:\n")
-        print(selected_statement)
+        print("Which of the following statements is true? Please enter 1 or 2:\n" + selected_statement)
+        choice = input("")
         if fact_choice_validation(choice):
             break
         print("Invalid choice. Please enter either 1 or 2.")
