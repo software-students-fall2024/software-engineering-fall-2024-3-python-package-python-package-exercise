@@ -12,11 +12,10 @@ def getMultipleFortunes(n):
         fortune = random.choice(fortunes)
         while fortune in result:
             fortune = random.choice(fortunes)
-        result.append([fortune, num])       
+        result.append(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {num}")
     
     return result
 
 if __name__ == "__main__":
     result = getMultipleFortunes(5)
-    for fortune, num in result:
-        print(f"Fortune: {fortune}\nNumber: {num}\n")
+    print(result)
