@@ -7,6 +7,11 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 ## Teammates
 [Fatima Villena](https://github.com/favils)
 
+[Sandy Li](https://github.com/vernairesl)
+
+[Safia Billah](https://github.com/safiabillah)
+
+[May Zhou](https://github.com/zz4206)
 
 ## Description
 [Link to Package](link.com)

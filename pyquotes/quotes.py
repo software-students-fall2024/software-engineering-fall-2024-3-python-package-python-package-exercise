@@ -45,6 +45,7 @@ iconic = [
     {"quote": "I simply am not there.", "movie": "American Psycho"},
     {"quote": "For Narnia and for Aslan!", "movie": "Narnia"},
     {"quote": "To infinity and beyond!", "movie": "Toy Story"},
+ tests
 ]
 quote_categories = {
     "inspirational": inspirational,
@@ -52,3 +53,4 @@ quote_categories = {
     "funny": funny,
     "iconic": iconic
 }
+
