@@ -262,10 +262,7 @@ def test_Music_valid_result2( monkeypatch: pytest.MonkeyPatch, capfd: pytest.Cap
 
     # compare output with expected result
     out = capfd.readouterr().out
-    output1 = "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz.\nFact 2: Jazz originated in London during the 19th century.\n"
-    output2 = "Fact 1: Duke Ellington was primarily known as a classical pianist and rarely performed jazz.\nFact 2: Louis Armstrong, one of the most influential figures in jazz, was also known for his distinctive gravelly voice and popularized scat singing.\n"
-    print("------------------------------------") # TEST
-    print(out) # TEST
+    output1 = "Fact 1: Louis Armstrong’s influential trumpet playing helped shape modern jazz."
     if output1 in out:
         assert "You are right!" in out
     else:
