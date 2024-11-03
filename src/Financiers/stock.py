@@ -58,7 +58,7 @@ class Stock:
             "{stock}", symbol_string
         )  # get brainrot
         # return the dataframe with brainrot
-        return BrainrotWrapper(brainrot, earnings_df)
+        return BrainrotDataFrame(brainrot, earnings_df)
 
     def forecast_prices(self, symbol_string, days=30):
         """
@@ -79,7 +79,7 @@ class Stock:
         })
 
         brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
-        return BrainrotWrapper(brainrot, forecast_df)
+        return BrainrotDataFrame(brainrot, forecast_df)
     
     def company_overview(self,symbol_string):
         """
@@ -148,6 +148,20 @@ class Company:
             f"Sector: {self.sector}\n"
             f"Industry: {self.industry}"
         )
+        
+class BrainrotDataFrame:
+    """
+    A custom DataFrame wrapper class that adds brainrot quote above the DataFrame output
+    """
+    def __init__(self, quote, df):
+        self.quote = quote
+        self.df = df
+
+    def __str__(self):
+        return f"{self.quote}\n\n{self.df}"  # have it so the brainrot appears, newline, then the dataframe
+
+    def __repr__(self):
+        return self.__str__()
 
 class BrainrotWrapper:
     """
@@ -165,7 +179,5 @@ class BrainrotWrapper:
     
 
 print("Script started.")
-# stock = Stock()
-# print(stock.company_overview("IBM"))
 print("Processing complete.")
 
