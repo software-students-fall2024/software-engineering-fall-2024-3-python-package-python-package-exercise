@@ -22,6 +22,9 @@ jobs:
           pipenv --venv
           pipenv run python -m pytest
   deliver:
+    permissions:
+     id-token: write
+     contents: read
     needs: [build]
     runs-on: ubuntu-latest
     timeout-minutes: 5
