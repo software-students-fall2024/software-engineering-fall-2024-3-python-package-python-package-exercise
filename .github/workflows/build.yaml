@@ -25,9 +25,6 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     timeout-minutes: 5
-   permissions:
-      id-token: write
-      contents: read 
     steps:
       - uses: actions/checkout@v4
       - name: Install Python, pipenv and Pipfile packages
