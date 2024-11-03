@@ -1,36 +1,36 @@
 def base64(str, type="encode"):
-    base64_Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
     
     type =  type.lower()
     
     if type == "encode":
         if str == "": return ""
-        binaryStr = ''.join([format(ord(char), '08b') for char in str])
+        binary_str = ''.join([format(ord(char), '08b') for char in str])
         
-        paddingLength = 6 - len(binaryStr) % 6
-        binaryStr = binaryStr + '0' * paddingLength
+        padding_length = 6 - len(binary_str) % 6
+        binary_str = binary_str + '0' * padding_length
         
-        sixBitChunks = [binaryStr[i:i+6] for i in range(0, len(binaryStr), 6)]
+        six_bit_chunks = [binary_str[i:i+6] for i in range(0, len(binary_str), 6)]
         
-        base64Encoded = ''.join(base64_Chars[int(chunk, 2)] for chunk in sixBitChunks)
+        base64_encoded = ''.join(base64_chars[int(chunk, 2)] for chunk in six_bit_chunks)
         
-        padding = "=" * (4 - len(base64Encoded) % 4)
+        padding = "=" * (4 - len(base64_encoded) % 4)
 
-        return base64Encoded + padding
+        return base64_encoded + padding
     elif type == "decode":
-        if not all(char in base64_Chars or char == '=' for char in str): 
+        if not all(char in base64_chars or char == '=' for char in str): 
             print("Invalid format: Only base64 Characters are allowed(A-Z, a-z, 0-9, +, /, =)")
             return None
         
         str = str.rstrip("=")
         
-        binaryStr = ''.join([format(base64_Chars.index(char), '06b') for char in str])
+        binary_str = ''.join([format(base64_chars.index(char), '06b') for char in str])
         
-        byteChunk = [binaryStr[i:i+8] for i in range(0, len(binaryStr), 8)]
+        byte_chunk = [binary_str[i:i+8] for i in range(0, len(binary_str), 8)]
         
-        decodedStr = ''.join([chr(int(byte, 2)) for byte in byteChunk if len(byte) == 8])
+        decoded_str = ''.join([chr(int(byte, 2)) for byte in byte_chunk if len(byte) == 8])
         
-        return decodedStr
+        return decoded_str
     else:
         print("Invalid action type: Please select 'encode' or 'decode'.") 
         return None
