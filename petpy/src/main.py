@@ -1,9 +1,10 @@
-from pet import Pet, create_pet, release_pet, feed, check_pet_mood, check_pet_level, check_pet_health, check_pet_stats
+import pet
+import petpy
 
 def main():
     print("Welcome to the Pet-py o.O!")
     
-    available_pet_types = list(Pet.PET_EMOJIS.keys())
+    available_pet_types = list(pet.Pet.PET_EMOJIS.keys())
     print("Available pet types:", ", ".join(available_pet_types))
     
     pet_name = input("Namee your pet: ")
@@ -13,10 +14,10 @@ def main():
         print("Invalid pet type! Please choose a pet from the list.")
         pet_type = input("Please pick a pet that is available: ").strip().lower()
     
-    my_pet = create_pet(pet_name, pet_type)
+    my_pet = pet.create_pet(pet_name, pet_type)
     print(f"Congrats! You've adopted {my_pet.name} the {my_pet.type} {my_pet.emoji}.")
 
-    available_foods = list(Pet.FOOD_MENU.keys())
+    available_foods = list(pet.Pet.FOOD_MENU.keys())
     print("\nAvailable foods for your pet:", ", ".join(available_foods))
 
     while True:
@@ -34,17 +35,17 @@ def main():
             while food not in available_foods:
                 print("Invalid food choice! Please choose food from the list.")
                 food = input("Pick a food item available: ").strip().lower()
-            print(feed(my_pet, food))
+            print(petpy.feed(my_pet, food))
         elif choice == '2':
-            print(check_pet_stats(my_pet, pet_name))
+            print(petpy.get_pet_stats(my_pet, pet_name))
         elif choice == '3':
-            print(check_pet_mood(my_pet))
+            print(petpy.get_pet_mood(my_pet))
         elif choice == '4':
-            print(check_pet_health(my_pet))
+            print(petpy.get_pet_health(my_pet))
         elif choice == '5':
-            print(check_pet_level(my_pet))
+            print(petpy.get_pet_level(my_pet))
         elif choice == '6':
-            print("\n" + release_pet(my_pet.name))
+            petpy.release_pet(my_pet.name)
             print(f"{my_pet.name}: Thank you, sensei. See you never >:(\n")
             break
         else:
