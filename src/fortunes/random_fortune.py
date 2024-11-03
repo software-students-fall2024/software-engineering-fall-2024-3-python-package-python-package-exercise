@@ -4,15 +4,18 @@ have fun!
 """
 
 import random
-def get_fortune_cookie():
-    #load the quotes from file
-    with open ('../resource/fortune.txt','r')as file:
-        content = file.read()
-        fortunes = [quote.strip() for quote in content.split ('%') if quote.strip()]
+import importlib.resources
 
-    fortune = random.choice (fortunes)
-    lucky_num  = random.randint(0,99)
-    #print the fortune and number to user
+def get_fortune_cookie():
+    # Load the quotes from the fortune.txt file using importlib.resources
+    with importlib.resources.open_text('fortunes', 'fortune.txt') as file:
+        content = file.read()
+        fortunes = [quote.strip() for quote in content.split('%') if quote.strip()]
+
+    fortune = random.choice(fortunes)
+    lucky_num = random.randint(0, 99)
+    
+    # Print the fortune and number to the user
     print(f"🔮 Your Fortune: {fortune}\n🍀 Your Lucky Number: {lucky_num}")
 
     return fortune, lucky_num
