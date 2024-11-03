@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "your_project_name"
+version = "0.1.0"
+description = "A short description of your project"
+readme = "README.md"
+authors = [
+    { name = "Yuhao Sheng", email = "ys4689@nyu.edu" },
+]
+license = { text = "MIT" }
+dependencies = [
+    "python-dotenv",
+]
+
+[tool.setuptools]
+packages = ["your_package"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
