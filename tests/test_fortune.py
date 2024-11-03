@@ -10,7 +10,6 @@ def test_get_fortune_cookie_deterministic_output():
     # Mock content for the 'fortune.txt' file
     mock_fortunes = "Good things come to those who wait.%Patience is a virtue.%Hard work pays off."
 
-    
     with patch('fortunes.random_fortune.importlib.resources.open_text', mock_open(read_data=mock_fortunes)):
         with patch('fortunes.random_fortune.random.choice') as mock_random_choice:
             # Set the mocked random.choice to return the first fortune for consistency
