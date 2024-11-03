@@ -210,3 +210,186 @@ def test_pet_status_expected(capsys):
     assert f"Food: {food} " in captured.out, f"Expected 'Food: {food} ' in output"
     assert f"Sleep: {sleep} " in captured.out, f"Expected 'Sleep: {sleep} ' in output"
     assert f"Happiness: {happiness}" in captured.out, f"Expected 'Happiness: {happiness}' in output"
+
+# tests for feed() method
+def test_feed_normal():
+    pet = Pet(name="TestPet")
+    initial_food =pet.stats['food']
+    pet.feed(10)
+    assert pet.stats['food'] == min(initial_food+10, MAX_STAT_VALUE)
+
+def test_feed_negative():
+    pet = Pet(name="TestPet")
+    initial_food = pet.stats["food"]
+    pet.feed(-10)
+    assert pet.stats["food"] == initial_food
+
+def test_feed_overflow():
+    pet = Pet(name="TestPet")
+    pet.stats["food"] = 90
+    pet.feed(20)
+    assert pet.stats["food"] == MAX_STAT_VALUE 
+
+def test_feed_invalid_type(capsys):
+    pet = Pet(name="TestPet")
+    initial_food = pet.stats["food"]
+    pet.feed("not a number")
+    captured = capsys.readouterr()
+    assert "Invalid food amount" in captured.out
+    assert pet.stats["food"] == initial_food
+
+#tests for play() method
+def test_play_normal():
+    pet = Pet(name="TestPet")
+    initial_happiness = pet.stats["happiness"]
+    pet.play(10)
+    assert pet.stats["happiness"] == min(initial_happiness + 10, MAX_STAT_VALUE)
+
+def test_play_negative():
+    pet = Pet(name="TestPet")
+    initial_happiness = pet.stats["happiness"]
+    pet.play(-10)
+    assert pet.stats["happiness"] == initial_happiness
+
+def test_play_overflow():
+    pet = Pet(name="TestPet")
+    pet.stats["happiness"] = 90
+    pet.play(20)
+    assert pet.stats["happiness"] == MAX_STAT_VALUE
+
+def test_play_invalid_type(capsys):
+    pet = Pet(name="TestPet")
+    initial_happiness = pet.stats["happiness"]
+    pet.play("not a number")
+    captured = capsys.readouterr()
+    assert "Invalid play duration" in captured.out
+    assert pet.stats["happiness"] == initial_happiness
+
+# tests for sleep() method
+def test_sleep_normal():
+    pet = Pet(name="TestPet")
+    initial_sleep = pet.stats["sleep"]
+    pet.sleep(10)
+    assert pet.stats["sleep"] == min(initial_sleep+ 10, MAX_STAT_VALUE)
+
+def test_sleep_negative():
+    pet = Pet(name="TestPet")
+    initial_sleep = pet.stats["sleep"]
+    pet.sleep(-10)
+    assert pet.stats["sleep"] == initial_sleep
+
+def test_sleep_overflow():
+    pet = Pet(name="TestPet")
+    pet.stats["sleep"] = 90
+    pet.sleep(20)
+    assert pet.stats["sleep"] == MAX_STAT_VALUE
+
+def test_sleep_invalid_type(capsys):
+    pet = Pet(name="TestPet")
+    initial_sleep = pet.stats["sleep"]
+    pet.sleep("not a number")
+    captured = capsys.readouterr()
+    assert "Invalid sleep duration" in captured.out
+    assert pet.stats["sleep"] ==initial_sleep
+
+# tests for rename() method
+def test_rename_normal():
+    pet = Pet(name="TestPet")
+    pet.rename("NewName")
+    assert pet.name =="NewName"
+
+def test_rename_empty(capsys):
+    pet = Pet(name="TestPet")
+    original_name = pet.name
+    pet.rename("")
+    captured = capsys.readouterr()
+    assert "Invalid name" in captured.out
+    assert pet.name== original_name
+
+def test_rename_invalid_type(capsys):
+    pet = Pet(name="TestPet")
+    original_name = pet.name
+    pet.rename(123)
+    captured = capsys.readouterr()
+    assert "Invalid name" in captured.out
+    assert pet.name == original_name
+
+#tests for display_art() method
+def test_display_art_healthy(capsys):
+    pet = Pet(name="TestPet")
+    pet.stats["health"] = 100
+    pet.display_art()
+    captured = capsys.readouterr()
+    assert "(^▽^)" in captured.out  
+
+def test_display_art_unhealthy(capsys):
+    pet = Pet(name="TestPet")
+    pet.stats["health"] = 20
+    pet.display_art()
+    captured = capsys.readouterr()
+    assert "(；ω；)" in captured.out  
+
+def test_display_art_border_cases(capsys):
+    pet = Pet(name="TestPet")
+    pet.stats["health"] = 50
+    pet.display_art()
+    captured = capsys.readouterr()
+    assert any(face in captured.out for face in ["(•́ω•̀)", "(；ω；)"]) 
+
+#additional tests for health calculation
+@freezegun.freeze_time("2024-10-28 0:00:00")
+def test_health_calculation():
+    pet = Pet(timeframe=1)
+    pet.stats["food"] = 60
+    pet.stats["sleep"] = 60
+    pet.stats["happiness"] = 60
+    pet.update_stats()
+    assert pet.stats["health"] == 60
+
+@freezegun.freeze_time("2024-10-28 0:00:00")
+def test_health_max():
+    pet = Pet(timeframe=1)
+    pet.stats["food"] = MAX_STAT_VALUE
+    pet.stats["sleep"] = MAX_STAT_VALUE
+    pet.stats["happiness"] = MAX_STAT_VALUE
+    pet.update_stats()
+    assert pet.stats["health"] == MAX_STAT_VALUE
+
+@freezegun.freeze_time("2024-10-28 0:00:00")
+def test_health_min():
+    pet = Pet(timeframe=1)
+    pet.stats["food"] = 0
+    pet.stats["sleep"] = 0
+    pet.stats["happiness"] = 0
+    pet.update_stats()
+    assert pet.stats["health"] == 0
+
+#test immortality feature
+@freezegun.freeze_time("2024-10-28 0:00:00")
+def test_immortal_pet():
+    pet = Pet(name="TestPet", immortal=True)
+    with freezegun.freeze_time("2024-10-28 1:00:00"):
+        pet.update_stats()
+        assert pet.stats["health"] >0
+
+def test_immortal_vs_mortal():
+    with freezegun.freeze_time("2024-10-28 0:00:00"): #immortal vs mortal pets over time
+        immortal_pet = Pet(name="ImmortalPet", immortal=True)
+        mortal_pet = Pet(name="MortalPet", immortal=False)
+        with freezegun.freeze_time("2024-10-28 12:00:00"):
+            immortal_pet.update_stats()
+            mortal_pet.update_stats()
+            assert immortal_pet.stats["health"] > 0
+            assert mortal_pet.stats["health"] == 0
+
+def test_immortal_pet_stat_changes():
+    with freezegun.freeze_time("2024-10-28 0:00:00"):
+        pet = Pet(name="TestPet", immortal=True)
+        initial_stats = pet.stats.copy() 
+        with freezegun.freeze_time("2024-10-28 0:30:00"):
+            pet.update_stats()
+            assert pet.stats["food"] < initial_stats["food"]
+            assert pet.stats["sleep"] < initial_stats["sleep"]
+            assert pet.stats["happiness"] < initial_stats["happiness"]
+            assert pet.stats["health"] >0
+

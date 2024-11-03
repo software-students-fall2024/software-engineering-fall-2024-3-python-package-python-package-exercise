@@ -36,13 +36,16 @@ class Pet:
         difference = self.time_elapsed()
         for stat in ["food", "sleep", "happiness"]:
             if self.rates[stat] != 0:
-                self.stats[stat] = max(
-                    0, self.stats[stat] - difference // self.rates[stat])
+                self.stats[stat] = max(0, self.stats[stat] - difference // self.rates[stat])
             else:
                 self.stats[stat] = max(0, self.stats[stat])
 
-        self.stats["health"] = (
-            self.stats["sleep"] + self.stats["food"] + self.stats["happiness"]) // 3
+        if not self.immortal:  
+            self.stats["health"] = (self.stats["sleep"] + self.stats["food"] + self.stats["happiness"]) // 3
+        else:
+            self.stats["health"] = max(1, self.stats["health"])  # min of 1 health if immortal
+        # self.stats["health"] = (
+        #     self.stats["sleep"] + self.stats["food"] + self.stats["happiness"]) // 3
 
     # Print the pet's current stats
     def status(self):

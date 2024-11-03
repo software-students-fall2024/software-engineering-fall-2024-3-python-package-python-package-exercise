@@ -45,6 +45,5 @@ pet_names = [
     "Biscuit", "Sprite", "Topaz", "Moon", "Doodle", "Nana", "Tulip", "Galaxy", "Echo", "Clover"
 ]
 
-
 def generate_name():
     return random.choice(pet_names)
