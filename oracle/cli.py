@@ -2,6 +2,7 @@
 
 import sys
 from fortune_cookie import get_fortune
+from eight_ball import get_eight_ball
 
 def error_msg():
     print("To contact the oracle, type:")
