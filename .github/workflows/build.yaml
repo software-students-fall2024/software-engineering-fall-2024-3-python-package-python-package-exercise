@@ -1,8 +1,5 @@
 name: CI / CD
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
@@ -13,38 +10,30 @@ jobs:
         python-version: ["3.9", "3.11"]
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies using pipenv
-        run: |
-          pip install pipenv
-          pipenv install --dev
       - name: Turn on 'editable' mode
         run: |
           pipenv install -e .
-      - name: Run tests with pytest
+      - name: Test with pytest
         run: |
-          pipenv run pytest
-
+          pipenv install pytest
+          pipenv --venv
+          pipenv run python -m pytest
+          
   deliver:
     permissions:
-      id-token: write
-      contents: read
-    needs: build
+     id-token: write
+     contents: read
+    needs: [build]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
-      - name: Install dependencies using pipenv
-        run: |
-          pip install pipenv
-          pipenv install --dev
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
       - name: Build package
         run: |
           pipenv install build
@@ -53,5 +42,6 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+
           repository-url: https://test.pypi.org/legacy/
 
