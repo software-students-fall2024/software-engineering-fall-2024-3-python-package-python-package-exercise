@@ -1,9 +1,9 @@
 import pytest
-from codebreak import mental_exercises  
+from codebreak.mental_exercises import mental_exercise  
 
 def test_focus_exercise():
     """Test that a valid exercise is returned for 'focus' break_type."""
-    result = mental_exercises.mental_exercise("focus")
+    result = mental_exercise("focus")
     assert result in [
         "Close your eyes and take five deep breaths, focusing on the inhale and exhale.",
         "Practice the 4-7-8 breathing technique: inhale for 4 seconds, hold for 7, exhale for 8.",
@@ -20,7 +20,7 @@ def test_focus_exercise():
 
 def test_creativity_exercise():
     """Test that a valid exercise is returned for 'creativity' break_type."""
-    result = mental_exercises.mental_exercise("creativity")
+    result = mental_exercise("creativity")
     assert result in [
         "Write down three new ideas you would like to explore in your next project.",
         "Draw a quick doodle of something you find inspiring.",
@@ -37,7 +37,7 @@ def test_creativity_exercise():
 
 def test_mindfulness_exercise():
     """Test that a valid exercise is returned for 'mindfulness' break_type."""
-    result = mental_exercises.mental_exercise("mindfulness")
+    result = mental_exercise("mindfulness")
     assert result in [
         "Sit back, close your eyes, and focus on your body, noting any areas of tension.",
         "Take 10 slow, mindful breaths, paying attention to each breath as it enters and leaves.",
@@ -55,7 +55,7 @@ def test_mindfulness_exercise():
 @pytest.mark.parametrize("input_val", ["Focus", "FOCUS", "focus", "FOcus"])
 def test_case_insensitivity(input_val):
     """Test that the function handles various cases in break_type input correctly."""
-    result = mental_exercises.mental_exercise(input_val)
+    result = mental_exercise(input_val)
     assert result in [
         "Close your eyes and take five deep breaths, focusing on the inhale and exhale.",
         "Practice the 4-7-8 breathing technique: inhale for 4 seconds, hold for 7, exhale for 8.",
@@ -72,5 +72,5 @@ def test_case_insensitivity(input_val):
 
 def test_invalid_break_type():
     """Test that the function returns a message for invalid break_type input."""
-    result = mental_exercises.mental_exercise("invalid_type")
+    result = mental_exercise("invalid_type")
     assert result == "Please choose a valid break type: 'focus', 'creativity', or 'mindfulness'."
