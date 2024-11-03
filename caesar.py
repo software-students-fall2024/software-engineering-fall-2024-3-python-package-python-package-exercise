@@ -1,4 +1,4 @@
-def caesar(str, shift=1, type="encode"):
+def caesar(string, shift=1, type="encode"):
     '''
     For encoder, shift shifts letters to the right.
     For decoder, shift means the shift used when encoding, so
@@ -10,7 +10,7 @@ def caesar(str, shift=1, type="encode"):
         return None
     
     if type == "encode":
-        for char in str:
+        for char in string:
             if char.isalpha():
                 if char.isupper():
                     result += chr(ord("A") + (ord(char) + shift - ord("A")) % 26)
@@ -19,7 +19,7 @@ def caesar(str, shift=1, type="encode"):
             else:
                 result += char
     elif type == "decode":
-        for char in str:
+        for char in string:
             if char.isalpha():
                 if char.isupper():
                     result += chr(ord("A") + (ord(char) - shift - ord("A")) % 26)
