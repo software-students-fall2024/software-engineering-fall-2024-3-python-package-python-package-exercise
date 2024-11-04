@@ -58,6 +58,7 @@ You can run individual functions directly in the Python interactive shell or use
    ```
 
 5. **Import and test the package functions**:
+   link to a test python file that use all the functions: ./src/pytarot/test.py
 
    ```python
    from pytarot import get_answers_of_wisdom, get_lucky_day, get_true_lover, get_positive_action
