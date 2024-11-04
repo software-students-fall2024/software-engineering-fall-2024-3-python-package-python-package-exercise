@@ -15,13 +15,13 @@ class Stock:
     def __init__(self):
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
 
-    # TODO: add optional argument for quarterly or annual
-    def get_earnings(self, symbol_string, annual=True):
+    def get_earnings(self, symbol_string, annual=True, numDays=5):
         """
         Retrieves the annual and quarterly earnings (EPS) for the company of interest
         Arguments:
         symbol_string: a string representing the ticker of your choice. For example: symbol=IBM.
         annual: optional bool for whether earnings are reported quarterly or annually. default annual (True)
+        numDays: optional int for how many days back you want stock data for
 
         Returns:
         a custom pandas DataFrame BrainrotDataFrame containing a random brainrot quote and a DataFrame with two columns 'date' and 'reportedEPS'
@@ -48,8 +48,13 @@ class Stock:
         
         # sort     
         earnings = earnings.sort_values(by="date", ascending=False).reset_index(drop=True)
-
+        
+        if numDays is not None:
+            earnings = earnings.head(numDays)
+            
+        # get funny brainrot quote
         brainrot = random.choice(quotes).replace("{stock}", symbol_string)
+        
         return BrainrotDataFrame(brainrot, earnings)
    
     def get_price_data(self, symbol_string):

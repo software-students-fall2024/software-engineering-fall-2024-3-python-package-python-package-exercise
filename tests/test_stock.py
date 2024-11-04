@@ -38,6 +38,7 @@ class Tests:
         # checkign df is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
         
+    # testing invalid symbol token when called with get_earnings
     def test_get_earnings_invalid_symbol(self, capsys, monkeypatch):
         test_symbol = 'INVALID_SYMBOL'
         def mock_get(url):
@@ -53,6 +54,25 @@ class Tests:
         captured = capsys.readouterr()
         assert f"Error: No data found for symbol '{test_symbol}'. Please check if the symbol is correct." in captured.out, "Expected appropriate error message printed."
         
+    def test_get_earnings_numDays(self):
+        stock = Stock()
+
+        # test with numDays=None (should return all available entries)
+        earnings_all = stock.get_earnings("IBM", annual=True, numDays=None)
+        assert earnings_all is not None, "Expected a DataFrame to be returned"
+        total_rows = len(earnings_all.df)
+        assert total_rows > 0, "Expected earnings data to have entries"
+
+        # test with specific numDays as 5
+        test_numDays = 5
+        earnings_limited = stock.get_earnings("IBM", annual=True, numDays=test_numDays)
+        assert earnings_limited is not None, "Expected a DataFrame to be returned"
+        assert len(earnings_limited.df) == test_numDays, f"Expected {test_numDays} rows, got {len(earnings_limited.df)}"
+
+        # Verify that rows in the limited output are a subset of the full dataset
+        assert earnings_limited.df.equals(earnings_all.df.head(test_numDays)), "Expected the limited rows to match the most recent rows"
+            
+            
 
     # def test_forecast_prices(self, monkeypatch):
     #     print("\nTesting forecast_prices() with mock data")
