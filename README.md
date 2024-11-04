@@ -104,9 +104,53 @@ Simulates patting the pet a specified number of times.
 
 ---
 
-### Example
+## Contributing
 
-```
+### Installation
+1. **Install Python**:
+   - Make sure Python 3.8 or higher is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+
+2. **Clone the Repository**
+   - Download the project by cloning the GitHub repository or downloading the project files manually:
+     ```bash
+     git clone https://github.com/software-students-fall2024/3-python-package-macaron-for-three.git
+     cd 3-python-package-macaron-for-three
+     ```
+3. **Set up the Environment**
+    ```bash
+    pip install pipenv
+    ```
+4. **Install Dependencies**
+    ```bash
+    pipenv install --dev
+    pipenv shell
+    pipenv install -e .
+    ```
+5. **Upgrade pip, setuptools, and wheel**
+    ```bash
+    python -m pip install --upgrade pip setuptools wheel
+    ```
+6. **Build the Package**
+    ```bash
+    pip install build
+    python -m build
+    ```
+
+7. **Install the built package for testing**
+    ```bash
+    pip install dist/*.whl
+    ```
+
+8. **Run test**
+    ```bash
+    pytest
+    ```
+
+
+## Creating and Running a Tamagotchi Game
+- After installation, the package can be used by importing it in your Python code:
+
+```bash
 from tamagotchi import tamagotchi 
 
 tamagotchi_game = tamagotchi.Tamagotchi()
@@ -121,35 +165,9 @@ tamagotchi_game.feed("banana")
 tamagotchi_game.change_background_color("blue")
 tamagotchi_game.run_game()
 ```
+- Import the package and run your code:
 
-## Contributing
-
-### Installation
-
-```
-pip install pipenv
-git clone https://github.com/software-students-fall2024/3-python-package-macaron-for-three.git
-cd 3-python-package-macaron-for-three
-pipenv install --dev
-pipenv shell
-pipenv install -e .
-python -m pip install --upgrade pip setuptools wheel
-
-# to build:
-pip install build
-python -m build
-
-# install built package for testing
-pip install dist/*.whl 
-
-# to test
-pytest
-
-```
-
-## To Use and Run
-
-```
+```bash
 pip install tamagotchi==0.1.2
 tamagotchi
 ```
