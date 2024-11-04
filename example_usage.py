@@ -17,4 +17,3 @@ data = {
     'close': [9, 9, 10, 11, 11, 11, 11, 11, 11, 11]
 }
 print(stock.calculate_atr(pd.DataFrame(data)))
-

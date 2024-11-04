@@ -340,7 +340,7 @@ class Company:
             f"Sector: {self.sector}\n"
             f"Industry: {self.industry}"
         )
-    
+      
     def forecast_by_date_range(self, date_range="last_month", days_to_forecast=30, model_type="linear",
                            confidence_level=0.95, frequency="daily", return_format="dataframe"):
         """
