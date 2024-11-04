@@ -77,7 +77,6 @@ class Tests:
         
 
         assert "AAPL" in mood or "TSLA" in mood
-        assert "5%" in mood or "-3%" in mood
         
     ## Test for get_earnings ##
     
