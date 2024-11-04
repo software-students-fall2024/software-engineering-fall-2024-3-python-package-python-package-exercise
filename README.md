@@ -141,9 +141,12 @@ python3 --version
     ```bash
     pipenv shell
 
-5. Modify & Run the file: Make changes you want to make, and run the files.     For example, if you want to run tasks.py, run the following command:
+5. Modify and Run the file: Make the changes you need to the project, and run the main program to test. 
     ```bash
-    python3 
+    python -m funtasks
+If you want to run another specific file (like tasks.py), you can run it as follows:
+    ```bash
+    python src/funtasks/tasks.py
 
 6. To run tests: Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
     ```bash
