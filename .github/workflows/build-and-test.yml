@@ -1,0 +1,51 @@
+name: CI / CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install pipenv
+        run: pip install pipenv
+      - name: Install dependencies with pipenv
+        run: pipenv install --dev --python $(which python)
+      - name: Run tests
+        run: pipenv run pytest
+
+  deliver:
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install pipenv
+        run: pip install pipenv
+      - name: Install dependencies with pipenv
+        run: pipenv install --dev --python $(which python)
+      - name: Install package in editable mode
+        run: pipenv install -e .
+      - name: Build package
+        run: pipenv run python -m build .
+      - name: Check distribution with twine
+        run: pipenv run twine check dist/*
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TWINE_PASSWORD }}
