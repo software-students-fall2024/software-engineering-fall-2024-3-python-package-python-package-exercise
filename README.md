@@ -11,21 +11,22 @@ Funtasks is a simple and efficient task management package designed to help you 
 
 
 ## How to install and use this package
----
+
 ### Prerequisites
-    1. Make sure you have `pipenv` installed. You can install it using `pip3`:
+
+1. Make sure you have `pipenv` installed. You can install it using `pip3`:
     ```bash
     pip3 install pipenv
 
-    2. To install the package, use `pip3` because this package requires Python 3:
+2. To install the package, use `pip3` because this package requires Python 3:
     ```bash
     pip3 install funtasks==0.1.11
 
-    3. Activate the virtual environment: 
+3. Activate the virtual environment: 
     ```bash
     pipenv shell
 
-    4. Create a Python program file that imports the package and uses it, e.g. 
+4. Create a Python program file that imports the package and uses it, e.g. 
     ```bash
     from funtasks.tasks import add_task, complete_task, random_task, random_daily_goal, tasks
     This approach lets you directly use ```add_task```, ```complete_task```, ```random_task```, and ```random_daily_goal```
