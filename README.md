@@ -31,7 +31,10 @@ pip3 install pipenv
 pipenv shell
 ```
 
-4. Navigate to Oracle directory and run software with ```pipenv run python -m cli.py```
+4. Navigate to Oracle directory and run software with 
+```
+pipenv run python -m cli.py
+```
 
 ## Steps necessary to run tests
 

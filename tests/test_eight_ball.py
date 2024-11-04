@@ -1,15 +1,15 @@
 from oracle.eight_ball import get_eight_ball, responses
     
 #test function
-def test_fortune_cookie():
+def test_eight_ball():
     result = get_eight_ball()
     assert result in responses
 
-def test_fortune_is_string():
+def test_response_is_string():
     result = get_eight_ball()
     assert isinstance(result, str)
 
-def test_fortunes_not_empty():
+def test_response_not_empty():
     result = get_eight_ball()
     assert result != ""
 

@@ -23,5 +23,11 @@ responses = [
     "Very doubtful"
 ]
 
-def get_eight_ball():  
-    return random.choice(responses)
+def get_eight_ball(num):  
+    str = ""
+    numOfResponses = int(num)
+    for i in range(numOfResponses):
+        str += random.choice(responses)
+        if(i != numOfResponses - 1):
+            str += "\n"
+    return str
