@@ -13,3 +13,10 @@ def next_weekday(given_date, weekday):
     # calculate new date
     next_weekday_date = given_date + timedelta(days=days_until_next_weekday)
     return next_weekday_date
+
+def days_between(date1, date2):
+    return abs((date2 - date1).days)
+
+def add_days(date, days):
+     return date + timedelta(days=days)
+
