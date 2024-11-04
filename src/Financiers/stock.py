@@ -132,16 +132,23 @@ class Stock:
         Returns:
         A DataFrame with forecasted dates and predicted prices.
             """
-        price_data = self.get_price_data(symbol_string).df
-        # Placeholder for ARIMA or similar forecasting model
-        forecasted_prices = [random.uniform(100, 150) for _ in range(days)]  # Mock data
-        forecast_df = pd.DataFrame({
-            'date': pd.date_range(start=price_data['date'].max(), periods=days + 1, freq='D')[1:],
-            'predicted_price': forecasted_prices
-        })
+        try:
+            price_data = self.get_price_data(symbol_string).df
+            # Placeholder for ARIMA or similar forecasting model
+            forecasted_prices = [random.uniform(100, 150) for _ in range(days)]  # Mock data
+            max_date = price_data['date'].max()
+            
+            forecast_df = pd.DataFrame({
+                'date': pd.date_range(start=max_date, periods=days + 1, freq='D')[1:],
+                'predicted_price': forecasted_prices
+            })
 
-        brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
-        return BrainrotDataFrame(brainrot, forecast_df)
+            brainrot = f"{days}-day forecast for {symbol_string}. Is this sigma behavior?"
+            return BrainrotDataFrame(brainrot, forecast_df)
+        except Exception as e:
+            print("Invalid Input")
+        return None
+    
     
     def company_overview(self,symbol_string):
         """
@@ -244,36 +251,40 @@ class Stock:
         Returns:
         BrainrotDataFrame with a DataFrame of forecasted prices for each symbol.
         """
-        if not symbols:
-            # Return an empty BrainrotDataFrame if no symbols are provided
-            empty_df = pd.DataFrame(columns=["date", "predicted_price", "Symbol"])
-            brainrot_quote = "No symbols provided for forecast."
-            return BrainrotDataFrame(brainrot_quote, empty_df)
+        try:
+            if not symbols:
+                # Return an empty BrainrotDataFrame if no symbols are provided
+                empty_df = pd.DataFrame(columns=["date", "predicted_price", "Symbol"])
+                brainrot_quote = "No symbols provided for forecast."
+                return BrainrotDataFrame(brainrot_quote, empty_df)
 
-        forecasts = []
-        for symbol in symbols:
-            forecast_df = self.forecast_prices(symbol, days=days).df
+            forecasts = []
+            for symbol in symbols:
+                forecast_df = self.forecast_prices(symbol, days=days).df
 
-            # Apply the pattern to adjust the forecasted prices
-            if pattern.lower() == "bullish":
-                # Simulate an upward trend by incrementally increasing prices
-                forecast_df["predicted_price"] = forecast_df["predicted_price"] * (1 + 0.01 * forecast_df.index)
-            elif pattern.lower() == "bearish":
-                # Simulate a downward trend by incrementally decreasing prices
-                forecast_df["predicted_price"] = forecast_df["predicted_price"] * (1 - 0.01 * forecast_df.index)
-            elif pattern.lower() == "neutral":
-                # Keep prices relatively stable with minor random fluctuations
-                forecast_df["predicted_price"] += [random.uniform(-1, 1) for _ in range(days)]
+                # Apply the pattern to adjust the forecasted prices
+                if pattern.lower() == "bullish":
+                    # Simulate an upward trend by incrementally increasing prices
+                    forecast_df["predicted_price"] = forecast_df["predicted_price"] * (1 + 0.01 * forecast_df.index)
+                elif pattern.lower() == "bearish":
+                    # Simulate a downward trend by incrementally decreasing prices
+                    forecast_df["predicted_price"] = forecast_df["predicted_price"] * (1 - 0.01 * forecast_df.index)
+                elif pattern.lower() == "neutral":
+                    # Keep prices relatively stable with minor random fluctuations
+                    forecast_df["predicted_price"] += [random.uniform(-1, 1) for _ in range(days)]
+                
+                forecast_df["Symbol"] = symbol
+                forecasts.append(forecast_df)
+
+            combined_forecasts = pd.concat(forecasts, ignore_index=True)
             
-            forecast_df["Symbol"] = symbol
-            forecasts.append(forecast_df)
-
-        combined_forecasts = pd.concat(forecasts, ignore_index=True)
-        
-        # Fun quote with the chosen pattern
-        brainrot_quote = f"Future estimates with a {pattern} outlook for the next {days} days – hope it's accurate!"
-        
-        return BrainrotDataFrame(brainrot_quote, combined_forecasts)
+            # Fun quote with the chosen pattern
+            brainrot_quote = f"Future estimates with a {pattern} outlook for the next {days} days – hope it's accurate!"
+            
+            return BrainrotDataFrame(brainrot_quote, combined_forecasts)
+        except Exception as e:
+            print("Invalid Input")
+        return None
     
     def calculate_atr(self, data, window=14):
         def calculate_true_range(data):
