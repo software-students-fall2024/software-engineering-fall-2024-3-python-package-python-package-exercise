@@ -120,8 +120,10 @@ random_daily_goal(25)
 
 ## How to contribute to Funtasks
 
-***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version``` 
-Ensure that you have python version >= 3.9
+***Prerequisites***: Make sure you have Python 3.9 or higher installed. You can check your version by running:
+```bash
+python3 --version
+```
 
 1. Clone the repository: 
     ```bash
@@ -139,14 +141,18 @@ Ensure that you have python version >= 3.9
     ```bash
     pipenv shell
 
-5. Build the package:
+5. Modify & Run the file: Make changes you want to make, and run the files.     For example, if you want to run tasks.py, run the following command:
     ```bash
-    python3 -m build
+    python3 
 
 6. To run tests: Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
     ```bash
     pipenv run pytest
 
-7. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
+7. Build the package:
+    ```bash
+    python3 -m build
+
+8. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
     ```bash
     exit
