@@ -39,28 +39,28 @@ class Tests:
 
     ## forecast price ##
     # Test1: Forecast Prices Function Returns a DataFrame with the Correct Structure
-    def test_forecast_prices_structure(monkeypatch):
-    # Mock get_price_data to provide historical data
-     def mock_get_price_data(symbol_string):
-        mock_price_data = pd.DataFrame({
-            'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
-            'price': [100.0 + i for i in range(10)]
-        })
-        return BrainrotDataFrame("Mock data", mock_price_data)
+    def test_forecast_prices_structure(self, monkeypatch):
+        # Mock get_price_data to provide historical data
+        def mock_get_price_data(symbol_string):
+            mock_price_data = pd.DataFrame({
+                'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
+                'price': [100.0 + i for i in range(10)]
+            })
+            return BrainrotDataFrame("Mock data", mock_price_data)
 
-     stock = Stock()
-     monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
+        stock = Stock()
+        monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
 
-     # Call forecast_prices and check structure
-     forecast = stock.forecast_prices("IBM", days=5)
-    
-     assert forecast.df is not None, "Forecast DataFrame should not be None"
-     assert 'date' in forecast.df.columns, "Forecast DataFrame missing 'date' column"
-     assert 'predicted_price' in forecast.df.columns, "Forecast DataFrame missing 'predicted_price' column"
-     assert not forecast.df.empty, "Forecast DataFrame should not be empty"
-
+        # Call forecast_prices and check structure
+        forecast = stock.forecast_prices("IBM", days=5)
+        
+        assert forecast.df is not None, "Forecast DataFrame should not be None"
+        assert 'date' in forecast.df.columns, "Forecast DataFrame missing 'date' column"
+        assert 'predicted_price' in forecast.df.columns, "Forecast DataFrame missing 'predicted_price' column"
+        assert not forecast.df.empty, "Forecast DataFrame should not be empty"
+   
     # Test2: Correct Number of Forecasted Days
-    def test_forecast_prices_row_count(monkeypatch):
+    def test_forecast_prices_row_count(self, monkeypatch):
         # Mock get_price_data to provide historical data
         def mock_get_price_data(symbol_string):
             mock_price_data = pd.DataFrame({
@@ -79,7 +79,7 @@ class Tests:
         assert len(forecast.df) == days_to_forecast, f"Expected {days_to_forecast} rows, but got {len(forecast.df)}"
 
     # Test3: Predicted Price Range
-    def test_forecast_prices_value_range(monkeypatch):
+    def test_forecast_prices_value_range(self, monkeypatch):
         # Mock get_price_data to provide historical data
         def mock_get_price_data(symbol_string):
             mock_price_data = pd.DataFrame({
