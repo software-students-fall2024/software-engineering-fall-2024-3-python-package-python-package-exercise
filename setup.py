@@ -8,7 +8,7 @@ setuptools.setup(
 	name="pyexcuses", 
 
 	# version of the module 
-	version="0.0.1", 
+	version="0.0.2", 
 
 	# Name of Author 
 	author="Darren Zou, Peter D'Angelo, Gene Park, Joseph Chege", 
@@ -27,7 +27,7 @@ setuptools.setup(
 
 	# Any link to reach this module, ***if*** you have any webpage or github profile 
 	# url="https://github.com/username/", 
-	packages=setuptools.find_packages(), 
+	packages=['pyexcuses'], 
 
 
 	# if module has dependencies i.e. if your package rely on other package at pypi.org 
@@ -40,7 +40,6 @@ setuptools.setup(
 	# "package2", 
 	# ], 
 
-	install_requires=['typing'],
 
 	# classifiers like program is suitable for python3, just leave as it is. 
 	classifiers=[ 
