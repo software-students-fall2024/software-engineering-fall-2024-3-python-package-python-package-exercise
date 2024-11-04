@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8cf13620aee3d6448a5293a96983ced5fada0da68a22aa89538d8673d06dc3fc"
+            "sha256": "94efaff4b5b159798acfe2b0f3b5f93e1e2bb6ca5d404b9f4300bdc6fafbd31a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,15 +16,6 @@
         ]
     },
     "default": {
-        "brainrot-stocks": {
-            "hashes": [
-                "sha256:91b6af153f3a836b7e319c1f0ee7dda938bb0af52d4d9831d7fc1c8ac56450c0",
-                "sha256:9226f2b2b8d06e20cf2b94f895d0a219c90eb5bd695f83e0cc7f0bb62002cab9"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==0.1.4"
-        },
         "build": {
             "hashes": [
                 "sha256:1d61c0887fa860c01971625baae8bdd338e517b836a2f70dd1f7aa3a6b2fc5b5",
