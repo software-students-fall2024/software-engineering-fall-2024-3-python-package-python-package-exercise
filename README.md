@@ -19,7 +19,7 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 3. **True Lover Generator**: Randomly generates a “true lover” profile for fun.
 4. **Lucky Day Generator**: Suggests a lucky day in the current month for the user.
 
-## A link to the Pytarot package on PyPI: https://pypi.org/project/pytarot/0.1.0/
+## A link to the Pytarot package on PyPI: https://pypi.org/project/pytarot/
 
 ## System Setup and Environment Configuration Guide
 
