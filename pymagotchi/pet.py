@@ -1,4 +1,4 @@
-from time import time, sleep
+from time import time
 from .names import generate_name
 from .constants import DEFAULT_TIMEFRAME, MAX_STAT_VALUE
 

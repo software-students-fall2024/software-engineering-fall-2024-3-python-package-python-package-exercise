@@ -5,27 +5,24 @@ from .pet import new_pet
 # pipenv run pytest
 
 def main():
-    pet = new_pet()  
+    pet = new_pet()
 
     try:
         while pet.stats["health"] > 0:
-            
+
             pet.display_art()
 
-            
             pet.status()
 
-            
             command = input("\nEnter a command (e.g., 'feed 10', 'sleep 5', 'play 15', 'rename new_name', or 'leave'): ")
             parts = command.split(maxsplit=1)
-            
+
             if len(parts) == 0:
                 print("Invalid command.")
                 continue
 
             action = parts[0].lower()
 
-            
             if action == "feed" and len(parts) > 1 and parts[1].isdigit():
                 pet.feed(int(parts[1]))
             elif action == "play" and len(parts) > 1 and parts[1].isdigit():

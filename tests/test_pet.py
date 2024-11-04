@@ -1,5 +1,4 @@
 import time
-import pytest
 import freezegun
 from pymagotchi.pet import Pet, new_pet
 from pymagotchi.constants import DEFAULT_TIMEFRAME, MAX_STAT_VALUE
@@ -405,7 +404,7 @@ def test_immortal_vs_mortal():
 def test_immortal_pet_stat_changes():
     """Test that immortal pet's stats change normally while health stays above zero."""
     with freezegun.freeze_time("2024-10-28 0:00:00"):
-        pet = Pet(name="TestPet", immortal=True) 
+        pet = Pet(name="TestPet", immortal=True)
         initial_stats = pet.stats.copy()
         with freezegun.freeze_time("2024-10-28 0:30:00"):
             pet.update_stats()
@@ -413,4 +412,3 @@ def test_immortal_pet_stat_changes():
             assert pet.stats["sleep"] < initial_stats["sleep"]
             assert pet.stats["happiness"] < initial_stats["happiness"]
             assert pet.stats["health"] > 0
-
