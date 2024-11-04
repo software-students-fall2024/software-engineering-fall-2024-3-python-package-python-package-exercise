@@ -119,7 +119,7 @@ class Stock:
             "price": [float(value["4. close"]) for value in time_series.values()]
         }).sort_values(by="date")
 
-        brainrot = random.choice(quotes).replace("{symbol_string}", symbol_string)
+        brainrot = random.choice(quotes).replace("{stock}", symbol_string)
         
         return BrainrotDataFrame(brainrot, price_data)
 
