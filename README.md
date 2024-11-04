@@ -92,7 +92,7 @@ print(solution)
 
 ## Contributing to pyexcuses
 
-Since we love contributions, if you’d like,  pleasefollow these steps to help us out.
+Since we love contributions, if you’d like,  please follow these steps to help us out.
 
 1. **Clone the repository**:
    ```console
