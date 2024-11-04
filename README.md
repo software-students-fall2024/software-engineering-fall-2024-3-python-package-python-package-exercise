@@ -82,10 +82,10 @@ from funtasks.tasks import add_task, complete_task, random_task,random_daily_goa
     - Returns: A confirmation message upon successful addition.
     - Raises: ValueError if the task already exists.
 
-Example: 
-    ```bash
-    add_task(“Do laundry”, 3)
-
+- Example: 
+```bash
+add_task(“Do laundry”, 3)
+```
 - **complete_task(task_name: str) -> str**
 
     - Description: Marks a task as completed.
@@ -93,19 +93,19 @@ Example:
     - task_name: The name of the task to complete.
     - Returns: A confirmation message or a message indicating the task doesn't exist.
 
-Example: 
-    ```bash
-    complete_task("Do laundry")
-
+- Example: 
+```bash
+complete_task("Do laundry")
+```
 - **random_task() -> str**
 
     - Description: Retrieves a random task from the list.
     - Returns: The name of a random task or a message indicating there are no tasks.
 
-Example: 
-    ```bash
-    random_task()
-
+- Example: 
+```bash
+random_task()
+```
 - **random_daily_goal(available_time: int) -> str**
 
     - Description: Suggests a task based on the available time.
@@ -113,10 +113,10 @@ Example:
     - available_time: Time available in minutes (used to determine task urgency).
     - Returns: A task that fits the time constraint or a message indicating no tasks are suitable.
 
-Example: 
-    ```bash
-    random_daily_goal(25)
-
+- Example: 
+```bash
+random_daily_goal(25)
+```
 
 ## How to contribute to Funtasks
 
