@@ -38,7 +38,7 @@ jobs:
         run: |
           pipenv install build
           pipenv run python -m build .
-      - name: Publish to PyPI test server
+      - name: Publish to PyPI server
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
