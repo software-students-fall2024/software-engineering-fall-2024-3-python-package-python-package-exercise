@@ -13,7 +13,7 @@ This package was created by generally following the [Packaging Python Projects](
 
 ## Link to Package on PYPI
 
-https://pypi.org/project/Brainrot-Stocks/0.1.0/#description
+https://pypi.org/project/Brainrot-Stocks/#description
 
 ## Team members
 
