@@ -15,21 +15,21 @@ Find us on PyPI [here](https://pypi.org/project/tamagotchi/).
 
 To use the Tamagotchi class
 
-`from tamagotchi import Tamagotchi`
+`from tamagotchi import tamagotchi`
 
 ### Class Initialization
 
-`tamagotchi = Tamagotchi()`
+`tamagotchi_pet = tamagotchi.tamagotchi()`
 
 Creates a new Tamagotchi instance with default attributes, including a blank name, a white background, and a default food item (apple).
 
 ### Methods
 
-**#### `run_game()`**
+#### **`run_game()`**
 
 The primary method to initialize and run the Tamagotchi game. This method launches the tkinter interface to input the pet's name and start interactions.
 
-`tamagotchi.run_game()`
+`tamagotchi_pet.run_game()`
 
 ---
 
@@ -41,7 +41,7 @@ Retrieves an ASCII representation of a specific pet based on the input number. T
   * `number` (*int* ): Identifier for the pet image file.
 * **Returns** : ASCII string of the pet image or`None` if not found.
 
-`tamagotchi.getpet(1)`
+`tamagotchi_pet.getpet(1)`
 
 ---
 
@@ -55,7 +55,7 @@ Converts an image into ASCII art based on grayscale values.
   * `character_map` (*str* ): Characters to map grayscale values for ASCII art.
 * **Returns** : ASCII art string or`None` if image not found.
 
-`ascii_art = tamagotchi.get_ascii_art("path/to/image.jpg")`
+`ascii_art = tamagotchi_pet.get_ascii_art("path/to/image.jpg")`
 
 ---
 
@@ -78,7 +78,7 @@ Changes the background color of the pet display.
 * **Parameters:**
   * `color` (*str*): Background color (e.g., "blue").
 
-`tamagotchi.change_background_color("lightblue")`
+`tamagotchi_pet.change_background_color("lightblue")`
 
 ---
 
@@ -89,7 +89,7 @@ Simulates feeding the Tamagotchi with a specified food item.
 * **Parameters:**
   * `food` (*str*): Name of the food.
 
-`tamagotchi.feed("banana")`
+`tamagotchi_pet.feed("banana")`
 
 ---
 
@@ -100,13 +100,27 @@ Simulates patting the pet a specified number of times.
 * **Parameters:**
   * `times` (*int*): Number of pats.
 
-`tamagotchi.pat(3)`
+`tamagotchi_pet.pat(3)`
 
 ---
 
 ### Example
 
-Find an example project that shows how to use each function [here]().
+```
+from tamagotchi import tamagotchi 
+
+tamagotchi_game = tamagotchi.Tamagotchi()
+tamagotchi_game.name = 'Fluffy'
+print(tamagotchi_game.getpet(1))
+
+# make sure you have a file called input_image.png in the same directory, or make sure you give a correct image path for this function to work
+
+print(tamagotchi_game.get_ascii_art("input_image.png", scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1))
+tamagotchi_game.ascii_art_label = tamagotchi_game.getpet(11)
+tamagotchi_game.feed("banana")
+tamagotchi_game.change_background_color("blue")
+tamagotchi_game.run_game()
+```
 
 ## Contributing
 
@@ -121,14 +135,14 @@ pipenv shell
 pipenv install -e .
 python -m pip install --upgrade pip setuptools wheel
 
-// to build:
+# to build:
 pip install build
 python -m build
 
-// install built package for testing
+# install built package for testing
 pip install dist/*.whl 
 
-// to test
+# to test
 pytest
 
 ```
@@ -136,7 +150,7 @@ pytest
 ## To Use and Run
 
 ```
-pip install tamagotchi
+pip install tamagotchi==0.1.2
 tamagotchi
 ```
 
