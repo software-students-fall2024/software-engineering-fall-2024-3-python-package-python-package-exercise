@@ -3,6 +3,7 @@
 import sys
 from fortune_cookie import get_fortune
 from eight_ball import get_eight_ball
+from vibe_check import get_vibe_check
 
 def error_msg():
     print("To contact the oracle, type:")
@@ -27,11 +28,16 @@ def main():
             print("please specify a mood: optimistic, realistic, unfortunate")
             error_msg()
     elif command == "eight_ball":
-        print("not implemented yet")
+        print(get_eight_ball())
     elif command == "petting_zoo":
         print("not implemented yet")
     elif command == "vibe_check":
-        print("not implemented yet")
+        if len(sys.argv) == 3:
+            vibe = sys.argv[2].lower()
+            print(get_vibe_check(vibe))
+        else:
+            print("please specify a vibe: good, bad, or random")
+            error_msg()
     else:
         error_msg()
 
