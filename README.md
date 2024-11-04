@@ -9,8 +9,18 @@ This package was created by generally following the [Packaging Python Projects](
 ## Overview
 Funtasks is a simple and fun task management package designed to help you add, complete, and randomly select tasks. It includes features for adding tasks with urgency levels, marking tasks as complete, and generating random tasks or daily goals based on your available time. 
 
-## Link to our package on PYPI
-(https://pypi.org/project/funtasks/)
+## Team members
+
+[Natalie Ovcarov](https://github.com/nataliovcharov)
+
+[Jun Li](https://github.com/jljune9li )
+
+[Daniel Brito](https://github.com/danny031103 )
+
+[Alvaro Martinez](https://github.com/AlvaroMartinezM)
+
+## Link to our package on PyPI
+[PyPI package Link](https://pypi.org/project/funtasks/)
 
 ## How to install and use this package
 
@@ -54,9 +64,64 @@ We've included 3 unit tests for each function in our ```funtasks``` package. To 
 2. Now, you can run the tests from the main project directory: ```python3 -m pytest```
 3. All tests should pass to ensure that the production code is behaving correctly
 
+## Usage
+### How to import funtasks
+
+    ```bash
+    from funtasks.tasks import add_task, complete_task, random_task,random_daily_goal, tasks
+    ```
+
+### Functions Overview
+
+-**add_task(task_name: str, urgency: int) -> str**
+
+    -Description: Adds a new task to the list with a specified urgency level.
+    Parameters:
+    -task_name: The name of the task to add.
+    -urgency: An integer representing the urgency level (1–5, with 5 being the most urgent).
+    -Returns: A confirmation message upon successful addition.
+    -Raises: ValueError if the task already exists.
+
+Example: 
+    ```bash
+    add_task(“Do laundry”, 3)
+
+-**complete_task(task_name: str) -> str**
+
+    -Description: Marks a task as completed.
+    -Parameters:
+    -task_name: The name of the task to complete.
+    -Returns: A confirmation message or a message indicating the task doesn't exist.
+
+Example: 
+    ```bash
+    complete_task("Do laundry")
+
+-**random_task() -> str**
+
+    -Description: Retrieves a random task from the list.
+    -Returns: The name of a random task or a message indicating there are no tasks.
+
+Example: 
+    ```bash
+    random_task()
+
+-**random_daily_goal(available_time: int) -> str**
+
+    -Description: Suggests a task based on the available time.
+    Parameters:
+    -available_time: Time available in minutes (used to determine task urgency).
+    -Returns: A task that fits the time constraint or a message indicating no tasks are suitable.
+
+Example: 
+    ```bash
+    random_daily_goal(25)
+
+
 ## How to contribute to Funtasks
 
-***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version```
+***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version``` 
+Ensure that you have python version >= 3.9
 
 1. Clone the repository: 
     ```bash
