@@ -14,7 +14,7 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 [May Zhou](https://github.com/zz4206)
 
 ## Description
-[Link to Package](https://pypi.org/project/pymovies/0.0.9/)
+[Link to Package](https://pypi.org/project/pymovies)
 
 ## Installation
 
@@ -22,6 +22,11 @@ To install the `pymovies` package from PyPI, run the following command:
 
     ```bash
     pip install pymovies
+    ```
+
+To run the package:
+    ```base
+    python -m pymovies
     ```
 
 ## Run Tests
