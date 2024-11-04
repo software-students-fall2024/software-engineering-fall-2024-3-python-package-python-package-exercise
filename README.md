@@ -56,20 +56,29 @@ We've included 3 unit tests for each function in our ```funtasks``` package. To 
 ***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version```
 
 1. Clone the repository: 
-```git clone https://github.com/software-students-fall2024/3-python-package-java_and_the_scripts_.git```
+    ```bash
+git clone https://github.com/software-students-fall2024/3-python-package-java_and_the_scripts_.git
+
 2. Enter the directory:
-```cd  3-python-package-java_and_the_scripts_```
-3. Set up a virtual environment using ```pipenv```:
-If ```pipenv``` has not been installed, install using ```pip3 install pipenv```
-Now, run the following command to install all dependencies that we've included in the provided ```Pipfile```: 
-```pipenv install --dev```
+    ```bash
+cd  3-python-package-java_and_the_scripts_
+
+3. Set up a virtual environment using ```pipenv```: If ```pipenv``` has not been installed, install using ```pip3 install pipenv```. Now, run the following command to install all dependencies that we've included in the provided ```Pipfile```: 
+    ```bash
+pipenv install --dev
+
 4. Activate the virtual environment:
-```pipenv shell```
+    ```bash
+pipenv shell
+
 5. Build the package:
-```python3 -m build```
-6. To run tests:
-Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
-```pipenv run pytest```
-7. Exit the virtual environment:
-Once you're done working with the project, you can deactivate the virtual environment with:
-```exit```
+    ```bash
+python3 -m build
+
+6. To run tests: Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
+    ```bash
+pipenv run pytest
+
+7. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
+    ```bash
+exit
