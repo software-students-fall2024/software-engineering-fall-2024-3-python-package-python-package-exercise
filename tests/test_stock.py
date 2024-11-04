@@ -25,18 +25,44 @@ class Tests:
         actual = True
         assert actual == expected, "Expected True to be True!"
         
-    def test_get_earnings(self):
-        print("\n Testing get_earnings() with IBM")
+    
+    def test_get_earnings(self, monkeypatch):
+        mock_earnings_data = {
+            "symbol": "IBM",
+            "annualEarnings": [
+                {"fiscalDateEnding": "2022-12-31", "reportedEPS": "12.34"},
+                {"fiscalDateEnding": "2021-12-31", "reportedEPS": "10.12"}
+            ],
+            "quarterlyEarnings": [
+                {"fiscalDateEnding": "2022-12-31", "reportedEPS": "3.21"},
+                {"fiscalDateEnding": "2022-09-30", "reportedEPS": "2.98"}
+            ]
+        }
+
+        def mock_get(*args, **kwargs):
+            return MockResponse(200, mock_earnings_data)
+
+        monkeypatch.setattr("requests.get", mock_get)
+        
         stock = Stock()
         earnings = stock.get_earnings("IBM")
         
-        # assert df has correct columns
+        # check that the response has the correct columns
         expected_columns = ['date', 'reportedEPS']
-        print(earnings)
         assert list(earnings.df.columns) == expected_columns, "DataFrame columns do not match expected columns"
         
-        # checkign df is not empty
+        # check that the brainrot dataframe is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
+        
+    def test_get_market_mood_returns_string(self):
+        stock = Stock()
+        result = stock.get_market_mood()
+        assert isinstance(result, str), "Expected get_market_mood to return a string"
+
+    def test_get_market_mood_non_empty(self):
+        stock = Stock()
+        result = stock.get_market_mood()
+        assert result, "Expected get_market_mood to return a non-empty result"
         
     # testing invalid symbol token when called with get_earnings
     def test_get_earnings_invalid_symbol(self, capsys, monkeypatch):

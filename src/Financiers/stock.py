@@ -15,7 +15,7 @@ class Stock:
     def __init__(self):
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
     
-    def mood_of_the_market(self):
+    def get_market_mood(self):
         """
         Provides a random vibe check on the current market mood with brainrot and stock trends
 
@@ -55,7 +55,6 @@ class Stock:
             f"{gainer_ticker} skyrocketed {gainer_change_percentage}, pure Sigma grind, while {loser_ticker} just dipped – classic cringe arc.",
             f"Today's market is edgy AF – {gainer_ticker} flexed {gainer_change_percentage}, while {loser_ticker} went sussy by {loser_change_percentage}."
         ]
-
         return random.choice(vibes)
 
     def get_earnings(self, symbol_string, annual=True, numDays=5):
