@@ -53,8 +53,7 @@ We've included 3 unit tests for each function in our ```funtasks``` package. To 
 
 ## How to contribute to Funtasks
 
-### Prerequisites: 
-Make sure you have Python 3 installed. You can check your version using: ```python3 --version```
+***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version```
 
 1. Clone the repository: 
 ```git clone https://github.com/software-students-fall2024/3-python-package-java_and_the_scripts_.git```
