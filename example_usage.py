@@ -1,33 +1,19 @@
 from Financiers.stock import Stock
-from Financiers.stock import Company
 
 stock = Stock()
+
+print(stock.get_market_mood())
+print (stock.get_earnings("AAPL"))
+print(stock.get_price_data("AAPL"))
+print(stock.forecast_prices("AAPL"))
 print(stock.company_overview("IBM"))
+print(stock.plot_top_movers(["AAPL", "GOOGL","IBM"]))
+print(stock.project_future_estimates(["AAPL", "GOOGL","IBM"]))
 
-company = Company()
-info = company.Stockprice_getter("AAPL")
-print(info)
+data = {
+    'high': [10, 10, 12, 12, 12, 12, 12, 12, 12, 12],
+    'low': [8, 8, 9, 10, 10, 10, 10, 10, 10, 10],
+    'close': [9, 9, 10, 11, 11, 11, 11, 11, 11, 11]
+}
+print(stock.calculate_atr(data))
 
-sma = company.calculate_sma(info, window=20)
-ema = company.calculate_ema(info, span=20)
-print(sma)
-print(ema)
-
-print(company.detect_crossover(sma, ema))
-print(company.calculate_rolling_std(info, window=20))
-print(company.calculate_daily_returns(info))
-print(company.calculate_atr(info,window=14))
-print(company.calculate_true_range(info))
-print(company.calculate_momentum(info, period=10))
-print(company.calculate_roc(info, period=10))
-print(company.calculate_volume_moving_average(info, window=20))
-print(company.calculate_vpt(info))
-print(company.calculate_bollinger_bands(info, window=20, num_std_dev=2))
-print(company.calculate_rsi(info, period=14))
-print(company.calculate_stochastic_oscillator(info, period=14))
-print(company.calculate_daily_range(info))
-print(company.detect_doji(info, tolerance=0.001))
-print(company.detect_engulfing(info))
-print(company.calculate_cumulative_return(info))
-print(company.calculate_sharpe_ratio(info, risk_free_rate=0.01, period=252))
-print(company.calculate_daily_returns(info))
