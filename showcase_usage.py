@@ -1,10 +1,10 @@
-from src.pyexcuses import (
+from pyexcuses import (
     generate_excuse,
     suggest_solution,
     list_available_options,
     get_multilingual_excuse_or_solution,
 )
-from src.pyexcuses.exc import (
+from pyexcuses.exc import (
     SpokenLanguageNotFoundError,
     ProgrammingLanguageNotFoundError,
 )
