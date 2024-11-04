@@ -2,6 +2,10 @@
 
 An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
 
+# Package Page on Pypi
+
+https://pypi.org/simple/pyexcuses/
+
 # Build Badge
 
 [![CI / CD](https://github.com/software-students-fall2024/3-python-package-realoriginal/actions/workflows/build.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-realoriginal/actions/workflows/build.yaml)
