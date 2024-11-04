@@ -1,4 +1,4 @@
-from quotes import quote_categories
+from .quotes import quote_categories
 def list_quote_from_category(movie_name):
     results = []
     for category, quotes in quote_categories.items():

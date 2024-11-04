@@ -9,4 +9,4 @@ def get_quote_of_the_day():
     random.seed(today.toordinal())
     quote_of_the_day = random.choice(all)
     
-    return quote_of_the_day
+    return f'{today} : "{quote_of_the_day["quote"]}" - {quote_of_the_day["movie"]}'
