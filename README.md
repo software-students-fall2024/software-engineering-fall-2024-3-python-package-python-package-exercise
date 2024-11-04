@@ -169,6 +169,12 @@ tamagotchi_game.run_game()
 
 ```bash
 pip install tamagotchi==0.1.2
+```
+```bash
+python <your_python_script_name>.py
+```
+- or run by:
+```bash
 tamagotchi
 ```
 
