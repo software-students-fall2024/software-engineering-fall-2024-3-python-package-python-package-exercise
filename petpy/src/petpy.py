@@ -164,11 +164,6 @@ def get_pet_stats(pet, pet_name):
     stats += f"Mood: {Pet.MOOD_LEVELS.get(pet.mood, 'Unknown')}"
     
     return stats
-
-<<<<<<<< HEAD:pet/pet.py
-def main():
-    print("main function")
-========
 def fight(pet):
     base_odds = 5
     modifier = (5 - pet.mood) * 0.1
@@ -193,4 +188,4 @@ def train_pet(pet):
     print(f"I don't think pets like training... {pet.name}'s mood decreased by {intensity}.")
     pet.gain_exp(intensity * 7)
     pet.change_mood(-intensity)
->>>>>>>> main:petpy/src/petpy.py
+
