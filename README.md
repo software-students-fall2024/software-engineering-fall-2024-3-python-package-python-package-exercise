@@ -9,7 +9,7 @@ This package was created by generally following the [Packaging Python Projects](
 
 ## Project Description
 
-**Brainrot-Stocks** is a Python package designed for handling financial data. It includes modules for managing stock quotes, performing various operations on financial data, and engaging learning experiences.
+Finance is boring and you hate crunching numbers all day? No problem, **Brainrot-Stocks** is a Python package designed for handling financial data while keeping you entertained with a constant stream of brainrot. It includes modules for managing stock quotes, performing various operations on financial data, and engaging learning experiences. Powered by [AlphaVantage API.](https://www.alphavantage.co/documentation/) 
 
 ## Link to Package on PYPI
 
@@ -33,6 +33,106 @@ https://pypi.org/project/Brainrot-Stocks/#description
 - **tests**  
   Contains test files for validating the code.
   - `test_stock.py`: Tests the `stock.py` module.
+
+## Usage
+See the example usage Python program to see all the functions in action [here.](https://github.com/software-students-fall2023/3-python-package-exercise-team1-pt3/blob/main/example-program.py)
+
+### Stock Class
+   ```python
+    from Financiers.stock import Stock
+    stock = Stock()
+   ```
+  *  **Description:** The Financiers module contains a class called ```Stock``` that contains functions which access data from [AlphaVantage's API](https://www.alphavantage.co/documentation/) for your Python programs. To do this, import ```Stock``` and create an instance of it.
+#### 1. `get_market_mood()`
+   ```python
+   stock = Stock()
+   mood = stock.get_market_mood()
+   ```
+   - **Description:** Provides a random statement about the current stock market’s vibe, referencing top gainers and losers.
+
+#### 2. `get_earnings(symbol_string, annual=True, numDays=5)`
+   ```python
+   earnings_df = stock.get_earnings("AAPL", annual=True, numDays=5)
+   ```
+   - **Arguments:**
+     - `symbol_string` (str): Ticker symbol of the stock (e.g., `"AAPL"`).
+     - `annual` (bool): If `True`, retrieves annual earnings; if `False`, retrieves quarterly earnings.
+     - `numDays` (int): Number of recent entries to return.
+   - **Returns:** `BrainrotDataFrame` with a random brainrot quote and a DataFrame of earnings data.
+
+#### 3. `get_price_data(symbol_string)`
+   ```python
+   price_data = stock.get_price_data("AAPL")
+   ```
+   - **Arguments:**
+     - `symbol_string` (str): Ticker symbol of the stock.
+   - **Returns:** `BrainrotDataFrame` with the stock's historical price data.
+
+#### 4. `forecast_prices(symbol_string, days=30)`
+   ```python
+   forecast_df = stock.forecast_prices("AAPL", days=30)
+   ```
+   - **Arguments:**
+     - `symbol_string` (str): Ticker symbol of the stock.
+     - `days` (int): Number of future days to forecast.
+   - **Returns:** `BrainrotDataFrame` with forecasted dates and predicted prices.
+
+#### 5. `company_overview(symbol_string)`
+   ```python
+   overview = stock.company_overview("AAPL")
+   ```
+   - **Arguments:**
+     - `symbol_string` (str): Ticker symbol of the company.
+   - **Returns:** `BrainrotWrapper` with a `Company` object containing information about the company.
+
+#### 6. `plot_top_movers(symbols)`
+   ```python
+   top_movers_df = stock.plot_top_movers(["AAPL", "GOOGL", "TSLA"])
+   ```
+   - **Arguments:**
+     - `symbols` (list): List of stock ticker symbols.
+   - **Returns:** `BrainrotDataFrame` with information on the top gainer and loser from the provided symbols. Generates plots for visual analysis.
+
+#### 7. `project_future_estimates(symbols, days=30, pattern="neutral")`
+   ```python
+   estimates_df = stock.project_future_estimates(["AAPL", "GOOGL"], days=30, pattern="bullish")
+   ```
+   - **Arguments:**
+     - `symbols` (list): List of stock ticker symbols.
+     - `days` (int): Number of days to forecast.
+     - `pattern` (str): Trend pattern (`"bullish"`, `"bearish"`, or `"neutral"`).
+   - **Returns:** `BrainrotDataFrame` with forecasted prices for each symbol in the list.
+
+#### 8. `calculate_atr(data, window=14)`
+   ```python
+   atr = stock.calculate_atr(data, window=14)
+   ```
+   - **Arguments:**
+     - `data` (DataFrame): DataFrame containing columns `'high'`, `'low'`, and `'close'`.
+     - `window` (int): Period to calculate the Average True Range (default is 14).
+   - **Returns:** `pd.Series` with ATR values.
+
+---
+
+### Company Class
+
+#### 1. `forecast_by_date_range(date_range="last_month", days_to_forecast=30, model_type="linear", confidence_level=0.95, frequency="daily", return_format="dataframe")`
+   ```python
+   forecast = company.forecast_by_date_range(date_range="last_year", days_to_forecast=30, model_type="random_walk")
+   ```
+   - **Arguments:**
+     - `date_range` (str): Specifies the historical range for data (`"last_day"`, `"last_month"`, `"last_year"`).
+     - `days_to_forecast` (int): Number of days to forecast.
+     - `model_type` (str): Forecasting model (`"linear"`, `"random_walk"`).
+     - `confidence_level` (float): Confidence level for forecast intervals.
+     - `frequency` (str): Frequency of forecasted data (`"daily"`, `"weekly"`, `"monthly"`).
+     - `return_format` (str): Format of the return data (`"dataframe"`, `"json"`).
+   - **Returns:** `BrainrotDataFrame` or JSON with forecasted dates, prices, and confidence intervals (if applicable).
+
+### BrainrotDataFrame and BrainrotWrapper Classes
+
+These classes are designed to wrap data in a custom way, displaying both the data and a randomly selected "brainrot" quote for humorous effect. Each can be instantiated directly or will be returned by functions within the `Stock` and `Company` classes.
+
 
 ## How to install and use this package
 Prerequisites: have latest versions of pip and python installed on your environment.
