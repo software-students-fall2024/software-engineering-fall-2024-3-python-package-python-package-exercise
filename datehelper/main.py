@@ -1,5 +1,5 @@
 from datetime import date
-from datehelper.add_days import add_days 
+from datehelper.core import add_days, days_between
 
 def main():
     print("Welcome to the Date Helper!")
@@ -16,8 +16,13 @@ def main():
         print(f"\nStarting date: {input_date}")
         print(f"Adding {days_to_add} days...")
         print(f"New date: {future_date}")
+        days_between_dates = days_between(input_date, future_date)
+        print(f"Days between {input_date} and {future_date}: {days_between_dates}")
+
     except Exception as e:
         print(f"An error occurred: {e}")
+
+    
 
     print("\nThank you for using Date Helper!")
 

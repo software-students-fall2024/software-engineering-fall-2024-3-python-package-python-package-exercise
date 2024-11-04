@@ -9,6 +9,7 @@ requests = "*"
 [dev-packages]
 twine = "*"
 pytest = "*"
+build = "*"
 
 [requires]
 python_version = "3.9"
