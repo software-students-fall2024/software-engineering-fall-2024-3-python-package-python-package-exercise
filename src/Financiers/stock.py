@@ -13,11 +13,12 @@ class Stock:
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
 
     # TODO: add optional argument for quarterly or annual
-    def get_earnings(self, symbol_string):
+    def get_earnings(self, symbol_string, annual=True):
         """
         Retrieves the annual and quarterly earnings (EPS) for the company of interest
         Arguments:
         symbol_string: a string representing the ticker of your choice. For example: symbol=IBM.
+        annual: optional bool for whether earnings are reported quarterly or annually. default annual (True)
 
         Returns:
         a custom pandas DataFrame BrainrotDataFrame containing a random brainrot quote and a DataFrame with two columns 'date' and 'reportedEPS'
@@ -26,8 +27,9 @@ class Stock:
 
         response = requests.get(url)
         data = response.json()
-
-        annualEarnings = pd.DataFrame(
+        
+        if annual == True:
+                annualEarnings = pd.DataFrame(
             data["annualEarnings"]
         )  # convert 'annualEarnings' from json (list of dictionaries orignally) into DataFrame
         annualEarnings = annualEarnings[
@@ -40,6 +42,7 @@ class Stock:
         annualEarnings["type"] = (
             "Annual"  # added this to differentiate between quarterly earnings below vvvv
         )
+
 
         # and just do the same thing above for below for quarterly earnings cuz the API call happens to return both
         quarterlyEarnings = pd.DataFrame(data["quarterlyEarnings"])
