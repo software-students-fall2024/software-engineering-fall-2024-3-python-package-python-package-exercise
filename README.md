@@ -102,13 +102,27 @@ Simulates patting the pet a specified number of times.
 
 `tamagotchi_pet.pat(3)`
 
+### Usage Example
+```bash
+tamagotchi_game = tamagotchi.Tamagotchi()
+tamagotchi_game.name = 'Fluffy'
+
+# make sure you have a file called input_image.png in the same directory, or make sure you give a correct image path for this function to work
+
+tamagotchi_game.ascii_art_label = tamagotchi_game.get_ascii_art("input_image.png", scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1)
+tamagotchi_game.ascii_art_label = tamagotchi_game.getpet(11)
+tamagotchi_game.feed("banana")
+tamagotchi_game.change_background_color("blue")
+tamagotchi_game.run_game()
+``` 
 ---
 
 ## Contributing
 
 ### Installation
-1. **Install Python**:
+1. **Install Python and Upgrade Tkinter**:
    - Make sure Python 3.8 or higher is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+   - Ensure tkinter version 8.6 or higher is installed on macOS. Install or upgrade if needed.
 
 2. **Clone the Repository**
    - Download the project by cloning the GitHub repository or downloading the project files manually:
@@ -155,11 +169,10 @@ from tamagotchi import tamagotchi
 
 tamagotchi_game = tamagotchi.Tamagotchi()
 tamagotchi_game.name = 'Fluffy'
-print(tamagotchi_game.getpet(1))
 
 # make sure you have a file called input_image.png in the same directory, or make sure you give a correct image path for this function to work
 
-print(tamagotchi_game.get_ascii_art("input_image.png", scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1))
+tamagotchi_game.ascii_art_label =tamagotchi_game.get_ascii_art("input_image.png", scale=0.1, character_map=tamagotchi.Tamagotchi.G_SCALE_1)
 tamagotchi_game.ascii_art_label = tamagotchi_game.getpet(11)
 tamagotchi_game.feed("banana")
 tamagotchi_game.change_background_color("blue")
@@ -171,14 +184,15 @@ tamagotchi_game.run_game()
 pip install tamagotchi==0.1.2
 ```
 ```bash
-python <your_python_script_name>.py
+python replace_with_your_python_script_name.py
 ```
 - or run by:
 ```bash
 tamagotchi
 ```
 
-***Note:** to upload an image, make sure your file is in the same directory you install this package in.*
+***Note:** To upload an image, make sure your file is in the same directory where you installed this package. Also, ensure that `tkinter` version 8.6 or higher is installed.*
+
 
 ## Teammates
 
