@@ -29,6 +29,7 @@ Funtasks is a simple and efficient task management package designed to help you 
 4. Create a Python program file that imports the package and uses it, e.g. 
     ```bash
     from funtasks.tasks import add_task, complete_task, random_task, random_daily_goal, tasks
-    This approach lets you directly use ```add_task```, ```complete_task```, ```random_task```, and ```random_daily_goal```
+
+This approach lets you directly use ```add_task```, ```complete_task```, ```random_task```, and ```random_daily_goal```
 
 
