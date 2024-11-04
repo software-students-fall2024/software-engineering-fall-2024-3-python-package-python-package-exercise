@@ -188,7 +188,7 @@ class Stock:
             print("Error: Received invalid JSON response from AlphaVantage API.")
         return None
     
-    def get_top_movers(self, symbols):
+    def plot_top_movers(self, symbols):
         """
         Retrieves and displays the top gainer and loser among the provided stock symbols.
         Arguments:

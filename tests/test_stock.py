@@ -222,11 +222,11 @@ class Tests:
         assert result.object.sector == SAMPLE_OVERVIEW_JSON["Sector"]
         assert result.object.industry == SAMPLE_OVERVIEW_JSON["Industry"]
     
-    # Tests for get_top_movers
+    # Tests for plot_top_movers
 
-    def test_get_top_movers_no_data(self, monkeypatch):
+    def test_plot_top_movers_no_data(self, monkeypatch):
         """
-        Test get_top_movers with symbols that have no data to ensure it handles empty data gracefully.
+        Test plot_top_movers with symbols that have no data to ensure it handles empty data gracefully.
         """
         stock = Stock()
         
@@ -236,12 +236,12 @@ class Tests:
         
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
         
-        result = stock.get_top_movers(["AAPL", "GOOGL"])
+        result = stock.plot_top_movers(["AAPL", "GOOGL"])
         assert result == "No data available for the provided symbols.", "Expected message for no data available."
 
-    def test_get_top_movers_single_stock(self, monkeypatch):
+    def test_plot_top_movers_single_stock(self, monkeypatch):
         """
-        Test get_top_movers with a single stock symbol to ensure it returns the same stock as both gainer and loser.
+        Test plot_top_movers with a single stock symbol to ensure it returns the same stock as both gainer and loser.
         """
         stock = Stock()
 
@@ -255,15 +255,15 @@ class Tests:
         
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
         
-        result = stock.get_top_movers(["AAPL"])
+        result = stock.plot_top_movers(["AAPL"])
         assert "Top Gainer" in result.df.columns, "Expected Top Gainer column in result."
         assert "Top Loser" in result.df.columns, "Expected Top Loser column in result."
         assert result.df["Top Gainer"]["Symbol"] == "AAPL", "Expected AAPL as top gainer."
         assert result.df["Top Loser"]["Symbol"] == "AAPL", "Expected AAPL as top loser."
 
-    def test_get_top_movers_multiple_stocks(self, monkeypatch):
+    def test_plot_top_movers_multiple_stocks(self, monkeypatch):
         """
-        Test get_top_movers with multiple stock symbols and varying prices to ensure correct top gainer and loser are identified.
+        Test plot_top_movers with multiple stock symbols and varying prices to ensure correct top gainer and loser are identified.
         """
         stock = Stock()
 
@@ -283,7 +283,7 @@ class Tests:
 
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
 
-        result = stock.get_top_movers(["AAPL", "GOOGL"])
+        result = stock.plot_top_movers(["AAPL", "GOOGL"])
         assert result.df["Top Gainer"]["Symbol"] == "AAPL", "Expected AAPL as top gainer."
         assert result.df["Top Loser"]["Symbol"] == "GOOGL", "Expected GOOGL as top loser."
 
