@@ -12,8 +12,6 @@ Funtasks is a simple and efficient task management package designed to help you 
 
 ## How to install and use this package
 
-### Prerequisites
-
 1. Make sure you have `pipenv` installed. You can install it using `pip3`:
     ```bash
     pip3 install pipenv
@@ -45,3 +43,10 @@ Additionally, we have provided an example script that you can run directly:
 2. Run the package directly from the command line: ```python3 -m funtasks```. This should directly run the code in the ```__main__.py```.
 3. Exit the virtual environment:
 ```exit```
+
+## How to run unit tests
+We've included 3 unit tests for each function in our ```funtasks`` package. To run these tests:
+
+1. Install pytest in a virtual environment
+2. Now, you can run the tests from the main project directory: ```python3 -m pytest```
+3. All tests should pass to ensure that the production code is behaving correctly
