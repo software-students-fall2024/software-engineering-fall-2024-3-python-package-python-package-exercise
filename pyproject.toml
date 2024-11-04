@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pet"
+name = "petpypi"
 description = "An example of a package developed with pyenv, built with build using setuptools, uploaded to PyPI using twine, and distributed via pip."
 version = "0.1.0"
 authors = [
@@ -31,9 +31,9 @@ dev = ["pytest"]
 "Bug Tracker" = "https://github.com/software-students-fall2024/3-python-package-job-offer-plz/issues"
 
 [project.scripts]
-pet = "pet:main"
+pet = "petpy.src.main:main"
 
 [tool.setuptools]
-packages = { find = { exclude = ["tests", "tests.*"]} }
+packages = { find = { where = ["petpy/src"]} }
 
 

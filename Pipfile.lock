@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "33f6889333ec41e51a01381f07c650ca79216ba6255b0aabdbd3e011dbe9052b"
+            "sha256": "3173132f9720868e0b1b15900d0efb607f6f7857917a6dccb8ca54e1b4c6b802"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -152,8 +152,7 @@
             "markers": "python_version >= '3.6'",
             "version": "==3.10"
         },
-        "pet": {
-            "editable": true,
+        "petpypi": {
             "file": "."
         },
         "python-dateutil": {
@@ -462,6 +461,9 @@
             "markers": "python_version >= '3.8'",
             "version": "==24.1"
         },
+        "petpypi": {
+            "file": "."
+        },
         "pkginfo": {
             "hashes": [
                 "sha256:5df73835398d10db79f8eecd5cd86b1f6d29317589ea70796994d49399af6297",
@@ -538,11 +540,11 @@
         },
         "rich": {
             "hashes": [
-                "sha256:9836f5096eb2172c9e77df411c1b009bace4193d6a481d534fea75ebba758283",
-                "sha256:bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
+                "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098",
+                "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"
             ],
             "markers": "python_full_version >= '3.8.0'",
-            "version": "==13.9.3"
+            "version": "==13.9.4"
         },
         "twine": {
             "hashes": [
