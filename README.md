@@ -5,14 +5,14 @@
 
 **Riddle Handler** is a lighthearted Python package designed to bring a bit of joy and levity to developers' lives. It provides an interactive experience where users can generate riddles of varying difficulties and topics, check answers, submit new riddles, and receive hints. The package is built following rigorous software engineering practices, ensuring quality and reliability.
 ## PyPI Link
-[Riddle Handler](https://pypi.org/project/riddle-handler/1.0.3/)
+[Riddle Handler](https://pypi.org/project/riddle-handler/1.0.4/)
 
 ## Installation
 
 Install the package via pip:
 
 ```bash
-pip install riddle-handler==1.0.3
+pip install riddle-handler==1.0.4
 ```
 
 ## Usage
@@ -291,7 +291,7 @@ To merge code from a feature branch into `main`:
 1. **Install the package via pip:**
 
    ```bash
-   install riddle-handler==1.0.3
+   install riddle-handler==1.0.4
    ```
 
 2. **Use the package in your Python scripts** as shown in the [Usage](#usage) examples.
@@ -307,6 +307,9 @@ No environment variables are required for basic usage.
 **The package uses a `riddleLibrary.json` file to store riddles. Ensure that this file is in the root directory of your project. You can use our library from [this link](https://github.com/software-students-fall2024/3-python-package-codecrafter/blob/main/riddleLibrary.json) or you can build your own by creating a `riddleLibrary.json` file.**
 
 ## Update Log
+v1.0.4
+Bug Fix: Resolved the issue where user cannot import functions from package. Change the libarary paths.
+
 v1.0.3
 Bug Fix: Resolved an issue where the package has no attribute.
 
