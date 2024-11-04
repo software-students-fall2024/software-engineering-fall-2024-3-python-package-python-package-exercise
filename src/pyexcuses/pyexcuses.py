@@ -25,7 +25,6 @@ SPOKENLANGUAGE_VALUES = set(get_args(SPOKEN_LANGUAGES))
 PROGRAMMINGLANGUAGE_VALUES = set(get_args(PROGRAMMING_LANGUAGES))
 
 
-
 def suggest_solution(
     spoken_language: SPOKEN_LANGUAGES = "en",
     programming_language: PROGRAMMING_LANGUAGES = "neutral",
@@ -64,9 +63,11 @@ def generate_excuse(
         raise ProgrammingLanguageNotFoundError(
             "That programming language isn't in our system ):"
         )
-        
-        
-def list_available_options(option_type: Literal["spoken_language", "programming_language"]) -> list[str]:
+
+
+def list_available_options(
+    option_type: Literal["spoken_language", "programming_language"]
+) -> list[str]:
     """
     Lists available spoken or programming languages based on the option type.
     """
@@ -75,9 +76,11 @@ def list_available_options(option_type: Literal["spoken_language", "programming_
     elif option_type == "programming_language":
         return list(PROGRAMMINGLANGUAGE_VALUES)
     else:
-        raise ValueError("Invalid option type. Choose either 'spoken_language' or 'programming_language'.")
-    
-    
+        raise ValueError(
+            "Invalid option type. Choose either 'spoken_language' or 'programming_language'."
+        )
+
+
 def get_multilingual_excuse_or_solution(
     option_type: Literal["excuse", "solution"],
     programming_language: PROGRAMMING_LANGUAGES = "neutral",
@@ -93,7 +96,9 @@ def get_multilingual_excuse_or_solution(
             elif option_type == "solution":
                 results[lang] = suggest_solution(lang, programming_language)
             else:
-                raise ValueError("Invalid option type. Choose either 'excuse' or 'solution'.")
+                raise ValueError(
+                    "Invalid option type. Choose either 'excuse' or 'solution'."
+                )
         except (SpokenLanguageNotFoundError, ProgrammingLanguageNotFoundError):
             results[lang] = "No available option"
     return results
