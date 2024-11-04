@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="datehelper",
-    version="0.1.0",
+    name="datehelper-now_youre_unemployed",
+    version="0.1.5",
     author="now-youre-unemployed", 
     description="A simple date helper library.",
     packages=find_packages(),
