@@ -1,3 +1,7 @@
+[![Python Tests](https://github.com/software-students-fall2024/3-python-package-bug-creator-v3/actions/workflows/python-tests.yml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-bug-creator-v3/actions/workflows/python-tests.yml)
+
+[**Funky Fortune**](https://pypi.org/project/funky-fortune/0.1.0/)
+
 # Funky Fortune
 
 This package is designed for those who enjoy divination and fortune telling. Tools include a magic eight ball, fortune cookies, zodiac fortunes, and more!
