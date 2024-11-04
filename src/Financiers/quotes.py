@@ -42,7 +42,7 @@ quotes = [
     "Bruh, {stock} went full Ohio mode, can't tell if it's gonna tank or keep gooning up.",
     "{stock} is edging close to a new high, just needs that Sigma push!",
     "{stock} is giving off serious Livee Dunn energy, lifting itself to influencer levels!",
-    "Yo, {stock} just paid the Phanum tax, feels like it's on the verge of an epic bounce.",
+    "Yo, {stock} just paid the fanum tax, feels like it's on the verge of an epic bounce.",
     "{stock} got that Zuck energy, going steady but packing a surprise skibidi punch soon.",
     "Bruh, {stock} just got hit with some sussy volatility, feeling like an iShowSpeed moment.",
     "Is {stock} mewing up for a breakout or just gooning around at this level?",
@@ -50,5 +50,5 @@ quotes = [
     "{stock} went from cringe to skibidi in one day; it’s absolutely mogging the haters.",
     "{stock} feeling like an Ohio stock today, unpredictable but giving high Sigma potential.",
     "Bruh, {stock} just got Baby Gronk'd, straight mogging the weak stocks around it.",
-    "{stock} looks like it's about to pay the ultimate Phanum tax, might tank soon!"
+    "{stock} looks like it's about to pay the ultimate fanum tax, might tank soon!"
 ]
