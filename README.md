@@ -45,7 +45,7 @@ Additionally, we have provided an example script that you can run directly:
 ```exit```
 
 ## How to run unit tests
-We've included 3 unit tests for each function in our ```funtasks`` package. To run these tests:
+We've included 3 unit tests for each function in our ```funtasks``` package. To run these tests:
 
 1. Install pytest in a virtual environment
 2. Now, you can run the tests from the main project directory: ```python3 -m pytest```
