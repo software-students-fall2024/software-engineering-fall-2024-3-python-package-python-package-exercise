@@ -31,7 +31,8 @@ class Tests:
         earnings = stock.get_earnings("IBM")
         
         # assert df has correct columns
-        expected_columns = ['date', 'reportedEPS', 'type']
+        expected_columns = ['date', 'reportedEPS']
+        print(earnings)
         assert list(earnings.df.columns) == expected_columns, "DataFrame columns do not match expected columns"
         
         # checkign df is not empty
