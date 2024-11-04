@@ -1,4 +1,4 @@
-![Build & Test](https://github.com/software-students-fall2024/3-python-package-financeeers.git/actions/workflows/python-package.yml/badge.svg)
+![Build & Test](https://github.com/software-students-fall2024/3-python-package-financeeers/actions/workflows/python-package.yml/badge.svg)
 
 # Brainrot-Stocks
 
