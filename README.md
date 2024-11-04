@@ -66,62 +66,64 @@ We've included 3 unit tests for each function in our ```funtasks``` package. To 
 
 ## Usage
 ### How to import funtasks
-
-    ```bash
-    from funtasks.tasks import add_task, complete_task, random_task,random_daily_goal, tasks
-    ```
+```bash
+from funtasks.tasks import add_task, complete_task, random_task,random_daily_goal, tasks
+```
+    
 
 ### Functions Overview
 
--**add_task(task_name: str, urgency: int) -> str**
+- **add_task(task_name: str, urgency: int) -> str**
 
-    -Description: Adds a new task to the list with a specified urgency level.
+    - Description: Adds a new task to the list with a specified urgency level.
     Parameters:
-    -task_name: The name of the task to add.
-    -urgency: An integer representing the urgency level (1–5, with 5 being the most urgent).
-    -Returns: A confirmation message upon successful addition.
-    -Raises: ValueError if the task already exists.
+    - task_name: The name of the task to add.
+    - urgency: An integer representing the urgency level (1–5, with 5 being the most urgent).
+    - Returns: A confirmation message upon successful addition.
+    - Raises: ValueError if the task already exists.
 
-Example: 
-    ```bash
-    add_task(“Do laundry”, 3)
+- Example: 
+```bash
+add_task(“Do laundry”, 3)
+```
+- **complete_task(task_name: str) -> str**
 
--**complete_task(task_name: str) -> str**
+    - Description: Marks a task as completed.
+    - Parameters:
+    - task_name: The name of the task to complete.
+    - Returns: A confirmation message or a message indicating the task doesn't exist.
 
-    -Description: Marks a task as completed.
-    -Parameters:
-    -task_name: The name of the task to complete.
-    -Returns: A confirmation message or a message indicating the task doesn't exist.
+- Example: 
+```bash
+complete_task("Do laundry")
+```
+- **random_task() -> str**
 
-Example: 
-    ```bash
-    complete_task("Do laundry")
+    - Description: Retrieves a random task from the list.
+    - Returns: The name of a random task or a message indicating there are no tasks.
 
--**random_task() -> str**
+- Example: 
+```bash
+random_task()
+```
+- **random_daily_goal(available_time: int) -> str**
 
-    -Description: Retrieves a random task from the list.
-    -Returns: The name of a random task or a message indicating there are no tasks.
-
-Example: 
-    ```bash
-    random_task()
-
--**random_daily_goal(available_time: int) -> str**
-
-    -Description: Suggests a task based on the available time.
+    - Description: Suggests a task based on the available time.
     Parameters:
-    -available_time: Time available in minutes (used to determine task urgency).
-    -Returns: A task that fits the time constraint or a message indicating no tasks are suitable.
+    - available_time: Time available in minutes (used to determine task urgency).
+    - Returns: A task that fits the time constraint or a message indicating no tasks are suitable.
 
-Example: 
-    ```bash
-    random_daily_goal(25)
-
+- Example: 
+```bash
+random_daily_goal(25)
+```
 
 ## How to contribute to Funtasks
 
-***Prerequisites***: Make sure you have Python 3 installed. You can check your version using: ```python3 --version``` 
-Ensure that you have python version >= 3.9
+***Prerequisites***: Make sure you have Python 3.9 or higher installed. You can check your version by running:
+```bash
+python3 --version
+```
 
 1. Clone the repository: 
     ```bash
@@ -139,14 +141,18 @@ Ensure that you have python version >= 3.9
     ```bash
     pipenv shell
 
-5. Build the package:
+5. Modify & Run the file: Make changes you want to make, and run the files.     For example, if you want to run tasks.py, run the following command:
     ```bash
-    python3 -m build
+    python3 
 
 6. To run tests: Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
     ```bash
     pipenv run pytest
 
-7. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
+7. Build the package:
+    ```bash
+    python3 -m build
+
+8. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
     ```bash
     exit
