@@ -1,4 +1,4 @@
-from pyquotes import quotes
+from pymovies import quotes
 import random
 
 def randomQuote():

@@ -14,14 +14,14 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 [May Zhou](https://github.com/zz4206)
 
 ## Description
-[Link to Package](link.com)
+[Link to Package](https://pypi.org/project/pymovies/0.0.9/)
 
 ## Installation
 
-To install the `pyquotes` package from PyPI, run the following command:
+To install the `pymovies` package from PyPI, run the following command:
 
     ```bash
-    pip install pyquotes
+    pip install pymovies
     ```
 
 ## Run Tests

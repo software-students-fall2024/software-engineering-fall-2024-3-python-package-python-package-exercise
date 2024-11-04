@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyquotes"
+name = "pymovies"
 description = "An app where users can get random quotes and browse quotes by different categories or movies."
 version = "0.0.9"
 authors = [
