@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 import random
 import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = 'Symbola'
+plt.rcParams['font.family'] = 'Apple Color Emoji'
 from datetime import datetime, timedelta
 from .quotes import quotes
 
