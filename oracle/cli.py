@@ -8,7 +8,7 @@ from vibe_check import get_vibe_check
 def error_msg():
     print("To contact the oracle, type:")
     print("fortune_cookie <mood> to receive your fortune (e.g. optimistic, realistic, unfortunate)")
-    print("eight_ball to make a decision")
+    print("eight_ball <numOfDecisions> to make a decision")
     print("petting_zoo to feed your pet")
     print("vibe_check to see what's up")
 
@@ -28,7 +28,14 @@ def main():
             print("please specify a mood: optimistic, realistic, unfortunate")
             error_msg()
     elif command == "eight_ball":
-        print(get_eight_ball())
+        if(len(sys.argv) == 3):
+            numOfResponses = sys.argv[2]
+            if(numOfResponses.isdigit()):
+                print(get_eight_ball(numOfResponses))
+            else:
+                print("please enter a number")
+        else:
+            print(get_eight_ball(1))
     elif command == "petting_zoo":
         print("not implemented yet")
     elif command == "vibe_check":
