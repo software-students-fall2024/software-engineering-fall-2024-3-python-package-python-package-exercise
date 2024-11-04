@@ -32,4 +32,16 @@ Funtasks is a simple and efficient task management package designed to help you 
 
 This approach lets you directly use ```add_task```, ```complete_task```, ```random_task```, and ```random_daily_goal```
 
+5. Run the program:
+    ```bash
+    python3 your_program_filename.py
 
+6. Exit the virtual environment:
+```exit```
+
+Additionally, we have provided an example script that you can run directly:
+
+1. Create an activate ```pipenv``` virtual environment as before.
+2. Run the package directly from the command line: ```python3 -m funtasks```. This should directly run the code in the ```__main__.py```.
+3. Exit the virtual environment:
+```exit```
