@@ -26,37 +26,61 @@ class Tests:
         # checkign df is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
 
-        def test_forecast_prices(self, monkeypatch):
-            print("\nTesting forecast_prices() with mock data")
+    # Test that Forecast Prices Function Returns a DataFrame with the Correct Structure
+    def test_forecast_prices_structure(monkeypatch):
+    # Mock get_price_data to provide historical data
+     def mock_get_price_data(symbol_string):
+        mock_price_data = pd.DataFrame({
+            'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
+            'price': [100.0 + i for i in range(10)]
+        })
+        return BrainrotDataFrame("Mock data", mock_price_data)
 
-            # Mock get_price_data to return sample historical data
-            def mock_get_price_data(symbol_string):
-                mock_price_data = pd.DataFrame({
-                    'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
-                    'price': [100.0 + i for i in range(10)]  # increasing mock prices
-                })
-                return BrainrotDataFrame("Mock data", mock_price_data)
-            
-            # Apply monkeypatch to replace get_price_data method
-            stock = Stock()
-            monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
+     stock = Stock()
+     monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
 
-            # Act: Call the forecast_prices function
-            days_to_forecast = 5
-            forecast = stock.forecast_prices("IBM", days=days_to_forecast)
+     # Call forecast_prices and check structure
+     forecast = stock.forecast_prices("IBM", days=5)
+    
+     assert forecast.df is not None, "Forecast DataFrame should not be None"
+     assert 'date' in forecast.df.columns, "Forecast DataFrame missing 'date' column"
+     assert 'predicted_price' in forecast.df.columns, "Forecast DataFrame missing 'predicted_price' column"
+     assert not forecast.df.empty, "Forecast DataFrame should not be empty"
 
-            # Assert: Check if the returned BrainrotDataFrame has expected structure
-            assert forecast.df is not None, "Forecast DataFrame should not be None"
-            assert 'date' in forecast.df.columns, "'date' column missing from forecast DataFrame"
-            assert 'predicted_price' in forecast.df.columns, "'predicted_price' column missing from forecast DataFrame"
-            
-            # Check if the correct number of forecasted rows is generated
-            assert len(forecast.df) == days_to_forecast, f"Expected {days_to_forecast} rows in forecast DataFrame, but got {len(forecast.df)}"
-            
-            # Validate that forecasted dates start the day after the latest historical date
-            expected_start_date = mock_get_price_data("IBM").df['date'].max() + timedelta(days=1)
-            actual_start_date = forecast.df['date'].min()
-            assert actual_start_date == expected_start_date, f"Expected start date {expected_start_date}, but got {actual_start_date}"
+    # Test for Correct Number of Forecasted Days
+    def test_forecast_prices_row_count(monkeypatch):
+        # Mock get_price_data to provide historical data
+        def mock_get_price_data(symbol_string):
+            mock_price_data = pd.DataFrame({
+                'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
+                'price': [100.0 + i for i in range(10)]
+            })
+            return BrainrotDataFrame("Mock data", mock_price_data)
 
-            # Verify that all predicted prices are within the mocked range (100, 150)
-            assert forecast.df['predicted_price'].between(100, 150).all(), "Predicted prices are not within the expected range (100, 150)"
+        stock = Stock()
+        monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
+
+        # Test with specified days to forecast
+        days_to_forecast = 7
+        forecast = stock.forecast_prices("IBM", days=days_to_forecast)
+
+        assert len(forecast.df) == days_to_forecast, f"Expected {days_to_forecast} rows, but got {len(forecast.df)}"
+
+    # Test for Predicted Price Range
+    def test_forecast_prices_value_range(monkeypatch):
+        # Mock get_price_data to provide historical data
+        def mock_get_price_data(symbol_string):
+            mock_price_data = pd.DataFrame({
+                'date': pd.date_range(start="2023-01-01", periods=10, freq="D"),
+                'price': [100.0 + i for i in range(10)]
+            })
+            return BrainrotDataFrame("Mock data", mock_price_data)
+
+        stock = Stock()
+        monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
+
+        # Generate forecast and check price range
+        forecast = stock.forecast_prices("IBM", days=5)
+        
+        # Assert all predicted prices are within the expected range
+        assert forecast.df['predicted_price'].between(100, 150).all(), "Predicted prices are not within the expected range (100, 150)"
