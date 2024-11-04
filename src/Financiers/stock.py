@@ -277,72 +277,6 @@ class Stock:
         
         return BrainrotDataFrame(brainrot_quote, combined_forecasts)
     
-class Company:
-    def __init__(self, CompanyJsonObj):
-        self.symbol = CompanyJsonObj['Symbol']
-        self.name = CompanyJsonObj['Name']
-        self.description = CompanyJsonObj['Description']
-        self.CIK = CompanyJsonObj['CIK']
-        self.country = CompanyJsonObj['Country']
-        self.sector = CompanyJsonObj['Sector']
-        self.industry = CompanyJsonObj['Industry']
-        
-
-    def __str__(self):
-        return (
-            f"Company Information:\n"
-            f"Symbol: {self.symbol}\n"
-            f"Name: {self.name}\n"
-            f"Description: {self.description}\n"
-            f"CIK: {self.CIK}\n"
-            f"Country: {self.country}\n"
-            f"Sector: {self.sector}\n"
-            f"Industry: {self.industry}"
-        )
-    
-    def forecast_by_date_range(self, date_range="last_month", days_to_forecast=30, model_type="linear",
-                           confidence_level=0.95, frequency="daily", return_format="dataframe"):
-        """
-        Generates a forecast based on historical data within a specified date range and forecasting model.
-
-        Arguments:
-        date_range: str - Specifies the range ("last_day", "last_month", "last_year").
-        days_to_forecast: int - Number of future days to forecast.
-        model_type: str - Type of forecasting model ("linear", "random_walk").
-        confidence_level: float - Confidence level for forecast intervals (e.g., 0.95 for 95%).
-        frequency: str - Frequency of forecasted data points ("daily", "weekly", "monthly").
-        return_format: str - Output format ("dataframe" or "json").
-
-        Returns:
-        BrainrotDataFrame or JSON with forecasted dates and prices (and confidence intervals, if applicable).
-        """
-        today = datetime.today()
-
-        # Define the start date based on the date range
-        if date_range == "last_day":
-            start_date = today - timedelta(days=1)
-        elif date_range == "last_month":
-            start_date = today - timedelta(days=30)
-        elif date_range == "last_year":
-            start_date = today - timedelta(days=365)
-        else:
-            raise ValueError("Invalid date range. Choose from 'last_day', 'last_month', or 'last_year'.")
-
-        # Generate mock historical data for the specified date range
-        date_range_days = (today - start_date).days
-        historical_dates = pd.date_range(start=start_date, end=today, freq='D')
-        historical_prices = [100 + i * 0.5 + random.uniform(-2, 2) for i in range(date_range_days + 1)]
-        earnings_df = earnings_df.sort_values(by="date", ascending=False).reset_index(
-            drop=True
-        )  # sort df by date (otherwise it wasn't sorted)
-        brainrot = random.choice(quotes).replace(
-            "{stock}", symbol_string
-        )  # get brainrot
-        # return the dataframe with brainrot
-        return BrainrotDataFrame(brainrot, earnings_df)
-    
-
-
     def Stockprice_getter(self, stock_name):
         """
         Retrieve raw (as-traded) daily time series (date, daily open, daily high, daily low, daily 
@@ -714,6 +648,74 @@ class Company:
         excess_return = daily_returns.mean() * period - risk_free_rate
         return excess_return / (daily_returns.std() * (period ** 0.5))
 
+    
+class Company:
+    def __init__(self, CompanyJsonObj):
+        self.symbol = CompanyJsonObj['Symbol']
+        self.name = CompanyJsonObj['Name']
+        self.description = CompanyJsonObj['Description']
+        self.CIK = CompanyJsonObj['CIK']
+        self.country = CompanyJsonObj['Country']
+        self.sector = CompanyJsonObj['Sector']
+        self.industry = CompanyJsonObj['Industry']
+        
+
+    def __str__(self):
+        return (
+            f"Company Information:\n"
+            f"Symbol: {self.symbol}\n"
+            f"Name: {self.name}\n"
+            f"Description: {self.description}\n"
+            f"CIK: {self.CIK}\n"
+            f"Country: {self.country}\n"
+            f"Sector: {self.sector}\n"
+            f"Industry: {self.industry}"
+        )
+    
+    def forecast_by_date_range(self, date_range="last_month", days_to_forecast=30, model_type="linear",
+                           confidence_level=0.95, frequency="daily", return_format="dataframe"):
+        """
+        Generates a forecast based on historical data within a specified date range and forecasting model.
+
+        Arguments:
+        date_range: str - Specifies the range ("last_day", "last_month", "last_year").
+        days_to_forecast: int - Number of future days to forecast.
+        model_type: str - Type of forecasting model ("linear", "random_walk").
+        confidence_level: float - Confidence level for forecast intervals (e.g., 0.95 for 95%).
+        frequency: str - Frequency of forecasted data points ("daily", "weekly", "monthly").
+        return_format: str - Output format ("dataframe" or "json").
+
+        Returns:
+        BrainrotDataFrame or JSON with forecasted dates and prices (and confidence intervals, if applicable).
+        """
+        today = datetime.today()
+
+        # Define the start date based on the date range
+        if date_range == "last_day":
+            start_date = today - timedelta(days=1)
+        elif date_range == "last_month":
+            start_date = today - timedelta(days=30)
+        elif date_range == "last_year":
+            start_date = today - timedelta(days=365)
+        else:
+            raise ValueError("Invalid date range. Choose from 'last_day', 'last_month', or 'last_year'.")
+
+        # Generate mock historical data for the specified date range
+        date_range_days = (today - start_date).days
+        historical_dates = pd.date_range(start=start_date, end=today, freq='D')
+        historical_prices = [100 + i * 0.5 + random.uniform(-2, 2) for i in range(date_range_days + 1)]
+        earnings_df = earnings_df.sort_values(by="date", ascending=False).reset_index(
+            drop=True
+        )  # sort df by date (otherwise it wasn't sorted)
+        brainrot = random.choice(quotes).replace(
+            "{stock}", symbol_string
+        )  # get brainrot
+        # return the dataframe with brainrot
+        return BrainrotDataFrame(brainrot, earnings_df)
+    
+
+
+    
 
 
       
