@@ -4,6 +4,8 @@ import sys
 from fortune_cookie import get_fortune
 from eight_ball import get_eight_ball
 from vibe_check import get_vibe_check
+from petting_zoo import get_random_pet
+from petting_zoo import get_pet
 
 def error_msg():
     print("To contact the oracle, type:")
@@ -37,7 +39,11 @@ def main():
         else:
             print(get_eight_ball(1))
     elif command == "petting_zoo":
-        print("not implemented yet")
+        if(len(sys.argv) == 3):
+            pet = sys.argv[2].lower()
+            print(get_pet(pet))
+        else: 
+            print(get_random_pet())
     elif command == "vibe_check":
         if len(sys.argv) == 3:
             vibe = sys.argv[2].lower()

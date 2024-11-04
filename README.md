@@ -33,7 +33,7 @@ pipenv shell
 
 4. Navigate to Oracle directory and run software with 
 ```
-pipenv run python -m cli.py
+pipenv run python -m cli
 ```
 
 ## Steps necessary to run tests
@@ -43,4 +43,4 @@ pipenv run python -m cli.py
 pipenv install --dev pytest build twine
 ```
 
-2. Run the tests with `pytest`
+2. Navigate to the test directory and run the tests with `pytest`
