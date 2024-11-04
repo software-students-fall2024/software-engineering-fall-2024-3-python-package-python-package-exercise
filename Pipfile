@@ -12,7 +12,6 @@ build = "*"
 matplotlib = "*"
 numpy = "*"
 datetime = "*"
-brainrot-stocks = "*"
 
 [dev-packages]
 
