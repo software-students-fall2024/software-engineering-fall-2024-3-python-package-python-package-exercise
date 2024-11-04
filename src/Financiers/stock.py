@@ -14,6 +14,48 @@ load_dotenv()
 class Stock:
     def __init__(self):
         self.api_key = os.getenv("ALPHAVANTAGE_API_KEY")
+    
+    def get_market_mood(self):
+        """
+        Provides a random vibe check on the current market mood with brainrot and stock trends
+
+        Returns:
+        A meaningless brainrot statement about the stock market's vibe using top gainers/losers
+        """
+        # get the top gainers and losers data
+        url = f"https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey={self.api_key}"
+        response = requests.get(url)
+        data = response.json()
+
+        # check for valid data and get top gainer/loser information
+        if "top_gainers" in data and "top_losers" in data:
+            # get the top gainer and top loser from the API JSOn
+            top_gainer = data["top_gainers"][0]
+            top_loser = data["top_losers"][0]
+            
+            # get data for the top gainer and top loser
+            gainer_ticker = top_gainer["ticker"]
+            gainer_change_percentage = top_gainer["change_percentage"]
+            loser_ticker = top_loser["ticker"]
+            loser_change_percentage = top_loser["change_percentage"]
+        else:
+            # in case of missing data
+            gainer_ticker, gainer_change_percentage = "UNKNOWN", "0%"
+            loser_ticker, loser_change_percentage = "UNKNOWN", "0%"
+
+        # brainrot, courtesy of Brainrot GPT
+        vibes = [
+            f"The market's giving that Kai Cenat energy – {gainer_ticker} just rizzed up by {gainer_change_percentage}!",
+            f"Bruh, {loser_ticker} is giving sus Grimace Shake vibes, tanked {loser_change_percentage}. Ohio level cringe.",
+            f"Today, {gainer_ticker} hit skibidi highs with a {gainer_change_percentage} jump – Sigma grind paying off.",
+            f"{loser_ticker} be acting real sussy with that {loser_change_percentage} drop. Total Amongus vibes.",
+            f"Not gonna lie, {gainer_ticker} and {loser_ticker} are straight gooning. Market on a Phanum tax spree!",
+            f"Bruh, {gainer_ticker} is flexing with a {gainer_change_percentage} gain, leaving {loser_ticker} in Ohio with a {loser_change_percentage} drop.",
+            f"Market mood today? {gainer_ticker} is mogging the charts, but {loser_ticker} out here paying the Phanum tax.",
+            f"{gainer_ticker} skyrocketed {gainer_change_percentage}, pure Sigma grind, while {loser_ticker} just dipped – classic cringe arc.",
+            f"Today's market is edgy AF – {gainer_ticker} flexed {gainer_change_percentage}, while {loser_ticker} went sussy by {loser_change_percentage}."
+        ]
+        return random.choice(vibes)
 
     def get_earnings(self, symbol_string, annual=True, numDays=5):
         """
@@ -146,7 +188,7 @@ class Stock:
             print("Error: Received invalid JSON response from AlphaVantage API.")
         return None
     
-    def get_top_movers(self, symbols):
+    def plot_top_movers(self, symbols):
         """
         Retrieves and displays the top gainer and loser among the provided stock symbols.
         Arguments:

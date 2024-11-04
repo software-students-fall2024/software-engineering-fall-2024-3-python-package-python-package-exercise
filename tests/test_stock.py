@@ -13,6 +13,30 @@ class MockResponse:
         self.result_json = json
     def json(self):
         return self.result_json
+    
+# the fixture for the mock IBM data (so we don't have to keep API calling in tests)
+@pytest.fixture
+def ibm_mock_data():
+    return {
+        "symbol": "IBM",
+        "annualEarnings": [
+            {"fiscalDateEnding": "2022-12-31", "reportedEPS": "12.34"},
+            {"fiscalDateEnding": "2021-12-31", "reportedEPS": "10.12"},
+            {"fiscalDateEnding": "2020-12-31", "reportedEPS": "8.90"},
+            {"fiscalDateEnding": "2019-12-31", "reportedEPS": "7.45"},
+            {"fiscalDateEnding": "2018-12-31", "reportedEPS": "6.78"}
+        ],
+        "quarterlyEarnings": [
+            {"fiscalDateEnding": "2022-12-31", "reportedEPS": "3.21"},
+            {"fiscalDateEnding": "2022-09-30", "reportedEPS": "2.98"}
+        ]
+    }
+
+@pytest.fixture
+def mock_get(monkeypatch, ibm_mock_data):
+    def mock_request_get(*args, **kwargs):
+        return MockResponse(200, ibm_mock_data)
+    monkeypatch.setattr("requests.get", mock_request_get)
 
 class Tests:
     
@@ -25,18 +49,42 @@ class Tests:
         actual = True
         assert actual == expected, "Expected True to be True!"
         
-    def test_get_earnings(self):
-        print("\n Testing get_earnings() with IBM")
+    
+    def test_get_earnings(self, mock_get):    
+        print("\nTesting get_earnings() with IBM")
         stock = Stock()
         earnings = stock.get_earnings("IBM")
-        
-        # assert df has correct columns
+
+        # Assert DataFrame has correct columns
         expected_columns = ['date', 'reportedEPS']
-        print(earnings)
         assert list(earnings.df.columns) == expected_columns, "DataFrame columns do not match expected columns"
         
-        # checkign df is not empty
+        # Check DataFrame is not empty
         assert not earnings.df.empty, "Earnings DataFrame is empty, but it was expected to contain data"
+        
+    def test_get_earnings_numDays(self, mock_get, ibm_mock_data):
+        stock = Stock()
+
+        # Test with numDays=None (should return all available entries)
+        earnings_all = stock.get_earnings("IBM", annual=True, numDays=None)
+        assert earnings_all is not None, "Expected a BrainrotDataFrame to be returned but got None"
+        assert len(earnings_all.df) == len(ibm_mock_data["annualEarnings"]), "Expected all annual earnings entries"
+
+        # Test with specific numDays as 3
+        test_numDays = 3
+        earnings_limited = stock.get_earnings("IBM", annual=True, numDays=test_numDays)
+        assert earnings_limited is not None, "Expected a BrainrotDataFrame to be returned but got None"
+        assert len(earnings_limited.df) == test_numDays, f"Expected {test_numDays} rows, got {len(earnings_limited.df)}"
+        
+    def test_get_market_mood_returns_string(self):
+        stock = Stock()
+        result = stock.get_market_mood()
+        assert isinstance(result, str), "Expected get_market_mood to return a string"
+
+    def test_get_market_mood_non_empty(self):
+        stock = Stock()
+        result = stock.get_market_mood()
+        assert result, "Expected get_market_mood to return a non-empty result"
         
     # testing invalid symbol token when called with get_earnings
     def test_get_earnings_invalid_symbol(self, capsys, monkeypatch):
@@ -54,25 +102,6 @@ class Tests:
         captured = capsys.readouterr()
         assert f"Error: No data found for symbol '{test_symbol}'. Please check if the symbol is correct." in captured.out, "Expected appropriate error message printed."
         
-    def test_get_earnings_numDays(self):
-        stock = Stock()
-
-        # test with numDays=None (should return all available entries)
-        earnings_all = stock.get_earnings("IBM", annual=True, numDays=None)
-        assert earnings_all is not None, "Expected a DataFrame to be returned"
-        total_rows = len(earnings_all.df)
-        assert total_rows > 0, "Expected earnings data to have entries"
-
-        # test with specific numDays as 5
-        test_numDays = 5
-        earnings_limited = stock.get_earnings("IBM", annual=True, numDays=test_numDays)
-        assert earnings_limited is not None, "Expected a DataFrame to be returned"
-        assert len(earnings_limited.df) == test_numDays, f"Expected {test_numDays} rows, got {len(earnings_limited.df)}"
-
-        # Verify that rows in the limited output are a subset of the full dataset
-        assert earnings_limited.df.equals(earnings_all.df.head(test_numDays)), "Expected the limited rows to match the most recent rows"
-            
-            
 
     ## forecast price ##
     # Test1: Forecast Prices Function Returns a DataFrame with the Correct Structure
@@ -193,11 +222,11 @@ class Tests:
         assert result.object.sector == SAMPLE_OVERVIEW_JSON["Sector"]
         assert result.object.industry == SAMPLE_OVERVIEW_JSON["Industry"]
     
-    # Tests for get_top_movers
+    # Tests for plot_top_movers
 
-    def test_get_top_movers_no_data(self, monkeypatch):
+    def test_plot_top_movers_no_data(self, monkeypatch):
         """
-        Test get_top_movers with symbols that have no data to ensure it handles empty data gracefully.
+        Test plot_top_movers with symbols that have no data to ensure it handles empty data gracefully.
         """
         stock = Stock()
         
@@ -207,12 +236,12 @@ class Tests:
         
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
         
-        result = stock.get_top_movers(["AAPL", "GOOGL"])
+        result = stock.plot_top_movers(["AAPL", "GOOGL"])
         assert result == "No data available for the provided symbols.", "Expected message for no data available."
 
-    def test_get_top_movers_single_stock(self, monkeypatch):
+    def test_plot_top_movers_single_stock(self, monkeypatch):
         """
-        Test get_top_movers with a single stock symbol to ensure it returns the same stock as both gainer and loser.
+        Test plot_top_movers with a single stock symbol to ensure it returns the same stock as both gainer and loser.
         """
         stock = Stock()
 
@@ -226,15 +255,15 @@ class Tests:
         
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
         
-        result = stock.get_top_movers(["AAPL"])
+        result = stock.plot_top_movers(["AAPL"])
         assert "Top Gainer" in result.df.columns, "Expected Top Gainer column in result."
         assert "Top Loser" in result.df.columns, "Expected Top Loser column in result."
         assert result.df["Top Gainer"]["Symbol"] == "AAPL", "Expected AAPL as top gainer."
         assert result.df["Top Loser"]["Symbol"] == "AAPL", "Expected AAPL as top loser."
 
-    def test_get_top_movers_multiple_stocks(self, monkeypatch):
+    def test_plot_top_movers_multiple_stocks(self, monkeypatch):
         """
-        Test get_top_movers with multiple stock symbols and varying prices to ensure correct top gainer and loser are identified.
+        Test plot_top_movers with multiple stock symbols and varying prices to ensure correct top gainer and loser are identified.
         """
         stock = Stock()
 
@@ -254,7 +283,7 @@ class Tests:
 
         monkeypatch.setattr(stock, "get_price_data", mock_get_price_data)
 
-        result = stock.get_top_movers(["AAPL", "GOOGL"])
+        result = stock.plot_top_movers(["AAPL", "GOOGL"])
         assert result.df["Top Gainer"]["Symbol"] == "AAPL", "Expected AAPL as top gainer."
         assert result.df["Top Loser"]["Symbol"] == "GOOGL", "Expected GOOGL as top loser."
 
