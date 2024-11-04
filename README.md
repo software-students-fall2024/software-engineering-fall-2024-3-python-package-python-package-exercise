@@ -64,6 +64,7 @@ We have a `list_available_options` function that lets you check which languages 
 ['en', 'es']
 >>> print(pyexcuses.list_available_options("programming_language")) # print all programming langs
 ['python', 'javascript', 'neutral']
+```
 
 Finally, the get_multilingual_excuse_or_solution function provides an excuse or solution in both English and Spanish for any given programming language. 
 
@@ -72,6 +73,7 @@ Finally, the get_multilingual_excuse_or_solution function provides an excuse or 
 >>> print(pyexcuses.get_multilingual_excuse_or_solution("excuse", "python")) # get both spanish and english
 'en': 'It works on my machine.',
 'es': 'Funciona en mi máquina.'
+```
 
 # Get a multilingual solution in English and Spanish for JavaScript
 solution = pyexcuses.get_multilingual_excuse_or_solution("solution", "javascript")
