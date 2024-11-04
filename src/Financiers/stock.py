@@ -49,9 +49,9 @@ class Stock:
             f"Bruh, {loser_ticker} is giving sus Grimace Shake vibes, tanked {loser_change_percentage}. Ohio level cringe.",
             f"Today, {gainer_ticker} hit skibidi highs with a {gainer_change_percentage} jump – Sigma grind paying off.",
             f"{loser_ticker} be acting real sussy with that {loser_change_percentage} drop. Total Amongus vibes.",
-            f"Not gonna lie, {gainer_ticker} and {loser_ticker} are straight gooning. Market on a Phanum tax spree!",
+            f"Not gonna lie, {gainer_ticker} and {loser_ticker} are straight gooning. Market on a fanum tax spree!",
             f"Bruh, {gainer_ticker} is flexing with a {gainer_change_percentage} gain, leaving {loser_ticker} in Ohio with a {loser_change_percentage} drop.",
-            f"Market mood today? {gainer_ticker} is mogging the charts, but {loser_ticker} out here paying the Phanum tax.",
+            f"Market mood today? {gainer_ticker} is mogging the charts, but {loser_ticker} out here paying the fanum tax.",
             f"{gainer_ticker} skyrocketed {gainer_change_percentage}, pure Sigma grind, while {loser_ticker} just dipped – classic cringe arc.",
             f"Today's market is edgy AF – {gainer_ticker} flexed {gainer_change_percentage}, while {loser_ticker} went sussy by {loser_change_percentage}."
         ]
