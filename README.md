@@ -35,7 +35,8 @@ This approach lets you directly use ```add_task```, ```complete_task```, ```rand
     python3 your_program_filename.py
 
 6. Exit the virtual environment:
-```exit```
+    ```bash
+    exit
 
 Additionally, we have provided an example script that you can run directly:
 
@@ -57,28 +58,28 @@ We've included 3 unit tests for each function in our ```funtasks``` package. To 
 
 1. Clone the repository: 
     ```bash
-git clone https://github.com/software-students-fall2024/3-python-package-java_and_the_scripts_.git
+    git clone https://github.com/software-students-fall2024/3-python-package-java_and_the_scripts_.git
 
 2. Enter the directory:
     ```bash
-cd  3-python-package-java_and_the_scripts_
+    cd  3-python-package-java_and_the_scripts_
 
 3. Set up a virtual environment using ```pipenv```: If ```pipenv``` has not been installed, install using ```pip3 install pipenv```. Now, run the following command to install all dependencies that we've included in the provided ```Pipfile```: 
     ```bash
-pipenv install --dev
+    pipenv install --dev
 
 4. Activate the virtual environment:
     ```bash
-pipenv shell
+    pipenv shell
 
 5. Build the package:
     ```bash
-python3 -m build
+    python3 -m build
 
 6. To run tests: Now, you can also run the unit tests we've provided in the package using ```pytest```. Again, make sure ```pytest``` is installed in the virtual envrionment.
     ```bash
-pipenv run pytest
+    pipenv run pytest
 
 7. Exit the virtual environment: Once you're done working with the project, you can deactivate the virtual environment with:
     ```bash
-exit
+    exit
