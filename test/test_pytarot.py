@@ -95,7 +95,15 @@ class Tests:
         expected_keywords = ["who is", "with", "eyes", "hair", "lives in"]
         for keyword in expected_keywords:
             assert keyword in result, f"The result should contain '{keyword}'"
-
+    #test5
+    def test_get_true_lover_structure(self):
+        """
+        Verify that get_true_lover() output includes all key phrases in a consistent format.
+        """
+        result = get_true_lover()
+        expected_phrases = ["A", "who is", "with", "eyes", "hair", "lives in"]
+        for phrase in expected_phrases:
+            assert phrase in result, f"The result should contain '{phrase}'"
 
     #lucky day tests
     # Test 1: Ensure the function returns a valid string
@@ -133,7 +141,24 @@ class Tests:
         
 
         assert expected_months.issubset(months_generated), "The function should generate all months over multiple runs."
-
+    
+    # Test 4: Ensure the day falls within the valid range for each month
+    def test_get_lucky_day_day_range(self):
+        """
+        Verify that get_lucky_day() returns a day within the appropriate range for each month.
+        """
+        result = get_lucky_day()
+        month_day = result.split(" ")[-1].split('/')
+        month, day = month_day[0], int(month_day[1])
+        
+        # Define month ranges
+        month_days = {
+            "Jan": 31, "Feb": 28, "Mar": 31, "Apr": 30, "May": 31, "Jun": 30,
+            "Jul": 31, "Aug": 31, "Sep": 30, "Oct": 31, "Nov": 30, "Dec": 31
+        }
+        
+        # Check that the day is within the valid range for the month
+        assert 1 <= day <= month_days[month], f"The day should be within the range for {month}"
 
     #positive action tests
 
@@ -164,6 +189,14 @@ class Tests:
         """
         results = {get_positive_action() for _ in range(10)}
         assert len(results) > 1, "The function should generate unique positive messages and suggestions."
+
+    # Test 4: Ensure it produces varied messages.
+    def test_get_positive_message_uniqueness_large_sample(self):
+        """
+        Verify that get_positive_message() produces varied messages across a larger sample size.
+        """
+        results = {get_positive_action() for _ in range(50)}
+        assert len(results) > 10, "The function should generate a variety of unique positive messages."
 
 
 
