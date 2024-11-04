@@ -26,8 +26,7 @@ classifiers = [
 ]
 
 # Additional Dependencies
-dependencies = ["pandas", "requests", "python-dotenv"]
-
+dependencies = ["pandas", "requests", "python-dotenv", "numpy", "random", "matplotlib", "datetime"]
 [project.optional-dependencies]
 dev = ["pytest"]
 
