@@ -46,8 +46,4 @@ Repository = "https://github.com/software-students-fall2024/3-python-package-mac
 BugTracker = "https://github.com/software-students-fall2024/3-python-package-macaron-for-three/issues"
 
 [project.scripts]
-tamagotchi_cli = "tamagotchi.__main__:main"
-
-
-
-
+tamagotchi = "tamagotchi.__main__:main"

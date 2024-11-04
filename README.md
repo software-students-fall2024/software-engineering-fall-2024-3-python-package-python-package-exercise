@@ -122,6 +122,7 @@ pipenv install -e .
 python -m pip install --upgrade pip setuptools wheel
 
 // to build:
+pip install build
 python -m build
 
 // install built package for testing
@@ -131,11 +132,15 @@ pip install dist/*.whl
 pytest
 
 ```
-## To Use
+
+## To Use and Run
 
 ```
 pip install tamagotchi
+tamagotchi
 ```
+
+***Note:** to upload an image, make sure your file is in the same directory you install this package in.*
 
 ## Teammates
 
