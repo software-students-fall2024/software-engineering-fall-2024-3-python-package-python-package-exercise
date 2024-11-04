@@ -59,14 +59,14 @@ class Tests:
 
         # test with numDays=None (should return all available entries)
         earnings_all = stock.get_earnings("IBM", annual=True, numDays=None)
-        assert earnings_all is not None, "Expected a DataFrame to be returned"
+        assert earnings_all is not None, "Expected a BrainrotDataFrame to be returned but got None"
         total_rows = len(earnings_all.df)
         assert total_rows > 0, "Expected earnings data to have entries"
 
         # test with specific numDays as 5
         test_numDays = 5
         earnings_limited = stock.get_earnings("IBM", annual=True, numDays=test_numDays)
-        assert earnings_limited is not None, "Expected a DataFrame to be returned"
+        assert earnings_limited is not None, "Expected a BrainrotDataFrame to be returned but got None"
         assert len(earnings_limited.df) == test_numDays, f"Expected {test_numDays} rows, got {len(earnings_limited.df)}"
 
         # Verify that rows in the limited output are a subset of the full dataset
