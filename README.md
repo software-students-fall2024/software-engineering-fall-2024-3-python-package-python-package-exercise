@@ -7,8 +7,10 @@
 This package was created by generally following the [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/) guide, with the addition of `pipenv` for virtual environment management. 
 
 ## Overview
-Funtasks is a simple and efficient task management package designed to help you add, complete, and randomly select tasks. It includes features for adding tasks with urgency levels, marking tasks as complete, and generating random tasks or daily goals based on your available time. 
+Funtasks is a simple and fun task management package designed to help you add, complete, and randomly select tasks. It includes features for adding tasks with urgency levels, marking tasks as complete, and generating random tasks or daily goals based on your available time. 
 
+## Link to our package on PYPI
+(https://pypi.org/project/funtasks/)
 
 ## How to install and use this package
 
@@ -18,7 +20,7 @@ Funtasks is a simple and efficient task management package designed to help you 
 
 2. To install the package, use `pip3` because this package requires Python 3:
     ```bash
-    pip3 install funtasks==0.1.11
+    pip3 install funtasks
 
 3. Activate the virtual environment: 
     ```bash
