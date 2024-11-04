@@ -1,4 +1,4 @@
-def vigenere(string, keyword, type="encode"):
+def vigenere(string, keyword="key", type="encode"):
     '''
     If input string contains non-letter characters, each such character will be skipped while the index into 
     the keyword will still be incremented (moved to the next character in the keyword).
