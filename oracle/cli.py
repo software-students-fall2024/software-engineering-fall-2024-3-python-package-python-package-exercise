@@ -27,7 +27,7 @@ def main():
             print("please specify a mood: optimistic, realistic, unfortunate")
             error_msg()
     elif command == "eight_ball":
-        print("not implemented yet")
+        print(get_eight_ball())
     elif command == "petting_zoo":
         print("not implemented yet")
     elif command == "vibe_check":
