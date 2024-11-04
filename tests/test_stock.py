@@ -358,4 +358,3 @@ class Tests:
         for _, row in result.df.iterrows():
             assert row["lower_bound"] <= row["predicted_price"], "Lower bound should be less than or equal to predicted price."
             assert row["upper_bound"] >= row["predicted_price"], "Upper bound should be greater than or equal to predicted price."
->>>>>>> origin
