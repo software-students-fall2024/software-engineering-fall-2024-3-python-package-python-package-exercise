@@ -2,6 +2,10 @@
 
 An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
 
+# Package Page on Pypi
+
+https://pypi.org/simple/pyexcuses/
+
 # Build Badge
 
 [![CI / CD](https://github.com/software-students-fall2024/3-python-package-realoriginal/actions/workflows/build.yaml/badge.svg)](https://github.com/software-students-fall2024/3-python-package-realoriginal/actions/workflows/build.yaml)
@@ -64,6 +68,7 @@ We have a `list_available_options` function that lets you check which languages 
 ['en', 'es']
 >>> print(pyexcuses.list_available_options("programming_language")) # print all programming langs
 ['python', 'javascript', 'neutral']
+```
 
 Finally, the get_multilingual_excuse_or_solution function provides an excuse or solution in both English and Spanish for any given programming language. 
 
@@ -73,6 +78,7 @@ Finally, the get_multilingual_excuse_or_solution function provides an excuse or 
 'en': 'It works on my machine.',
 'es': 'Funciona en mi máquina.'
 
+
 # Get a multilingual solution in English and Spanish for JavaScript
 solution = pyexcuses.get_multilingual_excuse_or_solution("solution", "javascript")
 print(solution)
@@ -81,6 +87,7 @@ print(solution)
 #    'en': 'Have you tried clearing the cache?',
 #    'es': '¿Has probado a limpiar la caché?'
 # }
+```
 
 
 ## Contributing to pyexcuses
@@ -91,10 +98,12 @@ Since we love contributions, if you’d like,  pleasefollow these steps to help 
    ```console
    git clone https://github.com/<your-username>/pyexcuses.git
    cd pyexcuses
+   ```
 
 2. **Create a Branch**
     ```console
     git checkout -b feat/name
+    ```
 
 
 3. **Install dependencies and SetUp Virtual Environment**"
@@ -102,18 +111,21 @@ Since we love contributions, if you’d like,  pleasefollow these steps to help 
     python -m pip install --upgrade pip
     pip install pipenv
     pipenv install --dev
+    ```
 
 4. **Make Your Changes**
 
 5. **Run tests**"
     ```console
     pipenv run pytest
+    ```
 
 6. **Commit/Push Edits**"
     ```console
     git add .
     git commit -m "Your Changes"
     git push origin feat/name
+    ```
 
 7. **Make Pull Requests**
 
