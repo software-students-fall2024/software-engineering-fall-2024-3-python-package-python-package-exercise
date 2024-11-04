@@ -31,6 +31,10 @@ class Stock:
         response = requests.get(url)
         data = response.json()
         
+        if "annualEarnings" not in data or "quarterlyEarnings" not in data:
+            print(f"Error: No data found for symbol '{symbol_string}'. Please check if the symbol is correct.")
+            return None
+        
         if annual == True:
                 annualEarnings = pd.DataFrame(
             data["annualEarnings"]
