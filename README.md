@@ -189,4 +189,4 @@ python3 --version
 
 ## Continuous Integration
 
-this project has a continuous integration workflow that builds and runs unit tests automatically with every push to GitHub.
+This project has a continuous integration workflow that builds and runs unit tests automatically with every push to GitHub.
