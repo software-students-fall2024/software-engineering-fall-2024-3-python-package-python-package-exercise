@@ -1,3 +1,5 @@
 shakes = {
-    "en":"shaking..."
+    "en": "shaking...",
+    "fr": "secouer...",
+    "es": "sacudiendo..."
 }
