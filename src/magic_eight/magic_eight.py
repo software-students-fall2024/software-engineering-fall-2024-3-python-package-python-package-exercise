@@ -45,7 +45,6 @@ def shake_ball(language, shake_time=10):
     if language not in questions.keys():
         # return error message that specific language is not available
         return "invalid"
-    # validate that shake_time is an integer
     time.sleep(shake_time)
     index = random.randint(0, len(answers[language])-1)
     answer = answers[language][index]
