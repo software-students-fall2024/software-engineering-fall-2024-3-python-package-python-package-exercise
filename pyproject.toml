@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "magic-eight"
+name = "magic-eight-ball"
 description = "A fun and lighthearted Python package that emulates the classic Magic 8 Ball toy. This package allows users to ask questions and get random, playful responses. Built with rigorous software engineering practices, it serves as a joyful addition to any developer's toolbox."
 version = "0.1.0"
 authors = [
