@@ -17,7 +17,7 @@ This package includes the following functions:
 To install the Magic 8 Ball package, use `pip`:
 
 ```bash
-pip install magic_eight
+pip install magic_eight_ball
 ```
 
 ## Usage
