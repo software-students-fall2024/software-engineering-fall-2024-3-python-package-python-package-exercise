@@ -1,6 +1,6 @@
 # Magic 8 Ball Python Package
 
-![Build Status]()
+![Build Status](https://github.com/software-students-fall2024/3-python-package-magic-eight/actions)
 
 A fun and lighthearted Python package that emulates the classic Magic 8 Ball toy. This package allows users to ask questions and get random, playful responses. Built with rigorous software engineering practices, it serves as a joyful addition to any developer's toolbox.
 
@@ -17,7 +17,7 @@ This package includes the following functions:
 To install the Magic 8 Ball package, use `pip`:
 
 ```bash
-pip install magic_eight
+pip install magic_eight_ball
 ```
 
 ## Usage
@@ -163,5 +163,5 @@ print(get_answers("en", 3))
 
 ## Links
 
-- [PyPI page for this package]()
+- [PyPI page for this package](https://pypi.org/project/magic-eight-ball/0.1.0/)
 - [GitHub Repository](https://github.com/software-students-fall2024/3-python-package-magic-eight)
