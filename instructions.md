@@ -21,10 +21,27 @@ Some inspirational Python packages, for example:
 ## Requirements
 
 Create a Python package with at least **four functions that accept arguments** which influence their behavior. The package must be distributed in the [PyPI](https://pypi.org/) repository and installable via [pip](https://pypi.org/project/pip/).
+Riddle Generator
+1. generate_riddle(difficulty: str, topic: str) -> str
+2. check_answer(riddle: str, answer: str) -> bool
+3. submit_riddle(custom_riddle: str, answer: str) -> bool
+4. provide_hint(riddle: str) -> str
+
+Json file:
+Schema
+Riddle{
+    question: string,
+    answer: array,
+    hint: string,
+    difficulty: int,
+    topic: string,
+    id: int
+}
 
 - Use [pipenv](https://packaging.python.org/en/latest/tutorials/managing-dependencies/) to manage the package dependencies and virtual environments with a `Pipfile`.
 - Use [pytest](https://docs.pytest.org/en/latest/) to write and run tests to validate that your package code behaves as expected. Create as many tests as necessary to thorooughly verify each function's expected behavior - this should be no fewer than three tests per package function.
 - Use [build](https://pypa-build.readthedocs.io/en/stable/index.html) to create the package artifacts.
+- TODO
 - Use [twine](https://pypi.org/project/twine/) to upload the package to PyPI.
 - Use [GitHub Actions](https://github.com/actions) to build your package and run your tests on two different recent versions of Python with every pull request to the `main` branch of your GitHub repository.
 
