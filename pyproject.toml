@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "magic-eight-ball"
 description = "A fun and lighthearted Python package that emulates the classic Magic 8 Ball toy. This package allows users to ask questions and get random, playful responses. Built with rigorous software engineering practices, it serves as a joyful addition to any developer's toolbox."
-version = "0.1.0"
+version = "0.2.0"
 authors = [
   { name="Alexandra Mastrangelo", email="arm9129@nyu.edu" },
   { name="Natalie Trump", email="nht251@nyu.edu" },
