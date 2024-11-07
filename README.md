@@ -28,10 +28,10 @@ To use the package, import the functions you need:
 from magic_eight import get_questions, ask_question, shake_ball, get_answers
 
 # Example usage
-print(get_questions("en", 2))  # Get two sample questions
-print(ask_question("en"))      # Ask a random question
-print(shake_ball("en", 1))     # Shake the ball with a 1-second delay
-print(get_answers("en", 3))    # Get three sample answers
+print(get_questions("en", 2))  # Get two sample questions in the given language
+print(ask_question("fr"))      # Ask a random question and get an answer in the given language
+print(shake_ball("en", 2))     # Shake the ball with a 2-second delay
+print(get_answers("es", 3))    # Get three sample answers in the given language
 ```
 
 ## Functions
@@ -48,7 +48,7 @@ Retrieve a list of sample questions in the specified language.
 #### Example
 ```python
 get_questions("en", 2)
-# Output: ["Will I pass this class", "Will tomorrow be a snow day"]
+# Output: ["Will I have a good day today?", "Should I go for that job interview?"]
 ```
 
 ### `ask_question(language, question="")`
@@ -62,8 +62,8 @@ Ask a question and get a random answer.
 
 #### Example
 ```python
-ask_question("en", "Will I pass this class")
-# Output: ("Will I pass this class", "Maybe")
+ask_question("fr", "Vais-je atteindre mes objectifs cette année?")
+# Output: ("Vais-je atteindre mes objectifs cette année?", "Oui, absolument!")
 ```
 
 ### `shake_ball(language, shake_time=10)`
@@ -77,8 +77,8 @@ Shake the ball to get another response to the previous question.
 
 #### Example
 ```python
-shake_ball("en", 1)
-# Output: "Yes"
+shake_ball("es", 1)
+# Output: "Sí."
 ```
 
 ### `get_answers(language, count=0)`
@@ -93,7 +93,7 @@ Retrieve a list of sample answers in the specified language.
 #### Example
 ```python
 get_answers("en", 3)
-# Output: ["Don't count on it", "Yes", "No"]
+# Output: ["Yes, definitely!",  "It is certain.", "Without a doubt."]
 ```
 
 ## Running Tests
@@ -144,13 +144,13 @@ Below is an example script demonstrating the use of all functions in this packag
 from magic_eight import get_questions, ask_question, shake_ball, get_answers
 
 # Get sample questions
-print(get_questions("en", 2))
+print(get_questions("fr", 2))
 
 # Ask a question
 print(ask_question("en", "Will I get the internship?"))
 
 # Shake the ball for a new answer
-print(shake_ball("en", 1))
+print(shake_ball("es", 1))
 
 # Get sample answers
 print(get_answers("en", 3))
